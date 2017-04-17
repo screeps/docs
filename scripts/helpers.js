@@ -55,7 +55,7 @@ hexo.extend.helper.register('doc_sidebar', function(className){
 
     _.each(menu, function(link, text){
       var itemClass = className + '-link';
-      if (link === path) itemClass += ' current';
+      if (link === '/'+path) itemClass += ' current';
 
       result += '<a href="' + link + '" class="' + itemClass + '">' + text + '</a>';
     })
