@@ -1,0 +1,23 @@
+{
+  "name": "screeps-docs-api",
+  "version": "0.0.0",
+  "private": true,
+  "hexo": {
+    "version": "3.2.2"
+  },
+  "dependencies": {
+    "concat-files": "^0.1.1",
+    "hexo": "^3.2.0",
+    "hexo-optimize": "^2.4.6",
+    "hexo-renderer-jade": "^0.3.0",
+    "hexo-renderer-marked": "screeps/hexo-renderer-marked",
+    "hexo-renderer-scss": "^1.0.2",
+    "hexo-server": "^0.2.0",
+    "image-min": "^0.3.2"
+  },
+  "scripts": {
+    "clean": "hexo clean",
+    "generate": "hexo generate",
+    "generate-watch": "hexo generate --watch"
+  }
+}

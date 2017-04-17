@@ -1,0 +1,35 @@
+_:
+  Overview: /index.html
+Gameplay:
+  Introduction: /introduction.html
+  Creeps: /creeps.html
+  Control: /control.html
+  Defense: /defense.html
+  Respawning: /respawn.html
+  Start Areas: /start-areas.html
+  Minerals: /minerals.html
+  Market: /market.html
+  NPC Invaders: /invaders.html
+  Power: /power.html
+Scripting:
+  Scripting Basics: /scripting-basics.html
+  Global Objects: /global-objects.html
+  Modules: /modules.html
+  Debugging: /debugging.html
+  Game Loop: /game-loop.html
+  External Commit: /commit.html
+  Simultaneous Actions: /simultaneous-actions.html
+  CPU Limit: /cpu-limit.html
+
+Other:
+  Server-Side Architecture: /architecture.html
+  Why subscription?: /subscription.html
+  Changelog: /changelog.html
+
+Resources:
+  Blog: http://support.screeps.com/hc/en-us/sections/201055771-Announcements
+  Chat: http://chat.screeps.com
+  Forum: http://support.screeps.com/hc/en-us/community/topics
+
+Contributed articles:
+  Contribution rules: /contributed/rules.html

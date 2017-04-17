@@ -1,0 +1,75 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Screeps Documentation
+subtitle:
+description:
+author: Screeps
+language: en
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://docs.screeps.com/
+root: /
+permalink: :title/
+
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: page
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: false
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: screeps-docs
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type:
+
+optimize:
+  image_min: false
+  css_concat: false
+  css_min: false
+  js_concat: true
+  js_min: false
+  html_min: false
+  gzip: false
+
+marked:
+  breaks: false
+  smartypants: false
+
+github: screeps/docs

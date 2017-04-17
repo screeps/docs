@@ -1,0 +1,37 @@
+#sidebar
+  width: sidebar-width
+  float: left
+  padding-top: 40px;
+  padding-bottom: 40px
+  opacity: 0.8
+  margin-left: sidebar-width * -1
+  display: none
+  @media mq-normal
+    display: block
+
+.sidebar-title
+  margin-top: 20px
+  padding: 10px 0
+  font-family: font-title
+  display: inline-block
+  line-height: 1
+  color: #666;
+  text-transform: uppercase;
+  font-size: .8em;
+
+.sidebar-link
+  font-family: font-title
+  display: block
+  color: #000
+  text-decoration: none
+  padding: 7px 0
+  line-height: 1
+  position: relative
+  width: 100%
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+  &.current
+    color: color-link
+  &:hover
+    color: color-link-hover
