@@ -152,7 +152,7 @@ Specify whether to use this new experimental pathfinder in game objects methods.
 
 {% api_method_params %}
 isEnabled : boolean
-Whether to activate the new pathfinder or deactivate. 
+Whether to activate the new pathfinder or deactivate. The default is `true`.
 {% endapi_method_params %}
 
 
