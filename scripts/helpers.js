@@ -25,7 +25,7 @@ hexo.extend.helper.register('page_nav', function(){
   }
 
   var keys = Object.keys(list);
-  var index = keys.indexOf(path);
+  var index = keys.indexOf('/'+path);
   var result = '';
 
   if (index > 0){
