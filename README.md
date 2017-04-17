@@ -20,7 +20,7 @@ npm run generate
 cd ..
 ```
 
-You can user `generate-watch` instead of `generate` to sync changes in real time.
+You can use `generate-watch` instead of `generate` to sync changes in real time.
 
 3. Run development server:
 
