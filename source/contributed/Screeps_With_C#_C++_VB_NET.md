@@ -1,7 +1,9 @@
 Title: Using your knowledge of C#, C++ and VB.NET with Screeps
 
 This tutorial will cover:
-Basic VB.NET programming to javascript for screeps
+
+Basic C++/C#/VB.NET programming to javascript for screeps
+
 Differences between the languages you need to know
 
 
@@ -23,8 +25,8 @@ Else
 	'put your code here
 End If
 ```
-C#/C++ code would be:
-```C++
+C#/C++ code for this is exactaly the same as the javascript:
+```javascript
 if (CONDITION) 
 {
 
@@ -38,4 +40,4 @@ else
 
 }
 ```
-Which is very close to javascript
+## FOR loops
