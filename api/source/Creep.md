@@ -790,6 +790,7 @@ One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
 {% endapi_return_codes %}
 
