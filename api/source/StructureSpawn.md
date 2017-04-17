@@ -158,7 +158,7 @@ Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE], null,
 ```
 
 ```javascript
-var result = Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE]);
+const result = Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE]);
 
 if(_.isString(result)) {
     console.log('The name is: '+result);

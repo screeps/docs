@@ -38,14 +38,14 @@ A small container that can be used to store resources. This is a walkable struct
 {% api_property store 'object' %}
 
 ```javascript
-var containersWithEnergy = room.find(FIND_STRUCTURES, {
+const containersWithEnergy = room.find(FIND_STRUCTURES, {
     filter: (i) => i.structureType == STRUCTURE_CONTAINER &&
                    i.store[RESOURCE_ENERGY] > 0
 });
 ```
 
 ```javascript
-var total = _.sum(container.store);
+const total = _.sum(container.store);
 ``` 
 
 An object with the structure contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. <code>RESOURCE_ENERGY</code> is always defined and equals to 0 when empty, other resources are undefined when empty. You can use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents.
@@ -71,7 +71,7 @@ The amount of game ticks when this container will lose some hit points.
 {% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
 
 ```javascript
-var containers = creep.pos.findInRange(FIND_STRUCTURES, 1,
+const containers = creep.pos.findInRange(FIND_STRUCTURES, 1,
       {filter: {structureType: STRUCTURE_CONTAINER}});
 containers[0].transfer(creep, RESOURCE_ENERGY);
 ```

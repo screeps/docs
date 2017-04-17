@@ -111,7 +111,7 @@ An object with your active and inactive buy/sell orders on the market.
 {% api_method Game.market.calcTransactionCost 'amount, roomName1, roomName2' 0 %}
 
 ```javascript
-var cost = Game.market.calcTransactionCost(1000, 'W0N0', 'W10N5');
+const cost = Game.market.calcTransactionCost(1000, 'W0N0', 'W10N5');
 // -> 742 energy units
 ```
 
@@ -143,7 +143,7 @@ The amount of energy required to perform the transaction.
 {% api_method Game.market.cancelOrder 'orderId' A %}
 
 ```javascript
-for(var id in Game.market.orders) {
+for(const id in Game.market.orders) {
     Game.market.cancelOrder(id);
 }
 ```
@@ -241,11 +241,11 @@ Game.market.deal('57cd2b12cda69a004ae223a3', 1000, "W1N1");
 ```
 
 ```javascript
-var amountToBuy = 2000, maxTransferEnergyCost = 500;
-var orders = Game.market.getAllOrders({type: ORDER_SELL, resourceType: RESOURCE_GHODIUM});
+const amountToBuy = 2000, maxTransferEnergyCost = 500;
+const orders = Game.market.getAllOrders({type: ORDER_SELL, resourceType: RESOURCE_GHODIUM});
 
-for(var i=0; i<orders.length; i++) {
-    var transferEnergyCost = Game.market.calcTransactionCost(
+for(let i=0; i<orders.length; i++) {
+    const transferEnergyCost = Game.market.calcTransactionCost(
         amountToBuy, 'W1N1', orders[i].roomName);
 
     if(transferEnergyCost < maxTransferEnergyCost) {
@@ -322,7 +322,7 @@ Game.market.getAllOrders({type: ORDER_SELL, resourceType: RESOURCE_GHODIUM});
 ```
 
 ```javascript
-var targetRoom = "W1N1";
+const targetRoom = "W1N1";
 Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 	order.type == ORDER_SELL &&
     Game.market.calcTransactionCost(1000, targetRoom, order.roomName) < 500);
@@ -387,7 +387,7 @@ property | description
 {% api_method Game.market.getOrderById 'id' 1 %}
 
 ```javascript
-var order = Game.market.getOrderById('55c34a6b5be41a0a6e80c123');
+const order = Game.market.getOrderById('55c34a6b5be41a0a6e80c123');
 ```
 
 Retrieve info for specific market order.

@@ -22,7 +22,7 @@ An object with asynchronous memory segments available on this tick. Each object 
 {% api_method RawMemory.get '' 0 %}
 
 ```javascript
-var myMemory = JSON.parse(RawMemory.get());
+const myMemory = JSON.parse(RawMemory.get());
 ```
 
 Get a raw string representation of the <code>Memory</code> object.

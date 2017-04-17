@@ -6,7 +6,7 @@ A global object representing world map. Use it to navigate between rooms. The ob
 {% api_method Game.map.describeExits 'roomName' 1 %}
 
 ```javascript
-var exits = Game.map.describeExits('W8N3');
+const exits = Game.map.describeExits('W8N3');
 ```
 
 List all exits available from the room with the given name.
@@ -35,8 +35,8 @@ The exits information in the following format, or null if the room not found.
 
 ```javascript
 if(creep.room != anotherRoomName) {
-    var exitDir = Game.map.findExit(creep.room, anotherRoomName);
-    var exit = creep.pos.findClosestByRange(exitDir);
+    const exitDir = Game.map.findExit(creep.room, anotherRoomName);
+    const exit = creep.pos.findClosestByRange(exitDir);
     creep.moveTo(exit);
 }
 else {
@@ -82,16 +82,16 @@ ERR_INVALID_ARGS | The location is incorrect.
 {% api_method Game.map.findRoute 'fromRoom, toRoom, [opts]' 3 %}
 
 ```javascript
-var route = Game.map.findRoute(creep.room, anotherRoomName);
+const route = Game.map.findRoute(creep.room, anotherRoomName);
 if(route.length > 0) {
     console.log('Now heading to room '+route[0].room);
-    var exit = creep.pos.findClosestByRange(route[0].exit);
+    const exit = creep.pos.findClosestByRange(route[0].exit);
     creep.moveTo(exit);
 }
 ```
 
 ```javascript
-var route = Game.map.findRoute(creep.room, anotherRoomName, {
+const route = Game.map.findRoute(creep.room, anotherRoomName, {
 	routeCallback(roomName, fromRoomName) {
 		if(roomName == 'W10S10') {	// avoid this room
 			return Infinity;

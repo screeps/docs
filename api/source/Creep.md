@@ -93,7 +93,7 @@ The remaining amount of hit points of this body part.
 {% api_property carry object %}
 
 ```javascript
-var total = _.sum(creep.carry);
+const total = _.sum(creep.carry);
 ```
 
 An object with the creep's cargo contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. Use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents:
@@ -205,7 +205,7 @@ The remaining amount of game ticks after which the creep will die.
 {% api_method attack 'target' A %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+const target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 if(target) {
     if(creep.attack(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);
@@ -272,7 +272,7 @@ ERR_NO_BODYPART | There are not enough <code>CLAIM</code> body parts in this cre
 {% api_method build 'target' A %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
+const target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
 if(target) {
     if(creep.build(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);
@@ -369,7 +369,7 @@ ERR_GCL_NOT_ENOUGH | Your Global Control Level is not enough.
 {% api_method dismantle 'target' A %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_STRUCTURES,
+const target = creep.pos.findClosestByRange(FIND_STRUCTURES,
 	{filter: {structureType: STRUCTURE_WALL}});
 if(target) {
     if(creep.dismantle(target) == ERR_NOT_IN_RANGE) {
@@ -409,7 +409,7 @@ creep.drop(RESOURCE_ENERGY);
 
 ```javascript
 // drop all resources
-for(var resourceType in creep.carry) {
+for(const resourceType in creep.carry) {
 	creep.drop(resourceType);
 }
 ```
@@ -471,7 +471,7 @@ ERR_NOT_IN_RANGE | The target is too far away.
 {% api_method getActiveBodyparts 'type' 0 %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+const target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
     filter: function(object) {
         return object.getActiveBodyparts(ATTACK) == 0;
     }
@@ -506,7 +506,7 @@ A number representing the quantity of body parts.
 {% api_method harvest 'target' A %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE);
+const target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE);
 if(target) {
     if(creep.harvest(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);
@@ -542,7 +542,7 @@ ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s bo
 {% api_method heal 'target' A %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+const target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
     filter: function(object) {
         return object.hits < object.hitsMax;
     }
@@ -584,7 +584,7 @@ creep.move(RIGHT);
 ```
 
 ```javascript
-var path = creep.pos.findPathTo(Game.flags.Flag1);
+const path = creep.pos.findPathTo(Game.flags.Flag1);
 if(path.length > 0) {
 	creep.move(path[0].direction);
 }
@@ -625,7 +625,7 @@ ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 {% api_method moveByPath 'path' A %}
 
 ```javascript
-var path = spawn.room.findPath(spawn, source);
+const path = spawn.room.findPath(spawn, source);
 creep.moveByPath(path);
 ```
 
@@ -689,13 +689,13 @@ creep.moveTo(pos, {reusePath: 50});
 
 ```javascript
 // Execute moves by cached paths at first
-for(var name in Game.creeps) {
+for(const name in Game.creeps) {
     Game.creeps[name].moveTo(target, {noPathFinding: true});
 }
 
 // Perform pathfinding only if we have enough CPU
 if(Game.cpu.tickLimit - Game.cpu.getUsed() > 20) {
-    for(var name in Game.creeps) {
+    for(const name in Game.creeps) {
         Game.creeps[name].moveTo(target);
     }
 }
@@ -798,7 +798,7 @@ ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
 {% api_method pickup 'target' A %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_DROPPED_ENERGY);
+const target = creep.pos.findClosestByRange(FIND_DROPPED_ENERGY);
 if(target) {
     if(creep.pickup(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);
@@ -832,7 +832,7 @@ ERR_NOT_IN_RANGE | The target is too far away.
 {% api_method rangedAttack 'target' A %}
 
 ```javascript
-var targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
+const targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
 if(targets.length > 0) {
     creep.rangedAttack(targets[0]);
 }
@@ -864,7 +864,7 @@ ERR_NO_BODYPART | There are no <code>RANGED_ATTACK</code> body parts in this cre
 {% api_method rangedHeal 'target' A %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+const target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
     filter: function(object) {
         return object.hits < object.hitsMax;
     }
@@ -905,7 +905,7 @@ ERR_NO_BODYPART | There are no <code>HEAL</code> body parts in this creep’s bo
 {% api_method rangedMassAttack '' A %}
 
 ```javascript
-var targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
+const targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
 if(targets.length > 0) {
     creep.rangedMassAttack();
 }
@@ -930,7 +930,7 @@ ERR_NO_BODYPART | There are no <code>RANGED_ATTACK</code> body parts in this cre
 {% api_method repair 'target' A %}
 
 ```javascript
-var targets = creep.room.find(FIND_STRUCTURES, {
+const targets = creep.room.find(FIND_STRUCTURES, {
     filter: object => object.hits < object.hitsMax
 });
 
@@ -1002,7 +1002,7 @@ ERR_NO_BODYPART | There are no <code>CLAIM</code> body parts in this creep’s b
 {% api_method say 'message, [public]' 0 %}
 
 ```javascript
-var hostiles = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 10);
+const hostiles = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 10);
 if(hostiles.length > 0) {
     creep.say('OMG!😨');
     creep.moveTo(Game.spawns['Spawn1']);
@@ -1097,7 +1097,7 @@ if(creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 
 ```javascript
 // transfer all resources
-for(var resourceType in creep.carry) {
+for(const resourceType in creep.carry) {
 	creep.transfer(storage, resourceType);
 }
 ```
