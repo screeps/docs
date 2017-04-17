@@ -5,11 +5,11 @@ You build (spawn) units called **creeps** the same way as in other strategy game
 
 ![](img/bodyparts.png)
 
-However, remember that any creep has a life cycle of 1500 game ticks (approx. 30-60 minutes depending on the tick duration). Then it "ages" and dies. So you need not just to control existing creeps but set up manufacturing and automatic control of superseding generations of your creeps.
+However, remember that any creep has a life cycle of 1500 game ticks (approx. 30-60 minutes depending on the tick duration). Then it "ages" and dies. So you not only need to control existing creeps but set up manufacturing and automatic control of superseding generations of your creeps aswell.
 
-A standard spawn can spawn only regular creeps with the total cost of up to **300 energy units**. Spawning more expensive creeps requires a **spawn extension** in the room. Each extension can contain up to **50 extra energy units** that may be spent on creation of a creep. The exact location of extensions within a room does not matter, but they should be in the same room with the spawn (one extension can be used by several spawns). All the necessary energy should be in the spawn and extensions in the beginning of the creep creation.
+A standard spawn (structure) can only spawn regular creeps with the total cost of up to **300 energy units**. Spawning more expensive creeps requires a **spawn extension** in the room. Each extension can contain up to **50 extra energy units** that may be spent on creation of a creep. The exact location of extensions within a room does not matter, but they should be in the same room with the spawn (one extension can be used by several spawns). All the necessary energy should be in the spawn and extensions in the beginning of the creep creation.
 
-The amount of extensions available for construction depends on the Room Controller of the room. Read more in [Global control](/control.html).
+The amount of extensions available for construction depends on the Room Controller in the room. Read more in [Global control](/control.html).
 
 ## Creeps Skills
 
