@@ -37,22 +37,16 @@ If you want to create a method instead of a property, you have two methods. Use 
 
 ```
 // ES6 Object.defineProperty
-Object.defineProperty(Room.prototype, 'calcGlobalCoordinates', {
+Object.defineProperty(Room.prototype, 'isMine', {
     configurable: true,
     value: function() {
-        const parsed = /^[WE]([0-9]+)[NS]([0-9]+)$/.exec(this.name);
-        const x = +parsed[1];
-        const y = +parsed[2];
-        return {x, y};
+        return this.controller && this.controller.my;
     }
 });
 
 // Classic Prototype Extend
-Room.prototype.calcGlobalCoordinates = function() {
-    const parsed = /^[WE]([0-9]+)[NS]([0-9]+)$/.exec(this.name);
-    const x = +parsed[1];
-    const y = +parsed[2];
-    return {x, y};
+Room.prototype.isMine = function() {
+    return this.controller && this.controller.my;
 };
 ```
 
