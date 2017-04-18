@@ -41,8 +41,7 @@ else
 }
 ```
 
-C#/C++ is very simlar to javascript for more things like FOR loops and WHILE loops,
-and by very simlar, I mean exactaly the same.
+C#/C++ is very simlar to javascript for more things like FOR loops and WHILE loops.
 
 Here are some examples
 
@@ -108,8 +107,8 @@ CodeToUseInMain.Function1(param1,param2);
 
 'more code from main down here vvv
 ```
-Now, say I want to reference the a method from inside the second file in javascript
-I would do this:
+Now, say You want to reference the a method from inside the second file in javascript
+You would do something like this:
 
 ```Javascript
 // in the top of the Main file
@@ -117,3 +116,4 @@ var CodeToUse = require('CodeToUseInMain')
 // at where I want to use the function
 CodeToUse.Function1(param1,param2);
 ```
+Notice the subtle differences between the languages.
