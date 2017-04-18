@@ -259,7 +259,7 @@ object itself, so that you can chain calls.
 {% api_method poly 'points, [style]' 0 %}
 
 ```javascript
-var points = [];
+const points = [];
 points.push(creep1.pos);
 points.push([10,15]);
 points.push(new RoomPosition(20,21,'W1N1'));
@@ -268,7 +268,7 @@ new RoomVisual('W1N1').poly(points, {fill: 'aqua'});
 
 ```javascript
 // visualize the path
-var path = Game.rooms['W1N1'].findPath(from, to);
+const path = Game.rooms['W1N1'].findPath(from, to);
 new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,
 	opacity: .2, lineStyle: 'dashed'}); 
 ```

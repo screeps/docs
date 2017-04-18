@@ -81,7 +81,7 @@ A <a href="/hc/en-us/articles/115000962829-RoomVisual">RoomVisual</a> object for
 {% api_method Room.serializePath 'path' 1 %}
 
 ```javascript
-var path = spawn.pos.findPathTo(source);
+const path = spawn.pos.findPathTo(source);
 Memory.path = Room.serializePath(path);
 creep.moveByPath(Memory.path);
 ```
@@ -101,7 +101,7 @@ A serialized string form of the given path.
 {% api_method Room.deserializePath 'path' 1 %}
 
 ```javascript
-var path = Room.deserializePath(Memory.path);
+const path = Room.deserializePath(Memory.path);
 creep.moveByPath(path);
 ```
 
@@ -195,7 +195,7 @@ ERR_INVALID_ARGS | The location or the color constant is incorrect.
 {% api_method find 'type, [opts]' 2 %}
 
 ```javascript
-var targets = creep.room.find(FIND_DROPPED_RESOURCES);
+const targets = creep.room.find(FIND_DROPPED_RESOURCES);
 if(targets.length) {
     creep.moveTo(targets[0]);
     creep.pickup(targets[0]);
@@ -203,14 +203,14 @@ if(targets.length) {
 ```
 
 ```javascript
-var extensions = Game.spawns['Spawn1'].room.find(FIND_MY_STRUCTURES, {
+const extensions = Game.spawns['Spawn1'].room.find(FIND_MY_STRUCTURES, {
     filter: { structureType: STRUCTURE_EXTENSION }
 });
 console.log('Spawn has '+extensions.length+' extensions available');
 ```
 
 ```javascript
-var targets = creep.room.find(FIND_HOSTILE_CREEPS, {
+const targets = creep.room.find(FIND_HOSTILE_CREEPS, {
     filter: function(object) {
         return object.getActiveBodyparts(ATTACK) == 0;
     }
@@ -243,8 +243,8 @@ An array with the objects found.
 {% api_method findExitTo 'room' 3 %}
 
 ```javascript
-var exitDir = creep.room.findExitTo(anotherCreep.room);
-var exit = creep.pos.findClosestByRange(exitDir);
+const exitDir = creep.room.findExitTo(anotherCreep.room);
+const exit = creep.pos.findClosestByRange(exitDir);
 creep.moveTo(exit);
 
 // or simply:
@@ -280,13 +280,13 @@ ERR_INVALID_ARGS | The location is incorrect.
 {% api_method findPath 'fromPos, toPos, [opts]' 3 %}
 
 ```javascript
-var path = creep.room.findPath(creep.pos, targetPos);
+const path = creep.room.findPath(creep.pos, targetPos);
 creep.move(path[0].direction);
 ```
 
 ```javascript
 PathFinder.use(true);
-var path = creep.room.findPath(creep.pos, targetPos, {
+const path = creep.room.findPath(creep.pos, targetPos, {
     costCallback: function(roomName, costMatrix) {
 	    if(roomName == 'W1N5') {
 		    // set anotherCreep's location as walkable
@@ -302,7 +302,7 @@ var path = creep.room.findPath(creep.pos, targetPos, {
 ```
 
 ```javascript
-var path = creep.room.findPath(creep.pos, targetPos, {maxOps: 200});
+let path = creep.room.findPath(creep.pos, targetPos, {maxOps: 200});
 if( !path.length || !targetPos.isEqualTo(path[path.length - 1]) ) {
     path = creep.room.findPath(creep.pos, targetPos, {
 		maxOps: 1000, ignoreDestructibleStructures: true
@@ -397,8 +397,8 @@ An array with path steps in the following format:
 {% api_method getPositionAt 'x, y' 1 %}
 
 ```javascript
-var pos = Game.rooms.sim.getPositionAt(5,12);
-var source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
+const pos = Game.rooms.sim.getPositionAt(5,12);
+const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
 ```
 
 Creates a <a href="#RoomPosition">RoomPosition</a> object at the specified location.
@@ -421,7 +421,7 @@ object or null if it cannot be obtained.
 {% api_method lookAt 'x, y|target' 2 %}
 
 ```javascript
-var look = creep.room.lookAt(target);
+const look = creep.room.lookAt(target);
 look.forEach(function(lookObject) {
     if(lookObject.type == LOOK_CREEPS && 
        lookObject[LOOK_CREEPS].getActiveBodyparts(ATTACK) == 0) {
@@ -461,7 +461,7 @@ An array with objects at the specified position in the following format:
 {% api_method lookAtArea 'top, left, bottom, right, [asArray]' 2 %}
 
 ```javascript
-var look = creep.room.lookAtArea(10,5,11,7);
+const look = creep.room.lookAtArea(10,5,11,7);
 ```
 
 Get the list of objects at the specified room area.
@@ -527,7 +527,7 @@ If `asArray` is set to true, the method returns an array in the following format
 {% api_method lookForAt 'type, x, y|type, target' 1 %}
 
 ```javascript
-var found = creep.room.lookForAt(LOOK_CREEPS, target);
+const found = creep.room.lookForAt(LOOK_CREEPS, target);
 if(found.length && found[0].getActiveBodyparts(ATTACK) == 0) {
     creep.moveTo(found[0]);
 }
@@ -557,7 +557,7 @@ An array of objects of the given type at the specified position if found.
 {% api_method lookForAtArea 'type, top, left, bottom, right, [asArray]' 1 %}
 
 ```javascript
-var look = creep.room.lookForAtArea(LOOK_STRUCTURES,10,5,11,7);
+const look = creep.room.lookForAtArea(LOOK_STRUCTURES,10,5,11,7);
 ```
 
 Get the list of objects with the given type at the specified room area.
