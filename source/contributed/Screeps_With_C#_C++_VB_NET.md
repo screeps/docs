@@ -25,7 +25,7 @@ Else
 	'Put your code here
 End If
 ```
-C#/C++ code for this is exactaly the same as the javascript:
+C#/C++ code for this is exactly the same as the javascript:
 ```javascript
 if (CONDITION) 
 {
@@ -41,7 +41,7 @@ else
 }
 ```
 
-C#/C++ is very simlar to javascript for more things like FOR loops and WHILE loops.
+C#/C++ is very similar to javascript for more things like FOR loops and WHILE loops.
 
 Here are some examples
 
