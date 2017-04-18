@@ -3,7 +3,7 @@ WARNING: Monkey patching is often considered bad practice and there are those th
 
 Monkey patching is the practice of modifying the way that existing prototype functions operate.
 
-We will provide examples that will demonstrate a few of the infinite uses for monkey patching each example will try to build on the previous one, so you'll want to read through all of it to make sure you understand it fully.
+We will provide examples that will demonstrate a few of the infinite uses for monkey patching. Each example will build on the previous one, so you'll want to read through all of it to make sure you understand it fully.
 
 
 ## Introduction - Adding functions to prototypes
@@ -31,22 +31,24 @@ But.. what if you really need the creep to suicide? You no longer have the norma
 
 # EXAMPLE #1 - upgradeController - "Praise GCL"
 Let's try another one but a little differently. We'll modify the `.upgradeController` function so that the creep says "Praise GCL" whenever it upgrades the controller. First, unlike what we did with `.suicide`, we are going to store the original function so we don't lose it.
-### Store the original function
-```javascript
-// Store the original function
-Creep.prototype.storedUpgradeController = Creep.prototype.upgradeController;
-// or
-let storedUpgradeController = Creep.prototype.upgradeController;
-```
 
-Now that the normal `Creep.prototype.upgradeController` function is safely stored in `.storedUpgradeController` or `storedUpgradeController`, we can replace it with our own.
-### Add custom functionality
+### Idempotence
+To ensure idempotence (executing the code multiple times has the same effect as executing it once), we will only execute the monkey patch if the original function is not already stored; For this reason it is important to store the original function in a place where you will be able to access it in the future. The prototype you are modifying can be a good place to store this as long as you make sure to use a safe naming convention that will avoid conflicts with existing or possible future properties of the prototype.
+
+### Store the original function and put your own in place
 ```javascript
-Creep.prototype.upgradeController = function() {
-    this.say("Praise GCL");
-};
+// Make sure the patch is not already in place
+if (!Creep.prototype.storedUpgradeController) {
+    // store the original function in a safe place
+    Creep.prototype.storedUpgradeController = Creep.prototype.upgradeController;
+
+    // put your own function in place of the original
+    Creep.prototype.upgradeController = function() {
+        this.say("Praise GCL");
+    };
+}
 ```
-Now that you have put in our own function for `.upgradeController`, your creeps will now praise GCL whenever you tell them to upgrade. The only issue now is they wont actually upgrade the controller.
+Now that you have put in your own function for `.upgradeController`, your creeps will now praise GCL whenever you tell them to upgrade. The only issue now is they wont actually upgrade the controller.
 
 To fix this so they will still upgrade the controller, you can call the stored version of the original function in your new function. Note that you are including an argument this time because the original `.upgradeController` function requires that you pass a room controller as an argument.
 ### Call the original function
@@ -71,11 +73,12 @@ Creep.prototype.upgradeController = function(controller) {
 
 ## EXAMPLE #2 - moveTo - Measure CPU
 
-Again we start with storing the original function.
+Again we start with storing the original function, if it has not already been stored.
 ```javascript
-Creep.prototype._moveTo = Creep.prototype.moveTo;
-// or 
-let originalMoveTo = Creep.prototype.moveTo;
+if (!Creep.prototype._moveTo) {
+    Creep.prototype._moveTo = Creep.prototype.moveTo;
+    // Write the new moveTo function here. See the 3 options below.
+}
 ```
 The `_` in front of `._moveTo` is a common naming convention in JS that indicates the variable is meant to be "private" (only meant to be called by other internal functions) we'll use this naming convention to store the original functions from now on.
 
@@ -113,7 +116,7 @@ Creep.prototype.moveTo = function() {
     console.log(`My monkey patched moveTo using the arguments object!`);
     
     let startCpu = Game.cpu.getUsed();
-    // there is a short description of Function.apply() later
+    // There is a short description of Function.apply() later
     let returnValue = this._moveTo.apply(this, arguments);
     let endCpu = Game.cpu.getUsed();
     
@@ -151,13 +154,13 @@ Creep.prototype.moveTo = function(...myArgumentsArray) {
 `Function.apply(thisArg, argumentsArray)` calls a function with the specified `this` value and passes each element of the arguments array as an argument to the function.
 Example:
 ```javascript
-var name = "Helam";
+let name = "Helam";
 console.log("Hello my name is: ", name);
 ```
 Will do the same thing as:
 ```javascript
-var name = "Helam";
-var myArguments = ["Hello my name is: ", name];
+let name = "Helam";
+let myArguments = ["Hello my name is: ", name];
 console.log.apply(console, myArguments);
 ```
 
@@ -167,37 +170,41 @@ console.log.apply(console, myArguments);
 ## Spawn.createCreep - Automatic naming
 When you have a large amount of creeps, using the default automatic naming can consume a large amount of CPU. Naming them yourself can be one way to reduce your CPU usage.
 ```javascript
-// store the original
-StructureSpawn.prototype._createCreep = StructureSpawn.prototype.createCreep;
-
-// the original signature: createCreep(body, [name], [memory])
-// make a new version with the signature createCreep(body, [memory])
-StructureSpawn.prototype.createCreep = function(body, memory = {}) { 
-    if (!Memory.myCreepNameCounter) Memory.myCreepNameCounter = 0;
+// Make sure the patch has not already been applied
+if (!StructureSpawn.prototype._createCreep) {
+    StructureSpawn.prototype._createCreep = StructureSpawn.prototype.createCreep;
     
-    // now we need to generate a name and make sure it hasnt been taken
-    let name;
-    let canCreate;
-    do {
-        name = `c${Memory.creepNameCounter++}`;
-        canCreate = this.canCreateCreep(body, name);
-    } while (canCreate === ERR_NAME_EXISTS);
-    
-    // now we call the original function passing in our generated name and returning the value
-    return this._createCreep(body, name, memory);
-};
+    // The original signature: createCreep(body, [name], [memory])
+    // Make a new version with the signature createCreep(body, [memory])
+    StructureSpawn.prototype.createCreep = function(body, memory = {}) { 
+        if (!Memory.myCreepNameCounter) Memory.myCreepNameCounter = 0;
+        
+        // Now we need to generate a name and make sure it hasnt been taken
+        let name;
+        let canCreate;
+        do {
+            name = `c${Memory.creepNameCounter++}`;
+            canCreate = this.canCreateCreep(body, name);
+        } while (canCreate === ERR_NAME_EXISTS);
+        
+        // now we call the original function passing in our generated name and returning the value
+        return this._createCreep(body, name, memory);
+    };
+}
 ```
 
 ## StructureObserver.observeRoom - prevent overriding calls
 Each subsequent call to `.observeRoom` on the same observer in the same tick will override the previous one, and only the last one will actually execute, even though all of them may have returned `OK`. This is an example of how to modify that behavior so that subsequent calls return `ERR_BUSY` instead of overriding previous ones.
 ```
-StructureObserver.prototype._observeRoom = StructureObserver.prototype.observeRoom;
-StructureObserver.prototype.observeRoom = function() {
-    if (this.observing) 
-        return ERR_BUSY;
-    let observeResult = this._observeRoom.apply(this, arguments);
-    if (observeResult === OK)
-        this.observing = roomName;
-    return observeResult;
-};
+if (!StructureObserver.prototype._observeRoom) {
+    StructureObserver.prototype._observeRoom = StructureObserver.prototype.observeRoom;
+    StructureObserver.prototype.observeRoom = function() {
+        if (this.observing) 
+            return ERR_BUSY;
+        let observeResult = this._observeRoom.apply(this, arguments);
+        if (observeResult === OK)
+            this.observing = roomName;
+        return observeResult;
+    };
+}
 ```
