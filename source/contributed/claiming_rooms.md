@@ -20,11 +20,11 @@ If you haven't claimed a room, it will not be in your ```Game.rooms``` object. T
 We are going to get the room that our creep is in right now, then find an exit in the direction of the target room, then move to the closest exit.
 
     //Get the claimer1 creep
-    var creep = Game.creeps.claimer1
+    let creep = Game.creeps.claimer1
     //Get a list of exits that go from the current room to the target room
-    var exits = creep.room.findExitTo(creep.memory.claimTarget)
+    let exits = creep.room.findExitTo(creep.memory.claimTarget)
     //Find the nearest exit
-    var nearest = creep.pos.findClosestByRange(exits)
+    let nearest = creep.pos.findClosestByRange(exits)
     //Move to it
     creep.moveTo(nearest)
 
@@ -34,11 +34,11 @@ Take the code to move to the target room, and wrap it in an if statement that ch
 
     if(creep.room.name != creep.memory.claimTarget) {
         //Get the claimer1 creep
-        var creep = Game.creeps.claimer1
+        let creep = Game.creeps.claimer1
         //Get a list of exits that go from the current room to the target room
-        var exits = creep.room.findExitTo(creep.memory.claimTarget)
+        let exits = creep.room.findExitTo(creep.memory.claimTarget)
         //Find the nearest exit
-        var nearest = creep.pos.findClosestByRange(exits)
+        let nearest = creep.pos.findClosestByRange(exits)
         //Move to it
         creep.moveTo(nearest)
     }
@@ -47,18 +47,18 @@ Next we need to add an else block, where if we can't claim the current room's co
 
     if(creep.room.name != creep.memory.claimTarget) {
         //Get the claimer1 creep
-        var creep = Game.creeps.claimer1
+        let creep = Game.creeps.claimer1
         //Get a list of exits that go from the current room to the target room
-        var exits = creep.room.findExitTo(creep.memory.claimTarget)
+        let exits = creep.room.findExitTo(creep.memory.claimTarget)
         //Find the nearest exit
-        var nearest = creep.pos.findClosestByRange(exits)
+        let nearest = creep.pos.findClosestByRange(exits)
         //Move to it
         creep.moveTo(nearest)
     } else {
         //Get the claimer1 creep
-        var creep = Game.creeps.claimer1
+        let creep = Game.creeps.claimer1
         //Get the current room's controller
-        var controller = creep.room.controller
+        let controller = creep.room.controller
         //Try to claim the controller, and if we can't, move closer.
         if(creep.claimController(controller) != OK) {
             //Move to it
@@ -79,20 +79,20 @@ Again, you should know how to create creeps if you are looking into another room
 You will need energy to build the spawn. Once again, you won't be able to get another room if you don't already have a way to get energy.
 
 ### Step 2.3: Moving to the room you want to claim
-I'll start with the code for moving the claimer1 creep to the new room, but let's remove ```var creep = Game.creeps.claimer1``` and wrap the entire thing in a for loop. Combine the value from the for loop with the word "builder", and then use that as a key for ```Game.creeps``` to get the creeps we need.
+I'll start with the code for moving the claimer1 creep to the new room, but let's remove ```let creep = Game.creeps.claimer1``` and wrap the entire thing in a for loop. Combine the value from the for loop with the word "builder", and then use that as a key for ```Game.creeps``` to get the creeps we need.
 
     for(var i = 0; i < 3; i++) {
-        var creep = Game.creeps["builder" + i]
+        let creep = Game.creeps["builder" + i]
         if(creep.room.name != creep.memory.claimTarget) {
             //Get a list of exits that go from the current room to the target room
-            var exits = creep.room.findExitTo(creep.memory.claimTarget)
+            let exits = creep.room.findExitTo(creep.memory.claimTarget)
             //Find the nearest exit
-            var nearest = creep.pos.findClosestByRange(exits)
+            let nearest = creep.pos.findClosestByRange(exits)
             //Move to it
             creep.moveTo(nearest)
         } else {
             //Get the current room's controller
-            var controller = creep.room.controller
+            let controller = creep.room.controller
             //Try to claim the controller, and if we can't, move closer.
             if(creep.claimController(controller) != OK) {
                 //Move to it
@@ -104,19 +104,19 @@ I'll start with the code for moving the claimer1 creep to the new room, but let'
 We don't want to claim the controller again, so we need to change the else block to build the spawn.
 
     for(var i = 0; i < 3; i++) {
-        var creep = Game.creeps["builder" + i]
+        let creep = Game.creeps["builder" + i]
         if(creep.room.name != creep.memory.claimTarget) {
             //Get a list of exits that go from the current room to the target room
-            var exits = creep.room.findExitTo(creep.memory.claimTarget)
+            let exits = creep.room.findExitTo(creep.memory.claimTarget)
             //Find the nearest exit
-            var nearest = creep.pos.findClosestByRange(exits)
+            let nearest = creep.pos.findClosestByRange(exits)
             //Move to it
             creep.moveTo(nearest)
         } else {
             //Get the current room
-            var room = creep.room
+            let room = creep.room
             //Find all construction sites in the room and get the first. The only construction site should be the Spawn
-            var spawnSite = room.find(FIND_CONSTRUCTION_SITES)[0]
+            let spawnSite = room.find(FIND_CONSTRUCTION_SITES)[0]
             //Try to build the Spawn, and if we can't, move closer.
             if(creep.build(spawnSite) != OK) {
                 //Move to it
