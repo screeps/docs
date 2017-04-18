@@ -45,6 +45,11 @@ A javascript plugin extension, such as [Tampermonkey](https://chrome.google.com/
 *   [Room Claim Assistant](https://github.com/Esryok/screeps-browser-ext/raw/master/room-claim-assistant.user.js) colors extends the "Owner Control Level" to make room selection easier. It adds the mineral to the view, turns two source rooms green, claimed or reserved rooms red, and "signed" rooms by other players orange.
 
 
+## Notifications
+
+*   [Screeps Notify](https://github.com/screepers/screeps_notify) provides an in game interface which lets players send messages to out of game services. It has a built in SMS system and can also support sending messages to arbitrary http endpoints.
+
+
 ## Statistics
 
 Screeps runs constantly, and as a player it's not possible to watch everything that occurs. There are also issues which may show up when watching long term trends but not during the times which players are watching. For these reasons it's not surprising that the most popular applications are those used to track statistics.
