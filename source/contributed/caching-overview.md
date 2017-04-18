@@ -27,10 +27,10 @@ In this example a top level variable is defined in a module (`expensive.js`) and
 
     let runExpensiveCodeResults = false
     function runExpensiveCode() {
-        if(!runExpensiveCode) {
-            runExpensiveCode = someExpensiveCode()
+        if(!runExpensiveCodeResults) {
+            runExpensiveCodeResults = someExpensiveCode()
         }
-        return runExpensiveCode
+        return runExpensiveCodeResults
     }
 
 
