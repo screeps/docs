@@ -42,3 +42,5 @@ global.safeRun = safeRun;
 ```
 
 If you find yourself developing a number of similar utility functions, it would be wise to group them into your own namespace on the global object.
+
+It's worth mentioning that the use of try catch should be isolated in a wrapper function such as safeRun because it interferes with v8 optimization. This interference is exclusive to the contents of the try/catch block and do not extend to functions called from within try/catch. For further information read [optimization killers](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#2-unsupported-syntax), specifically the workaround section.
