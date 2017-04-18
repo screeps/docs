@@ -37,14 +37,6 @@ The Screeps API is not official and may change at any time. These clients are ma
 *   [ScreepsAutocomplete](https://github.com/Garethp/ScreepsAutocomplete) provides autocomplete data for the Screeps API.
 
 
-## Map Extensions
-
-A javascript plugin extension, such as [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) and [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/), are needed to run these plugins.
-
-*   [Alliance Overlay](https://raw.githubusercontent.com/LeagueOfAutomatedNations/loan-browser-ext/master/dist/alliance-overlay.user.js) adds information from the [League of Automated Nations](http://www.leagueofautomatednations.com/map) to the game map.
-*   [Room Claim Assistant](https://github.com/Esryok/screeps-browser-ext/raw/master/room-claim-assistant.user.js) colors extends the "Owner Control Level" to make room selection easier. It adds the mineral to the view, turns two source rooms green, claimed or reserved rooms red, and "signed" rooms by other players orange.
-
-
 ## Notifications
 
 *   [Screeps Notify](https://github.com/screepers/screeps_notify) provides an in game interface which lets players send messages to out of game services. It has a built in SMS system and can also support sending messages to arbitrary http endpoints.
@@ -66,3 +58,12 @@ Pushing code to the server can be done using these plugins to common programs.
 
 *   [grunt-screeps](https://github.com/screeps/grunt-screeps) is written and maintained by the Screeps team. It used to upload code to the screeps server using [Grunt](https://gruntjs.com/).
 *   [gulp-screeps](https://github.com/pcmulder/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
+
+
+## Web Client Extensions
+
+A javascript plugin extension, such as [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) and [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/), are needed to run these plugins.
+
+*   [Alliance Overlay](https://raw.githubusercontent.com/LeagueOfAutomatedNations/loan-browser-ext/master/dist/alliance-overlay.user.js) adds information from the [League of Automated Nations](http://www.leagueofautomatednations.com/map) to the game map.
+*   [Room Claim Assistant](https://github.com/Esryok/screeps-browser-ext/raw/master/room-claim-assistant.user.js) colors extends the "Owner Control Level" to make room selection easier. It adds the mineral to the view, turns two source rooms green, claimed or reserved rooms red, and "signed" rooms by other players orange.
+*   [Visible Room Tracker](https://github.com/Esryok/screeps-browser-ext/blob/master/visible-room-tracker.user.js) automatically sets a memory location with your current visible room, allow you to do things such as turn on visualizations only when needed.
