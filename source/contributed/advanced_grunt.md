@@ -163,7 +163,7 @@ In your source code create an empty file named `version.js`. Grunt is going to u
             clean: {},
             copy: {},
 
-            // Add variable to mark this as packaged.
+            // Add version variable using current timestamp.
             file_append: {
               versioning: {
                 files: [
@@ -411,13 +411,13 @@ Putting it all together gives a powerful but simple to use tool for managing you
         },
 
 
-        // Add variable to mark this as packaged.
+        // Add version variable using current timestamp.
         file_append: {
           versioning: {
             files: [
               {
                 append: "\nglobal.SCRIPT_VERSION = "+ currentdate.getTime() + "\n",
-                input: 'dist/sos_bootstrap.js',
+                input: 'dist/version.js',
               }
             ]
           }
