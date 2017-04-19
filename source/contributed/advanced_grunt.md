@@ -1,9 +1,8 @@
 title: Advanced Grunt Usage
 ---
 
-{% note info %}
-This article assumes your code is in the `src` directory of your repository.
-{% endnote %}
+Uploading your code with grunt is just the beginning. This guide covers numerous enhancements that can be added to your scripts to really get the most out of grunt and make your development easier.
+
 
 ## Assumptions
 
