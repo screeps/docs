@@ -23,7 +23,7 @@ The network has a lot of channels, but there are some that deserve mention.
 * `#operatingsystems` is filled with users who follow the "operating system model" of development as a way to scale and utilize their CPU.
 * `#politics` contains the majority of drama between players.
 * `#screepers` focuses on the third party development in the [Screepers github organization](https://github.com/screepers).
-* `#screepsplus` is the main support channel for the ScreepsPlus service.
+* `#screepsplus` is the main support channel for the [ScreepsPlus](https://screepspl.us/) service.
 * `#share-thy-code` provides a place to share code. There are many scripts pinned to the channel.
 * `#trading` started before the market was introduced and continue to be a resource for discussing trading strategies.
 
