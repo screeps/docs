@@ -32,7 +32,7 @@ An amount of unused CPU accumulated in your <a href="/hc/en-us/articles/20433230
 {% api_property Game.creeps 'object&lt;string, <a href="#Creep">Creep</a>&gt;' %}
 
 ```javascript
-for(var i in Game.creeps) {
+for(const i in Game.creeps) {
     Game.creeps[i].moveTo(flag);
 }
 ```
@@ -104,7 +104,7 @@ A hash containing all the rooms available to you with room names as hash keys. A
 {% api_property Game.spawns 'object&lt;string, <a href="#StructureSpawn">StructureSpawn</a>&gt;' %}
 
 ```javascript
-for(var i in Game.spawns) {
+for(const i in Game.spawns) {
     Game.spawns[i].createCreep(body);
 }
 ```
@@ -140,12 +140,12 @@ if(Game.cpu.getUsed() > Game.cpu.tickLimit / 2) {
 ```
 
 ```javascript
-for(var name in Game.creeps) {
-    var startCpu = Game.cpu.getUsed();
+for(const name in Game.creeps) {
+    const startCpu = Game.cpu.getUsed();
 
     // creep logic goes here
 
-    var elapsed = Game.cpu.getUsed() - startCpu;
+    const elapsed = Game.cpu.getUsed() - startCpu;
     console.log('Creep '+name+' has used '+elapsed+' CPU time');
 }
 
@@ -165,7 +165,7 @@ Returns currently used CPU time as a float number.
 
 ```javascript
 creep.memory.sourceId = creep.pos.findClosestByRange(FIND_SOURCES).id;
-var source = Game.getObjectById(creep.memory.sourceId);
+const source = Game.getObjectById(creep.memory.sourceId);
 ```
 
 Get an object with the specified unique ID. It may be a game object of any type. Only objects from the rooms which are visible to you can be accessed.

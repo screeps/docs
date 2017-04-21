@@ -7,7 +7,7 @@ can be obtained using the [`Room.getPositionAt`](#Room.getPositionAt) method or 
 {% api_method constructor 'x, y, roomName' 0 %}
 
 ```javascript
-var pos = new RoomPosition(10, 25, 'sim');
+const pos = new RoomPosition(10, 25, 'sim');
 
 ```
 
@@ -111,17 +111,17 @@ ERR_INVALID_ARGS | The location or the color constant is incorrect.
 {% api_method findClosestByPath 'type, [opts]|objects, [opts]' 3 %}
 
 ```javascript
-var target = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
+const target = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
 creep.moveTo(target);
 ```
 
 ```javascript
-var target = creep.pos.findClosestByPath(FIND_MY_SPAWNS, {maxOps: 500});
+const target = creep.pos.findClosestByPath(FIND_MY_SPAWNS, {maxOps: 500});
 creep.moveTo(target);
 ```
 
 ```javascript
-var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS, {
+const target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS, {
     filter: function(object) {
         return object.getActiveBodyparts(ATTACK) == 0;
     }
@@ -129,18 +129,18 @@ var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS, {
 ```
 
 ```javascript
-var target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS, {
+const target = creep.pos.findClosestByPath(FIND_HOSTILE_CREEPS, {
     filter: { owner: { username: 'Invader' } }
 });
 ```
 
 ```javascript
-var targets = [
+const targets = [
     Game.creeps.John,
     Game.creeps.Mike,
     room.getPositionAt(10,10)
 ];
-var closest = creep.pos.findClosestByPath(targets);
+const closest = creep.pos.findClosestByPath(targets);
 ```
 
 Find an object with the shortest path from the given position. Uses <a href="http://en.wikipedia.org/wiki/Jump_point_search" target="_blank">Jump Point Search algorithm</a> and <a href="http://en.wikipedia.org/wiki/Dijkstra">Dijkstra's algorithm</a>.
@@ -182,12 +182,12 @@ The closest object if found, null otherwise.
 {% api_method findClosestByRange 'type, [opts]|objects, [opts]' 2 %}
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_MY_SPAWNS);
+const target = creep.pos.findClosestByRange(FIND_MY_SPAWNS);
 creep.moveTo(target);
 ```
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+const target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
     filter: function(object) {
         return object.getActiveBodyparts(ATTACK) == 0;
     }
@@ -195,18 +195,18 @@ var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
 ```
 
 ```javascript
-var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
+const target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
     filter: { owner: { username: 'Invader' } }
 });
 ```
 
 ```javascript
-var targets = [
+const targets = [
     Game.creeps.John,
     Game.creeps.Mike,
     room.getPositionAt(10,10)
 ];
-var closest = creep.pos.findClosestByRange(targets);
+const closest = creep.pos.findClosestByRange(targets);
 ```
 
 Find an object with the shortest linear distance from the given position.
@@ -238,19 +238,19 @@ The closest object if found, null otherwise.
 {% api_method findInRange 'type, range, [opts]|objects, range, [opts]' 2 %}
 
 ```javascript
-var targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
+const targets = creep.pos.findInRange(FIND_HOSTILE_CREEPS, 3);
 if(targets.length > 0) {
     creep.rangedAttack(targets[0]);
 }
 ```
 
 ```javascript
-var targets = [
+const targets = [
     Game.creeps.John,
     Game.creeps.Mike,
     room.getPositionAt(10,10)
 ];
-var inRangeTargets = creep.pos.findInRange(targets, 3);
+const inRangeTargets = creep.pos.findInRange(targets, 3);
 ```
 
 Find all objects in the specified linear range.
@@ -278,12 +278,12 @@ An array with the objects found.
 
 
 ```javascript
-var path = creep.pos.findPathTo(target);
+const path = creep.pos.findPathTo(target);
 creep.move(path[0].direction);
 ```
 
 ```javascript
-var path = creep.pos.findPathTo(target, {maxOps: 200});
+let path = creep.pos.findPathTo(target, {maxOps: 200});
 if( !path.length || !target.equalsTo(path[path.length - 1]) ) {
     path = creep.pos.findPathTo(target, 
         {maxOps: 1000, ignoreDestructibleStructures: true});
@@ -326,7 +326,7 @@ An array with path steps in the following format:
 {% api_method getDirectionTo 'x,y|target' 1 %}
 
 ```javascript
-var direction = creep.pos.getDirectionTo(target);
+const direction = creep.pos.getDirectionTo(target);
 creep.move(direction);
 ```
 
@@ -351,7 +351,7 @@ A number representing one of the direction constants.
 {% api_method getRangeTo 'x,y|target' 1 %}
 
 ```javascript
-var range = creep.pos.getRangeTo(target);
+const range = creep.pos.getRangeTo(target);
 if(range <= 3) {
     creep.rangedAttack(target);
 }
@@ -465,7 +465,7 @@ A boolean value.
 {% api_method look '' 2 %}
 
 ```javascript
-var look = Game.flags.Flag1.pos.look();
+const look = Game.flags.Flag1.pos.look();
 look.forEach(function(lookObject) {
     if(lookObject.type == LOOK_CREEPS && 
        lookObject[LOOK_CREEPS].getActiveBodyparts(ATTACK) == 0) {
@@ -495,7 +495,7 @@ An array with objects at the specified position in the following format:
 {% api_method lookFor 'type' 1 %}
 
 ```javascript
-var found = Game.flags.Flag1.pos.lookFor(LOOK_CREEPS);
+const found = Game.flags.Flag1.pos.lookFor(LOOK_CREEPS);
 if(found.length && found[0].getActiveBodyparts(ATTACK) == 0) {
     creep.moveTo(found[0]);
 }

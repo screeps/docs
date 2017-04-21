@@ -62,7 +62,8 @@ It can be addressed by [`Room.controller`](#Room.controller) property.
     <tbody>
     <tr>
         <td><strong>Effect</strong></td>
-        <td>Blocks <code>attack</code>, <code>rangedAttack</code>, <code>rangedMassAttack</code>, <code>dismantle</code>, <code>heal</code>, <code>rangedHeal</code>, <code>attackController</code> and <code>withdraw</code> methods of all hostile creeps in the room. Only one room can be in safe mode at the same time.</td>
+        <td>Blocks <code>attack</code>, <code>rangedAttack</code>, <code>rangedMassAttack</code>, <code>dismantle</code>, <code>heal</code>, <code>rangedHeal</code>, <code>attackController</code> and <code>withdraw</code> methods of all hostile creeps in the room. Only one room can be in safe mode at the same time.<br/>
+	When safe mode is active, all hostile creeps become visually transparent and passable - your creeps can move through them freely (but not vice versa).</td>
     </tr>
     <tr>
         <td><strong>Duration</strong></td>

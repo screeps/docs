@@ -82,9 +82,9 @@ The total amount of energy the link can contain.
 {% api_method transferEnergy 'target, [amount]' A %}
 
 ```javascript
-var linkFrom = Game.rooms['W1N1'].lookForAt('structure', 10, 25)[0];
+const linkFrom = Game.rooms['W1N1'].lookForAt('structure', 10, 25)[0];
 
-var linkTo = linkFrom.pos.findInRange(FIND_MY_STRUCTURES, 2,
+const linkTo = linkFrom.pos.findInRange(FIND_MY_STRUCTURES, 2,
     {filter: {structureType: STRUCTURE_LINK}})[0];
 
 linkFrom.transferEnergy(linkTo);
