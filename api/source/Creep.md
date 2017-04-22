@@ -281,7 +281,7 @@ if(target) {
 
 ```
 
-Build a structure at the target construction site using carried energy. Requires <code>WORK</code> and <code>CARRY</code> body parts. The target has to be within 3 squares range of the creep.
+Build a structure at the target construction site using carried energy. Requires <code>WORK</code> and <code>CARRY</code> body parts. The target has to be within 3 squares range of the creep. Uses up to 5 carried energy unit per <code>WORK<code> body part. Each energy unit spent increases construction site progress by 1.
 
 {% api_method_params %}
 target : <a href="#ConstructionSite">ConstructionSite</a>
