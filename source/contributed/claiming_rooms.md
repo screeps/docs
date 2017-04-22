@@ -81,7 +81,7 @@ You will need energy to build the spawn. Once again, you won't be able to get an
 ### Step 2.3: Moving to the room you want to claim
 I'll start with the code for moving the claimer1 creep to the new room, but let's remove ```let creep = Game.creeps.claimer1``` and wrap the entire thing in a for loop. Combine the value from the for loop with the word "builder", and then use that as a key for ```Game.creeps``` to get the creeps we need.
 
-    for(var i = 0; i < 3; i++) {
+    for(let i = 0; i < 3; i++) {
         let creep = Game.creeps["builder" + i]
         if(creep.room.name != creep.memory.claimTarget) {
             //Get a list of exits that go from the current room to the target room
@@ -103,7 +103,7 @@ I'll start with the code for moving the claimer1 creep to the new room, but let'
 
 We don't want to claim the controller again, so we need to change the else block to build the spawn.
 
-    for(var i = 0; i < 3; i++) {
+    for(let i = 0; i < 3; i++) {
         let creep = Game.creeps["builder" + i]
         if(creep.room.name != creep.memory.claimTarget) {
             //Get a list of exits that go from the current room to the target room
