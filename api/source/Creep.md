@@ -146,7 +146,7 @@ A unique object identificator. You can use <a href="#Game.getObjectById"><code>
 creep.memory.task = 'building';
 ```
 
-A shorthand to <code>Memory.creeps[creep.name]</code>. You can use it for quick access the creep’s specific memory data object. <a href="/hc/en-us/articles/203016642-Working-with-memory">Learn more about memory</a>
+A shorthand to <code>Memory.creeps[creep.name]</code>. You can use it for quick access the creep’s specific memory data object. <a href="/global-objects.html#Memory-object">Learn more about memory</a>
 
 
 
@@ -300,7 +300,7 @@ ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
 ERR_INVALID_TARGET | The target is not a valid construction site object or the structure cannot be built here (probably because of a creep at the same square).
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/hc/en-us/articles/203086021-Territory-control">Learn more</a>
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html#Room-Controller-Level">Learn more</a>
 {% endapi_return_codes %}
 
 
@@ -342,7 +342,7 @@ if(creep.room.controller) {
 
 ```
 
-Claims a neutral controller under your control. Requires the <code>CLAIM</code> body part. The target has to be at adjacent square to the creep. You need to have the corresponding Global Control Level in order to claim a new room. If you don't have enough GCL, consider <a href="#reserveController">reserving</a> this room instead. <a href="/hc/en-us/articles/203086021-Global-control">Learn more</a>
+Claims a neutral controller under your control. Requires the <code>CLAIM</code> body part. The target has to be at adjacent square to the creep. You need to have the corresponding Global Control Level in order to claim a new room. If you don't have enough GCL, consider <a href="#reserveController">reserving</a> this room instead. <a href="/control.html#Global-Control-Level">Learn more</a>
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
@@ -640,7 +640,7 @@ Move the creep using the specified predefined path. Requires the <code>MOVE</cod
 
 {% api_method_params %}
 path : array|string
-A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, or <a href="/hc/en-us/articles/207023879-PathFinder#search"><code>PathFinder.search</code></a> methods. Both array form and serialized string form are accepted.
+A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, or <a href="#PathFinder.PathFinder-search"><code>PathFinder.search</code></a> methods. Both array form and serialized string form are accepted.
 {% endapi_method_params %}
 
 
@@ -843,7 +843,7 @@ if(targets.length > 0) {
 A ranged attack against another creep or structure. Requires the <code>RANGED_ATTACK</code> body part. If the target is inside a rampart, the rampart is attacked instead. The target has to be within 3 squares range of the creep.
 
 {% api_method_params %}
-target : <a href="/hc/en-us/articles/undefined-Creep.php">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
 The target object to be attacked.
 {% endapi_method_params %}
 
