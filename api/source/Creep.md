@@ -1046,14 +1046,14 @@ if(creep.room.controller) {
 
 ```
 
-Sign a controller with a random text visible to all players. This text will appear in the room UI, in the world map, and can be accessed via the API. You can sign unowned and hostile controllers. The target has to be at adjacent square to the creep. Pass an empty string to remove the sign.
+Sign a controller with an arbitrary text visible to all players. This text will appear in the room UI, in the world map, and can be accessed via the API. You can sign unowned and hostile controllers. The target has to be at adjacent square to the creep. Pass an empty string to remove the sign.
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
 The target controller object to be signed.
 ===
 text : string
-The sign text. The maximum text length is 100 characters.
+The sign text. The string is cut off after 100 characters.
 {% endapi_method_params %}
 
 
