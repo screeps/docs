@@ -44,6 +44,10 @@ A shorthand to <code>Memory.rooms[room.name]</code>. You can use it for quick ac
 
 One of the following constants:
 
+* `MODE_SIMULATION`
+* `MODE_SURVIVAL`
+* `MODE_WORLD`
+* `MODE_ARENA`
 
 
 {% api_property name 'string' %}
