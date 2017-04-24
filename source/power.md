@@ -18,7 +18,7 @@ What do you need this resource for? By transferring power from banks sites to yo
 ## Power Creeps
 
 {% note tip %}
-This is still under development, see the discussion [here]((http://support.screeps.com/hc/en-us/articles/115001254709-Discussion-Power-Creeps).
+This is still under development, see the discussion [here](http://support.screeps.com/hc/en-us/articles/115001254709-Discussion-Power-Creeps).
 {% endnote %} 
 
 Power creeps may be defined as "hero units" from other strategy games. They do not age, can be respawned repeatedly in case of defeat, have no standard skills of regular creeps, but can use special unique **Powers** such as increasing the capacity of an energy source or mineral deposit, instant completion of spawning/building, bonuses for attack, defense, and/or work effectiveness of other regular creeps around, long-range sniper shots, remote blocking of enemy creeps and structures activity, and many more. You select the power you need in your account from the list of available powers and then gradually develop it by means of points from gathered and registered power resources. You can have as many power creeps and powers as the points you gathered allow.
