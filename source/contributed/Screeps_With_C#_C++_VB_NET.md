@@ -117,3 +117,36 @@ var CodeToUse = require('CodeToUseInMain')
 CodeToUse.Function1(param1,param2);
 ```
 Notice the subtle differences between the languages.
+
+# Compiling .NET applications to java with JSIL
+
+## Getting started with JSIL
+To start you need to clone JSIL.git (pull all submodules!)
+
+Open git bash
+type: 
+```git
+git clone 'https://github.com/sq/JSIL.git
+cd JSIL
+git submodule update --init --recursive
+```
+
+to update you just need to do:
+```git
+git pull --all
+git submodule foreach git pull origin master
+```
+Hit enter and your clone will be created.
+
+Then you need to Build JSIL.sln in Visual studio 2015 or above(Community edition is more than enough)
+
+After that you should run JSILc.exe with the path to your exe or sln:
+```git
+JSILc.exe "path to whatever.exe"
+```
+
+This should work for your project in the majority of .NET languages.
+
+
+JSIL website: [http://jsil.org/](http://jsil.org/)
+JSIL wiki: [https://github.com/sq/JSIL/wiki](https://github.com/sq/JSIL/wiki)
