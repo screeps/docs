@@ -21,9 +21,17 @@ For these reasons it makes sense to limit what is placed in `Memory`.
 
 ### Global
 
-The `global` object persists between ticks as a byproduct of the [game loop]('/game-loop.html'). What this means is that players have access to an ephemeral storage- the `global` object- that will last between ticks.
+The [game loop]('http://support.screeps.com/hc/en-us/articles/204825672-New-main-loop-architecture') archetecture allows you to define a "loop" function which gets run each tick while allowing you to define expensive one-time-run code in the outer scope. This is most commonly used to `require` modules-
 
-In this example a top level variable is defined in a module (`expensive.js`) and gets added to the global cache when the file is loaded with `require`. After the first time it the function is called the variable will be populated for future calls:
+    // executed on new global
+    var mod = require('mod');
+
+    module.exports.loop = function() {
+        // executed every tick
+        mod.foo();
+    }
+
+Another example shows how this can be utilized for storing the results of an expensive function. After the first time it the function is called the variable will be populated for future calls:
 
     let runExpensiveCodeResults = false
     function runExpensiveCode() {
@@ -33,12 +41,21 @@ In this example a top level variable is defined in a module (`expensive.js`) and
         return runExpensiveCodeResults
     }
 
+These two examples have a drawback in that they are only run or defined when the code is first loaded. This can be bypassed by accessing the `[global](https://nodejs.org/api/globals.html#globals_global)` object, which is a special object in Node that is accessible everywhere.
+
+    function runExpensiveCode() {
+        if(!global.runExpensiveCodeResults) {
+            global.runExpensiveCodeResults = someExpensiveCode()
+        }
+        return global.runExpensiveCodeResults
+    }
+
 
 There are some severe limits to this-
 
 *   Each worker has it's own `global` state, and code will bounce between at least four nodes at a time. This means data placed in global one tick will only have a 25% chance of appear next (although it can be added again until it's on all four nodes, bringing the change up to 100%) and that deleted data could easily show up again in the next tick.
 *   The `global` object gets reset fairly regular, meaning all of the data will regularly disappear. The `global` object can not be considered persistent storage.
-* Although the `global` object is reset often it is only reset on a consistent schedule. Data placed in it may last longer than expected.
+*   Although the `global` object is reset often it is only reset on a consistent schedule. Data placed in it may last longer than expected.
 
 These limitions make the `global` object ideal for certain types of caching, such as when the result of a function is always going to be the same or if it doesn't matter when "stale" data is used then storing the data in global. For cases where results may change and data gets invalidated meta data- such as a TTL or version identifier- will have to be stored alongside the results to facilitate that.
 
