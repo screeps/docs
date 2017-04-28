@@ -99,8 +99,15 @@ To get started install the [grunt-contrib-copy](https://www.npmjs.com/package/gr
     npm install grunt-contrib-clean --save-dev
     npm install grunt-contrib-copy --save-dev
 
+In this case the "copy" plugin is going to be used to move code from the `src` directory to `dist`. The plugin as an option to rename files, so a function to convert directory delimiters (slashes) to underscores is used to flatten the file structure. Once run the results will look like this-
 
-In this case the "copy" plugin is going to be used to move code from the `src` directory to `dist`. The plugin as an option to rename files, so a function to convert directory delimiters (slashes) to underscores is used to flatten the file structure.
+| Before                     | After                       | Require                         |
+|----------------------------|:----------------------------|---------------------------------|
+| src/main.js                | dist/main.js                | require('main');                |
+| src/lib/creeptalk.js       | dist/lib_creeptalk.js       | require('lib_creeptalk');       |
+| src/lib/creeptalk/emoji.js | dist/lib_creeptalk_emoji.js | require('lib_creeptalk_emoji'); |
+| src/prototypes/creeps.js   | dist/prototypes_creeps.js   | require('prototypes_creeps');   |
+| src/prototypes/spawns.js   | dist/prototypes_spawns.js   | require('prototypes_spawns');   |
 
 The copy plugin does not clear any data before it is run, so the `clean` plugin is used to make sure the `dist` folder is empty before files are moved into it.
 
