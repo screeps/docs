@@ -45,13 +45,6 @@ Once your account is created you will need to [Buy a Number](https://www.twilio.
 Next you'll want to head to the [SMS Dashboard](https://www.twilio.com/console/sms/dashboard) and register a new service. On the Numbers page select the new number you created.
 
 
-## Install Docker
-
-Don't worry, you will not need to become a Docker expert, but you will need to install it.
-
-Docker is available on [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), [OSX](https://store.docker.com/editions/community/docker-ce-desktop-mac?tab=description), [Ubuntu](https://store.docker.com/editions/community/docker-ce-server-ubuntu?tab=description), and [numerous other systems](https://store.docker.com/search?type=edition&offering=community).
-
-
 ## Configure Screeps Notify
 
 Clone the repository to your system and enter it
@@ -84,11 +77,24 @@ sms_from: '+15555555555'
 sms_to: '+13334445555'
 ```
 
+
+## Install with Docker
+
+### Install Docker
+
+Don't worry, you will not need to become a Docker expert, but you will need to install it.
+
+Docker is available on [Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), [OSX](https://store.docker.com/editions/community/docker-ce-desktop-mac?tab=description), [Ubuntu](https://store.docker.com/editions/community/docker-ce-server-ubuntu?tab=description), and [numerous other systems](https://store.docker.com/search?type=edition&offering=community).
+
+
+### Build Container
+
 Finally build the Docker container. Any time your change your settings you will need to run this command.
 
     docker build -t screepsnotify .
 
-## Make it Run
+
+### Make it Run
 
 To get notifications you have to run screepsnotify, which is now as as as typing in a single command-
 
@@ -101,6 +107,41 @@ Of course you don't want to have to type that in manually. Open your crontab-
 Now add the following line, which will tell cron to run the command every minute.
 
     * * * * * /usr/bin/docker run --rm screepsnotify >/dev/null 2>&1
+
+
+## Install Natively
+
+### Prerequisites
+
+First make sure `virtualenv` is installed. This may be present already, but if it isn't-
+
+* On OSX and Linux
+
+    pip install virtualenv
+
+* If you are using Windows it is recommended you utilize the Docker build system.
+
+
+### make
+
+The notify project contains a makefile which will install the needed dependencies.
+
+    make
+
+
+### Make it Run
+
+To get notifications you have to run screepsnotify, which is now as as as typing in a single command-
+
+    path/to/repo/bin/screepsnotify.sh
+
+Of course you don't want to have to type that in manually. Open your crontab-
+
+    EDITOR=nano crontab -e
+
+Now add the following line, which will tell cron to run the command every minute.
+
+    * * * * * path/to/repo/bin/screepsnotify.sh >/dev/null 2>&1
 
 
 ## Take a Nap
