@@ -13,11 +13,12 @@ This article makes a few assumptions-
 * Specifically, you understand how tasks are stored using grunt.initConfig.
 
 
-## Override Options with CLI Flags
+## Secure Credentials
 
-Changing the options that Grunt is using should not require a change in code and can be done using command line flags.
+As your Gruntfile gets more complex you are going to want to save it in source control, but at the same time saving credentials in repositories is generally considered a horrible idea. Moving the credentials to a separate file will allow you to commit your Gruntfile without your credentials.
 
-First create the file `.screeps.json` to save the default options and your credentials.
+
+First create the file `.screeps.json` to save your credentials.
 
     {
       "email": "<YOUR EMAIL HERE>",
@@ -26,7 +27,38 @@ First create the file `.screeps.json` to save the default options and your crede
       "ptr": false
     }
 
-Now update `Gruntfile.js` so it utilizes the file and the `grunt.option` function.
+Now modify `Gruntfile.js` to use the new file.
+
+    module.exports = function(grunt) {
+        var config = require('./.screeps.json')
+        grunt.loadNpmTasks('grunt-screeps');
+        grunt.initConfig({
+            screeps: {
+                options: {
+                    email: config.email,
+                    password: config.password,
+                    branch: config.branch,
+                    ptr: config.ptr
+                },
+                dist: {
+                    src: ['src/*.js']
+                }
+            }
+        });
+    }
+
+Finally, open your `.gitignore` (create it if it doesn't exist already) and add `.screeps.json`
+
+```
+/.screeps.json
+```
+
+
+## Override Options with CLI Flags
+
+Changing the options that Grunt is using should not require a change in code and can be done using command line flags.
+
+Now update `Gruntfile.js` so it utilizes the `.screeps.json` file created above and the `grunt.option` function.
 
     module.exports = function(grunt) {
 
@@ -53,7 +85,7 @@ Now update `Gruntfile.js` so it utilizes the file and the `grunt.option` functio
         });
     }
 
-Now you can override any of the commands on the fly.
+Now you can override any of the commands on the fly. Any new option can be added to `.screeps.json`.
 
     grunt screeps --ptr=true --branch=development
 
@@ -62,7 +94,7 @@ Now you can override any of the commands on the fly.
 
 A common frustration amongst new players is that folders are not available by default. This can be changed using Grunt.
 
-To get started install the "grunt-contrib-copy" and "grunt-contrib-clean" plugins.
+To get started install the [grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy) and [grunt-contrib-clean](https://www.npmjs.com/package/grunt-contrib-clean) plugins.
 
     npm install grunt-contrib-clean --save-dev
     npm install grunt-contrib-copy --save-dev
@@ -133,7 +165,7 @@ Now with a single command your code will be copied from its `src` directory, fla
 
 ## Automatic Versioning
 
-Install the `file-append` plugin.
+Install the [file-append](https://www.npmjs.com/package/grunt-file-append) plugin.
 
     npm install grunt-file-append --save-dev
 
@@ -192,11 +224,11 @@ Now by adding `require('version')` the variable `SCRIPT_VERSION` will be availab
 
 ## Private Server (via Steam Client)
 
-The Grunt plugin does not currently support direct uploading to private servers- but do not dispair!
+The Grunt plugin does not currently support direct uploading to private servers- but do not despair!
 
 Without Grunt the Steam client is used to upload code. In this case Grunt can be used to copy the files from the `dist` folder to the folder used by steam to upload the data.
 
-Unfortunately the `copy` plugin can cause some issues with the steam client, so in this case the `rsync` plugin should be used.
+Unfortunately the `copy` plugin can cause some issues with the steam client, so in this case the [rsync](https://www.npmjs.com/package/grunt-rsync) plugin should be used.
 
     npm install grunt-rsync --save-dev
 
@@ -252,7 +284,7 @@ Now code can be pushed to your private server.
 
 ## Beautify
 
-Keeping code pretty is a common task with Grunt.
+Keeping code pretty is a common task with Grunt and can be accomplished with the [jsbeautifier](https://www.npmjs.com/package/grunt-jsbeautifier) plugin.
 
     npm install grunt-jsbeautifier --save-dev
 
@@ -314,7 +346,7 @@ or simply tested.
 
 ## Add Stats
 
-Sometimes it gets boring watching your script upload.
+Sometimes it gets boring watching your script upload. The plugin [time-grunt](https://www.npmjs.com/package/time-grunt) provides a breakdown of how much time is spent on each task.
 
     npm install time-grunt --save-dev
 
