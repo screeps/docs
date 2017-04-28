@@ -9,14 +9,14 @@ Caching is, at it's core, a simple concept- by saving the results of expensive c
 
 ### Memory
 
-The most common place to store cached data is in `Game.memory` (or just `Memory`). This is the only option for true persistance- anything stored in `Memory` is going to stay there until removed, so if a value is extremely expensive or most be saved this is the place to put it.
+The most common place to store cached data is in [Memory](/global-objects.html#Memory-object). This is the only option for true persistance- anything stored in [Memory](/global-objects.html#Memory-object) is going to stay there until removed, so if a value is extremely expensive or most be saved this is the place to put it.
 
-There are two major drawbacks `Memory`-
+There are two major drawbacks [Memory](/global-objects.html#Memory-object)-
 
-*   Space in `Memory` is limited to 2048kb of space.
-*   JSON.parse is run on the `Memory` string each tick it is accessed, which is more expensive the more data that is stored.
+*   Space in [Memory](/global-objects.html#Memory-object) is limited to 2048kb of space.
+*   JSON.parse is run on the [Memory](/global-objects.html#Memory-object) string each tick it is accessed, which is more expensive the more data that is stored.
 
-For these reasons it makes sense to limit what is placed in `Memory`.
+For these reasons it makes sense to limit what is placed in [Memory](/global-objects.html#Memory-object).
 
 
 ### Global
@@ -70,7 +70,7 @@ From a performance standpoint the fact that the `require` and `global` caches cl
 ## Tips
 
 *   Be extremely careful what you cache in Memory, as the Memory Parse time can be expensive.
-*   Objects are more expensive to parse than strings. Converting items like `RoomPositions` to a flat string before caching and then converting back as needed can have a surprisingly large impact.
-*   For extremely large objects with repetitive data- such as `CostMatrixes`- compression can save a lot of space. Players going this route should look into [lzstring](http://pieroxy.net/blog/pages/lz-string/index.html), and should also make sure they utilize the `global` cache to minimize the amount of times the same costmatrix has to be decompressed.
+*   Objects are more expensive to parse than strings. Converting items like [RoomPositions](/api/#RoomPosition) to a flat string before caching and then converting back as needed can have a surprisingly large impact.
+*   For extremely large objects with repetitive data- such as [CostMatrixes](api/#PathFinder-CostMatrix)- compression can save a lot of space. Players going this route should look into [lzstring](http://pieroxy.net/blog/pages/lz-string/index.html), and should also make sure they utilize the `global` cache to minimize the amount of times the same costmatrix has to be decompressed.
 *   Traditionally speaking most caching systems put the ttl in the `set` function, but for Screeps it may make more sense to put it in the `get` function. This way the TTL can be adjusted based on need- for example a TTL on a cached costmatrix can be set to Infinity for rooms without visibility and then shortened again when it is so that the data is always available, even if it is a bit stale.
 *    Do not forget to add something to clear stale cache entrees out or you may find your memory slowly expanding over time.
