@@ -500,7 +500,7 @@ an object with all the objects in the specified area in the following format:
         7: [{ type: 'terrain', terrain: 'swamp' }]
     },
     11: {
-        5: [{ type: 'terrain', terrain: 'normal' }],
+        5: [{ type: 'terrain', terrain: 'plain' }],
         6: [{ type: 'structure', structure: {...} },
             { type: 'terrain', terrain: 'swamp' }],
         7: [{ type: 'terrain', terrain: 'wall' }]
@@ -516,7 +516,7 @@ If `asArray` is set to true, the method returns an array in the following format
     {x: 5, y: 10, type: 'terrain', terrain: 'swamp'},
     {x: 6, y: 10, type: 'terrain', terrain: 'swamp'},
     {x: 7, y: 10, type: 'terrain', terrain: 'swamp'},
-    {x: 5, y: 11, type: 'terrain', terrain: 'normal'},
+    {x: 5, y: 11, type: 'terrain', terrain: 'plain'},
     {x: 6, y: 11, type: 'structure', structure: {...}},
     {x: 6, y: 11, type: 'terrain', terrain: 'swamp'},
     {x: 7, y: 11, type: 'terrain', terrain: 'wall'}
