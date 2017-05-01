@@ -75,7 +75,7 @@ Since ramparts have an ability to protect everything on the same square from any
 Writing AI logic for such creeps is quite complicated, but it’s the only way to protect your rooms against virtually any encroachment.
 
 {% note info %}
-You can spawn [NPC invader creeps](/invaders.md) in your room in order to test your defences.
+You can spawn [NPC invader creeps](/invaders.html) in your room in order to test your defences.
 {% endnote %}
 
 Therefore, designing good fortification system with proper behaviour logic will make your room a very difficult target for invaders. However, never rest on your laurels by hunkering down in your rooms. As we know, the best defense is offense.
