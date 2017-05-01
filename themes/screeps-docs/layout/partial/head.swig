@@ -29,7 +29,7 @@
   <meta name="msapplication-TileImage" content="{{ url_for('icon/mstile-144x144.png') }}">
   <!-- CSS -->
   <!-- build:css build/css/navy.css -->
-  {{ css('css/navy') }}
+  <link rel="stylesheet" href="/css/navy.css?1">
   {{ css('css/prism') }}
   <!-- endbuild -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
