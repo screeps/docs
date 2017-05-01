@@ -29,13 +29,13 @@ hexo.extend.helper.register('page_nav', function(){
   var result = '';
 
   if (index > 0){
-    result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(prefix + list[keys[index - 1]]) + '">' +
-      '<i class="fa fa-chevron-left"></i><span>' + this.__('page.prev') + '</span></a>';
+    result += '<a href="' + keys[index - 1] + '" class="article-footer-prev">' +
+      '<i class="fa fa-chevron-left"></i><span>' + list[keys[index - 1]] + '</span></a>';
   }
 
   if (index < keys.length - 1){
-    result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(prefix + list[keys[index + 1]]) + '">' +
-      '<span>' + this.__('page.next') + '</span><i class="fa fa-chevron-right"></i></a>';
+    result += '<a href="' + keys[index + 1] + '" class="article-footer-next">' +
+      '<span>' + list[keys[index + 1]] + '</span><i class="fa fa-chevron-right"></i></a>';
   }
 
   return result;
