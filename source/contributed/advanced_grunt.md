@@ -1,4 +1,8 @@
 title: Advanced Grunt Usage
+contributed: 
+    name: tedivm
+    link: https://github.com/tedivm
+    date: 2017-05-01
 ---
 
 Uploading your code with grunt is just the beginning. This guide covers numerous enhancements that can be added to your scripts to really get the most out of grunt and make your development easier.

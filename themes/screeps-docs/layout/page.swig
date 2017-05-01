@@ -10,6 +10,9 @@
                 <a href="{{ raw_link(page.source) }}" class="article-edit-link" title="{{ __('page.improve') }}"><i class="fa fa-pencil"></i></a>
               </header>
               <div class="article-content" itemprop="articleBody">
+                {% if page.contributed %}
+                <div class="article-author">Contributed by <a href="{{page.contributed.link}}" target="_blank">{{ page.contributed.name }}</a> on {{ time_tag(page.contributed.date) }}</div>
+                {% endif %}
                 {{ page_anchor(page.content) }}
               </div>
               <footer class="article-footer">
@@ -20,15 +23,15 @@
           </div>
           <aside id="article-toc" role="navigation">
             {% if page.title == 'Overview' %}
-              <div id="twitter-feed">
-                <a class="twitter-timeline" data-width="220" data-height="600" href="https://twitter.com/ScreepsGame">Tweets by ScreepsGame</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-              </div>
+            <div id="twitter-feed">
+              <a class="twitter-timeline" data-width="220" data-height="600" href="https://twitter.com/ScreepsGame">Tweets by ScreepsGame</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
             {% else %}
-              <div id="article-toc-inner">
-                <strong class="sidebar-title">{{ __('page.contents') }}</strong>
-                {{ toc(page.content, {list_number: false}) }}
-                <a href="#" id="article-toc-top">{{ __('page.back_to_top') }}</a>
-              </div>
+            <div id="article-toc-inner">
+              <strong class="sidebar-title">{{ __('page.contents') }}</strong>
+              {{ toc(page.content, {list_number: false}) }}
+              <a href="#" id="article-toc-top">{{ __('page.back_to_top') }}</a>
+            </div>
             {% endif %}
           </aside>
         </div>

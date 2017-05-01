@@ -43,6 +43,7 @@
     "clean": "hexo clean",
     "server": "browser-sync start --server public --files \"public/**.*\"",
     "generate": "hexo generate",
-    "generate-watch": "hexo generate --watch"
+    "generate-watch": "hexo generate --watch",
+    "hexo-server": "hexo server"
   }
 }
