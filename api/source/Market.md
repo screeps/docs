@@ -2,7 +2,7 @@
 
 A global object representing the in-game market. You can use this object to track resource transactions to/from your terminals, and your buy/sell orders. The object is accessible via the singleton [`Game.market`](#Game.market) property.
 
-Learn more about the market system from [this article](/hc/en-us/articles/207783649-Market-system).
+Learn more about the market system from [this article](/market.html).
 
 {% api_property Game.market.credits 'number' %}
 
