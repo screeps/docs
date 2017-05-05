@@ -3,7 +3,7 @@
 <img src="img/lab.png" alt="" align="right" />
 
 Produces mineral compounds from base minerals and boosts creeps. 
-Learn more about minerals from [this article](/minerals.html-Minerals).
+Learn more about minerals from [this article](/minerals.html).
 
 <table class="table gameplay-info">
     <tbody>

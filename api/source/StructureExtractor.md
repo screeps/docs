@@ -2,7 +2,7 @@
 
 <img src="img/extractor.png" alt="" align="right" />
 
-Allows to harvest a mineral deposit. Learn more about minerals from [this article](/minerals.html-Minerals).</p>
+Allows to harvest a mineral deposit. Learn more about minerals from [this article](/minerals.html).</p>
 
 <table class="table gameplay-info">
     <tbody>
