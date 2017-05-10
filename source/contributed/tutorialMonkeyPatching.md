@@ -1,4 +1,4 @@
-# Making use of Prototypes
+# Modifying object prototypes
 This article will discuss object prototypes and several ways that they can be used/modified to make your life a little easier in Screeps!
 
 # What are prototypes?
