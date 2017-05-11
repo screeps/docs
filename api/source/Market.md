@@ -115,13 +115,11 @@ const cost = Game.market.calcTransactionCost(1000, 'W0N0', 'W10N5');
 // -> 742 energy units
 ```
 
-Estimate the energy transaction cost of <a href="#StructureTerminal.send"><code>StructureTerminal.send</code></a> and <a href="#deal"><code>Market.deal</code></a> methods. 
+Estimate the energy transaction cost of <a href="#StructureTerminal.send"><code>StructureTerminal.send</code></a> and <a href="#Game.market.deal"><code>Game.market.deal</code></a> methods. 
 The formula:
 
 ```javascript-content
-Math.ceil( 
-    amount * ( 0.1 + 
-        Math.log(0.1*linearDistanceBetweenRooms + 0.9) ) )
+Math.ceil( amount * ( 1 - Math.exp(-distanceBetweenRooms/30) ) )
 ```
 
 {% api_method_params %}
