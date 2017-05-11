@@ -14,10 +14,10 @@ Working with minerals consists of 3 steps:
 There are 7 types of base minerals shown in the picture below.
 
 ![](img/minerals-01.png)
-
+ 
 Each room contains only one mineral type, so in order to handle them effectively you need either access to several suitable rooms or trade relationships with other players.
 
-![](img/mining_minerals.png)A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure **Extractor** on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method `harvest` to the deposit thus mining the corresponding mineral in the same way you harvest energy.
+<img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure **Extractor** on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method `harvest` to the deposit thus mining the corresponding mineral in the same way you harvest energy.
 
 ## Mineral compounds
 
@@ -29,7 +29,7 @@ One reaction requires three labs: two as reagent sources, and the third one as t
 
 A lab can produce 1 unit of produce per tick, so you can build parallel chains of labs in one or more rooms to speed up the process. One lab cannot contain more than one mineral type at the same time.
 
-![](img/2016-03-09_10-32-33.gif)
+<img src="img/2016-03-09_10-32-33.gif" align="right">
 
     var labs = room.find(FIND_MY_STRUCTURES, 
         {filter: {structureType: STRUCTURE_LAB}});
