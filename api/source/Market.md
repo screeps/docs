@@ -278,6 +278,7 @@ ERR_NOT_OWNER | You don't have a terminal in the target room.
 ERR_NOT_ENOUGH_RESOURCES | You don't have enough credits or resource units.
 ERR_FULL | You cannot execute more than 10 deals during one tick.
 ERR_INVALID_ARGS | The arguments provided are invalid.
+ERR_TIRED | The target terminal is still cooling down.
 {% endapi_return_codes %}
 
 

@@ -6,7 +6,7 @@ Sends any resources to a Terminal in another room. The destination Terminal can 
 Each transaction requires additional energy (regardless of the transfer resource type) that can be 
 calculated using [`Game.market.calcTransactionCost`](#Game.market.calcTransactionCost) method. 
 For example, sending 1000 mineral units from W0N0 to W10N5 will consume 742 energy units. 
-You can track your incoming and outgoing transactions using the [`Game.market`'](#Game.market) object. 
+You can track your incoming and outgoing transactions using the [`Game.market`](#Game.market) object. 
 Only one Terminal per room is allowed that can be addressed by [`Room.terminal`](#Room.terminal) property.
 
 Terminals are used in the [Market system](/hc/en-us/articles/207783649-Market-system).
@@ -36,10 +36,18 @@ Terminals are used in the [Market system](/hc/en-us/articles/207783649-Market-s
         <td><strong>Capacity</strong></td>
         <td>300,000</td>
     </tr>
+    <tr>
+        <td><strong>Cooldown on transfer</strong></td>
+        <td>10 ticks</td>
+    </tr>
     </tbody>
-</table>
+</table> 
 
 {% page inherited/OwnedStructure.md %}
+
+{% api_property cooldown 'number' %}
+
+The remaining amount of ticks while this terminal cannot be used to make [`StructureTerminal.send`](#StructureTerminal.send) or [`Game.market.deal`](#Game.market.deal) calls.
 
 
 {% api_property store 'object' %}
@@ -98,6 +106,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this structure.
 ERR_NOT_ENOUGH_RESOURCES | The structure does not have the required amount of resources.
 ERR_INVALID_ARGS | The arguments provided are incorrect.
+ERR_TIRED | The terminal is still cooling down. 
 {% endapi_return_codes %}
 
 
