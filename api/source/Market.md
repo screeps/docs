@@ -112,7 +112,7 @@ An object with your active and inactive buy/sell orders on the market.
 
 ```javascript
 const cost = Game.market.calcTransactionCost(1000, 'W0N0', 'W10N5');
-// -> 742 energy units
+// -> 284 energy units
 ```
 
 Estimate the energy transaction cost of <a href="#StructureTerminal.send"><code>StructureTerminal.send</code></a> and <a href="#Game.market.deal"><code>Game.market.deal</code></a> methods. 
