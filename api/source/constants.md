@@ -314,6 +314,7 @@ All the following constant names are available in the global scope:
     TERMINAL_HITS: 3000,
     TERMINAL_SEND_COST: 0.1,
     TERMINAL_MIN_SEND: 100,
+    TERMINAL_COOLDOWN: 10,
 
     CONTAINER_HITS: 250000,
     CONTAINER_CAPACITY: 2000,
@@ -528,13 +529,13 @@ All the following constant names are available in the global scope:
     BOOSTS: {
         work: {
             UO: {
-                harvest: 4
+                harvest: 3
             },
             UHO2: {
-                harvest: 6
+                harvest: 5
             },
             XUHO2: {
-                harvest: 8
+                harvest: 7
             },
             LH: {
                 build: 1.5,
