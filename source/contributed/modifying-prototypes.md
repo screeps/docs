@@ -1,8 +1,8 @@
 ---
 title: Modifying object prototypes
 contributed:
-    name: Helam24
-    link: https://github.com/Helam24
+    name: Helam
+    link: https://screeps.com/a/#!/profile/Helam
     date: 2017-05-14
 ---
 
