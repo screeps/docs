@@ -7,7 +7,14 @@ contributed:
 
 # TypeScript and Screeps, from Beginner to Advanced, Pt. 3
 
-## Part 3: Getters, setters, and meta programming with decorators
+* [Part 1](http://docs.screeps.com/contributed/typescript-and-screeps-1.html)
+Introduction to TypeScript and setting up a TypeScript + Screeps environment
+* [Part 2](http://docs.screeps.com/contributed/typescript-and-screeps-2.html)
+In depth look using TypeScript's features to extend the built-in Screeps objects and methods
+* [Part 3](http://docs.screeps.com/contributed/typescript-and-screeps-3.html)
+**Getters, setters, and meta programming with decorators**
+
+## Getters, setters, and meta programming with decorators
 > AKA Speak English, dammit!
 
 In the [previous article](http://docs.screeps.com/contributed/typescript-and-screeps-2.html) we learned about custom types and interfaces, and how to use them to our advantage to create Screeps classes that are robust against errors, while being reusable.
