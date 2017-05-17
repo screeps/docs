@@ -232,7 +232,8 @@ The above cases of `assignedSource` and `assignedRoom` are both properties and w
 
 A TypeScript PropertyDecorator looks like:
 ```typescript
-type PropertyDecorator = (target: object, attribute: string) => any | void;
+type PropertyDecorator = (target: object, attribute: PropertyKey) => any | void;
+// where a PropertyKey is type `string | number | symbol`
 ```
 > The return value declaration is a bit misleading, because the actual property decorator should return a `PropertyDescriptor` or nothing (`void`). I can't say why the definition has `any` as a return value, but most likely it's for backwards compatability.
 
@@ -266,17 +267,25 @@ Our decorator should take these arguments, and then add the getter and setter to
 (see [Modyifying object prototypes](http://docs.screeps.com/contributed/modifying-prototypes.html) for more information on this topic).
 Specifically, we are going to modify the [property descriptor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) of the object.
 
-Actually, property decorators are special, in that we don't have to directly modify the property descriptor.  If we return a value, TypeScript will merge that into the property descriptor for us.
+> Actually, property decorators don't need to directly modify the property descriptor.  If we return a value, TypeScript will merge that into the property descriptor for us.  However, the implementation of this is a bit wonky.
+
+> Properties are added to classes *before* property descriptors.  So when the property decorator is called, the property descriptor doesn't necessarily exist, yet.  In some situations this can lead to unexpected behavior that's difficult to debug. For this reason, this guide recommends setting the property descriptor manually.  For other decorator types (including accessors), this shouldn't e an issue
 
 Let's write it:
 
 ``` typescript
 // src/decorators.ts
 
-export function myDecorator(target: any, attribute: string): any | void {
-  // for the first implementation of this decorator, we can just directly
-  // return the getter and setter:
-  return {
+export function myDecorator(target: any, attribute: PropertyKey): any | void {
+  // In actually production Screeps code, you will want to first to first
+  // check that you aren't overwriting previously set properties.
+  // We are leaving this out here, in order to keeps the snippets shorter
+
+  // `Reflect.defineProperty` is actually the modern way to do this, however
+  // `Reflect` doesn't work in Screeps "sim"
+  Object.defineProperty(target, attribute, {
+    configurable: true,  // this defaults to false if you don't set it
+    enumberable: true,   // this too 
     set: function(source: Source) {
       this.memory.source = source.id;
     },
@@ -286,11 +295,11 @@ export function myDecorator(target: any, attribute: string): any | void {
       this.memory.source = source.id;
       return source;
     }
-  }
+  });
 }
 ```
 
-Our `Minor` class looks nicer:
+Our `Miner` class looks nicer:
 
 ```typescript
 import { myDecorator } from "../decorators.ts";
@@ -385,7 +394,7 @@ export function serialized<Deserialized>(
   },
 ): PropertyDecorator {
   // our Decorator Factory returns a PropertyDecorator
-  return (target: any, attribute: string) => {
+  return (target: any, attribute: PropertyKey) => {
     // delete the old attribute, just in case
     // if for some reason we can't (ex. it's read-only), return early
     if (!(delete target[attribute])) { return; }
@@ -393,7 +402,9 @@ export function serialized<Deserialized>(
     const {serializer, deserializer, memoryKey, fallback} = args;
 
     // the PropertyDecorator returns a PropertyDescriptor
-    return {
+    Object.defineProperty(target, attribute, {
+      configurable: true,
+      enumberable: true,
       get: function() {
         // first, get the data (`string`) out of Memory using lodash
         const data = _.get<string>(this.memory, memoryKey);
@@ -446,7 +457,7 @@ export class Miner extends Worker<MinerMemory> {
 }
 ```
 
-Now our code *just works*™.  Anytime we acces `.assignedSource` of a `Miner` instance, it will automatically return a `Source` object created from a `string` in `Memory`, or lookup (and save) a new `Source` if there wasy nothing in `Memory`.  Cool!
+Now our code *just works*™.  Anytime we access `assignedSource` of a `Miner` instance, it will automatically return a `Source` object created from a `string` in `Memory`, or lookup (and save) a new `Source` if there wasy nothing in `Memory`.  Cool!
 
 This can also save CPU if you want to save the `Source` object, but don't use it every tick.  With this `@serialized` decorator, the value is only pulled from Memory and converted into an object when you use it!
 
@@ -497,3 +508,18 @@ Now that you've completed this series, you may want to look into implementing th
 - `@memoized` property or member decorator:  The first time this property is access (or member function called), the value is calculated, cached, and returned.  Any subsequent calls just directly return the cached value, preventing wasting CPU on things you already calculated.
 - `@one-time` member decorator: Only allows the member to be called once per tick.  You could use this to prevent, for example, multiple calls to `spawnCreep` in the same tick
 - `@logged` property or member decorator:  Calls a logging function each time the member or property is accessed.
+
+> Final reminder: if you want your decorators to be composable, you can't just blindly 
+overwrite the property descriptor.  You need to first read the old one and save it somehow.  If you do this correctly, you can have code that looks like:
+  ```typescript
+  export class Miner {
+    @memoized                 // same as above functions, "save" result on first lookup
+    @fromOther(anotherObject) // if value doesn't exist here, use the value from `another object`
+    @logged                   // log the call
+    public source: Source;
+  }
+  // you can also write the above as:
+  @memoized @fromOther(anotherObject) @logged
+  public source: Source;
+  ```
+> and you won't have to worry about `@memoized`, `@fromOther`, or `@logged` overwriting eachother
