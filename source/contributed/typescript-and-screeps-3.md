@@ -129,6 +129,7 @@ public getAssignedRoom(): Room {
 These get the job done, but they aren't elegant enough for us.
 We have to call this ugly function when we want to just access a property.
 
+> Before we go on, remember this tutorial is for Screeps code.  In larger, non-Screeps project, `getX()` and `setX()` syle is often a better choice, because it indicates to consumers of your code that the function may be doing a bit more logic than just returning a property.
 
 We can do better, and level-up our code, using getters and setters (AKA accessors).
 
