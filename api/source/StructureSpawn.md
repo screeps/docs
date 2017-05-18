@@ -72,7 +72,7 @@ The total amount of energy the spawn can contain
 spawn.memory.queue = [];
 ```
 
-A shorthand to <code>Memory.spawns[spawn.name]</code>. You can use it for quick access the spawn’s specific memory data object. <a href="/hc/en-us/articles/203016642-Working-with-memory">Learn more about memory</a>
+A shorthand to <code>Memory.spawns[spawn.name]</code>. You can use it for quick access the spawn’s specific memory data object. <a href="/global-objects.html#Memory-object">Learn more about memory</a>
 
 
 
