@@ -31,7 +31,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
     <tr> 
         <td><code style="color: #777;">CARRY</code></td>
         <td>50</td>
-        <td>Can contain up to 50 resource units.</td>
+        <td>Can contain up to 50 resource units. Empty CARRY body part generates 0 fatigue per tick.</td>
     </tr>
     <tr>
         <td><code style="color: #f93842;">ATTACK</code></td>
