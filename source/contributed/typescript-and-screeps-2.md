@@ -462,7 +462,7 @@ Also: Whoops!  `Source` objects also have `energyCapacity` but they aren't Charg
 | Storable | `storeCapacity` property
 | Buildable | `progress` && `progressTotal` property
 | Upgradable | `level` property
-| Repairable | `hits` && `hitsMax` property, && `((hitsMax - hits) / hitsMax) < 0.9`
+| Repairable | `hits` && `hitsMax` property, && `(hits / hitsMax) < 0.9`
 | Harvestable | `ticksToRegeneration`
 
 Let's write these bad boys:
@@ -494,7 +494,7 @@ export function isRepairable(obj: HasId): obj is Repairable {
   const hitsMax = (obj as Repairable).hitsMax;
   const hits = (obj as Repairable).hits;
   // true if under 90% health
-  return ((hitsMax - hits) / hitsMax) < 0.9;
+  return (hits / hitsMax) < 0.9;
 }
 
 export function isChargeable(obj: HasId): obj is Chargeable {
