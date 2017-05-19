@@ -16,7 +16,7 @@ The market system is based on **sell and buy orders** tied to your terminals. By
 To execute a trade, the second party also has to have a terminal to receive the resource (when buying from a sell order) or to send out (when selling to a buy order). You complete a trade by using the market interface or the method [`Game.market.deal`](/api/#Market.deal) and designating the other player's order, your terminal, and the amount of resources wanted. Then the two terminals automatically carry out the transaction, the buyer's account is charged with the corresponding amount of credits, and this amount is passed to the seller.
 
 {% note info %}
-The energy expenses to transfer resources from one terminal to another are always on the party who executes the deal rather than the order's owner, even in the case of buying a resource upon a sell order.
+The energy expenses to transfer resources from one terminal to another are always on the party who executes the deal rather than the order's owner, even in the case of buying a resource upon a sell order. The Player's Terminal that executes the order will have a 10 turn cooldown period before it can be used again (see [Changelog 2017-05-11](http://blog.screeps.com/2017/05/changelog-2017-05-11/).
 {% endnote %}
 
 An order cannot be executed until the selling terminal has enough resource to sell, or the user has enough credits to buy. Until that happens, the order remains inactive.
