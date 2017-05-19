@@ -4,6 +4,8 @@ A site of a structure which is currently under construction. A construction site
 
 To build a structure on the construction site, give a worker creep some amount of energy and perform [`Creep.build`](#Creep.build) action.
 
+You can remove enemy construction sites by moving a creep on it.
+
 {% page inherited/RoomObject.md %} 
 
 {% api_property id string %}
