@@ -34,7 +34,7 @@ Total amount of <code>energyCapacity</code> of all spawns and extensions in the 
 room.memory.stage = 2;
 ```
 
-A shorthand to <code>Memory.rooms[room.name]</code>. You can use it for quick access the room’s specific memory data object. <a href="/hc/en-us/articles/203016642-Working-with-memory">Learn more about memory</a>
+A shorthand to <code>Memory.rooms[room.name]</code>. You can use it for quick access the room’s specific memory data object. <a href="/global-objects.html#Memory-object">Learn more about memory</a>
 
 
 

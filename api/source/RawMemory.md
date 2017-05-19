@@ -3,7 +3,7 @@
 RawMemory object allows to implement your own memory stringifier instead of built-in serializer 
 based on `JSON.stringify`. It also allows to request up to 10 MB of additional memory 
 using asynchronous memory segments feature. 
-[Learn more](/hc/en-us/articles/203016642-Working-with-Memory)
+[Learn more](/global-objects.html#Memory-object)
 
 {% api_property RawMemory.segments 'object' %}
 
