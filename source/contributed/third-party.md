@@ -19,6 +19,11 @@ The Screeps API is not official and may change at any time. These clients are ma
 *   [node](https://github.com/screepers/node-screeps-api)
 
 
+## Backups
+
+*   [screeps-backup](https://github.com/screepers/screeps-backup) is a simple backup and restore utility for memory and segments.
+
+
 ## Consoles
 
 *   [screeps_console](https://github.com/screepers/screeps_console) is an interactive stand alone console built with python. It supports common console keyboard shortcuts, has a number of built in commands, and has light and dark themes. There is a non-interactive version that is also included.
