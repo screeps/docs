@@ -579,4 +579,20 @@ export class Intern extends Worker<InternMemory> {
 }
 ```
 
+## Do our `isChargeable` and `isHarvestable` types actually work?
+> TLDR: Not really, but we can fix that
+
+In short, the types we made that are just convenience shortcuts to a grouping (a "union") of types work perfectly.
+But our types that reflect some higher logic, like a `Repairable` *"is a `Structure` that has damage"* are not actually enforcable as written.
+
+That said, the functions we wrote **will** perform correctly, but the TypeScript compiler will not enforce them on us.
+For example, if we have a function:
+```typescript
+function doRepair(obj: Repairable) { /****/ }
+```
+We can pass it a `Structure` at full health, and it will accept it.
+
+We can fix this by using something called a "Tag Type" (also called a "Refinement Type" or a "typestate").
+
+
 ##### [Continue on to Part 3](http://docs.screeps.com/contributed/typescript-and-screeps-3.html)
