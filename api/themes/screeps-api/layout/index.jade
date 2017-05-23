@@ -27,14 +27,22 @@ html(lang='en')
             .logo
                 a(href="https://screeps.com/a/")
                     img(src="img/logo.png")
-                a(href="/api/") api
+                a(href="/api/")
+                    | api
+                    if is_ptr()
+                        | &nbsp;[ptr]
+                    endif
             .search
                 input.search#input-search(type="text" placeholder="Search")
             ul.search-results
-            a.back(href="/index.html")
-                | Back to docs
-                img(src="img/link-external.svg")
+            if !is_ptr()
+                a.back(href="/index.html")
+                    | Back to docs
+                    img(src="img/link-external.svg")
+            endif
             #toc
+                #toc-loading Loading...
+
         .page-wrapper
             .dark-box
             .content.api-content
