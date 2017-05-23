@@ -1,4 +1,4 @@
-title: Public Test Realm
+title: Public Test Realm (PTR)
 ---
 
 The Public Test Realm is a stand-alone game server with its own world data, players' scripts, memory, and settings. It has been created for two purposes:
@@ -12,7 +12,9 @@ The Public Test Realm is a stand-alone game server with its own world data, play
 
 <p><strong style="font-size: 20px; background: #eee; padding: 10px 40px;">[ENTER](https://screeps.com/ptr/)</strong></p>
 
-<p>[Changelogs](/hc/communities/public/topics/200416541-Public-Test-Realm)</p>
+<p>[Changelogs](http://support.screeps.com/hc/communities/public/topics/200416541-Public-Test-Realm)</p>
+
+<p>[API Reference](http://ptr-docs.screeps.com/api/)</p> 
 </div>
 
 ---
