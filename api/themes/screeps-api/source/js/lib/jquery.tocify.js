@@ -497,6 +497,8 @@
                 var h1 = self.prevAll('h1').eq(0).text();
                 hashValue = h1+'.'+hashValue;
                 hashValue = hashValue.replace(/Game([^\.]*)-([^\.-]+)$/, '$2');
+                hashValue = hashValue.replace(/RawMemory-/, '');
+                hashValue = hashValue.replace(/PathFinder-/, '');
             }
             else if (arr.length) { hashValue += ""+index; }
 
