@@ -370,7 +370,7 @@ An object with the following properties:
 							<div class="api-arg-desc">Stroke width, default is 0.15.</div>
 						</li>
 						<li>
-							<div class="api-arg-title">background</div>
+							<div class="api-arg-title">backgroundColor</div>
 							<div class="api-arg-type">string</div>
 							<div class="api-arg-desc">Background color in any web format, default is undefined (no background). When background is enabled, text vertical align is set to middle (default is baseline).</div>
 						</li>
