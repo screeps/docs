@@ -8,3 +8,4 @@ api/db.json
 public/
 .deploy*/
 .idea
+.ptr

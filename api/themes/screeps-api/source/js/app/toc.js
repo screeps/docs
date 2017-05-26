@@ -35,6 +35,7 @@
 
     $(".page-wrapper").click(closeToc);
     $(".tocify-item").click(closeToc);
+    $('#toc-loading').remove();
   };
 
   // Hack to make already open sections to start opened,
