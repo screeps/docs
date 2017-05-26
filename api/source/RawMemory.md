@@ -34,13 +34,13 @@ The object consists of the following properties:
 
 {% api_method_params %}
 username : string
-The another player's name.
+Another player's name.
 ===
 id : number
 The ID of the requested memory segment.
 ===
 data : string
-The segments contents.
+The segment contents.
 {% endapi_method_params %}
 
 
