@@ -2,28 +2,42 @@ title: Committing scripts using external tools
 ---
 
 Screeps has a handy embedded code editor for writing game scripts. However, in some cases (for example, you want to use a language other than JavaScript or integrate with your IDE) you will have to commit game scripts to your Screeps account from outside.
- 
+
 {% note info %}
 If you signed up using GitHub, you have to set your Screeps password in the [account settings](https://screeps.com/a/#!/account) in order to use external synchronization.
 {% endnote %}
 
 ## Using Grunt task
 
-If you haven't used [Grunt](http://gruntjs.com) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command: 
+If you haven't used [Grunt](http://gruntjs.com) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
     npm install grunt-screeps
 
-Configure your Gruntfile.js:
+In your project root create a file `.screeps.json` with your credentials:
+
+    {
+        username: '<your e-mail>',
+        password: '<your password>',
+    }
+
+Add your credentials file to your `.gitignore` to keep it out of your repository:
+
+    echo '.screeps.json' >> .gitignore
+
+
+Configure your `Gruntfile.js`:
 
     module.exports = function(grunt) {
 
         grunt.loadNpmTasks('grunt-screeps');
-    
+
+        let credentials = require('.screeps.json')
+
         grunt.initConfig({
             screeps: {
                 options: {
-                    email: '<your e-mail>',
-                    password: '<your password>',
+                    email: credentials.username,
+                    password: credentials.password,
                     branch: 'default',
                     ptr: false
                 },
@@ -49,7 +63,7 @@ An example of committing code using Node.js:
     var email = '<your e-mail>',
         password = '<your password>',
         data = {
-            branch: 'default',         
+            branch: 'default',
             modules: {
                 main: 'require("hello");',
                 hello: 'console.log("Hello World!");'
