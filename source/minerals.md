@@ -145,7 +145,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>![](http://static.screeps.com/upload/mineral-icons/UO.png)utrium oxide</td>
 <td>![](http://static.screeps.com/upload/mineral-icons/U.png) + ![](http://static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>`WORK`</td>
-<td>+200% `harvest` effectiveness</td>
+<td>+300% `harvest` effectiveness</td>
 </tr>
 <tr>
 <td>![](http://static.screeps.com/upload/mineral-icons/KH.png)keanium hydride</td>
@@ -208,7 +208,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>![](http://static.screeps.com/upload/mineral-icons/UHO2.png)utrium alkalide</td>
 <td>![](http://static.screeps.com/upload/mineral-icons/UO.png) + ![](http://static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>`WORK`</td>
-<td>+400% `harvest` effectiveness</td>
+<td>+500% `harvest` effectiveness</td>
 </tr>
 <tr>
 <td>![](http://static.screeps.com/upload/mineral-icons/KH2O.png)keanium acid</td>
@@ -271,7 +271,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>![](http://static.screeps.com/upload/mineral-icons/XUHO2.png)catalyzed utrium alkalide</td>
 <td>![](http://static.screeps.com/upload/mineral-icons/UHO2.png) + ![](http://static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>`WORK`</td>
-<td>+600% `harvest` effectiveness</td>
+<td>+700% `harvest` effectiveness</td>
 </tr>
 <tr>
 <td>![](http://static.screeps.com/upload/mineral-icons/XKH2O.png)catalyzed keanium acid</td>
