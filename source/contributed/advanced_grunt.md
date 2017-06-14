@@ -233,11 +233,13 @@ Now by adding `require('version')` the variable `SCRIPT_VERSION` will be availab
 
 
 
-## Private Server (via Steam Client)
+## Private Server 
 
-The Grunt plugin does not currently support direct uploading to private servers- but do not despair!
+There are two ways to upload code to your private server account using Grunt.
 
-Without Grunt the Steam client is used to upload code. In this case Grunt can be used to copy the files from the `dist` folder to the folder used by steam to upload the data.
+### Via Steam Client
+
+The Steam client is used to upload code from your local folder. In this case Grunt can be used to copy the files from the `dist` folder to the local folder used by steam to upload the data.
 
 Unfortunately the `copy` plugin can cause some issues with the steam client, so in this case the [rsync](https://www.npmjs.com/package/grunt-rsync) plugin should be used.
 
@@ -292,6 +294,37 @@ Now code can be pushed to your private server.
 
     grunt private
 
+### Using Server Mod 
+
+
+You need to install some authentication mod like 
+[screepsmod-auth](https://github.com/ScreepsMods/screepsmod-auth) at your private server in order for this method to work.
+
+```javascript
+module.exports = function(grunt) {
+
+    grunt.loadNpmTasks('grunt-screeps');
+
+    grunt.initConfig({
+        screeps: {
+            options: {
+                server: {
+                    host: 'your.server.hostname.or.ip',
+                    port: 21025,
+                    http: true
+                },
+                email: 'YOUR_EMAIL',
+                password: 'YOUR_PASSWORD',
+                branch: 'default',
+                ptr: false
+            },
+            dist: {
+                src: ['dist/*.js']
+            }
+        }
+    });
+}
+```
 
 ## Beautify
 
