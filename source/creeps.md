@@ -36,7 +36,7 @@ To maintain the maximum movement speed of 1 square per tick, a creep needs to ha
 
 In other words, one `MOVE` part can move one other part one square per tick. If a creep has less `MOVE` parts, its movement will be proportionally slowed which is seen by the increasing fatigue.
 
-It's worth noting that the `CARRY` part generates fatigue only when it is filled with resources.
+It's worth noting that empty `CARRY` parts don't generate fatigue.
 
 Samples:
 
