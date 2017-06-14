@@ -1,7 +1,9 @@
+---
 title: Third Party Tools
 ---
 
 Screeps has a rich third party development community which have built a number of tools, libraries and web applications.
+If you have a tool not listed here, feel free to edit this article.
 
 {% note warn Use Caution %}
 
