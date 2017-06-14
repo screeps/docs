@@ -37,7 +37,7 @@ Terminals are used in the [Market system](/hc/en-us/articles/207783649-Market-s
         <td>300,000</td>
     </tr>
     <tr>
-        <td><strong>Cooldown on transfer</strong></td>
+        <td><strong>Cooldown on send</strong></td>
         <td>10 ticks</td>
     </tr>
     </tbody>
