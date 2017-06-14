@@ -1,4 +1,9 @@
+---
 title: Caching Overview
+contributed:
+    name: tedivm
+    link: https://github.com/tedivm
+    date: 2017-06-14
 ---
 
 Screeps is a performance centric game- the better your performance the more you can accomplish in each tick. Caching is an extremely important element in performance optimization, and Screeps provides it's own unique opportunities and challenges when it comes to cache.
