@@ -462,7 +462,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have enough ghodium.
-ERR_INVALID_TARGET | The target is not a valid construction site object or the structure cannot be built here (probably because of a creep at the same square).
+ERR_INVALID_TARGET | The target is not a valid controller object.
 ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
