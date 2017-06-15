@@ -38,7 +38,7 @@ Twilio is not a free service. Phone numbers will cost you $1.00 a month, and tex
 {% endnote %}
 
 
-Head over to the [Twilio Signup](https://www.twilio.com/try-twilio) page to get started.
+Head over to the [Twilio Signup](https://www.twilio.com/try-twilio) page to get started. There are many [international numbers](https://docs.aws.amazon.com/sns/latest/dg/sms_supported-countries.html) available.
 
 Once your account is created you will need to [Buy a Number](https://www.twilio.com/console/phone-numbers/search). The number should have SMS capabilities.
 
