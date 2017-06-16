@@ -9,7 +9,7 @@ If you have a tool not listed here, feel free to edit this article.
 
 *   Never give your password out to a third party.
 *   Many third party programs are built using unofficial APIs and may stop working at any time.
-*   All third party programs are run at your own risk- they are not reviewed by game devs and could could cause unforeseen issues.
+*   All third party programs are run at your own risk- they are not reviewed by game devs and could cause unforeseen issues.
 {% endnote %}
 
 
