@@ -46,7 +46,7 @@ Another example shows how this can be utilized for storing the results of an exp
         return runExpensiveCodeResults;
     }
 
-These two examples have a drawback in that they are only run or defined when the code is loaded with "require" for the first time. You can have slightly cleaner code by accessing the `[global](https://nodejs.org/api/globals.html#globals_global)` object, which is a special object in Node that is accessible everywhere.
+These two examples have a drawback in that they are only run or defined when the code is loaded with "require" for the first time. You can have slightly cleaner code by accessing the [`global`](https://nodejs.org/api/globals.html#globals_global) object, which is a special object in Node that is accessible everywhere.
 
     function runExpensiveCode() {
         if(!global.runExpensiveCodeResults) {
