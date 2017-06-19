@@ -102,7 +102,7 @@ Remaining time to go.
 {% endapi_method_params %}
 
 
-{% api_method canCreateCreep 'body, [name]' 1 %}
+{% api_method canCreateCreep 'body, [name], [energyStructures]' 1 %}
 
 ```javascript
 if(spawn.canCreateCreep(body, name) == OK) {
@@ -128,6 +128,10 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 ===
 name (optional) : string
 The name of a new creep. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
+									
+===
+energyStructures (optional) : array
+An array of spawns/extensions from which to take energy for the new creep.
 {% endapi_method_params %}
 
 
