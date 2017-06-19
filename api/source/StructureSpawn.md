@@ -206,6 +206,68 @@ ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spaw
 
 
 
+{% api_method spawnCreep 'body, name, [opts]' A %}
+
+```javascript
+Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1');
+```
+
+```javascript
+Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', 
+    {memory: {role: 'harvester'}});
+```
+
+Start the creep spawning process. The required energy amount can be withdrawn from all spawns and extensions in the room.
+
+{% api_method_params %}
+body : array&lt;string&gt;
+An array describing the new creep’s body. Should contain 1 to 50 elements with one of these constants:
+
+* `WORK`
+* `MOVE`
+* `CARRY`
+* `ATTACK`
+* `RANGED_ATTACK`
+* `HEAL`
+* `TOUGH`
+* `CLAIM`
+				
+===
+name (required) : string
+The name of a new creep. It must be a unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key).
+===
+opts (optional) : object
+An object with additional options for the spawning process.
+<ul>
+    <li>
+        <div class="api-arg-title">memory</div>
+        <div class="api-arg-type">object</div>
+        <div class="api-arg-desc">Memory of the new creep.</div>
+    </li>
+    <li>
+        <div class="api-arg-title">energyStructures</div>
+        <div class="api-arg-type">array</div>
+        <div class="api-arg-desc">Array of spawns/extensions from which to draw energy for the spawning process.</div>
+    </li>
+</ul>
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this spawn.
+ERR_NAME_EXISTS | There is a creep with the same name already.
+ERR_BUSY | The spawn is already in process of spawning another creep.
+ERR_NOT_ENOUGH_ENERGY | The spawn and its extensions contain not enough energy to create a creep with the given body.
+ERR_INVALID_ARGS | Body is not properly described or name was not provided.
+ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
+{% endapi_return_codes %}
+
+
+
 {% api_method recycleCreep 'target' A %}
 
 
