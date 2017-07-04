@@ -1,7 +1,7 @@
 # RoomPosition
 
-An object representing the specified position in the room. Every `RoomObject` in the room 
-contains `RoomPosition` as the `pos` property. The position object of a custom location 
+An object representing the specified position in the room. Every `RoomObject` in the room
+contains `RoomPosition` as the `pos` property. The position object of a custom location
 can be obtained using the [`Room.getPositionAt`](#Room.getPositionAt) method or using the constructor.
 
 {% api_method constructor 'x, y, roomName' 0 %}
@@ -46,8 +46,8 @@ X position in the room.
 
 
 
-Y position in the room. 
- 
+Y position in the room.
+
 
 {% api_method createConstructionSite 'structureType' A %}
 
@@ -71,7 +71,7 @@ OK | The operation has been scheduled successfully.
 ERR_INVALID_TARGET | The structure cannot be placed at the specified location.
 ERR_FULL | You have too many construction sites. The maximum number of construction sites per player is 100.
 ERR_INVALID_ARGS | The location is incorrect.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/hc/en-us/articles/203086021-Territory-control">Learn more</a>
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html">Learn more</a>
 {% endapi_return_codes %}
 
 
@@ -171,7 +171,7 @@ An object containing pathfinding options (see <a href="#Room.findPath">Room.find
 								The default value is determined automatically using heuristics.</div>
 						</li>
 					</ul>
-				
+
 {% endapi_method_params %}
 
 
@@ -227,7 +227,7 @@ An object containing one of the following options:
 							<div class="api-arg-desc">Only the objects which pass the filter using the <a href="https://lodash.com/docs#filter">Lodash.filter</a> method will be used.</div>
 						</li>
 					</ul>
-				
+
 {% endapi_method_params %}
 
 
@@ -285,7 +285,7 @@ creep.move(path[0].direction);
 ```javascript
 let path = creep.pos.findPathTo(target, {maxOps: 200});
 if( !path.length || !target.equalsTo(path[path.length - 1]) ) {
-    path = creep.pos.findPathTo(target, 
+    path = creep.pos.findPathTo(target,
         {maxOps: 1000, ignoreDestructibleStructures: true});
 }
 if( path.length ) {
@@ -467,7 +467,7 @@ A boolean value.
 ```javascript
 const look = Game.flags.Flag1.pos.look();
 look.forEach(function(lookObject) {
-    if(lookObject.type == LOOK_CREEPS && 
+    if(lookObject.type == LOOK_CREEPS &&
        lookObject[LOOK_CREEPS].getActiveBodyparts(ATTACK) == 0) {
         creep.moveTo(lookObject.creep);
     }

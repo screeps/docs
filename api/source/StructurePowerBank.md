@@ -2,9 +2,9 @@
 
 <img src="img/powerBank.png" alt="" align="right" />
 
-Non-player structure. Contains power resource which can be obtained by destroying the structure. 
-Hits the attacker creep back on each attack. Learn more about power 
-from [this article](/hc/en-us/articles/205971132-Power).
+Non-player structure. Contains power resource which can be obtained by destroying the structure.
+Hits the attacker creep back on each attack. Learn more about power
+from [this article](/power.html).
 
 <table class="table gameplay-info">
     <tbody>
@@ -43,5 +43,3 @@ The amount of power containing.
 
 
 The amount of game ticks when this structure will disappear.
-
-

@@ -1,7 +1,7 @@
 # Room
 
-An object representing the room in which your units and structures are in. 
-It can be used to look around, find paths, etc. Every `RoomObject` in the room contains 
+An object representing the room in which your units and structures are in.
+It can be used to look around, find paths, etc. Every `RoomObject` in the room contains
 its linked `Room` instance in the `room` property.
 
 {% api_property controller '<a href="#StructureController">StructureController</a>' %}
@@ -62,7 +62,7 @@ The Storage structure of this room, if present, otherwise undefined.
 
 
 
-{% api_property terminal '<a href="/hc/en-us/articles/207713399-StructureTerminal">StructureTerminal</a>' %}
+{% api_property terminal '<a href="#StructureTerminal">StructureTerminal</a>' %}
 
 
 
@@ -74,7 +74,7 @@ The Terminal structure of this room, if present, otherwise undefined.
 
 
 
-A <a href="/hc/en-us/articles/115000962829-RoomVisual">RoomVisual</a> object for this room. You can use this object to draw simple shapes (lines, circles, text labels) in the room.
+A <a href="#RoomVisual">RoomVisual</a> object for this room. You can use this object to draw simple shapes (lines, circles, text labels) in the room.
 
 
 
@@ -148,7 +148,7 @@ OK | The operation has been scheduled successfully.
 ERR_INVALID_TARGET | The structure cannot be placed at the specified location.
 ERR_FULL | You have too many construction sites. The maximum number of construction sites per player is 100.
 ERR_INVALID_ARGS | The location is incorrect.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/hc/en-us/articles/203086021-Territory-control">Learn more</a>
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html">Learn more</a>
 {% endapi_return_codes %}
 
 
@@ -232,7 +232,7 @@ An object with additional options:
 							<div class="api-arg-desc">The result list will be filtered using the <a href="https://lodash.com/docs#filter">Lodash.filter</a> method.</div>
 						</li>
 					</ul>
-				
+
 {% endapi_method_params %}
 
 
@@ -268,7 +268,7 @@ The room direction constant, one of the following:
 * `FIND_EXIT_RIGHT`
 * `FIND_EXIT_BOTTOM`
 * `FIND_EXIT_LEFT`
-			
+
 Or one of the following error codes:
 {% api_return_codes %}
 ERR_NO_PATH | Path can not be found.
@@ -343,12 +343,12 @@ An object containing additonal pathfinding flags:
     <li>
         <div class="api-arg-title">costCallback</div>
         <div class="api-arg-type">function(string, CostMatrix)</div>
-        <div class="api-arg-desc">You can use this callback to modify a <a href="/hc/en-us/articles/207666355"><code>CostMatrix</code></a> for any room during the search. The callback accepts two arguments, <code>roomName</code> and <code>costMatrix</code>. Use the <code>costMatrix</code> instance to make changes to the positions costs. If you return a new matrix from this callback, it will be used instead of the built-in cached one. This option is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">You can use this callback to modify a <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a> for any room during the search. The callback accepts two arguments, <code>roomName</code> and <code>costMatrix</code>. Use the <code>costMatrix</code> instance to make changes to the positions costs. If you return a new matrix from this callback, it will be used instead of the built-in cached one. This option is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
     </li>
     <li>
         <div class="api-arg-title">ignore</div>
         <div class="api-arg-type">array</div>
-        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as walkable tiles during the search. This option cannot be used when the new <a href="/hc/en-us/articles/207023879"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
+        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as walkable tiles during the search. This option cannot be used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
     </li>
     <li>
         <div class="api-arg-title">avoid</div>
@@ -373,10 +373,10 @@ An object containing additonal pathfinding flags:
     <li>
         <div class="api-arg-title">maxRooms</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16. This is only used when the new <a href="/hc/en-us/articles/207023879"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16. This is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
     </li>
 </ul>
-				
+
 {% endapi_method_params %}
 
 
@@ -423,7 +423,7 @@ object or null if it cannot be obtained.
 ```javascript
 const look = creep.room.lookAt(target);
 look.forEach(function(lookObject) {
-    if(lookObject.type == LOOK_CREEPS && 
+    if(lookObject.type == LOOK_CREEPS &&
        lookObject[LOOK_CREEPS].getActiveBodyparts(ATTACK) == 0) {
         creep.moveTo(lookObject.creep);
     }
@@ -486,7 +486,7 @@ Set to true if you want to get the result as a plain array.
 
 ### Return value
 
-If `asArray` is set to false or undefined, the method returns 
+If `asArray` is set to false or undefined, the method returns
 an object with all the objects in the specified area in the following format:
 
 ```javascript-content
@@ -585,7 +585,7 @@ Set to true if you want to get the result as a plain array.
 
 ### Return value
 
-If `asArray` is set to false or undefined, the method returns an object 
+If `asArray` is set to false or undefined, the method returns an object
 with all the objects of the given type in the specified area in the following format:
 
 ```javascript-content
@@ -614,4 +614,3 @@ If `asArray` is set to true, the method returns an array in the following format
 	{x: 6, y: 11, structure: {...}}
 ]
 ```
-

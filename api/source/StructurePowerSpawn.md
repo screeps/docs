@@ -2,9 +2,9 @@
 
 <img src="img/powerSpawn.png" alt="" align="right" />
 
-Processes power into your account, and spawns power creeps with special unique powers (in development). 
-Learn more about power from [this article](/hc/en-us/articles/205971132-Power).
-	
+Processes power into your account, and spawns power creeps with special unique powers (in development).
+Learn more about power from [this article](/power.html).
+
 <table class="table gameplay-info">
     <tbody>
     <tr>
@@ -111,7 +111,7 @@ ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 
 {% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
 
- 
+
 
 Transfer the energy from this structure to a creep. You can transfer resources to your creeps from hostile structures as well.
 
@@ -135,5 +135,3 @@ ERR_INVALID_TARGET | The specified target object is not a creep.
 ERR_FULL | The target creep can not carry the given amount of energy.
 ERR_NOT_IN_RANGE | The target creep is too far away.
 {% endapi_return_codes %}
-
-
