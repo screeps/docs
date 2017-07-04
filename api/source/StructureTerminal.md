@@ -9,7 +9,7 @@ For example, sending 1000 mineral units from W0N0 to W10N5 will consume 742 ener
 You can track your incoming and outgoing transactions using the [`Game.market`](#Game.market) object. 
 Only one Terminal per room is allowed that can be addressed by [`Room.terminal`](#Room.terminal) property.
 
-Terminals are used in the [Market system](/hc/en-us/articles/207783649-Market-system).
+Terminals are used in the [Market system](/market.html).
 
 <table class="table gameplay-info">
     <tbody>
