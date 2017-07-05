@@ -1,7 +1,7 @@
 # Creep  
 
 
-Creeps are your units. Creeps can move, harvest energy, construct structures, attack another creeps, and perform other actions. Each creep consists of up to 50 body parts with the following possible types: 
+Creeps are your units. Creeps can move, harvest energy, construct structures, attack another creeps, and perform other actions. Each creep consists of up to 50 body parts with the following possible types:
 ![](img/bodyparts.png)   
 
 <table class="table gameplay-info">
@@ -16,7 +16,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         <td>50</td>
         <td>Decreases fatigue by 2 points per tick.</td>
     </tr>
-    <tr> 
+    <tr>
         <td><code style="color: #ffe56d;">WORK</code></td>
         <td>100</td>
         <td>
@@ -28,7 +28,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
             <p>Upgrades a controller for 1 energy unit per tick.</p>
         </td>
     </tr>
-    <tr> 
+    <tr>
         <td><code style="color: #777;">CARRY</code></td>
         <td>50</td>
         <td>Can contain up to 50 resource units.</td>
@@ -69,7 +69,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
     </tbody>
 </table>
 
-{% page inherited/RoomObject.md %} 
+{% page inherited/RoomObject.md %}
 
 
 {% api_property body array %}
@@ -83,7 +83,7 @@ boost : string | undefined
 If the body part is boosted, this property specifies the mineral type which is used for boosting. One of the <code>RESOURCE_*</code> constants. <a href="/minerals.html">Learn more</a>
 ===
 type : string
-One of the body part types constants. 
+One of the body part types constants.
 ===
 hits : number
 The remaining amount of hit points of this body part.
@@ -267,7 +267,7 @@ ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are not enough <code>CLAIM</code> body parts in this creep’s body.
 {% endapi_return_codes %}
 
- 
+
 
 {% api_method build 'target' A %}
 
@@ -376,7 +376,7 @@ if(target) {
         creep.moveTo(target);
     }
 }
-    
+
 ```
 
 Dismantles any (even hostile) structure returning 50% of the energy spent on its repair. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the energy is put into it; otherwise it is dropped on the ground. The target has to be at adjacent square to the creep.
@@ -495,7 +495,7 @@ A body part type, one of the following body part constants:
 						<li><code>HEAL</code></li>
 						<li><code>TOUGH</code></li>
 					</ul>
-				
+
 {% endapi_method_params %}
 
 
@@ -552,7 +552,7 @@ if(target) {
         creep.moveTo(target);
     }
 }
-    
+
 ```
 
 Heal self or another creep. It will restore the target creep’s damaged body parts function and increase the hits counter. Requires the <code>HEAL</code> body part. The target has to be at adjacent square to the creep.
@@ -605,7 +605,7 @@ One of the following constants:
 						<li><code>LEFT</code></li>
 						<li><code>TOP_LEFT</code></li>
 					</ul>
-				
+
 {% endapi_method_params %}
 
 
@@ -734,7 +734,7 @@ An object containing additional options:
 						<li>
 							<div class="api-arg-title">visualizePathStyle</div>
 							<div class="api-arg-type">object</div>
-							<div class="api-arg-desc">Draw a line along the creep’s path using <a href="/hc/en-us/articles/115000962829-RoomVisual#poly"><code>RoomVisual.poly</code></a>. You can provide either an empty object or custom style parameters. The default style is equivalent to:
+							<div class="api-arg-desc">Draw a line along the creep’s path using <a href="#RoomVisual.poly"><code>RoomVisual.poly</code></a>. You can provide either an empty object or custom style parameters. The default style is equivalent to:
 								<pre class="language-javascript"><code>{
     fill: 'transparent',
     stroke: '#fff',
@@ -746,7 +746,7 @@ An object containing additional options:
 						</li>
 						<li>Any options supported by <a href="#Room.findPath"><code>Room.findPath</code></a> method.</li>
 					</ul>
-				
+
 {% endapi_method_params %}
 
 
@@ -1202,5 +1202,3 @@ ERR_FULL | The creep's carry is full.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_INVALID_ARGS | The resource amount or type is incorrect.
 {% endapi_return_codes %}
-
-

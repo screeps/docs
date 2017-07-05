@@ -26,7 +26,7 @@ For these reasons it makes sense to limit what is placed in [Memory](/global-obj
 
 ### Global
 
-The [game loop]('http://support.screeps.com/hc/en-us/articles/204825672-New-main-loop-architecture') architecture allows you to define a "loop" function which gets run each tick. Additionally it allows you to define expensive one-time-run code in the outer scope. This is most commonly used to `require` modules-
+The [game loop](/game-loop.html) architecture allows you to define a "loop" function which gets run each tick. Additionally it allows you to define expensive one-time-run code in the outer scope. This is most commonly used to `require` modules-
 
     // executed on new global
     var mod = require('mod');

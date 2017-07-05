@@ -1,6 +1,6 @@
 # Game    
 
-The main global game object containing all the game play information. 
+The main global game object containing all the game play information.
 
 
 {% api_property Game.constructionSites 'object&lt;string, <a href="#ConstructionSite">ConstructionSite</a>&gt;' %}
@@ -19,13 +19,13 @@ An object containing information about your CPU usage with the following propert
 
 {% api_method_params %}
 limit : number
-Your CPU limit depending on your <a href="/hc/en-us/articles/203086021-Territory-control">Global Control Level</a>.
+Your CPU limit depending on your <a href="/control.html#Global-Control-Level">Global Control Level</a>.
 ===
 tickLimit : number
-An amount of available CPU time at the current game tick.<br>It can be higher than <code>Game.cpu.limit</code>. <a href="/hc/en-us/articles/204332302">Learn more</a>
+An amount of available CPU time at the current game tick.<br>It can be higher than <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">Learn more</a>
 ===
 bucket : number
-An amount of unused CPU accumulated in your <a href="/hc/en-us/articles/204332302">bucket</a>.
+An amount of unused CPU accumulated in your <a href="/cpu-limit.html#Bucket">bucket</a>.
 {% endapi_method_params %}
 
 
@@ -55,7 +55,7 @@ A hash containing all your flags with flag names as hash keys.
 
 
 
-Your <a href="/hc/en-us/articles/203086021-Territory-control">Global Control Level</a>, an object with the following properties :
+Your <a href="/control.html#Global-Control-Level">Global Control Level</a>, an object with the following properties :
 
 {% api_method_params %}
 level : number
@@ -127,7 +127,7 @@ A hash containing all your structures with structure id as hash keys.
 console.log(Game.time);
 ```
 
-System game tick counter. It is automatically incremented on every tick. <a href="/hc/en-us/articles/203032752-Understanding-game-loop-time-and-ticks">Learn more</a>
+System game tick counter. It is automatically incremented on every tick. <a href="/game-loop.html">Learn more</a>
 
 
 
@@ -197,7 +197,7 @@ if(Game.spawns['Spawn1'].energy == 0) {
     );
 }
 
-``` 
+```
 
 Send a custom message at your profile email. This way, you can set up notifications to yourself on any occasion within the game. You can schedule up to 20 notifications during one game tick. Not available in the Simulation Room.
 
@@ -208,6 +208,3 @@ Custom text which will be sent in the message. Maximum length is 1000 characters
 groupInterval : number
 If set to 0 (default), the notification will be scheduled immediately. Otherwise, it will be grouped with other notifications and mailed out later using the specified time in minutes.
 {% endapi_method_params %}
-
-
-

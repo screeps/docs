@@ -11,14 +11,14 @@ Each action command returns code `OK` if the execution was successful and one of
 
 	var result = creep.attack(target);
     if(result != OK) {
-        console.log(creep + ' failed to attack the target ' + target + 
+        console.log(creep + ' failed to attack the target ' + target +
                         ' with the code: ' + result);
     }
-    
+
 
 Note that a seemingly successful command may not always be executed (for example, your creep faces an obstacle it did not know about when the script started).
 
-In order to safely test your scripts in a parallel copy of the world, you can use our [Public Test Realm](/hc/en-us/articles/205999532-Public-Test-Realm) server.
+In order to safely test your scripts in a parallel copy of the world, you can use our [Public Test Realm](/ptr.html) server.
 
 ## Debugging in the web version
 
