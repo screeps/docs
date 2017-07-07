@@ -203,7 +203,7 @@ Send a custom message at your profile email. This way, you can set up notificati
 
 {% api_method_params %}
 message : string
-Custom text which will be sent in the message. Maximum length is 1000 characters.
+Custom text which will be sent in the message. Maximum length is 500 characters.
 ===
 groupInterval : number
 If set to 0 (default), the notification will be scheduled immediately. Otherwise, it will be grouped with other notifications and mailed out later using the specified time in minutes.
