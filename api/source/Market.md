@@ -380,6 +380,7 @@ property | description
 `roomName` | The room where this order is placed.
 `amount` | Currently available amount to trade.
 `remainingAmount` | How many resources are left to trade via this order. 
+`price` | The current price per unit.
 
 
 
