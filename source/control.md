@@ -81,7 +81,7 @@ A newly-seized Controller allows to build one spawn in the room. In order for yo
 
 ## Attacking controllers
 
-A Controller cannot be damaged or destroyed. However, a Controller not affected by an [`upgradeController`](/api/#Creep.upgradeController) action will run a downgrade timer losing 20,000 game ticks at RCL 1, or 5,000 game ticks at RCL 2 to 150,000 game ticks at RCL 8. All timers are listed in [`StructureController`](/api/#StructureController) prototype. As soon as its level reaches 0, it becomes neutral, and another player can reclaim it. Make sure that you upgrade your controllers from time to time to keep their levels!
+A Controller cannot be damaged or destroyed. However, a Controller not affected by an [`upgradeController`](/api/#Creep.upgradeController) action will run a downgrade timer losing 2,000 game ticks at RCL 1, or 5,000 game ticks at RCL 2 to 150,000 game ticks at RCL 8. All timers are listed in [`StructureController`](/api/#StructureController) prototype. As soon as its level reaches 0, it becomes neutral, and another player can reclaim it. Make sure that you upgrade your controllers from time to time to keep their levels!
 
 You can attack another player's controller downgrade timer by applying [`attackController`](/api/#Creep.attackController) on it.
 
