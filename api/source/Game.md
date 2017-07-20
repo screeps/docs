@@ -99,7 +99,20 @@ An object with your global resources that are bound to the account, like subscri
 
 A hash containing all the rooms available to you with room names as hash keys. A room is visible if you have a creep or an owned structure in it.
 
+{% api_property Game.shard 'object' %}
 
+An object describing the world shard where your script is currently being executed in.
+
+{% api_method_params %}
+name : string
+The name of the shard.
+===
+type : string
+Currently always equals to `normal`.
+===
+ptr : boolean
+Whether this shard belongs to the [PTR](/ptr.html).
+{% endapi_method_params %}
 
 {% api_property Game.spawns 'object&lt;string, <a href="#StructureSpawn">StructureSpawn</a>&gt;' %}
 

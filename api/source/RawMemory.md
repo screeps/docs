@@ -45,6 +45,31 @@ The segment contents.
 
 
 
+
+{% api_property RawMemory.interShardSegment 'string' %}
+
+```javascript
+RawMemory.interShardSegment = JSON.stringify({
+    creeps: {
+        Bob: {role: 'claimer'}
+    }
+});
+
+// on another shard
+var interShardData = JSON.parse(RawMemory.interShardSegment);
+if(interShardData.creeps[creep.name]) {
+    creep.memory = interShardData[creep.name];
+    delete interShardData.creeps[creep.name];
+}
+RawMemory.interShardSegment = JSON.stringify(interShardData);
+```
+
+A string with a shared memory segment available on every world shard. Maximum string length is 100 KB.
+
+**Warning:** this segment is not safe for concurrent usage! Changes made by one shard can be rewritten by changes made by another shard. 
+You must implement your own system to determine when each shard is allowed to rewrite the inter-shard memory.  
+
+
 {% api_method RawMemory.get '' 0 %}
 
 ```javascript

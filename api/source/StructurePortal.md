@@ -21,12 +21,13 @@ Portals appear randomly in the central room of each sector.</p>
 {% page inherited/Structure.md %}
 
 
-{% api_property destination '<a href="#RoomPosition">RoomPosition</a>' %}
+{% api_property destination '<a href="#RoomPosition">RoomPosition</a> | object' %}
 
+If this is an **inter-room** portal, then this property contains a `RoomPosition` object 
+leading to the point in the destination room.
 
-
-The position object in the destination room.
-
+If this is an **inter-shard** portal, then this property contains an object with `shard` and `room` string properties.
+Exact coordinates are undetermined, the creep will appear at any free spot in the destination room.
 
 
 {% api_property ticksToDecay 'number' %}
