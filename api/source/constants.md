@@ -32,7 +32,7 @@ All the following constant names are available in the global scope:
     FIND_HOSTILE_CREEPS: 103,
     FIND_SOURCES_ACTIVE: 104,
     FIND_SOURCES: 105,
-    FIND_DROPPED_ENERGY: 106,
+    FIND_DROPPED_ENERGY: -106,
     FIND_DROPPED_RESOURCES: 106,
     FIND_STRUCTURES: 107,
     FIND_MY_STRUCTURES: 108,
@@ -99,8 +99,9 @@ All the following constant names are available in the global scope:
         "claim": 600
     },
 
-    WORLD_WIDTH: 182,
-    WORLD_HEIGHT: 182,
+    // WORLD_WIDTH and WORLD_HEIGHT constants are deprecated, please use Game.map.getWorldSize() instead
+    WORLD_WIDTH: 202,
+    WORLD_HEIGHT: 202,
 
     CREEP_LIFE_TIME: 1500,
     CREEP_CLAIM_LIFE_TIME: 500,
@@ -266,12 +267,7 @@ All the following constant names are available in the global scope:
     GCL_POW: 2.4,
     GCL_MULTIPLY: 1000000,
     GCL_NOVICE: 3,
-
-    MODE_SIMULATION: "simulation",
-    MODE_SURVIVAL: "survival",
-    MODE_WORLD: "world",
-    MODE_ARENA: "arena",
-
+    
     TERRAIN_MASK_WALL: 1,
     TERRAIN_MASK_SWAMP: 2,
     TERRAIN_MASK_LAVA: 4,
@@ -731,4 +727,5 @@ COLORS_ALL = [
     COLOR_GREY,
     COLOR_WHITE
 ];
+
 ```
