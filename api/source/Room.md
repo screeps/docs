@@ -38,14 +38,6 @@ A shorthand to <code>Memory.rooms[room.name]</code>. You can use it for quick ac
 
 
 
-{% api_property mode 'string' %}
-
-
-
-One of the following constants:
-
-
-
 {% api_property name 'string' %}
 
 
