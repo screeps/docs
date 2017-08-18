@@ -1,6 +1,6 @@
 # Game.map
 
-A global object representing world map. Use it to navigate between rooms. The object is accessible via [`Game.map`](#Game.map) property.
+A global object representing world map. Use it to navigate between rooms.
 
 
 {% api_method Game.map.describeExits 'roomName' 1 %}

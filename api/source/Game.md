@@ -73,7 +73,7 @@ The progress required to reach the next level.
 
 
 
-A global object representing world map.
+A global object representing world map. See the [documentation](#Game-map) below.
 
 
 
@@ -81,7 +81,7 @@ A global object representing world map.
 
 
 
-A global object representing the in-game market.
+A global object representing the in-game market. See the [documentation](#Game-market) below.
 
 
 
