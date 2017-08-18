@@ -68,7 +68,7 @@ An example of committing code using Node.js:
     });
 
     req.write(JSON.stringify(data));
-    req.end();</code>
+    req.end();
 
 Request:
 
