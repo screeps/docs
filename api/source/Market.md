@@ -170,7 +170,7 @@ ERR_INVALID_ARGS | The order ID is not valid.
 Game.market.changeOrderPrice('57bec1bf77f4d17c4c011960', 9.95);
 ```
 
-Change the price of an existing order. If <code>newPrice</code> is greater than old price, you will be charged <code>(newPrice-oldPrice)*remainingAmount*0.05</code> credits.
+Change the price of an existing order. If <code>newPrice</code> is greater than old price, you will be charged <code>(newPrice-oldPrice)\*remainingAmount\*0.05</code> credits.
 
 {% api_method_params %}
 orderId : string
@@ -199,7 +199,7 @@ ERR_INVALID_ARGS | The arguments provided are invalid.
 Game.market.createOrder(ORDER_SELL, RESOURCE_GHODIUM, 9.95, 10000, "W1N1");
 ```
 
-Create a market order in your terminal. You will be charged <code>price*amount*0.05</code> credits when the order is placed. The maximum orders count is 50 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
+Create a market order in your terminal. You will be charged <code>price\*amount\*0.05</code> credits when the order is placed. The maximum orders count is 50 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
 
 {% api_method_params %}
 type : string
