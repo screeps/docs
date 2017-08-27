@@ -19,13 +19,17 @@ An object containing information about your CPU usage with the following propert
 
 {% api_method_params %}
 limit : number
-Your CPU limit depending on your <a href="/control.html#Global-Control-Level">Global Control Level</a>.
+Your assigned CPU limit for the current shard.
 ===
 tickLimit : number
-An amount of available CPU time at the current game tick.<br>It can be higher than <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">Learn more</a>
+An amount of available CPU time at the current game tick.<br>Usually it is higher than <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">Learn more</a>
 ===
 bucket : number
 An amount of unused CPU accumulated in your <a href="/cpu-limit.html#Bucket">bucket</a>.
+===
+shardLimits : object<br>&lt;string,number&gt;
+An object with limits for each shard with shard names as keys. You can use <a href="#Game.setShardLimits">setShardLimits</a>
+method to re-assign them.
 {% endapi_method_params %}
 
 
@@ -172,6 +176,29 @@ Get amount of CPU time used from the beginning of the current game tick. Alway
 
 Returns currently used CPU time as a float number.
 
+{% api_method Game.cpu.setShardLimits 'limits' 1 %}
+
+```javascript
+Game.cpu.setShardLimits({shard0: 20, shard1: 10});
+```
+
+Allocate CPU limits to different shards. Total amount of CPU should remain equal to 
+ `Game.cpu.shardLimits`'. This method can be used only once per 12 hours.
+
+{% api_method_params %}
+limits : object&lt;string, number&gt;
+An object with CPU values for each shard in the same format as `Game.cpu.shardLimits`.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_BUSY | 12-hours cooldown period is not over yet.
+ERR_INVALID_ARGS | The argument is not a valid shard limits object.
+{% endapi_return_codes %}
 
 
 {% api_method Game.getObjectById 'id' 1 %}
