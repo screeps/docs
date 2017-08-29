@@ -12,12 +12,12 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         <th>Effect per one body part</th>
     </tr>
     <tr>
-        <td><code style="color: #a9b7c6;">MOVE</code></td>
+        <td><code style="background: #333; color: #a9b7c6;">MOVE</code></td>
         <td>50</td>
         <td>Decreases fatigue by 2 points per tick.</td>
     </tr>
     <tr>
-        <td><code style="color: #ffe56d;">WORK</code></td>
+        <td><code style="background: #333; color: #ffe56d;">WORK</code></td>
         <td>100</td>
         <td>
             <p>Harvests 2 energy units from a source per tick.</p>
@@ -29,17 +29,17 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         </td>
     </tr>
     <tr>
-        <td><code style="color: #777;">CARRY</code></td>
+        <td><code style="background: #333; color: #777;">CARRY</code></td>
         <td>50</td>
         <td>Can contain up to 50 resource units.</td>
     </tr>
     <tr>
-        <td><code style="color: #f93842;">ATTACK</code></td>
+        <td><code style="background: #333; color: #f93842;">ATTACK</code></td>
         <td>80</td>
         <td>Attacks another creep/structure with 30 hits per tick in a short-ranged attack.</td>
     </tr>
     <tr>
-        <td><code style="color: #5d80b2;">RANGED_ATTACK</code></td>
+        <td><code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code></td>
         <td>150</td>
         <td>
             <p>Attacks another single creep/structure with 10 hits per tick in a long-range attack up to 3 squares long.</p>
@@ -47,12 +47,12 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         </td>
     </tr>
     <tr>
-        <td><code style="color: #65fd62;">HEAL</code></td>
+        <td><code style="background: #333; color: #65fd62;">HEAL</code></td>
         <td>250</td>
         <td>Heals self or another creep restoring 12 hits per tick in short range or 4 hits per tick at a distance.</td>
     </tr>
     <tr>
-        <td><code style="color: #b99cfb;">CLAIM</code></td>
+        <td><code style="background: #333; color: #b99cfb;">CLAIM</code></td>
         <td>600</td>
         <td>
             <p>Claims a neutral room controller.</p>
@@ -62,7 +62,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         </td>
     </tr>
     <tr>
-        <td><code style="color: #fff;">TOUGH</code></td>
+        <td><code style="background: #333; color: #fff;">TOUGH</code></td>
         <td>10</td>
         <td>No effect, just additional hit points to the creep's body. Can be boosted to resist damage.</td>
     </tr>
