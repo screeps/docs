@@ -325,7 +325,7 @@ An object containing additonal pathfinding flags:
     <li>
         <div class="api-arg-title">ignoreDestructibleStructures</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">Treat squares with destructible structures (constructed walls, ramparts, spawns, extensions) as walkable. Use this flag when you need to move through a territory blocked by hostile structures. If a creep with an <code>ATTACK</code> body part steps on such a square, it automatically attacks the structure. The default value is false.</div>
+        <div class="api-arg-desc">Treat squares with destructible structures (constructed walls, ramparts, spawns, extensions) as walkable. The default value is false.</div>
     </li>
     <li>
         <div class="api-arg-title">ignoreRoads</div>

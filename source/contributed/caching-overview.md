@@ -8,7 +8,7 @@ contributed:
 
 Screeps is a performance centric game- the better your performance the more you can accomplish in each tick. Caching is an extremely important element in performance optimization, and Screeps provides it's own unique opportunities and challenges when it comes to cache.
 
-Caching is, at it's core, a simple concept- by saving the results of expensive code future calls are less expensive. Caching also has a secondary benefit that can be exploited, in that it allows functions to returns results even if they shouldn't be able to. As an example caching the results of a pathfinding operation will let creeps reuse that optimal path even if visibility is lost to room along that path, which in turn provides both improved performance and resiliency.
+Caching is, at it's core, a simple concept- by saving the results of expensive code future calls are less expensive. Caching also has a secondary benefit that can be exploited, in that it allows functions to return results even if they shouldn't be able to. As an example caching the results of a pathfinding operation will let creeps reuse that optimal path even if visibility is lost to room along that path, which in turn provides both improved performance and resiliency.
 
 ## Datastores
 
@@ -16,7 +16,7 @@ Caching is, at it's core, a simple concept- by saving the results of expensive c
 
 The most common place to store cached data is in [Memory](/global-objects.html#Memory-object). This is the only option for true persistance- anything stored in [Memory](/global-objects.html#Memory-object) is going to stay there until removed, so if a value is extremely expensive or must be saved this is the place to put it.
 
-There are two major drawbacks with [Memory](/global-objects.html#Memory-object)-
+There are two major drawbacks with [Memory](/global-objects.html#Memory-object)
 
 *   Space in [Memory](/global-objects.html#Memory-object) is limited to 2048kb of space.
 *   JSON.parse is run on the [Memory](/global-objects.html#Memory-object) string each tick it is accessed, which is more expensive the more data that is stored.
