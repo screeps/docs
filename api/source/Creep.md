@@ -247,7 +247,7 @@ if(creep.room.controller && !creep.room.controller.my) {
 
 ```
 
-Decreases the controller's downgrade or reservation timer for 1 tick per every 5 <code>CLAIM</code> body parts (so the creep must have at least 5x<code>CLAIM</code>). The controller under attack cannot be upgraded for the next 1,000 ticks. The target has to be at adjacent square to the creep.
+Decreases the controller's downgrade or reservation timer for 300 ticks per every <code>CLAIM</code> body part. The controller under attack cannot be upgraded or attacked again for the next 1,000 ticks. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
@@ -265,6 +265,7 @@ ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid owned or reserved controller object.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are not enough <code>CLAIM</code> body parts in this creep’s body.
+ERR_TIRED | You have to wait until the next attack is possible.
 {% endapi_return_codes %}
 
 
@@ -1144,7 +1145,11 @@ if(creep.room.controller) {
 
 ```
 
-Upgrade your controller to the next level using carried energy. Upgrading controllers raises your Global Control Level in parallel. Requires <code>WORK</code> and <code>CARRY</code> body parts. The target has to be within 3 squares range of the creep. A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/minerals.html">ghodium mineral boost</a>.
+Upgrade your controller to the next level using carried energy. Upgrading controllers raises your Global Control Level in parallel. Requires <code>WORK</code> and <code>CARRY</code> body parts. The target has to be within 3 squares range of the creep. 
+
+A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/minerals.html">ghodium mineral boost</a>.
+
+Upgrading the controller raises its `ticksToDowngrade` timer by 100. The timer must be full in order for controller to be levelled up.
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
