@@ -20,7 +20,7 @@ In the **end of the tick, **the commands specified in the `main` accumulate in o
 *   Physically, resource intensity of the `main` execution is limited by the available CPU (see [`Game.cpuLimit`](/api/#Game.cpuLimit)) .
 *   The amount of CPU actually used in the current tick is shown by [`Game.getUsedCpu`](/api/#Game.getUsedCpu).
 *   The correlation between the game tick counter ([`Game.time`](/api/#Game.time)) and real time depends on overall capacity of servers affected.
-*   All runtime global scope with all the variables between ticks is erased. See more in [this article](/global-objects.md).
+*   All runtime global scope with all the variables between ticks is erased. See more in [this article](/global-objects.html).
 *   A console command is governed by the same rules: execution is made within one tick as though it is added to the end of `main`.
 
 
