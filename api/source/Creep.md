@@ -662,16 +662,6 @@ ERR_NO_BODYPART | There are no <code>MOVE</code> body parts in this creep’s bo
 {% api_method moveTo 'x, y, [opts]|target, [opts]' 3 %}
 
 ```javascript
-{
-    fill: 'transparent',
-    stroke: '#fff',
-    lineStyle: 'dashed',
-    strokeWidth: .15,
-    opacity: .1
-}
-```
-
-```javascript
 creep.moveTo(10, 20);
 ```
 
