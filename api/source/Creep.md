@@ -618,6 +618,7 @@ ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
+ERR_INVALID_ARGS | The provided direction is incorrect.
 {% endapi_return_codes %}
 
 
