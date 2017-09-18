@@ -13,7 +13,7 @@ The following rules are in force in these rooms:
 *   Only players with GCL 3 or lower is allowed to start playing in these rooms.
 *   Each player is allowed to [claim](/api/#Creep.claimController) not more than 3 rooms. But the room [reservation](/api/#Creep.reserveController) is unlimited.
 *   No cooldown between [safe mode](/defense.html) activations.
-*   It’s prohibited to build and use [Nukers](/api/#StructureNuker). 
+*   It’s prohibited to use [Nukers](/api/#StructureNuker). 
 
 Novice Areas have the day counter. After it runs out, the walls disappear, rooms lose the green mark, all the limitations are cancelled, and the sector becomes a regular part of the world. After zones are opened, residents can start outward expansion, but can also face invasion into their sectors. 
 
