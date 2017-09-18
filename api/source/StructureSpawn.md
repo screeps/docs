@@ -213,8 +213,15 @@ Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1');
 ```
 
 ```javascript
-Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', 
-    {memory: {role: 'harvester'}});
+Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {memory: {role: 'harvester'}});
+```
+
+```javascript
+Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {energyStructures: [Game.spawns['Spawn1'], Game.getObjectById('anExtensionId')]});
+```
+
+```javascript
+var testIfCanSpawn = Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {dryRun: true});
 ```
 
 Start the creep spawning process. The required energy amount can be withdrawn from all spawns and extensions in the room.
