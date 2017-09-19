@@ -2,7 +2,7 @@
 
 RawMemory object allows to implement your own memory stringifier instead of built-in serializer 
 based on `JSON.stringify`. It also allows to request up to 10 MB of additional memory 
-using asynchronous memory segments feature. 
+using asynchronous memory segments feature.
 
 You can also access memory segments of other players using methods below.
 
@@ -16,7 +16,7 @@ console.log(RawMemory.segments[3]);
 RawMemory.segments[3] = '{"foo": "bar", "counter": 15}';
 ```
 
-An object with asynchronous memory segments available on this tick. Each object key is the segment ID with data in string values. Use [`setActiveSegments`](#RawMemory.setActiveSegments)</code> to fetch segments on the next tick. Segments data is saved automatically in the end of the tick.
+An object with asynchronous memory segments available on this tick. Each object key is the segment ID with data in string values. Use [`setActiveSegments`](#RawMemory.setActiveSegments)</code> to fetch segments on the next tick. Segments data is saved automatically in the end of the tick. The maximum size per segment is 100 KB.
 
 
 {% api_property RawMemory.foreignSegment 'object' %}
