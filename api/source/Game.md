@@ -28,7 +28,7 @@ bucket : number
 An amount of unused CPU accumulated in your <a href="/cpu-limit.html#Bucket">bucket</a>.
 ===
 shardLimits : object<br>&lt;string,number&gt;
-An object with limits for each shard with shard names as keys. You can use <a href="#Game.setShardLimits">setShardLimits</a>
+An object with limits for each shard with shard names as keys. You can use [`setShardLimits`](#Game.setShardLimits)
 method to re-assign them.
 {% endapi_method_params %}
 
@@ -183,7 +183,7 @@ Game.cpu.setShardLimits({shard0: 20, shard1: 10});
 ```
 
 Allocate CPU limits to different shards. Total amount of CPU should remain equal to 
- `Game.cpu.shardLimits`'. This method can be used only once per 12 hours.
+ [`Game.cpu.shardLimits`](#Game.cpu). This method can be used only once per 12 hours.
 
 {% api_method_params %}
 limits : object&lt;string, number&gt;
