@@ -102,7 +102,7 @@ Remaining time to go.
 {% endapi_method_params %}
 
 
-{% api_method canCreateCreep 'body, [name]' 1 %}
+{% api_method canCreateCreep 'body, [name]' 1 '{"deprecated": "Please use [`StructureSpawn.spawnCreep`](#StructureSpawn.spawnCreep) with `dryRun` flag instead."}' %}
 
 ```javascript
 if(spawn.canCreateCreep(body, name) == OK) {
@@ -146,7 +146,7 @@ ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spaw
 
 
 
-{% api_method createCreep 'body, [name], [memory]' A %}
+{% api_method createCreep 'body, [name], [memory]' A '{"deprecated": "Please use [`StructureSpawn.spawnCreep`](#StructureSpawn.spawnCreep) instead."}' %}
 
 ```javascript
 Game.spawns['Spawn1'].createCreep([WORK, CARRY, MOVE], 'Worker1');
@@ -213,15 +213,23 @@ Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1');
 ```
 
 ```javascript
-Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {memory: {role: 'harvester'}});
+Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {
+    memory: {role: 'harvester'}
+});
 ```
 
 ```javascript
-Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {energyStructures: [Game.spawns['Spawn1'], Game.getObjectById('anExtensionId')]});
+Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', { 
+    energyStructures: [
+        Game.spawns['Spawn1'], 
+        Game.getObjectById('anExtensionId')
+    ]
+});
 ```
 
 ```javascript
-var testIfCanSpawn = Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {dryRun: true});
+var testIfCanSpawn = Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 
+    'Worker1', { dryRun: true });
 ```
 
 Start the creep spawning process. The required energy amount can be withdrawn from all spawns and extensions in the room.
@@ -240,7 +248,7 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 * `CLAIM`
 				
 ===
-name (required) : string
+name : string
 The name of a new creep. It must be a unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key).
 ===
 opts (optional) : object
@@ -259,7 +267,7 @@ An object with additional options for the spawning process.
     <li>
         <div class="api-arg-title">dryRun</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">If dryRun is true, the operation will only check if it is possible to create a creep.</div>
+        <div class="api-arg-desc">If `dryRun` is true, the operation will only check if it is possible to create a creep.</div>
     </li>
 </ul>
 {% endapi_method_params %}
