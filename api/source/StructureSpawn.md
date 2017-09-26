@@ -335,7 +335,7 @@ The target creep object.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this spawn.
+ERR_NOT_OWNER | You are not the owner of the spawn, or the creep.
 ERR_BUSY | The spawn is spawning another creep.
 ERR_NOT_ENOUGH_ENERGY | The spawn does not have enough energy.
 ERR_INVALID_TARGET | The specified target object is not a creep.
