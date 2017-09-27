@@ -256,8 +256,8 @@ An object with additional options for the spawning process.
 <ul>
     <li>
         <div class="api-arg-title">memory</div>
-        <div class="api-arg-type">object</div>
-        <div class="api-arg-desc">Memory of the new creep.</div>
+        <div class="api-arg-type">any</div>
+        <div class="api-arg-desc">Memory of the new creep. If provided, it will be immediately stored into <code>Memory.creeps[name]</code>.</div>
     </li>
     <li>
         <div class="api-arg-title">energyStructures</div>
