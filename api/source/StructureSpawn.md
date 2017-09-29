@@ -262,7 +262,7 @@ An object with additional options for the spawning process.
     <li>
         <div class="api-arg-title">energyStructures</div>
         <div class="api-arg-type">array</div>
-        <div class="api-arg-desc">Array of spawns/extensions from which to draw energy for the spawning process.</div>
+        <div class="api-arg-desc">Array of spawns/extensions from which to draw energy for the spawning process. Structures will be used according to the array order.</div>
     </li>
     <li>
         <div class="api-arg-title">dryRun</div>
