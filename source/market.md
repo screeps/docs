@@ -31,7 +31,7 @@ Here are a few examples to understand the underlying mechanics.
 
 This story results in the following balance shift between the players involved:
 
-*   Alice (created a buy order, 1000 utrium acid): +200 utrium acid, -500 credits.
+*   Alice (created a buy order, 1000 utrium acid): +200 utrium acid, -500-2000 credits.
 *   Charlie (sell order, energy): -4000 energy, +2000 credits.
 *   Bob (dealer): -200 utrium acid, +4000-60-1600 energy, +2000-2000 credits.
 
