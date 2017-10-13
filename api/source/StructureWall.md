@@ -3,6 +3,8 @@
 <img src="img/wall.png" alt="" align="right" />
 
 Blocks movement of all creeps.
+Players can build destructible walls in controlled rooms.
+Some rooms also contain indestructible walls separating novice and respawn areas from the rest of the world or dividing novice / respawn areas into smaller sections. Indestructible walls have no `hits` property.
 	
 <table class="table gameplay-info">
     <tbody>
@@ -27,11 +29,5 @@ Blocks movement of all creeps.
 
 {% page inherited/Structure.md %}
 
-
-{% api_property ticksToLive 'number' %}
-
-
-
-The amount of game ticks when the wall will disappear (only for automatically placed border walls at the start of the game).
 
 
