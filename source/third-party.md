@@ -16,12 +16,12 @@ If you have a tool not listed here, feel free to edit this article.
 
 You can set up an external transpiler to write your Screeps AI in another language.   
 
-#### TypeScript
+### TypeScript
 
 *   [typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
 *   [Typescript-Declarations](https://github.com/screepers/Screeps-Typescript-Declarations) is a set of TypeScript declarations to cover the Screeps API.
 
-#### Python
+### Python
 
 *   [screeps-starter-python](https://github.com/daboross/screeps-starter-python/) is a platform you can use to play Screeps in Python.
 
