@@ -12,6 +12,18 @@ If you have a tool not listed here, feel free to edit this article.
 *   All third party programs are run at your own risk- they are not reviewed by game devs and could cause unforeseen issues.
 {% endnote %}
 
+## Languages Support
+
+You can set up an external transpiler to write your Screeps AI in another language.   
+
+#### TypeScript
+
+*   [typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
+*   [Typescript-Declarations](https://github.com/screepers/Screeps-Typescript-Declarations) is a set of TypeScript declarations to cover the Screeps API.
+
+#### Python
+
+*   [screeps-starter-python](https://github.com/daboross/screeps-starter-python/) is a platform you can use to play Screeps in Python.
 
 ## API Clients
 
@@ -38,8 +50,6 @@ The Screeps API is not official and may change at any time. These clients are ma
 
 ## Programming Tools
 
-*   [typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in typescript.
-*   [Typescript-Declarations](https://github.com/screepers/Screeps-Typescript-Declarations) is a set of typescript declarations to cover the Screeps API.
 *   [closure-compiler-externs](https://github.com/screepers/screeps-closure-compiler-externs) defines the Screeps API so that closure does not rewrite those calls.
 *   [ScreepsAutocomplete](https://github.com/Garethp/ScreepsAutocomplete) provides autocomplete data for the Screeps API.
 
