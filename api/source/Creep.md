@@ -227,7 +227,7 @@ The target object to be attacked.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | You are not the owner of this creep, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid attackable object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -260,7 +260,7 @@ The target controller object.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | You are not the owner of this creep, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid owned or reserved controller object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -393,7 +393,7 @@ The target structure.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | You are not the owner of this creep, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid creep object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -569,7 +569,7 @@ The target creep object.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | You are not the owner of this creep, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid creep object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -845,7 +845,7 @@ The target object to be attacked.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | You are not the owner of this creep, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid attackable object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -886,7 +886,7 @@ The target creep object.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | You are not the owner of this creep, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid creep object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -913,7 +913,7 @@ A ranged attack against all hostile creeps or structures within 3 squares range.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | You are not the owner of this creep, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_NO_BODYPART | There are no <code>RANGED_ATTACK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
@@ -1190,7 +1190,7 @@ The amount of resources to be transferred. If omitted, all the available amount 
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this creep, or there is a hostile rampart on top of the target.
+ERR_NOT_OWNER | You are not the owner of this creep, or there is a hostile rampart on top of the target, or the creep is in a safe mode room.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resources.
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
