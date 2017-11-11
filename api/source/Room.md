@@ -367,6 +367,11 @@ An object containing additonal pathfinding flags:
         <div class="api-arg-type">number</div>
         <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16. This is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
     </li>
+    <li>
+        <div class="api-arg-title">range</div>
+        <div class="api-arg-type">number</div>
+        <div class="api-arg-desc">Find a path to a position in specified linear range of target. The default is 0.</div>
+    </li>
 </ul>
 
 {% endapi_method_params %}
