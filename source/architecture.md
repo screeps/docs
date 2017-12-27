@@ -5,10 +5,10 @@ Since Screeps is a game from programmers for programmers, you might possibly be 
 
 ## Key facts
 
-*   The techs used on the server side are [Node.js](https://nodejs.org/en/) 6.6.0, [MongoDB](http://mongodb.org) 3, [Redis](http://redis.io/) 3.
+*   The techs used on the server side are [Node.js](https://nodejs.org/en/) 8.9.3, [MongoDB](http://mongodb.org) 3, [Redis](http://redis.io/) 3.
 *   20k lines of server side JavaScript code.
-*   Run-time computations are done in parallel on 27 quad-core dedicated servers on [OVH](http://ovh.com/us) using 108 x Intel Xeon CPU E3-1231 v3 processor cores (with respective number of node instances).
-*   MongoDB runs on 24-core machine with 128 GB of RAM and handles 30k update requests per second.
+*   Run-time computations are done in parallel on 40 quad-core dedicated servers on [OVH](http://ovh.com/us) using 160 x Intel Xeon CPU E3-1231 v3 processor cores (with respective number of node instances).
+*   MongoDB for each shard runs on 24-core machine with 128 GB of RAM and handles 30k update requests per second.
 *   Player run-time code is optimized to work in memory and does not make any hard drive or database requests.
 
 ## Architectural overview
@@ -40,7 +40,7 @@ DB objects updating is the only operation that requires hard drive access. A dis
 
 The system is designed to allow easy scaling on two levels:
 
-*   As the load on the DB increases (i.e. players get more active in the game world), we can either increase the number of CPU cores to work with WiredTiger or add more servers to the database cluster. Since each room is processed separately and independently from other rooms, DB [sharding](https://docs.mongodb.org/manual/sharding/) based on rooms works well.
+*   As the load on the DB increases (i.e. players get more active in the game world shard), we can either increase the number of CPU cores to work with WiredTiger or add more world shards (each with its own separate database).
 *   As the load on the total CPU resulting from players calculations increases, we can just add more run-time servers performing these computations. In a minute after they launch, they can already receive and process tasks from Redis queues.
 
 ## Script running environment
