@@ -28,7 +28,9 @@ There are two identically valid ways to use this token:
  
 ## Rate Limiting
 
-All requests authenticated by auth tokens are subject to rate limiting rules. When rate capacity is exceeded, you will get `429` HTTP code in response:
+Regular requests made by browser or Steam client are **NOT** rate limited.
+
+However, all requests authenticated by auth tokens are subject to rate limiting rules. When rate capacity is exceeded, you will get `429` HTTP code in response:
 
 ```
 HTTP/1.1 429 Too Many Requests
