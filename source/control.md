@@ -18,7 +18,7 @@ In order to build any facilities in a room, you need to control it. In the major
 
 ![](img/c1.png)
 
-A newly-seized Controller allows to build one spawn in the room. In order for you to build extra spawns, roads, and extensions, you have to upgrade the Room Controller Level (RCL) by pumping the energy into the controller using [`Creep.upgradeController`](/api/#Creep.upgradeController) method.
+A newly-seized Controller allows you to build one spawn in the room. In order for you to build extra spawns, roads, and extensions, you have to upgrade the Room Controller Level (RCL) by pumping energy into the controller using [`Creep.upgradeController`](/api/#Creep.upgradeController) method.
 
 ![](img/c2.png)
 
@@ -81,7 +81,7 @@ A newly-seized Controller allows to build one spawn in the room. In order for yo
 
 ## Attacking controllers
 
-A Controller cannot be damaged or destroyed. However, a Controller not affected by an [`upgradeController`](/api/#Creep.upgradeController) action will run a downgrade timer losing 20,000 game ticks at RCL 1, or 5,000 game ticks at RCL 2 to 150,000 game ticks at RCL 8. All timers are listed in [`StructureController`](/api/#StructureController) prototype. As soon as its level reaches 0, it becomes neutral, and another player can reclaim it. Make sure that you upgrade your controllers from time to time to keep their levels!
+A Controller cannot be damaged or destroyed. However, a Controller not affected by an [`upgradeController`](/api/#Creep.upgradeController) action will run a downgrade timer losing 20,000 game ticks at RCL 1, or 5,000 game ticks at RCL 2 to 150,000 game ticks at RCL 8. All timers are listed in the [`StructureController`](/api/#StructureController) prototype. As soon as its level reaches 0, a Controller becomes neutral, and another player can reclaim it. Make sure that you upgrade your Controllers from time to time to keep their levels!
 
 You can attack another player's controller downgrade timer by applying [`attackController`](/api/#Creep.attackController) on it.
 
@@ -93,4 +93,4 @@ Upgrading GCL requires pumping energy into your Controllers – GCL grows in par
 
 Having upgraded your GCL once, you will never lose it. Even after complete fail in the game and loss of all your rooms, your GCL is stored in your account forever. It allows you to respawn at a new place and quickly regain your former glory.
 
-If some day in the future you plan to claim a room that requires a higher GCL than you have, you can still [reserve](/api/#Creep.reserveController) its controller. Also, reserving controller in a neutral room restores energy sources to their full capacity.
+If some day in the future you plan to claim a room that requires a higher GCL than you have, you can still [reserve](/api/#Creep.reserveController) its Controller. Also, reserving a Controller in a neutral room restores energy sources to their full capacity.
