@@ -153,7 +153,7 @@ cd ~/world
 Now in another terminal open the Screeps CLI tool and reset the data.
 
 ```bash
-su screeps
+sudo su screeps
 cd ~/world
 ./node_modules/screeps/bin/screeps.js cli
 > system.resetAllData()
