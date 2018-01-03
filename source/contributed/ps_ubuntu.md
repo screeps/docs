@@ -161,12 +161,17 @@ cd ~/world
 
 Now you should stop the Screeps server process in the first terminal.
 
+That should be the last thing you need to do for now as the user `screeps`, so lets go back to your main user.
+
+```bash
+exit
+```
 
 ### Setup Service
 
 Now that we have a working Screeps server we'll want to make sure it stays running, including through reboots. Since we're using Ubuntu 16 we can do this with a simple systemd service file.
 
-Open `/etc/systemd/system/screeps-world.service`.
+As the root user (not `screeps`) open `/etc/systemd/system/screeps-world.service`.
 
 ```shell
 sudo nano /etc/systemd/system/screeps-world.service
