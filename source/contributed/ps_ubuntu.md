@@ -14,14 +14,14 @@ For players who want to run a headless server (one without a desktop or windows 
 
 ### Server
 
-This article assumes the user is running Ubuntu 16. It is recommended that the machine have at least two cores and 4gb of ram, although for single players and a couple of bots a 1 core 2gb machine will work with reasonable tick speeds.
+This article assumes the user is running Ubuntu 16. It is recommended that the machine have at least two cores and 4gb of ram, although for single players and a couple of bots a one core 2gb machine will work with reasonable tick speeds.
 
-As the system tends to be very CPU intensive it is recommended that "burstable" servers, such as the AWS t2 line, are avoided.
+As the system tends to be very CPU intensive it is recommended that you avoid "burstable" servers that don't provide constant cpu, such as the AWS t2 line.
 
 
 ### Build Tools
 
-The following steps will need some common build and development tools.
+The following steps will need some common build and development tools, which we'll install here.
 
 ```shell
 sudo apt install -y build-essential tcl git
@@ -29,6 +29,8 @@ sudo apt install -y build-essential tcl git
 
 
 ### Install Node
+
+The main world runs on Node8, but Ubuntu only provides an older version of Node6. Fortunately there is another apt repository we can use to get the most up to date versions.
 
 ```shell
 sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -38,7 +40,7 @@ sudo apt install -y nodejs
 
 ### Install Mongo
 
-The version of mongo in the Ubuntu repositories is remarkably old. Mongo maintains an apt repository with updated versions, so the first step will be configuring that.
+The version of MongoDB in the Ubuntu repositories is remarkably old. MongoDB maintains an apt repository with updated versions, so the first step will be configuring that.
 
 ```shell
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
@@ -46,13 +48,13 @@ echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" 
 sudo apt update
 ```
 
-Now we can install Mongo.
+Now we can install MongoDB.
 
 ```shell
 sudo apt-get install -y mongodb-org
 ```
 
-By default Mongo is not running or set to start on boot, which these commands will fix.
+By default MongoDB is not running or set to start on boot, so lets go ahead and enable it to start on boot.
 
 ```shell
 sudo systemctl start mongod
@@ -86,7 +88,7 @@ For the next steps we're going to create a new user, `screeps`, and then setup t
 sudo adduser --disabled-password --gecos "" screeps
 ```
 
-Next we change to that user and run the rest of the setup.
+Next we change to that user and run the rest of the setup. Since we can not log in as the user directly we have to use the `su` command to change users. You'll want to remember this for any time you want to run as the screeps user, such as when debugging or installing new mods on your server.
 
 ```shell
 sudo su screeps
@@ -141,7 +143,7 @@ Then just confirm that the `mods.json` file looks like this-
 
 Because we switched away from the default storage engine we need to initialize the new databases.
 
-In one terminal you'll need to start the server. You'll want to do this as the user `screeps` still.
+In one terminal you'll need to start the Screeps server manually. You'll want to do this as the user `screeps` still.
 
 ```bash
 cd ~/world
@@ -157,7 +159,7 @@ cd ~/world
 > system.resetAllData()
 ```
 
-Now you can stop the Screeps server process in the first terminal.
+Now you should stop the Screeps server process in the first terminal.
 
 
 ### Setup Service
