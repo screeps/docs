@@ -33,7 +33,7 @@ sudo apt install -y build-essential tcl git
 The main world runs on Node8, but Ubuntu only provides an older version of Node6. Fortunately there is another apt repository we can use to get the most up to date versions.
 
 ```shell
-sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
 
@@ -54,7 +54,7 @@ Now we can install MongoDB.
 sudo apt-get install -y mongodb-org
 ```
 
-By default MongoDB is not running or set to start on boot, so lets go ahead and enable it to start on boot.
+By default MongoDB is not running or set to start on boot, so lets go ahead fix that.
 
 ```shell
 sudo systemctl start mongod
@@ -80,7 +80,7 @@ That's it! The redis server is remarkably simple and the apt package takes care 
 
 ## Screeps Server
 
-### Setup Server Environment
+### Create Screeps User
 
 For the next steps we're going to create a new user, `screeps`, and then setup the server under that user and group. Since this user will not have sudo access or need to log in we will created it without a password.
 
@@ -94,7 +94,11 @@ Next we change to that user and run the rest of the setup. Since we can not log 
 sudo su screeps
 ```
 
-During this last step you will need a Steam API Key, which you can obtain [from here](https://steamcommunity.com/dev/apikey) for free.
+### Setup Server Environment
+
+Now that the prerequisites and user are created we can create the unique server environment for your world.
+
+During this step you will need a Steam API Key, which you can obtain [from here](https://steamcommunity.com/dev/apikey) for free.
 
 ```shell
 mkdir ~/world
@@ -103,7 +107,7 @@ npm install screeps
 ./node_modules/screeps/bin/screeps.js init
 ```
 
-The `init` call creates the configuration for your server in `.screepsrc`. You should read through this file, which is pretty well documented, but the only things you will likely want to change are `runners_cnt` and `processors_cnt`. On a smaller system (two cores) you'll want to set these to the number of processor cores available, but on larger systems you may want to leave a core or two free for use by MongoDB.
+The `init` call creates the configuration for your server in `.screepsrc`. You should read through this file, which is pretty well documented, but the only things you will likely want to change are `runners_cnt` and `processors_cnt`. On a smaller system (two cores) you'll want to set these to the number of processor cores available, but on larger systems you may want to leave a core or two free for use by MongoDB. If you want to run multiple worlds on the same server you should make sure to limit each server so their total combined `runners_cnt` and total combined `processors_cnt` values do not exceed the number of processors on the system.
 
 
 ### Install Server Mods
