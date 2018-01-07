@@ -104,7 +104,7 @@ During this step you will need a Steam API Key, which you can obtain [from here]
 mkdir ~/world
 cd ~/world
 npm install screeps
-./node_modules/screeps/bin/screeps.js init
+npx screeps init
 ```
 
 The `init` call creates the configuration for your server in `.screepsrc`. You should read through this file, which is pretty well documented, but the only things you will likely want to change are `runners_cnt` and `processors_cnt`. On a smaller system (two cores) you'll want to set these to the number of processor cores available, but on larger systems you may want to leave a core or two free for use by MongoDB. If you want to run multiple worlds on the same server you should make sure to limit each server so their total combined `runners_cnt` and total combined `processors_cnt` values do not exceed the number of processors on the system.
@@ -151,7 +151,7 @@ In one terminal you'll need to start the Screeps server manually. You'll want to
 
 ```bash
 cd ~/world
-./node_modules/screeps/bin/screeps.js start
+npx screeps start
 ```
 
 Now in another terminal open the Screeps CLI tool and reset the data.
@@ -159,7 +159,7 @@ Now in another terminal open the Screeps CLI tool and reset the data.
 ```bash
 sudo su screeps
 cd ~/world
-./node_modules/screeps/bin/screeps.js cli
+npx screeps cli
 > system.resetAllData()
 ```
 
