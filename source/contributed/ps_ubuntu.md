@@ -14,7 +14,7 @@ For players who want to run a headless server (one without a desktop or windows 
 
 ### Server
 
-This article assumes the user is running Ubuntu 16. It is recommended that the machine have at least two cores and 4gb of ram, although for single players and a couple of bots a one core 2gb machine will work with reasonable tick speeds.
+This article assumes the user is running Ubuntu 16. It is recommended that the machine have at least two cores and 2gb of ram, although for single players and a couple of bots a one core 2gb machine will work with reasonable tick speeds.
 
 As the system tends to be very CPU intensive it is recommended that you avoid "burstable" servers that don't provide constant cpu, such as the AWS t2 line.
 
