@@ -19,9 +19,9 @@ The Public Test Realm is a stand-alone game server with its own world data, play
 
 ---
 
-Both World Mode and Simulation Mode are available on PTR. All the game world data are periodically moved from the main server to PTR, and old PTR data is then wiped (including players’ scripts). **Don’t use PTR for prolonged storage of your code!**
+Both World Mode and Simulation Mode are available on PTR. All the game world data is copied from the main server to PTR every Monday at 0:00 UTC, and old PTR data is then wiped (including players’ scripts). **Don’t use PTR for prolonged storage of your code!**
 
-Registering new accounts on PTR is blocked. Each time after data is copied from the main server into PTR, existing players accounts are copied as well. Your account CPU subscription is deactivated by default. Click the Activate button on the [order page](https://screeps.com/ptr/#!/order) to enable your free PTR subscription for 24 hours.
+Registering new accounts on PTR is blocked. Each time after data is copied from the main server into PTR, existing players accounts are copied as well. Your account CPU subscription is deactivated by default. Click the Activate button on the [order page](https://screeps.com/ptr/#!/order) to enable your free PTR subscription until the next PTR reset.
 
 Please take note that construction of any structures on the PTR costs only 1 energy unit and the controller upgrade requires 1000 energy units. It allows quick creation of infrastructure you need for testing purposes.
 
