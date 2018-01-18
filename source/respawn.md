@@ -14,7 +14,7 @@ Now the room is in [Safe mode](/defense.html) during **20,000 game ticks** (appr
 When the spawn is placed, it has 300 energy units first. For your safety, the spawn is constantly refilled with a small amount of 1 energy unit per tick, so that you won't stuck without energy. 
 
 {% note info %}
-A spawn stops to generate energy when there are 300 energy units in the spawn itself or any other spawns and extensions in the room.
+A spawn stops generating energy when there are 300 energy units in the spawn itself or any other spawns and extensions in the room.
 {% endnote %}
 
 ## Respawn
