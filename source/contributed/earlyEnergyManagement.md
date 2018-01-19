@@ -6,7 +6,7 @@ contributed:
     date: 2018-01-19
 ---
 
-## Early Energy Management Guide:
+## Early Game Energy Collection Guide:
 This guide aims at improving the energy collection features of novice player AIs.
 
 One goal of the game (especially relevant in the beginning) is to produce a lot of control points.
@@ -54,7 +54,7 @@ A key concept for increasing creep efficiency is division of labor, meaning the 
 
 
 ### Remote Mining
-* This Miner / Carrier setup can also be used to harvest sources in neighboring unclaimed rooms.
+* This miner / carrier setup can also be used to harvest sources in neighboring unclaimed rooms.
 * Harvesting additional remote sources will dramatically increase the amount of energy available for a room to work with.
 * This is an area of the game with a lot of optimizing and automation potential and we will only provide a few pointers for you to consider:
     
