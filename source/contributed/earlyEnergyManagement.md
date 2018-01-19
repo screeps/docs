@@ -16,16 +16,14 @@ The goal of this guide is to enable you to:
 * Harvesting as much energy as possible
 * Doing so with as few creeps as possible
 
-We will provide a few key features ranked by importance, every established AI should have.
-These features will dramatically increase the energy amount harvested or focus at creep efficiency.
+We will provide a few key features ranked by importance. Every established AI should have these implemented in some form.
+These features will dramatically increase the energy amount harvested or focus on improving creep efficiency.
 
 ### Storage Structure
-Key facts
-* The most basic requirement for proper energy management is the [`Storage`](http://docs.screeps.com/api/#StructureStorage) structure.
+The most basic requirement for proper energy management is the [`storage`](http://docs.screeps.com/api/#StructureStorage) structure.
+
 * The storage is the place where all harvested energy will go.
 * It functions as a buffer for excess energy.
-
-Issues
 * The storage structure is not available below [`RCL`](http://docs.screeps.com/control.html#Room-Controller-Level) 4. 
 * You need to check for the presence of the storage (`Game.rooms['roomName'].storage`) and provide alternative logic for energy collection in that case.
 
