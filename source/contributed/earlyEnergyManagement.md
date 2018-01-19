@@ -54,7 +54,7 @@ A key concept for increasing creep efficiency is division of labor, meaning the 
 
 
 ### Remote Mining
-* This miner / carrier setup can also be used to harvest sources in neighboring unclaimed rooms.
+This miner / carrier setup can also be used to harvest sources in neighboring unclaimed rooms. Energy from those sources will have to be carried back to the storage structure.
 * Harvesting additional remote sources will dramatically increase the amount of energy available for a room to work with.
 * This is an area of the game with a lot of optimizing and automation potential and we will only provide a few pointers for you to consider:
     
