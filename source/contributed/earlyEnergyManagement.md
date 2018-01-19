@@ -7,7 +7,7 @@ contributed:
 ---
 
 ## Early Energy Management Guide:
-This guide aims at improving the energy collection and management features of novice player AIs.
+This guide aims at improving the energy collection features of novice player AIs.
 
 One goal of the game (especially relevant in the beginning) is to produce a lot of control points.
 Control point generation is basically energy management, because energy is converted into control points by upgrading the controller.
