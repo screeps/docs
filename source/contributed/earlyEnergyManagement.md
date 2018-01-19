@@ -2,7 +2,7 @@
 title: Early Energy Management
 contributed:
     name: Eiskalt
-    link: https://github.com/ThiloVoigt555
+    link: https://screeps.com/a/#!/profile/Eiskalt
     date: 2018-01-19
 ---
 
