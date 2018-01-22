@@ -1,5 +1,5 @@
 ---
-title: Early Energy Management
+title: Energy Collection Guide
 contributed:
     name: Eiskalt
     link: https://screeps.com/a/#!/profile/Eiskalt
