@@ -287,7 +287,7 @@ ERR_TIRED | The target terminal is still cooling down.
 Game.market.extendOrder('57bec1bf77f4d17c4c011960', 10000);
 ```
 
-Add more capacity to an existing order. It will affect <code>remainingAmount</code> and <code>totalAmount</code> properties. You will be charged <code>price*addAmount*0.05</code> credits.
+Add more capacity to an existing order. It will affect <code>remainingAmount</code> and <code>totalAmount</code> properties. You will be charged <code>price\*addAmount\*0.05</code> credits.
 
 {% api_method_params %}
 orderId : string
