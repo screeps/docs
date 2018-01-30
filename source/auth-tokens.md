@@ -59,16 +59,36 @@ There are two levels of rate limiting: global and per-endpoint, shown in the tab
 | **Global**   | **120 / minute** |
 | GET /api/game/room-terrain | 360 / hour |
 | POST /api/game/map-stats | 60 / hour |
-| GET /api/game/world-size | 10 / hour |
-| GET /api/game/market/orders-index | 60 / hour |
-| GET /api/game/market/orders | 60 / hour |
-| GET /api/game/market/my-orders | 60 / hour |
-| GET /api/game/market/stats | 10 / hour |
 | GET /api/user/code | 60 / hour |
-| POST /api/user/code | 10 / hour |
-| POST /api/user/set-active-branch | 10 / hour |
-| GET /api/user/memory | 60 / hour |
-| POST /api/user/memory | 10 / hour |
+| POST /api/user/code | 240 / day
+| POST /api/user/set-active-branch | 240 / day |
+| GET /api/user/memory | 1440 / day |
+| POST /api/user/memory | 240 / day |
 | GET /api/user/memory-segment | 360 / hour |
 | POST /api/user/memory-segment | 60 / hour |
 | POST /api/user/console | 360 / hour | 
+| GET /api/game/market/orders-index | 60 / hour |
+| GET /api/game/market/orders | 60 / hour |
+| GET /api/game/market/my-orders | 60 / hour |
+| GET /api/game/market/stats | 60 / hour |
+| GET /api/game/user/money-history | 60 / hour |
+
+### Turning rate limiting off
+
+If you develop a third-party tool that requires human interaction, you can integrate a special flow to turn off rate limiting on a specific token. In order to do so, you must provide the user with a link `https://screeps.com/a/#!/account/auth-tokens/noratelimit?token=XXX`, which they should navigate to. When the user clicks the "Proceed" button on the page, the token will be granted with a 2-hour period with no rate limits.
+
+![](img/token-noratelimit.png) 
+
+If your tool is web-based, you can embed this page in an `<iframe>` and listen to a `screepsTokenSuccess` message:
+
+```javascript
+window.addEventListener('message', (event) => {
+    if(event.data === 'screepsTokenSuccess') {
+        console.log("We are not rate limited now!");
+    }   
+}, false);
+```
+
+Please note that this page uses Google Invisible reCAPTCHA, so that it cannot be used automatically.
+
+You can query info on a specific token (including its unlimited period timer) using the endpoint `https://screeps.com/api/auth/query-token?token=XXX`.
