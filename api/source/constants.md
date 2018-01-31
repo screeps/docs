@@ -45,6 +45,7 @@ All the following constant names are available in the global scope:
     FIND_HOSTILE_CONSTRUCTION_SITES: 115,
     FIND_MINERALS: 116,
     FIND_NUKES: 117,
+    FIND_TOMBSTONES: 118,
 
     TOP: 1,
     TOP_RIGHT: 2,
@@ -76,6 +77,7 @@ All the following constant names are available in the global scope:
     LOOK_CONSTRUCTION_SITES: "constructionSite",
     LOOK_NUKES: "nuke",
     LOOK_TERRAIN: "terrain",
+    LOOK_TOMBSTONES: "tombstone",
 
     OBSTACLE_OBJECT_TYPES: ["spawn", "creep", "wall", "source", "constructedWall", "extension", "link", "storage", "tower", "observer", "powerSpawn", "powerBank", "lab", "terminal","nuker"],
 
@@ -217,7 +219,9 @@ All the following constant names are available in the global scope:
         "nuker": {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 1}
     },
     CONTROLLER_DOWNGRADE: {1: 20000, 2: 5000, 3: 10000, 4: 20000, 5: 40000, 6: 60000, 7: 100000, 8: 150000},
-    CONTROLLER_CLAIM_DOWNGRADE: 0.2,
+    CONTROLLER_DOWNGRADE_RESTORE: 100,
+    CONTROLLER_DOWNGRADE_SAFEMODE_THRESHOLD: 5000,
+    CONTROLLER_CLAIM_DOWNGRADE: 300,
     CONTROLLER_RESERVE: 1,
     CONTROLLER_RESERVE_MAX: 5000,
     CONTROLLER_MAX_UPGRADE_PER_TICK: 15,
@@ -267,7 +271,10 @@ All the following constant names are available in the global scope:
     GCL_POW: 2.4,
     GCL_MULTIPLY: 1000000,
     GCL_NOVICE: 3,
-    
+
+    MODE_SIMULATION: null,
+    MODE_WORLD: null,
+
     TERRAIN_MASK_WALL: 1,
     TERRAIN_MASK_SWAMP: 2,
     TERRAIN_MASK_LAVA: 4,
@@ -328,6 +335,8 @@ All the following constant names are available in the global scope:
         0: 10000000,
         2: 5000000
     },
+
+    TOMBSTONE_DECAY_PER_PART: 5,
 
     PORTAL_DECAY: 30000,
 
