@@ -1,6 +1,6 @@
 # Tombstone
 
-<img src="img/tombstone.png" alt="" align="right" />
+<img src="img/tombstone.gif" alt="" align="right" />
 
 A remnant of dead creeps. This is a walkable structure. 
 
