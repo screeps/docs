@@ -1,8 +1,9 @@
 ---
-title: Private Server Setup
+title: Private server on Ubuntu using MongoDB and Redis
 contributed:
     name: tedivm
     link: https://github.com/tedivm
+    date: 2018-02-07
 ---
 
 The Screeps engine is [Open Source](https://github.com/screeps/screeps), allowing people to run Private Servers on their own. The Steam Client even provides a tool to make launching private servers easier.
