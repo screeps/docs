@@ -217,7 +217,7 @@ All the following constant names are available in the global scope:
         "nuker": {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 1}
     },
     CONTROLLER_DOWNGRADE: {1: 20000, 2: 5000, 3: 10000, 4: 20000, 5: 40000, 6: 60000, 7: 100000, 8: 150000},
-    CONTROLLER_CLAIM_DOWNGRADE: 0.2,
+    CONTROLLER_CLAIM_DOWNGRADE: 300,
     CONTROLLER_RESERVE: 1,
     CONTROLLER_RESERVE_MAX: 5000,
     CONTROLLER_MAX_UPGRADE_PER_TICK: 15,
