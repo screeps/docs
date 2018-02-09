@@ -109,10 +109,15 @@ A serialized path string.
 
 A path array.
 
-{% api_method createConstructionSite 'x, y, structureType|pos, structureType' A %}
+{% api_method createConstructionSite 'x, y, structureType, [name]|pos, structureType, [name]' A %}
 
 ```javascript
 Game.rooms.sim.createConstructionSite(10, 15, STRUCTURE_ROAD);
+```
+
+```javascript
+Game.rooms.sim.createConstructionSite(10, 15, STRUCTURE_SPAWN, 
+    'MySpawn2');
 ```
 
 Create new <a href="#ConstructionSite">ConstructionSite</a> at the specified location.
@@ -129,6 +134,9 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 ===
 structureType : string
 One of the <code>STRUCTURE_*</code> constants.
+===
+name (optional) : string
+The name of the structure, for structures that support it (currently only spawns).
 {% endapi_method_params %}
 
 
