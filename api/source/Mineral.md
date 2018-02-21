@@ -26,7 +26,7 @@ Learn more about minerals from [this article](/minerals.html).
 
 
 
-The density of this mineral deposit, one of the <code>DENSITY_*</code> constants.
+The density that this mineral deposit will be refilled to once <code>ticksToRegeneration</code> reaches 0. This is one of the <code>DENSITY_*</code> constants.
 
 
 
