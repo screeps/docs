@@ -257,6 +257,21 @@ An object with additional options for the spawning process.
         <div class="api-arg-type">boolean</div>
         <div class="api-arg-desc">If `dryRun` is true, the operation will only check if it is possible to create a creep.</div>
     </li>
+    <li>
+            <div class="api-arg-title">directions</div>
+            <div class="api-arg-type">array<number></div>
+            <div class="api-arg-desc">Set desired directions where the creep should move when spawned. An array with the direction constants:
+                                          <ul>
+                                              <li><code>TOP</code></li>
+                                              <li><code>TOP_RIGHT</code></li>
+                                              <li><code>RIGHT</code></li>
+                                              <li><code>BOTTOM_RIGHT</code></li>
+                                              <li><code>BOTTOM</code></li>
+                                              <li><code>BOTTOM_LEFT</code></li>
+                                              <li><code>LEFT</code></li>
+                                              <li><code>TOP_LEFT</code></li>
+                                          </ul></div>
+        </li>
 </ul>
 {% endapi_method_params %}
 
@@ -420,7 +435,7 @@ Set desired directions where the creep should move when spawned.
 
 {% api_method_params %}
 directions : array&lt;number>
-An array with the direction constants as items:
+An array with the direction constants:
     <ul>
         <li><code>TOP</code></li>
         <li><code>TOP_RIGHT</code></li>
