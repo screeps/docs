@@ -57,8 +57,9 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         <td>
             <p>Claims a neutral room controller.</p>
             <p>Reserves a neutral room controller for 1 tick per body part.</p>
-            <p>Attacks a hostile room controller downgrade or reservation timer with 1 tick per 5 body parts.</p>
-            <p>A creep with this body part will have a reduced life time of 500 ticks and cannot be renewed.</p>
+            <p>Attacks a hostile room controller downgrading its timer by 300 ticks per body parts.</p>
+            <p>Attacks a neutral room controller reservation timer by 1 tick per body parts.</p>
+            <p>A creep with this body part will have a reduced life time of 600 ticks and cannot be renewed.</p>
         </td>
     </tr>
     <tr>
@@ -247,7 +248,7 @@ if(creep.room.controller && !creep.room.controller.my) {
 
 ```
 
-Decreases the controller's downgrade or reservation timer for 300 ticks per every <code>CLAIM</code> body part. The controller under attack cannot be upgraded or attacked again for the next 1,000 ticks. The target has to be at adjacent square to the creep.
+Decreases the controller's downgrade timer by 300 ticks per every <code>CLAIM</code> body part, or reservation timer by 1 tick per every <code>CLAIM</code> body part. If the controller under attack is owned, it cannot be upgraded or attacked again for the next 1,000 ticks. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
