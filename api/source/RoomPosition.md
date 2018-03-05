@@ -49,10 +49,14 @@ X position in the room.
 Y position in the room.
 
 
-{% api_method createConstructionSite 'structureType' A %}
+{% api_method createConstructionSite 'structureType, [name]' A %}
 
 ```javascript
-Game.flags.Flag1.pos.createConstructionSite(STRUCTURE_ROAD);
+Game.flags['Flag1'].pos.createConstructionSite(STRUCTURE_ROAD);
+```
+```javascript
+Game.flags['Flag1'].pos.createConstructionSite(10, 15, STRUCTURE_SPAWN, 
+    'MySpawn2');
 ```
 
 Create new <a href="#ConstructionSite">ConstructionSite</a> at the specified location.
@@ -60,6 +64,9 @@ Create new <a href="#ConstructionSite">ConstructionSite</a> at the specified loc
 {% api_method_params %}
 structureType : string
 One of the <code>STRUCTURE_*</code> constants.
+===
+name (optional) : string
+The name of the structure, for structures that support it (currently only spawns).
 {% endapi_method_params %}
 
 

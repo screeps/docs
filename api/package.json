@@ -11,7 +11,7 @@
     "hexo-optimize": "^2.4.6",
     "hexo-renderer-jade": "^0.3.0",
     "hexo-renderer-marked": "screeps/hexo-renderer-marked",
-    "hexo-renderer-scss": "^1.0.2",
+    "hexo-renderer-scss": "^1.1.0",
     "hexo-server": "^0.2.0",
     "image-min": "^0.3.2"
   },
