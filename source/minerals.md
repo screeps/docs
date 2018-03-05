@@ -66,7 +66,10 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
     white-space: nowrap;
 }
 .minerals td:nth-child(3) {
-    min-width: 80px;
+    text-align: center;
+}
+.minerals td:nth-child(4) {
+    min-width: 87px;
 }
 .minerals code {
     background-color: #333;
@@ -87,6 +90,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
     background-color: #222;
     color: #ccc;
     font-weight: normal !important;
+    font-size: 11px;
 }
 </style>
 
@@ -107,7 +111,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <th>Effect</th>
 </tr>
 <tr class=minerals__divider>
-<th colspan="4" align="center">Base compounds</th>
+<th colspan="5" align="center">Base compounds</th>
 </tr>
 <tr>
 <td>![](http://static.screeps.com/upload/mineral-icons/OH.png)hydroxide</td>
@@ -138,7 +142,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>—</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="4" align="center">Tier 1 compounds</th>
+<th colspan="5" align="center">Tier 1 compounds</th>
 </tr>
 <tr>
 <td>![](http://static.screeps.com/upload/mineral-icons/UH.png)utrium hydride</td>
@@ -211,7 +215,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>-30% damage taken</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="4" align="center">Tier 2 compounds</th>
+<th colspan="5" align="center">Tier 2 compounds</th>
 </tr>
 <tr>
 <td>![](http://static.screeps.com/upload/mineral-icons/UH2O.png)utrium acid</td>
@@ -284,7 +288,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>-50% damage taken</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="4" align="center">Tier 3 compounds</th>
+<th colspan="5" align="center">Tier 3 compounds</th>
 </tr>
 <tr>
 <td>![](http://static.screeps.com/upload/mineral-icons/XUH2O.png)catalyzed utrium acid</td>
