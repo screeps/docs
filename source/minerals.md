@@ -46,7 +46,7 @@ A lab can produce 1 unit of produce per tick, so you can build parallel chains o
 
 Apart from running chemical reactions with minerals, a lab can use resulting compounds to permanently upgrade your creeps boosting their specific properties.
 
-Each compound is applied to one body part of the creep of a certain type using `Structure.boostCreep` method according to the table below and boosts the effectiveness of one of the actions of this creep. The boosted part works as two, three, or even four corresponding parts. To boost the whole creep, you need to boost all its parts of the given type.
+Each compound is applied to one body part of the creep of a certain type using the `StructureLab.boostCreep` method according to the table below and boosts the effectiveness of one of the actions of this creep. The boosted part works as two, three, or even four corresponding parts. To boost the whole creep, you need to boost all its parts of the given type.
 
 Boosting one body part takes 30 mineral compound units and 20 energy units. One body part can be boosted only with one compound type.
 

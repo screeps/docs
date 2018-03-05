@@ -52,6 +52,7 @@ The Screeps API is not official and may change at any time. These clients are ma
 
 *   [closure-compiler-externs](https://github.com/screepers/screeps-closure-compiler-externs) defines the Screeps API so that closure does not rewrite those calls.
 *   [ScreepsAutocomplete](https://github.com/Garethp/ScreepsAutocomplete) provides autocomplete data for the Screeps API.
+*   [screeps-server-mockup](https://github.com/Hiryus/screeps-server-mockup) private server package for unit tests.
 
 
 ## Notifications
