@@ -651,6 +651,7 @@ All the following constant names are available in the global scope:
         OH: 20,
         ZK: 5,
         UL: 5,
+        G: 5,
         UH: 10,
         UH2O: 5,
         XUH2O: 60,
