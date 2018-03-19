@@ -33,6 +33,11 @@ The Screeps API is not official and may change at any time. These clients are ma
 *   [node](https://github.com/screepers/node-screeps-api)
 
 
+## Apps
+
+*   [Screeps Monitor](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor) is an Android app that provides players with account and game statistics, as well as a full messaging client and a market history.
+
+
 ## Backups
 
 *   [screeps-backup](https://github.com/screepers/screeps-backup) is a simple backup and restore utility for memory and segments.
