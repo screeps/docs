@@ -106,7 +106,7 @@ All the following constant names are available in the global scope:
     WORLD_HEIGHT: 202,
 
     CREEP_LIFE_TIME: 1500,
-    CREEP_CLAIM_LIFE_TIME: 500,
+    CREEP_CLAIM_LIFE_TIME: 600,
     CREEP_CORPSE_RATE: 0.2,
 
     CARRY_CAPACITY: 50,
