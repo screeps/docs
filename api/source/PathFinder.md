@@ -87,7 +87,7 @@ An object containing additional pathfinding flags.
     <li>
         <div class="api-arg-title">roomCallback</div>
         <div class="api-arg-type">function</div>
-        <div class="api-arg-desc">Request from the pathfinder to generate a <a href="#CostMatrix"><code>CostMatrix</code></a> for a certain room. The callback accepts one argument, <code>roomName</code>. This callback will only be called once per room per search. If you are running multiple pathfinding operations in a single room and in a single tick you may consider caching your CostMatrix to speed up your code. Please read the CostMatrix documentation below for more information on CostMatrix. If you return <code>false</code> from the callback the requested room will not be searched, and it won't count against <code>maxRooms</code></div>
+        <div class="api-arg-desc">Request from the pathfinder to generate a <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a> for a certain room. The callback accepts one argument, <code>roomName</code>. This callback will only be called once per room per search. If you are running multiple pathfinding operations in a single room and in a single tick you may consider caching your CostMatrix to speed up your code. Please read the CostMatrix documentation below for more information on CostMatrix. If you return <code>false</code> from the callback the requested room will not be searched, and it won't count against <code>maxRooms</code></div>
     </li>
     <li>
         <div class="api-arg-title">plainCost</div>
