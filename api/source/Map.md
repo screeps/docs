@@ -262,6 +262,106 @@ The room name.
 {% endapi_method_params %}
 
 
+
 ### Return value
 
 A boolean value.
+
+{% api_method Game.map.isNoviceZone 'roomName' 1 %}
+
+```javascript
+if(Game.map.isNoviceZone(room.name)) {
+	let end_date = Game.map.getNoviceEndDate(room.name);
+	let date_string = (new Date()).setTime(end_date).toString();
+	console.log("ERROR: Room part of novice zone until "+date_string);
+} else {
+	creep.moveTo(room.getPositionAt(25,25));
+}
+```
+
+Check if the room is part of a novice zone.
+
+{% api_method_params %}
+roomName : string
+The room name.
+{% endapi_method_params %}
+
+### Return value
+
+A boolean value.
+
+
+{% api_method Game.map.isRespawnZone 'roomName' 1 %}
+
+```javascript
+if(Game.map.isRespawnZone(room.name)) {
+	let end_date = Game.map.getRespawnEndDate(room.name);
+	let date_string = (new Date()).setTime(end_date).toString();
+	console.log("ERROR: Room part of respawn zone until "+date_string);
+} else {
+	creep.moveTo(room.getPositionAt(25,25));
+}
+```
+
+Check if the room is part of a respawn zone.
+
+{% api_method_params %}
+roomName : string
+The room name.
+{% endapi_method_params %}
+
+### Return value
+
+A boolean value.
+
+
+{% api_method Game.map.getNoviceEndDate 'roomName' 1 %}
+
+```javascript
+if(Game.map.isNoviceZone(room.name)) {
+	let end_date = Game.map.getNoviceEndDate(room.name);
+	let date_string = (new Date()).setTime(end_date).toString();
+	console.log("ERROR: Room part of novice zone until "+date_string);
+} else {
+	creep.moveTo(room.getPositionAt(25,25));
+}
+```
+
+Check when the room will no longer be part of a novice zone.
+
+{% api_method_params %}
+roomName : string
+The room name.
+{% endapi_method_params %}
+
+### Return value
+
+The unix date (the number of milliseconds since January 1, 1970 00:00:00 UTC)
+when the area will no longer be a novice zone.
+
+
+{% api_method Game.map.getRespawnEndDate 'roomName' 1 %}
+
+```javascript
+if(Game.map.isRespawnZone(room.name)) {
+	let end_date = Game.map.getRespawnEndDate(room.name);
+	let date_string = (new Date()).setTime(end_date).toString();
+	console.log("ERROR: Room part of respawn zone until "+date_string);
+} else {
+	creep.moveTo(room.getPositionAt(25,25));
+}
+```
+
+Check when the room will no longer be part of a respawn zone.
+
+{% api_method_params %}
+roomName : string
+The room name.
+{% endapi_method_params %}
+
+
+### Return value
+
+The unix date (the number of milliseconds since January 1, 1970 00:00:00 UTC)
+when the area will no longer be a respawn zone.
+
