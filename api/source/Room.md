@@ -256,7 +256,7 @@ FIND_MY_STRUCTURES | Structure | Only structures owned by you. Does not include 
 FIND_HOSTILE_STRUCTURES | Structure | Only structures not owned by you. Does not include neutral structures.
 FIND_FLAGS | Flag | All flags
 FIND_MY_SPAWNS | StructureSpawn | Only spawns owned by you.
-FIND_HOSTILE_SPAWNS | StructureSpawn | spawns not owned by you.
+FIND_HOSTILE_SPAWNS | StructureSpawn | Spawns not owned by you.
 FIND_CONSTRUCTION_SITES | ConstructionSite | All construction sites.
 FIND_MY_CONSTRUCTION_SITES | ConstructionSite | Only construction sites owned by you.
 FIND_HOSTILE_CONSTRUCTION_SITES | ConstructionSite | Only construction sites not owned by you.
