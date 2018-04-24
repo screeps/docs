@@ -25,6 +25,10 @@ You can set up an external transpiler to write your Screeps AI in another langua
 
 *   [screeps-starter-python](https://github.com/daboross/screeps-starter-python/) is a platform you can use to play Screeps in Python.
 
+### Rust
+
+*   [screeps-starter-rust](https://github.com/daboross/screeps-starter-rust) is a alpha-status platform you can use to play Screeps in Rust.
+
 ## API Clients
 
 The Screeps API is not official and may change at any time. These clients are maintained by the community and are used to generate many of the services and programs on this page.
