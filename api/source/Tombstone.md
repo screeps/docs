@@ -2,7 +2,7 @@
 
 <img src="img/tombstone.gif" alt="" align="right" />
 
-A remnant of dead creeps. This is a walkable structure. 
+A remnant of dead creeps. This is a walkable object. 
 
 <table class="table gameplay-info">
     <tbody>
