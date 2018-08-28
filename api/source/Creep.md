@@ -536,6 +536,7 @@ ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to ha
 ERR_NOT_ENOUGH_RESOURCES | The target source does not contain any harvestable energy.
 ERR_INVALID_TARGET | The target is not a valid source object.
 ERR_NOT_IN_RANGE | The target is too far away.
+ERR_TIRED | The extractor is still cooling down.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
 
@@ -1172,10 +1173,12 @@ if(creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 }
 ```
 
-Withdraw resources from a structure. The target has to be at adjacent square to the creep. Multiple creeps can withdraw from the same structure in the same tick. Your creeps can withdraw resources from hostile structures as well, in case if there is no hostile rampart on top of it.
+Withdraw resources from a structure or tombstone. The target has to be at adjacent square to the creep. Multiple creeps can withdraw from the same object in the same tick. Your creeps can withdraw resources from hostile structures/tombstones as well, in case if there is no hostile rampart on top of it.
+
+This method should not be used to transfer resources between creeps. To transfer between creeps, use the [`transfer`](#Creep.transfer) method on the original creep.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>
+target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
 The target object.
 ===
 resourceType : string
