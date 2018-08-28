@@ -139,7 +139,7 @@ console.log(ret.path);
 
 Find route from the given room to another room.
 
-{% api_method_params %}
+{% api_method_params %} 
 fromRoom : string, <a href="#Room">Room</a>
 Start room name or room object.
 ===
@@ -209,9 +209,17 @@ A number of rooms between the given two rooms.
 
 ```javascript
 const terrain = Game.map.getRoomTerrain("E2S7");
+switch(terrain.get(10,15)) {
+    case TERRAIN_MASK_WALL:
+        break;
+    case TERRAIN_MASK_SWAMP:
+        break;
+    case 0:
+        break;
+}
 ```
 
-Get <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
+Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
 
 {% api_method_params %}
 roomName : string
@@ -224,7 +232,7 @@ The room name.
 Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
 
 
-{% api_method Game.map.getTerrainAt 'x, y, roomName|pos' 1 %}
+{% api_method Game.map.getTerrainAt 'x, y, roomName|pos' 1 '{"deprecated": "Please use a faster method [`Game.map.getRoomTerrain`](#Game.map.getRoomTerrain) instead."}'%}
 
 ```javascript
 console.log(Game.map.getTerrainAt(25,20,'W10N10'));

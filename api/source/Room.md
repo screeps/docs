@@ -582,6 +582,26 @@ A
 <a href="#RoomPosition">RoomPosition</a>
 object or null if it cannot be obtained.
 
+{% api_method getTerrain '' 0 %}
+
+```javascript
+const terrain = Game.rooms['W1N1'].getTerrain();
+switch(terrain.get(10,15)) {
+    case TERRAIN_MASK_WALL:
+        break;
+    case TERRAIN_MASK_SWAMP:
+        break;
+    case 0:
+        break;
+}
+```
+
+Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
+
+### Return value
+
+Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
+
 {% api_method lookAt 'x, y|target' 2 %}
 
 ```javascript
