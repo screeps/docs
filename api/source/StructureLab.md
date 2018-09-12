@@ -202,7 +202,7 @@ ERR_INVALID_ARGS | The amount or resource type is incorrect.
 {% api_method unboostCreep 'creep' A %}
 
 
-Remove boosts from the creep dropping half of the mineral compounds used to boost him onto the ground. The creep has to be at adjacent square to the lab. 
+Immediately remove boosts from the creep and drop 50% of the mineral compounds used to boost him onto the ground regardless of the creep's remaining time to live. The creep has to be at adjacent square to the lab. 
 
 {% api_method_params %}
 creep : <a href="#Creep">Creep</a>
