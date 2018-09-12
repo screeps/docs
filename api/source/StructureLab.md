@@ -198,3 +198,25 @@ ERR_INVALID_ARGS | The amount or resource type is incorrect.
 {% endapi_return_codes %}
 
 
+
+{% api_method unboostCreep 'creep' A %}
+
+
+Remove boosts from the creep dropping half of the mineral compounds used to boost him onto the ground. The creep has to be at adjacent square to the lab. 
+
+{% api_method_params %}
+creep : <a href="#Creep">Creep</a>
+The target creep.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this lab, or the target creep.
+ERR_INVALID_TARGET | The target is not a valid Creep object.
+ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_FOUND | The target has no boosted parts.
+{% endapi_return_codes %}

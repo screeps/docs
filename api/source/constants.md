@@ -267,7 +267,9 @@ All the following constant names are available in the global scope:
     LAB_BOOST_MINERAL: 30,
     LAB_COOLDOWN: 10,
     LAB_REACTION_AMOUNT: 5,
-
+    LAB_UNBOOST_ENERGY: 0,
+    LAB_UNBOOST_MINERAL: 15,
+    
     GCL_POW: 2.4,
     GCL_MULTIPLY: 1000000,
     GCL_NOVICE: 3,
