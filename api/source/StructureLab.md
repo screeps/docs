@@ -217,6 +217,7 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this lab, or the target creep.
 ERR_INVALID_TARGET | The target is not a valid Creep object.
+ERR_TIRED | The lab is still cooling down.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NOT_FOUND | The target has no boosted parts.
 {% endapi_return_codes %}
