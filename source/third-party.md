@@ -89,7 +89,7 @@ Screeps runs constantly, and as a player it's not possible to watch everything t
 Pushing code to the server can be done using these plugins to common programs.
 
 *   [grunt-screeps](https://github.com/screeps/grunt-screeps) is written and maintained by the Screeps team. It used to upload code to the screeps server using [Grunt](https://gruntjs.com/).
-*   [gulp-screeps](https://github.com/pcmulder/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/). (No longer available).
+*   [gulp-screeps](https://github.com/screepers/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
 
 
 ## Web Client Extensions
