@@ -55,8 +55,7 @@ Y position in the room.
 Game.flags['Flag1'].pos.createConstructionSite(STRUCTURE_ROAD);
 ```
 ```javascript
-Game.flags['Flag1'].pos.createConstructionSite(10, 15, STRUCTURE_SPAWN, 
-    'MySpawn2');
+Game.flags['Flag1'].pos.createConstructionSite(STRUCTURE_SPAWN, 'MySpawn2');
 ```
 
 Create new <a href="#ConstructionSite">ConstructionSite</a> at the specified location.
