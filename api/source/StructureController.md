@@ -71,7 +71,7 @@ It can be addressed by [`Room.controller`](#Room.controller) property.
     </tr>
     <tr>
         <td><strong>Cooldown</strong></td>
-        <td>50,000 ticks (no cooldown in Novice Areas)</td>
+        <td>50,000 ticks (no cooldown in Novice Areas, also no cooldown for initial Safe Mode in your first room)</td>
     </tr>
     <tr>
         <td><strong>Generation</strong></td>
