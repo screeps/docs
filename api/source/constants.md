@@ -79,7 +79,7 @@ All the following constant names are available in the global scope:
     LOOK_TERRAIN: "terrain",
     LOOK_TOMBSTONES: "tombstone",
 
-    OBSTACLE_OBJECT_TYPES: ["spawn", "creep", "wall", "source", "constructedWall", "extension", "link", "storage", "tower", "observer", "powerSpawn", "powerBank", "lab", "terminal","nuker"],
+    OBSTACLE_OBJECT_TYPES: ["spawn", "creep", "source", "mineral", "controller", "constructedWall", "extension", "link", "storage", "tower", "observer", "powerSpawn", "powerBank", "lab", "terminal","nuker"],
 
     MOVE: "move",
     WORK: "work",
