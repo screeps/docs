@@ -17,17 +17,15 @@ There are 7 types of base minerals shown in the picture below.
  
 Each room contains only one mineral type, so in order to handle them effectively you need either access to several suitable rooms or trade relationships with other players.
 
-<img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure **Extractor** on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method `harvest` to the deposit thus mining the corresponding mineral in the same way you harvest energy.
+<img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**Extractor**](/api/#StructureExtractor) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
 
 ## Mineral compounds
 
-Base minerals are useless on their own. In order to impart some useful capabilities to them, you have to combine them according to special formulas in the structure called **Lab**.
+Base minerals are useless on their own. In order to impart some useful capabilities to them, you have to combine them according to special formulas in the structure called [**Lab**](/api/#StructureLab).
 
 ![](img/minerals-02.png)
 
-One reaction requires three labs: two as reagent sources, and the third one as the produce collector. The labs should be within the range of 2 squares from each other. 
-
-A lab can produce 1 unit of produce per tick, so you can build parallel chains of labs in one or more rooms to speed up the process. One lab cannot contain more than one mineral type at the same time.
+One reaction requires three labs: two as reagent sources, and the third one as the produce collector. The labs should be within the range of 2 squares from each other. One lab cannot contain more than one mineral type at the same time.
 
 <img src="img/2016-03-09_10-32-33.gif" align="right">
 
@@ -46,7 +44,7 @@ A lab can produce 1 unit of produce per tick, so you can build parallel chains o
 
 Apart from running chemical reactions with minerals, a lab can use resulting compounds to permanently upgrade your creeps boosting their specific properties.
 
-Each compound is applied to one body part of the creep of a certain type using the `StructureLab.boostCreep` method according to the table below and boosts the effectiveness of one of the actions of this creep. The boosted part works as two, three, or even four corresponding parts. To boost the whole creep, you need to boost all its parts of the given type.
+Each compound is applied to one body part of the creep of a certain type using the [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) method according to the table below and boosts the effectiveness of one of the actions of this creep. The boosted part works as two, three, or even four corresponding parts. To boost the whole creep, you need to boost all its parts of the given type.
 
 Boosting one body part takes 30 mineral compound units and 20 energy units. One body part can be boosted only with one compound type.
 
