@@ -106,7 +106,7 @@ All the following constant names are available in the global scope:
     WORLD_HEIGHT: 202,
 
     CREEP_LIFE_TIME: 1500,
-    CREEP_CLAIM_LIFE_TIME: 600,
+    CREEP_CLAIM_LIFE_TIME: 500,
     CREEP_CORPSE_RATE: 0.2,
 
     CARRY_CAPACITY: 50,
@@ -267,7 +267,9 @@ All the following constant names are available in the global scope:
     LAB_BOOST_MINERAL: 30,
     LAB_COOLDOWN: 10,
     LAB_REACTION_AMOUNT: 5,
-
+    LAB_UNBOOST_ENERGY: 0,
+    LAB_UNBOOST_MINERAL: 15,
+    
     GCL_POW: 2.4,
     GCL_MULTIPLY: 1000000,
     GCL_NOVICE: 3,
@@ -680,8 +682,8 @@ All the following constant names are available in the global scope:
         GH2O: 15,
         XGH2O: 80,
         GO: 10,
-        GHO2: 15,
-        XGHO2: 90,
+        GHO2: 30,
+        XGHO2: 150,
     },
 
     PORTAL_UNSTABLE: 10*24*3600*1000,
@@ -694,8 +696,31 @@ All the following constant names are available in the global scope:
 
     SYSTEM_USERNAME: 'Screeps',
 
-    SIGN_NOVICE_AREA: 'A new Novice Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.',
-    SIGN_RESPAWN_AREA: 'A new Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.'
+    // SIGN_NOVICE_AREA and SIGN_RESPAWN_AREA constants are deprecated, please use SIGN_PLANNED_AREA instead
+    SIGN_NOVICE_AREA: 'A new Novice or Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.',
+    SIGN_RESPAWN_AREA: 'A new Novice or Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.',
+    SIGN_PLANNED_AREA: 'A new Novice or Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.'
+
+    EVENT_ATTACK: 1,
+    EVENT_OBJECT_DESTROYED: 2,
+    EVENT_ATTACK_CONTROLLER: 3,
+    EVENT_BUILD: 4,
+    EVENT_HARVEST: 5,
+    EVENT_HEAL: 6,
+    EVENT_REPAIR: 7,
+    EVENT_RESERVE_CONTROLLER: 8,
+    EVENT_UPGRADE_CONTROLLER: 9,
+    EVENT_EXIT: 10,
+
+    EVENT_ATTACK_TYPE_MELEE: 1,
+    EVENT_ATTACK_TYPE_RANGED: 2,
+    EVENT_ATTACK_TYPE_RANGED_MASS: 3,
+    EVENT_ATTACK_TYPE_DISMANTLE: 4,
+    EVENT_ATTACK_TYPE_HIT_BACK: 5,
+    EVENT_ATTACK_TYPE_NUKE: 6,
+
+    EVENT_HEAL_TYPE_MELEE: 1,
+    EVENT_HEAL_TYPE_RANGED: 2,
 };
 
 

@@ -302,7 +302,6 @@ ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
 ERR_INVALID_TARGET | The target is not a valid construction site object or the structure cannot be built here (probably because of a creep at the same square).
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html#Room-Controller-Level">Learn more</a>
 {% endapi_return_codes %}
 
 

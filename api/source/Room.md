@@ -27,7 +27,6 @@ Total amount of energy available in all spawns and extensions in the room.
 Total amount of <code>energyCapacity</code> of all spawns and extensions in the room.
 
 
-
 {% api_property memory 'any' %}
 
 ```javascript
@@ -408,6 +407,156 @@ An array with path steps in the following format:
 ]
 ```
 
+{% api_method getEventLog '[raw]' 1 %}
+
+```javascript
+// track events performed by a particular creep
+_.filter(creep.room.getEventLog(), {objectId: creep.id});
+```
+
+```javascript
+// Find all hostile actions against your creeps and structures
+_.forEach(Game.rooms, room => {
+    let eventLog = room.getEventLog();
+    let attackEvents = _.filter(eventLog, {event: EVENT_ATTACK});
+    attackEvents.forEach(event => {
+        let target = Game.getObjectById(event.targetId);
+        if(target && target.my) {
+            console.log(event);
+        }
+    });
+});
+```
+
+Returns an array of events happened on the previous tick in this room.  
+
+{% api_method_params %}
+raw : boolean
+If this parameter is false or undefined, the method returns an object parsed using `JSON.parse` which incurs some CPU cost on the first access (the return value is cached on subsequent calls). If `raw` is truthy, then raw JSON in string format is returned.
+{% endapi_method_params %}
+
+
+### Return value
+
+An array of events. Each event represents some game action in the following format:
+ 
+```javascript-content
+{
+    event: EVENT_ATTACK,
+    objectId: '54bff72ab32a10f73a57d017',
+    data: { /* ... */ }
+}
+```
+
+The `data` property is different for each event type according to the following table:
+<table>
+    <tr>
+        <th>event</th><th>description</th>
+    </tr>
+    <tr>
+        <td>`EVENT_ATTACK`</td>
+        <td>
+            A creep or a structure performed an attack to another object.
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`damage` - the amount of hits damaged</li>
+                <li>`attackType` - one of the following constants:
+                    <ul>
+                        <li>`EVENT_ATTACK_TYPE_MELEE` - a creep attacked with [attack](#Creep.attack)</li>
+                        <li>`EVENT_ATTACK_TYPE_RANGED` - a creep attacked with [rangedAttack](#Creep.rangedAttack), or a tower attacked with [attack](#StructureTower.attack)</li> 
+                        <li>`EVENT_ATTACK_TYPE_RANGED_MASS` - a creep attacked with [rangedMassAttack](#Creep.rangedMassAttack)</li>
+                        <li>`EVENT_ATTACK_TYPE_DISMANTLE` - a creep attacked with [dismantle](#Creep.dismantle)</li>
+                        <li>`EVENT_ATTACK_TYPE_HIT_BACK` - a creep hit back on another creep's [attack](#Creep.attack)</li>
+                        <li>`EVENT_ATTACK_TYPE_NUKE` - a nuke landed</li>
+                    </ul>
+                </li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>`EVENT_OBJECT_DESTROYED`</td>
+        <td>
+            A game object is destroyed or killed.
+            <ul><li>`type` - the type of the destroyed object</li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>`EVENT_ATTACK_CONTROLLER`</td>
+        <td>A creep performed [`attackController`](#Creep.attackController) in the room.</td>
+    </tr>
+    <tr>
+        <td>`EVENT_BUILD`</td>
+        <td>
+            A creep performed [`build`](#Creep.build) in the room.
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`amount` - the amount of build progress gained</li>
+                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>`EVENT_HARVEST`</td>
+        <td>
+            A creep performed [`harvest`](#Creep.harvest) in the room.
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`amount` - the amount of resource harvested</li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>`EVENT_HEAL`</td>
+        <td>
+            A creep or a tower healed a creep.
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`amount` - the amount of hits healed</li>
+                <li>`healType` - one of the following constants:
+                    <ul>
+                        <li>`EVENT_HEAL_TYPE_MELEE` - a creep healed with [heal](#Creep.heal)</li>
+                        <li>`EVENT_HEAL_TYPE_RANGED` - a creep healed with [rangedHeal](#Creep.rangedHeal), or a tower healed with [heal](#StructureTower.heal)</li>
+                    </ul>
+                </li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>`EVENT_REPAIR`</td>
+        <td>
+            A creep or a tower repaired a structure.
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`amount` - the amount of hits repaired</li> 
+                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+            </ul>
+        </td>
+    </tr>        
+    <tr>
+        <td>`EVENT_RESERVE_CONTROLLER`</td>
+        <td>
+            A creep performed [`reserveController`](#Creep.reserveController) in the room.
+            <ul>
+                <li>`amount` - the amount of reservation time gained</li></ul>
+        </td>
+    </tr> 
+    <tr>
+        <td>`EVENT_UPGRADE_CONTROLLER`</td>
+        <td>
+            A creep performed [`upgradeController`](#Creep.upgradeController) in the room.
+            <ul>
+                <li>`amount` - the amount of control points gained</li> 
+                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+            </ul>
+        </td>
+    </tr>    
+    <tr>
+        <td>`EVENT_EXIT`</td>
+        <td>
+            A creep moved to another room.
+            <ul>
+                <li>`room` - the name of the target room</li> 
+                <li>`x`, `y` - the coordinates in another room where the creep has appeared</li></ul>
+            </ul>
+        </td>
+    </tr>           
+</table>
 
 {% api_method getPositionAt 'x, y' 1 %}
 
@@ -432,6 +581,26 @@ The Y position.
 A
 <a href="#RoomPosition">RoomPosition</a>
 object or null if it cannot be obtained.
+
+{% api_method getTerrain '' 0 %}
+
+```javascript
+const terrain = Game.rooms['W1N1'].getTerrain();
+switch(terrain.get(10,15)) {
+    case TERRAIN_MASK_WALL:
+        break;
+    case TERRAIN_MASK_SWAMP:
+        break;
+    case 0:
+        break;
+}
+```
+
+Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
+
+### Return value
+
+Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
 
 {% api_method lookAt 'x, y|target' 2 %}
 

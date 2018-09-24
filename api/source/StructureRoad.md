@@ -2,7 +2,7 @@
 
 <img src="img/road_plain.png" alt="" align="right" />
 
-Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE` body parts.
+Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE` body parts. You can also build roads on top of natural terrain walls which are otherwise impassable.
 
 <table class="table gameplay-info">
     <tbody>
@@ -14,8 +14,9 @@ Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE
         <td><strong>Cost</strong></td>
         <td>
             <ul>
-                <li>300 at plain land</li>
-                <li>1,500 at swamp</li>
+                <li>300 on plain land</li>
+                <li>1,500 on swamp</li>
+                <li>45,000 on walls</li>
             </ul>
         </td>
     </tr>
@@ -23,8 +24,9 @@ Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE
         <td><strong>Hits</strong></td>
         <td>
             <ul>
-                <li>5,000 at plain land</li>
-                <li>25,000 at swamp</li>
+                <li>5,000 on plain land</li>
+                <li>25,000 on swamp</li>
+                <li>750,000 on walls</li>
             </ul>
         </td>
     </tr>
@@ -32,8 +34,9 @@ Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE
         <td><strong>Decay</strong></td>
         <td>
             <ul>
-                <li>Loses 100 hits every 1,000 ticks at plain land</li>
-                <li>Loses 500 hits every 1,000 ticks at swamp</li>
+                <li>Loses 100 hits every 1,000 ticks on plain land</li>
+                <li>Loses 500 hits every 1,000 ticks on swamp</li>
+                <li>Loses 15,000 hits every 1,000 ticks on walls</li>
             </ul>
             Note: every creep step decreases the decay timer for 1 tick per each creep body part</td>
     </tr>
