@@ -265,6 +265,7 @@ All the following constant names are available in the global scope:
     LAB_ENERGY_CAPACITY: 2000,
     LAB_BOOST_ENERGY: 20,
     LAB_BOOST_MINERAL: 30,
+    // The LAB_COOLDOWN constant is deprecated, please use REACTION_TIME instead
     LAB_COOLDOWN: 10,
     LAB_REACTION_AMOUNT: 5,
     LAB_UNBOOST_ENERGY: 0,
