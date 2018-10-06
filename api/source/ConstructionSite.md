@@ -73,7 +73,7 @@ Remove the construction site.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this construction site.
+ERR_NOT_OWNER | You are not the owner of this construction site, and it's not in your room.
 {% endapi_return_codes %}
 
 
