@@ -533,8 +533,8 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep, or the room controller is owned or reserved by another player.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/minerals.html">Learn more</a>
-ERR_NOT_ENOUGH_RESOURCES | The target source does not contain any harvestable energy.
-ERR_INVALID_TARGET | The target is not a valid source object.
+ERR_NOT_ENOUGH_RESOURCES | The target does not contain any harvestable energy or mineral.
+ERR_INVALID_TARGET | The target is not a valid source or mineral object.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_TIRED | The extractor is still cooling down.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
