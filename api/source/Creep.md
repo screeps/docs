@@ -1201,5 +1201,5 @@ ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resource
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The creep's carry is full.
 ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The resource amount or type is incorrect.
+ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}
