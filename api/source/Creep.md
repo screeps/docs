@@ -819,7 +819,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
-ERR_FULL | The creep cannot receive any more energy.
+ERR_FULL | The creep cannot receive any more resource.
 ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
