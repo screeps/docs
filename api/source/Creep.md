@@ -1159,7 +1159,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep or the target controller.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
-ERR_INVALID_TARGET | The target is not a valid controller object.
+ERR_INVALID_TARGET | The target is not a valid controller object, or the controller upgrading is blocked.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
