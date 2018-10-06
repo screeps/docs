@@ -755,6 +755,7 @@ ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_TARGET | The target provided is invalid.
 ERR_NO_PATH | No path to the target could be found.
+ERR_NOT_FOUND | The creep has no memorized path to reuse.
 {% endapi_return_codes %}
 
 
