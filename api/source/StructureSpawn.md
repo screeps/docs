@@ -353,6 +353,7 @@ ERR_NOT_ENOUGH_ENERGY | The spawn does not have enough energy.
 ERR_INVALID_TARGET | The specified target object is not a creep.
 ERR_FULL | The target creep's time to live timer is full.
 ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
 
