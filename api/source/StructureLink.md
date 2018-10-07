@@ -113,6 +113,7 @@ ERR_FULL | The target cannot receive any more energy.
 ERR_INVALID_ARGS | The energy amount is incorrect.
 ERR_TIRED | The link is still cooling down.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this link.
+ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
 
