@@ -132,6 +132,7 @@ ERR_NOT_FOUND | The mineral containing in the lab cannot boost any of the creep'
 ERR_NOT_ENOUGH_RESOURCES | The lab does not have enough energy or minerals.
 ERR_INVALID_TARGET | The targets is not valid creep object.
 ERR_NOT_IN_RANGE | The targets are too far away.
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
 
 
@@ -163,6 +164,7 @@ ERR_FULL | The target cannot receive any more energy.
 ERR_NOT_IN_RANGE | The targets are too far away.
 ERR_INVALID_ARGS | The reaction cannot be run using this resources.
 ERR_TIRED | The lab is still cooling down.
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
 
 
@@ -220,4 +222,5 @@ ERR_INVALID_TARGET | The target is not a valid Creep object.
 ERR_TIRED | The lab is still cooling down.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NOT_FOUND | The target has no boosted parts.
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
