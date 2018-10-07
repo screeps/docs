@@ -311,6 +311,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this spawn or the target creep.
 ERR_INVALID_TARGET | The specified target object is not a creep.
 ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
 
