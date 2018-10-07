@@ -87,7 +87,7 @@ The total amount of energy this structure can contain.
 Remotely attack any creep in the room.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
 The target creep.
 {% endapi_method_params %}
 
@@ -97,7 +97,8 @@ The target creep.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_ENOUGH_RESOURCES | The tower does not have enough energy.
+ERR_NOT_OWNER | You are not the owner of this structure.
+ERR_NOT_ENOUGH_ENERGY | The tower does not have enough energy.
 ERR_INVALID_TARGET | The target is not a valid attackable object.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
@@ -121,7 +122,8 @@ The target creep.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_ENOUGH_RESOURCES | The tower does not have enough energy.
+ERR_NOT_OWNER | You are not the owner of this structure.
+ERR_NOT_ENOUGH_ENERGY | The tower does not have enough energy.
 ERR_INVALID_TARGET | The target is not a valid creep object.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
@@ -145,7 +147,8 @@ The target structure.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_ENOUGH_RESOURCES | The tower does not have enough energy.
+ERR_NOT_OWNER | You are not the owner of this structure.
+ERR_NOT_ENOUGH_ENERGY | The tower does not have enough energy.
 ERR_INVALID_TARGET | The target is not a valid repairable object.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
