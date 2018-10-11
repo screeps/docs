@@ -11,7 +11,7 @@ This makes Screeps more like a hosting or cloud computing service rather than a 
 
 As we designed the game, we were considering numerous options and finally came to a conclusion that justification of such expenses requires only one model: game time (or, in our case, CPU time) subscription. And note that we don’t offer multiple subscription options: the subscription cost is the same for all players. Thus we avoid creating game advantages for certain groups of players since all are provided with equal opportunities to use server resources. 
 
-If you don’t wish to use such resources on general terms, you can just confine yourself to purchasing a [starter kit on Steam](http://store.steampowered.com/app/464350). A minimum 10 CPU amount will be reserved for you on the server, but it won’t grow following your game level. Such a mode is not suitable for a full competitive playing but is still enough for those who are fine with 2-3 game rooms in the game world to have some fun of the game. 
+If you don’t wish to use such resources on general terms, you can just confine yourself to purchasing a [starter kit on Steam](http://store.steampowered.com/app/464350). A minimum 20 CPU amount will be reserved for you on the server, but it won’t grow following your game level. Such a mode is not suitable for a full competitive playing but is still enough for those who are fine with 2-3 game rooms in the game world to have some fun of the game. 
 
 ## See also
 
