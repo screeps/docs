@@ -19,7 +19,7 @@ You can set up an external transpiler to write your Screeps AI in another langua
 ### TypeScript
 
 *   [typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
-*   [Typescript-Declarations](https://github.com/screepers/Screeps-Typescript-Declarations) is a set of TypeScript declarations to cover the Screeps API.
+*   [typed-screeps](https://github.com/screepers/typed-screeps) is a set of TypeScript declarations to cover the Screeps API.
 
 ### Python
 
