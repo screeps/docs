@@ -187,6 +187,7 @@ The name of a new flag, or one of the following error codes:
 {% api_return_codes %}
 ERR_NAME_EXISTS | There is a flag with the same name already.
 ERR_INVALID_ARGS | The location or the color constant is incorrect.
+ERR_FULL | You have too many flags. The maximum number of flags per player is 10000.
 {% endapi_return_codes %}
 
 

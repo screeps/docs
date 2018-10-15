@@ -70,7 +70,7 @@ Secondary color of the flag. One of the <code>COLOR_*</code> constants.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_INVALID_ARGS | <code>color</code> is not a valid color constant.
+ERR_INVALID_ARGS | <code>color</code> or <code>secondaryColor</code> is not a valid color constant.
 {% endapi_return_codes %}
 
 

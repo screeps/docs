@@ -106,8 +106,9 @@ All the following constant names are available in the global scope:
     WORLD_HEIGHT: 202,
 
     CREEP_LIFE_TIME: 1500,
-    CREEP_CLAIM_LIFE_TIME: 500,
+    CREEP_CLAIM_LIFE_TIME: 600,
     CREEP_CORPSE_RATE: 0.2,
+    CREEP_PART_MAX_ENERGY: 125,
 
     CARRY_CAPACITY: 50,
     HARVEST_POWER: 2,
@@ -199,6 +200,7 @@ All the following constant names are available in the global scope:
         "nuker": 100000
     },
     CONSTRUCTION_COST_ROAD_SWAMP_RATIO: 5,
+    CONSTRUCTION_COST_ROAD_WALL_RATIO: 150,
 
     CONTROLLER_LEVELS: {1: 200, 2: 45000, 3: 135000, 4: 405000, 5: 1215000, 6: 3645000, 7: 10935000},
     CONTROLLER_STRUCTURES: {
