@@ -220,7 +220,7 @@ All the following constant names are available in the global scope:
         "container": {0: 5, 1: 5, 2: 5, 3: 5, 4: 5, 5: 5, 6: 5, 7: 5, 8: 5},
         "nuker": {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 1}
     },
-    CONTROLLER_DOWNGRADE: {1: 20000, 2: 5000, 3: 10000, 4: 20000, 5: 40000, 6: 60000, 7: 100000, 8: 150000},
+    CONTROLLER_DOWNGRADE: {1: 20000, 2: 10000, 3: 20000, 4: 40000, 5: 80000, 6: 120000, 7: 150000, 8: 200000},
     CONTROLLER_DOWNGRADE_RESTORE: 100,
     CONTROLLER_DOWNGRADE_SAFEMODE_THRESHOLD: 5000,
     CONTROLLER_CLAIM_DOWNGRADE: 300,

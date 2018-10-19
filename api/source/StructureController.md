@@ -21,37 +21,37 @@ It can be addressed by [`Room.controller`](#Room.controller) property.
     <tr>
         <td>2</td>
         <td>45,000 energy</td>
-        <td>5,000 ticks</td>
+        <td>10,000 ticks</td>
     </tr>
     <tr>
         <td>3</td>
         <td>135,000 energy</td>
-        <td>10,000 ticks</td>
+        <td>20,000 ticks</td>
     </tr>
     <tr>
         <td>4</td>
         <td>405,000 energy</td>
-        <td>20,000 ticks</td>
+        <td>40,000 ticks</td>
     </tr>
     <tr>
         <td>5</td>
         <td>1,215,000 energy</td>
-        <td>40,000 ticks</td>
+        <td>80,000 ticks</td>
     </tr>
     <tr>
         <td>6</td>
         <td>3,645,000 energy</td>
-        <td>60,000 ticks</td>
+        <td>120,000 ticks</td>
     </tr>
     <tr>
         <td>7</td>
         <td>10,935,000 energy</td>
-        <td>100,000 ticks</td>
+        <td>150,000 ticks</td>
     </tr>
     <tr>
         <td>8</td>
         <td>—</td>
-        <td>150,000 ticks</td>
+        <td>200,000 ticks</td>
     </tr>
     </tbody>
 </table>
@@ -176,7 +176,7 @@ The sign real date.
 
 
 
-The amount of game ticks when this controller will lose one level. This timer can be reset by using <code><a href="#Creep.upgradeController">Creep.upgradeController</a></code>.
+The amount of game ticks when this controller will lose one level. This timer is set to 50% on level upgrade or downgrade, and it can be increased by using <code><a href="#Creep.upgradeController">Creep.upgradeController</a></code>. Must be full to upgrade the controller level.
 
 
 
@@ -206,7 +206,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this controller.
 ERR_BUSY | There is another room in safe mode already.
 ERR_NOT_ENOUGH_RESOURCES | There is no safe mode activations available.
-ERR_TIRED | The previous safe mode is still cooling down, or the controller is `upgradeBlocked`, or the controller is downgraded for 5000 ticks or more.
+ERR_TIRED | The previous safe mode is still cooling down, or the controller is `upgradeBlocked`, or the controller is downgraded for 50% plus 5000 ticks or more.
 {% endapi_return_codes %}
 
 
