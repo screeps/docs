@@ -208,6 +208,17 @@ Get amount of CPU time used from the beginning of the current game tick. Alway
 
 Returns currently used CPU time as a float number.
 
+
+{% api_method Game.cpu.halt '' 1 %}
+
+```javascript
+Game.cpu.halt();
+```
+
+*This method is only available when **Virtual machine** is set to **Isolated** in your [account runtime settings](https://screeps.com/a/#!/account/runtime).*
+
+Reset your runtime environment and wipe all data in heap memory.
+
 {% api_method Game.cpu.setShardLimits 'limits' 1 %}
 
 ```javascript
