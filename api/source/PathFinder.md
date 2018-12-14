@@ -112,7 +112,7 @@ An object containing additional pathfinding flags.
     <li>
         <div class="api-arg-title">maxRooms</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16.</div>
+        <div class="api-arg-desc">The maximum allowed rooms to search. The default is 16, maximum is 64.</div>
     </li>
     <li>
         <div class="api-arg-title">maxCost</div>
