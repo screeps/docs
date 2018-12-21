@@ -88,11 +88,17 @@ html, body {
   .logo {
     padding: 10px 0 0 15px;
 
+    img {
+      width: 120px;
+      height: 20px;
+      margin-top: 4px;
+      margin-right: 2px;
+    }
+
     a {
-      color: #999;
-      font-weight: bold;
+      color: #9fa1ad;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 21px;
       vertical-align: top;
       padding-top: 0px;
       display: inline-block;
