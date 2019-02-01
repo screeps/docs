@@ -88,6 +88,21 @@ A global object representing world map. See the [documentation](#Game-map) below
 A global object representing the in-game market. See the [documentation](#Game-market) below.
 
 
+{% api_property Game.power 'object' %}
+
+Your Power Level, an object with the following properties :
+
+{% api_method_params %}
+level : number
+The current level.
+===
+progress : number
+The current progress to the next level.
+===
+progressTotal : number
+The progress required to reach the next level.
+{% endapi_method_params %}
+
 
 {% api_property Game.resources 'object' %}
 
