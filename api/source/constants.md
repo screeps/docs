@@ -272,7 +272,7 @@ All the following constant names are available in the global scope:
     LAB_REACTION_AMOUNT: 5,
     LAB_UNBOOST_ENERGY: 0,
     LAB_UNBOOST_MINERAL: 15,
-    
+
     GCL_POW: 2.4,
     GCL_MULTIPLY: 1000000,
     GCL_NOVICE: 3,
@@ -402,6 +402,8 @@ All the following constant names are available in the global scope:
     RESOURCE_CATALYZED_ZYNTHIUM_ALKALIDE: "XZHO2",
     RESOURCE_CATALYZED_GHODIUM_ACID: "XGH2O",
     RESOURCE_CATALYZED_GHODIUM_ALKALIDE: "XGHO2",
+    
+    RESOURCE_OPS: "ops",
 
     REACTIONS: {
         H: {
@@ -702,7 +704,7 @@ All the following constant names are available in the global scope:
     // SIGN_NOVICE_AREA and SIGN_RESPAWN_AREA constants are deprecated, please use SIGN_PLANNED_AREA instead
     SIGN_NOVICE_AREA: 'A new Novice or Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.',
     SIGN_RESPAWN_AREA: 'A new Novice or Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.',
-    SIGN_PLANNED_AREA: 'A new Novice or Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.'
+    SIGN_PLANNED_AREA: 'A new Novice or Respawn Area is being planned somewhere in this sector. Please make sure all important rooms are reserved.',
 
     EVENT_ATTACK: 1,
     EVENT_OBJECT_DESTROYED: 2,
@@ -714,6 +716,7 @@ All the following constant names are available in the global scope:
     EVENT_RESERVE_CONTROLLER: 8,
     EVENT_UPGRADE_CONTROLLER: 9,
     EVENT_EXIT: 10,
+    EVENT_POWER: 11,
 
     EVENT_ATTACK_TYPE_MELEE: 1,
     EVENT_ATTACK_TYPE_RANGED: 2,
@@ -724,82 +727,225 @@ All the following constant names are available in the global scope:
 
     EVENT_HEAL_TYPE_MELEE: 1,
     EVENT_HEAL_TYPE_RANGED: 2,
-};
 
+    POWER_LEVEL_MULTIPLY: 1000,
+    POWER_LEVEL_POW: 2,
+    POWER_CREEP_SPAWN_COOLDOWN: 0,
+    POWER_CREEP_MAX_LEVEL: 25,
 
-BODYPARTS_ALL = [
-    MOVE,
-    WORK,
-    CARRY,
-    ATTACK,
-    RANGED_ATTACK,
-    TOUGH,
-    HEAL,
-    CLAIM
-];
+    POWER_CLASS: {
+        OPERATOR: 'operator'
+    },
 
-RESOURCES_ALL = [
-    RESOURCE_ENERGY,
-    RESOURCE_POWER,
+    PWR_GENERATE_OPS: 1,
+    PWR_OPERATE_SPAWN: 2,
+    PWR_OPERATE_TOWER: 3,
+    PWR_OPERATE_STORAGE: 4,
+    PWR_OPERATE_LAB: 5,
+    PWR_OPERATE_EXTENSION: 6,
+    PWR_OPERATE_OBSERVER: 7,
+    PWR_OPERATE_TERMINAL: 8,
+    PWR_DISRUPT_SPAWN: 9,
+    PWR_DISRUPT_TOWER: 10,
+    PWR_DISRUPT_SOURCE: 11,
+    PWR_SHIELD: 12,
+    PWR_REGENERATE_SOURCE: 13,
+    PWR_REGENERATE_MINERAL: 14,
+    PWR_DISRUPT_TERMINAL: 15,
 
-    RESOURCE_HYDROGEN,
-    RESOURCE_OXYGEN,
-    RESOURCE_UTRIUM,
-    RESOURCE_KEANIUM,
-    RESOURCE_LEMERGIUM,
-    RESOURCE_ZYNTHIUM,
-    RESOURCE_CATALYST,
-    RESOURCE_GHODIUM,
+    POWER_INFO: {
+        [PWR_GENERATE_OPS]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 50,
+            effect: [1, 2, 4, 6, 8]
+        },
+        [PWR_OPERATE_SPAWN]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 300,
+            duration: 1000,
+            range: 3,
+            ops: 100,
+            effect: [0.9, 0.7, 0.5, 0.35, 0.2]
+        },
+        [PWR_OPERATE_TOWER]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 10,
+            duration: 100,
+            range: 3,
+            ops: 10
+        },
+        [PWR_OPERATE_STORAGE]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 800,
+            duration: 1000,
+            range: 3,
+            ops: 100,
+            effect: [500000,1000000,2000000,4000000,7000000]
+        },
+        [PWR_OPERATE_LAB]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 50,
+            duration: 1000,
+            range: 3,
+            ops: 10,
+            effect: [2,4,6,8,10]
+        },
+        [PWR_OPERATE_EXTENSION]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+        },
+        [PWR_OPERATE_OBSERVER]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 500,
+            duration: [100,200,300,400,500],
+            range: 3,
+            ops: 10
+        },
+        [PWR_OPERATE_TERMINAL]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 500,
+            duration: 1000,
+            range: 3,
+            ops: 100
+        },
+        [PWR_DISRUPT_SPAWN]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 5,
+            range: 20,
+            ops: 10,
+            effect: [1,2,3,4,5]
+        },
+        [PWR_DISRUPT_TOWER]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 0,
+            duration: 50,
+            range: 3,
+            ops: 10
+        },
+        [PWR_DISRUPT_SOURCE]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+            cooldown: 100,
+            duration: 1,
+            range: 3,
+            ops: 100
+        },
+        [PWR_SHIELD]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [0, 2, 7, 14, 22],
+        },
+        [PWR_REGENERATE_SOURCE]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [10, 11, 12, 14, 22],
+            cooldown: 100,
+            duration: 300,
+            range: 3,
+            effect: [50,100,150,200,250],
+            period: 15
+        },
+        [PWR_REGENERATE_MINERAL]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [10, 11, 12, 14, 22],
+            cooldown: 100,
+            duration: 100,
+            range: 3,
+            effect: [2,4,6,8,10],
+            period: 10
+        },
+        [PWR_DISRUPT_TERMINAL]: {
+            className: POWER_CLASS.OPERATOR,
+            level: [20, 21, 22, 23, 24],
+            cooldown: 8,
+            duration: 10,
+            range: 50
+        },
+    },
 
-    RESOURCE_HYDROXIDE,
-    RESOURCE_ZYNTHIUM_KEANITE,
-    RESOURCE_UTRIUM_LEMERGITE,
+    BODYPARTS_ALL: [
+        MOVE,
+        WORK,
+        CARRY,
+        ATTACK,
+        RANGED_ATTACK,
+        TOUGH,
+        HEAL,
+        CLAIM
+    ],
+    RESOURCES_ALL: [
+        RESOURCE_ENERGY,
+        RESOURCE_POWER,
 
-    RESOURCE_UTRIUM_HYDRIDE,
-    RESOURCE_UTRIUM_OXIDE,
-    RESOURCE_KEANIUM_HYDRIDE,
-    RESOURCE_KEANIUM_OXIDE,
-    RESOURCE_LEMERGIUM_HYDRIDE,
-    RESOURCE_LEMERGIUM_OXIDE,
-    RESOURCE_ZYNTHIUM_HYDRIDE,
-    RESOURCE_ZYNTHIUM_OXIDE,
-    RESOURCE_GHODIUM_HYDRIDE,
-    RESOURCE_GHODIUM_OXIDE,
+        RESOURCE_HYDROGEN,
+        RESOURCE_OXYGEN,
+        RESOURCE_UTRIUM,
+        RESOURCE_KEANIUM,
+        RESOURCE_LEMERGIUM,
+        RESOURCE_ZYNTHIUM,
+        RESOURCE_CATALYST,
+        RESOURCE_GHODIUM,
 
-    RESOURCE_UTRIUM_ACID,
-    RESOURCE_UTRIUM_ALKALIDE,
-    RESOURCE_KEANIUM_ACID,
-    RESOURCE_KEANIUM_ALKALIDE,
-    RESOURCE_LEMERGIUM_ACID,
-    RESOURCE_LEMERGIUM_ALKALIDE,
-    RESOURCE_ZYNTHIUM_ACID,
-    RESOURCE_ZYNTHIUM_ALKALIDE,
-    RESOURCE_GHODIUM_ACID,
-    RESOURCE_GHODIUM_ALKALIDE,
+        RESOURCE_HYDROXIDE,
+        RESOURCE_ZYNTHIUM_KEANITE,
+        RESOURCE_UTRIUM_LEMERGITE,
 
-    RESOURCE_CATALYZED_UTRIUM_ACID,
-    RESOURCE_CATALYZED_UTRIUM_ALKALIDE,
-    RESOURCE_CATALYZED_KEANIUM_ACID,
-    RESOURCE_CATALYZED_KEANIUM_ALKALIDE,
-    RESOURCE_CATALYZED_LEMERGIUM_ACID,
-    RESOURCE_CATALYZED_LEMERGIUM_ALKALIDE,
-    RESOURCE_CATALYZED_ZYNTHIUM_ACID,
-    RESOURCE_CATALYZED_ZYNTHIUM_ALKALIDE,
-    RESOURCE_CATALYZED_GHODIUM_ACID,
-    RESOURCE_CATALYZED_GHODIUM_ALKALIDE
-];
+        RESOURCE_UTRIUM_HYDRIDE,
+        RESOURCE_UTRIUM_OXIDE,
+        RESOURCE_KEANIUM_HYDRIDE,
+        RESOURCE_KEANIUM_OXIDE,
+        RESOURCE_LEMERGIUM_HYDRIDE,
+        RESOURCE_LEMERGIUM_OXIDE,
+        RESOURCE_ZYNTHIUM_HYDRIDE,
+        RESOURCE_ZYNTHIUM_OXIDE,
+        RESOURCE_GHODIUM_HYDRIDE,
+        RESOURCE_GHODIUM_OXIDE,
 
-COLORS_ALL = [
-    COLOR_RED,
-    COLOR_PURPLE,
-    COLOR_BLUE,
-    COLOR_CYAN,
-    COLOR_GREEN,
-    COLOR_YELLOW,
-    COLOR_ORANGE,
-    COLOR_BROWN,
-    COLOR_GREY,
-    COLOR_WHITE
-];
+        RESOURCE_UTRIUM_ACID,
+        RESOURCE_UTRIUM_ALKALIDE,
+        RESOURCE_KEANIUM_ACID,
+        RESOURCE_KEANIUM_ALKALIDE,
+        RESOURCE_LEMERGIUM_ACID,
+        RESOURCE_LEMERGIUM_ALKALIDE,
+        RESOURCE_ZYNTHIUM_ACID,
+        RESOURCE_ZYNTHIUM_ALKALIDE,
+        RESOURCE_GHODIUM_ACID,
+        RESOURCE_GHODIUM_ALKALIDE,
 
+        RESOURCE_CATALYZED_UTRIUM_ACID,
+        RESOURCE_CATALYZED_UTRIUM_ALKALIDE,
+        RESOURCE_CATALYZED_KEANIUM_ACID,
+        RESOURCE_CATALYZED_KEANIUM_ALKALIDE,
+        RESOURCE_CATALYZED_LEMERGIUM_ACID,
+        RESOURCE_CATALYZED_LEMERGIUM_ALKALIDE,
+        RESOURCE_CATALYZED_ZYNTHIUM_ACID,
+        RESOURCE_CATALYZED_ZYNTHIUM_ALKALIDE,
+        RESOURCE_CATALYZED_GHODIUM_ACID,
+        RESOURCE_CATALYZED_GHODIUM_ALKALIDE,
+        
+        RESOURCE_OPS
+    ],
+    COLORS_ALL: [
+        COLOR_RED,
+        COLOR_PURPLE,
+        COLOR_BLUE,
+        COLOR_CYAN,
+        COLOR_GREEN,
+        COLOR_YELLOW,
+        COLOR_ORANGE,
+        COLOR_BROWN,
+        COLOR_GREY,
+        COLOR_WHITE
+    ],
+    INTERSHARD_RESOURCES: [
+        SUBSCRIPTION_TOKEN
+    ]
+}
 ```
