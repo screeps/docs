@@ -184,7 +184,7 @@ powerCreep.enableRoom(powerCreep.room.controller);
 Enable using powers in this room. The room controller should be at adjacent tile.
 
 {% api_method_params %}
-controller : <a href="#StructureRoomController">StructureRoomController</a>
+controller : <a href="#StructureController">StructureController</a>
 The room controller.
 {% endapi_method_params %}
 
