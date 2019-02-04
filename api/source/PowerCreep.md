@@ -195,9 +195,8 @@ One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of energy.
+ERR_INVALID_TARGET | The target is not a controller structure.
+ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
 
