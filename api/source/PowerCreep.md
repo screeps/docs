@@ -613,6 +613,7 @@ ERR_NOT_ENOUGH_RESOURCES | The creep doesn't have enough resources to use the po
 ERR_INVALID_TARGET | The specified target is not valid.
 ERR_NOT_IN_RANGE | The specified target is too far away.
 ERR_INVALID_ARGS | Using powers is not enabled on the Room Controller.
+ERR_FULL | The target has active effect of the same or higher level.  
 {% endapi_return_codes %}
 
 {% api_method withdraw 'target, resourceType, [amount]' A %}
