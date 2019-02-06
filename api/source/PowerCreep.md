@@ -110,9 +110,19 @@ The text message that the creep was saying at the last tick.
 {% api_property shard string %}
 The name of the shard where the power creep is spawned, or undefined.
 
-{% api_property spawnCooldown number %}
-The number of ticks left while spawning or deleting this creep is not available. 
-Undefined if the power creep is spawned in the world. 
+{% api_property spawnCooldownTime number %}
+```javascript
+if(!(Game.powerCreeps['PowerCreep1'].spawnCooldownTime > Date.now())) {
+    Game.powerCreeps['PowerCreep1'].spawn(powerSpawn);
+}
+```
+The timestamp when spawning or deleting this creep will become available. 
+Undefined if the power creep is spawned in the world.
+
+{% api_property ticksToLive number %}
+The remaining amount of game ticks after which the creep will die and become unspawned. When a power creep
+dies of old age, its spawn cooldown is not activated, you can respawn it immediately. Undefined is the creep
+is not spawned in the world. 
 
 
 {% api_method delete '' A %}
@@ -200,12 +210,6 @@ ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
 
-
-```javascript
-Game.powerCreeps['PowerCreep1'].usePower(PWR_GENERATE_OPS);
-```
-
-
 {% api_method move 'direction' A %}
 
 ```javascript
@@ -225,7 +229,7 @@ creep1.pull(creep2);
 creep2.move(creep1);
 ```
 
-Move the creep one square in the specified direction. Requires the <code>MOVE</code> body part, or another creep nearby <a href="#Creep.pull">pulling</a> the creep. In case if you call <code>move</code> on a creep nearby, the <code>ERR_TIRED</code> and the <code>ERR_NO_BODYPART</code> checks will be bypassed; otherwise, the <code>ERR_NOT_IN_RANGE</code> check will be bypassed. 
+Move the creep one square in the specified direction.  
 
 {% api_method_params %}
 direction : <a href="#Creep">Creep</a>|number
@@ -252,7 +256,6 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
-ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_ARGS | The provided direction is incorrect.
 ERR_NOT_IN_RANGE | The target creep is too far away
 {% endapi_return_codes %}
@@ -273,7 +276,7 @@ if(!creep.memory.path) {
 creep.moveByPath(creep.memory.path);
 ```
 
-Move the creep using the specified predefined path. Requires the <code>MOVE</code> body part.
+Move the creep using the specified predefined path. 
 
 {% api_method_params %}
 path : array|string
@@ -291,7 +294,6 @@ ERR_BUSY | The power creep is not spawned in the world.
 ERR_NOT_FOUND | The specified path doesn't match the creep's location.
 ERR_INVALID_ARGS | <code>path</code> is not a valid path array.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
-ERR_NO_BODYPART | There are no <code>MOVE</code> body parts in this creep’s body.
 {% endapi_return_codes %}
 
 
@@ -328,7 +330,7 @@ if(Game.cpu.tickLimit - Game.cpu.getUsed() > 20) {
 }
 ```
 
-Find the optimal path to the target within the same room and move to it. A shorthand to consequent calls of <a href="#RoomPosition.findPathTo">pos.findPathTo()</a> and <a href="#Creep.move">move()</a> methods. If the target is in another room, then the corresponding exit will be used as a target. Requires the <code>MOVE</code> body part.
+Find the optimal path to the target within the same room and move to it. A shorthand to consequent calls of <a href="#RoomPosition.findPathTo">pos.findPathTo()</a> and <a href="#Creep.move">move()</a> methods. If the target is in another room, then the corresponding exit will be used as a target. 
 
 {% api_method_params %}
 x : number
@@ -385,7 +387,6 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
-ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_TARGET | The target provided is invalid.
 ERR_NO_PATH | No path to the target could be found.
 ERR_NOT_FOUND | The creep has no memorized path to reuse.
@@ -404,7 +405,7 @@ if(target) {
 
 ```
 
-Pick up an item (a dropped piece of energy). Requires the <code>CARRY</code> body part. The target has to be at adjacent square to the creep or at the same square.
+Pick up an item (a dropped piece of energy). The target has to be at adjacent square to the creep or at the same square.
 
 {% api_method_params %}
 target : <a href="#Resource">Resource</a>
@@ -421,6 +422,36 @@ ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
 ERR_FULL | The creep cannot receive any more resource.
+ERR_NOT_IN_RANGE | The target is too far away.
+{% endapi_return_codes %}
+
+
+
+
+{% api_method renew 'target' A %}
+
+```javascript
+let powerBank = Game.getObjectById('XXX');
+Game.powerCreeps['PowerCreep1'].renew(powerBank);
+
+```
+
+Instantly restore time to live to the maximum using a Power Bank nearby. It has to be at adjacent tile. 
+
+{% api_method_params %}
+target : <a href="#StructurePowerBank">StructurePowerBank</a>
+The target structure.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_BUSY | The power creep is not spawned in the world.
+ERR_INVALID_TARGET | The target is not a valid power bank object.
 ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
