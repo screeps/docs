@@ -75,21 +75,6 @@ The amount of power containing in this structure.
 The total amount of power this structure can contain.
 
 
-
-{% api_method createPowerCreep 'name' A %}
-
-
-
-Create a power creep. <em>This method is under development.</em>
-
-{% api_method_params %}
-roomName : string
-The name of the power creep.
-{% endapi_method_params %}
-
-
-
-
 {% api_method processPower '' A %}
 
 
@@ -107,35 +92,6 @@ ERR_NOT_OWNER | You are not the owner of this structure.
 ERR_NOT_ENOUGH_RESOURCES | The structure does not have enough energy or power resource units.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
-
-
-
-{% api_method renewPowerCreep 'target' A %}
-
-```javascript
-powerSpawn.renewPowerCreep(Game.powerCreeps['PowerCreep1']);
-
-```
-
-Instantly restore power creep's time to live to the maximum. The creep has to be at adjacent tile. 
-
-{% api_method_params %}
-target : <a href="#PowerCreep">PowerCreep</a>
-The target power creep.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this power spawn.
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_INVALID_TARGET | The target is not a valid power creep.
-ERR_NOT_IN_RANGE | The target is too far away.
-{% endapi_return_codes %}
-
 
 
 {% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}

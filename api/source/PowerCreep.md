@@ -52,6 +52,9 @@ The total amount of resources the creep can carry.
 {% api_property className string %}
 The power creep's class, one of the `POWER_CLASS` constants.
 
+{% api_property deleteTime number %}
+A timestamp when this creep is marked to be permanently deleted from the account, or undefined otherwise.
+
 {% api_property hits number %}
 The current amount of hit points of the creep.
 
@@ -436,10 +439,10 @@ Game.powerCreeps['PowerCreep1'].renew(powerBank);
 
 ```
 
-Instantly restore time to live to the maximum using a Power Bank nearby. It has to be at adjacent tile. 
+Instantly restore time to live to the maximum using a Power Spawn or a Power Bank nearby. It has to be at adjacent tile. 
 
 {% api_method_params %}
-target : <a href="#StructurePowerBank">StructurePowerBank</a>
+target : <a href="#StructurePowerBank">StructurePowerBank</a> | <a href="#StructurePowerSpawn">StructurePowerSpawn</a>
 The target structure.
 {% endapi_method_params %}
 
