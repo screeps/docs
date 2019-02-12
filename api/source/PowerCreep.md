@@ -134,7 +134,8 @@ is not spawned in the world.
 Game.powerCreeps['PowerCreep1'].delete();
 ```
 
-Delete the power creep permanently from your account. It should NOT be spawned in the world.
+Delete the power creep permanently from your account. It should NOT be spawned in the world. The creep is not deleted
+immediately, but a 24-hours delete timer is started instead (see [`deleteTime`](#PowerCreep.deleteTime)). 
 
 ### Return value
 
