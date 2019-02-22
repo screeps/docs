@@ -128,14 +128,19 @@ dies of old age, its spawn cooldown is not activated, you can respawn it immedia
 is not spawned in the world. 
 
 
-{% api_method delete '' A %}
+{% api_method delete '[cancel]' A %}
 
 ```javascript
 Game.powerCreeps['PowerCreep1'].delete();
 ```
 
 Delete the power creep permanently from your account. It should NOT be spawned in the world. The creep is not deleted
-immediately, but a 24-hours delete timer is started instead (see [`deleteTime`](#PowerCreep.deleteTime)). 
+immediately, but a 24-hours delete timer is started instead (see [`deleteTime`](#PowerCreep.deleteTime)). You can cancel deletion by calling `delete(true)`.
+
+{% api_method_params %}
+cancel : boolean
+Set this to true to cancel previously scheduled deletion.
+{% endapi_method_params %} 
 
 ### Return value
 
