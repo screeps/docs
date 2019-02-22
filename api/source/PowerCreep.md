@@ -519,6 +519,7 @@ ERR_NOT_OWNER | You are not the owner of the creep or the spawn.
 ERR_BUSY | The power creep is already spawned in the world.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use the spawn.
 ERR_INVALID_TARGET | The specified object is not a Power Spawn.
+ERR_TIRED | The power creep cannot be spawned because of the cooldown.
 {% endapi_return_codes %}
 
 
@@ -647,7 +648,7 @@ ERR_NOT_ENOUGH_RESOURCES | The creep doesn't have enough resources to use the po
 ERR_INVALID_TARGET | The specified target is not valid.
 ERR_NOT_IN_RANGE | The specified target is too far away.
 ERR_INVALID_ARGS | Using powers is not enabled on the Room Controller.
-ERR_FULL | The target has active effect of the same or higher level.  
+ERR_FULL | The target has the same active effect of a higher level.  
 {% endapi_return_codes %}
 
 {% api_method withdraw 'target, resourceType, [amount]' A %}

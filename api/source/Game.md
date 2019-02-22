@@ -88,9 +88,9 @@ A global object representing world map. See the [documentation](#Game-map) below
 A global object representing the in-game market. See the [documentation](#Game-market) below.
 
 
-{% api_property Game.power 'object' %}
+{% api_property Game.gpl 'object' %}
 
-Your Power Level, an object with the following properties :
+Your Global Power Level, an object with the following properties :
 
 {% api_method_params %}
 level : number
