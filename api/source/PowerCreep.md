@@ -128,6 +128,34 @@ dies of old age, its spawn cooldown is not activated, you can respawn it immedia
 is not spawned in the world. 
 
 
+
+{% api_method cancelOrder 'methodName' 0 %}
+
+```javascript
+creep.move(LEFT);
+creep.cancelOrder('move');
+//The creep will not move in this game tick
+```
+
+Cancel the order given during the current game tick.
+
+{% api_method_params %}
+methodName : string
+The name of a creep's method to be cancelled.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been cancelled successfully.
+ERR_NOT_OWNER | You are not the owner of the creep.
+ERR_BUSY | The power creep is not spawned in the world.
+ERR_NOT_FOUND | The order with the specified name is not found.
+{% endapi_return_codes %}
+
+
 {% api_method delete '[cancel]' A %}
 
 ```javascript
@@ -402,6 +430,32 @@ ERR_NOT_FOUND | The creep has no memorized path to reuse.
 {% endapi_return_codes %}
 
 
+
+{% api_method notifyWhenAttacked 'enabled' A %}
+
+```javascript
+Game.powerCreeps['PC1'].notifyWhenAttacked(true);
+```
+
+Toggle auto notification when the creep is under attack. The notification will be sent to your account email. Turned on by default.
+
+{% api_method_params %}
+enabled : boolean
+Whether to enable notification or disable.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_BUSY | The power creep is not spawned in the world.
+ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
+{% endapi_return_codes %}
+
+
 {% api_method pickup 'target' A %}
 
 ```javascript
@@ -434,6 +488,32 @@ ERR_FULL | The creep cannot receive any more resource.
 ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
+
+
+
+{% api_method rename 'name' 0 %}
+
+```javascript
+Game.powerCreeps['PC1'].rename('PC1X');
+```
+
+Rename the power creep. It must not be spawned in the world.
+
+{% api_method_params %}
+name : string
+The new name of the power creep.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been cancelled successfully.
+ERR_NOT_OWNER | You are not the owner of the creep.
+ERR_BUSY | The power creep is spawned in the world.
+ERR_NAME_EXISTS | A power creep with the specified name already exists.
+{% endapi_return_codes %}
 
 
 
