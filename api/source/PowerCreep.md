@@ -509,7 +509,7 @@ The new name of the power creep.
 
 One of the following codes:
 {% api_return_codes %}
-OK | The operation has been cancelled successfully.
+OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of the creep.
 ERR_BUSY | The power creep is spawned in the world.
 ERR_NAME_EXISTS | A power creep with the specified name already exists.
