@@ -228,7 +228,7 @@ Game.powerCreeps['PowerCreep1'].usePower(PWR_GENERATE_OPS);
 powerCreep.enableRoom(powerCreep.room.controller);
 ```
 
-Enable using powers in this room. The room controller should be at adjacent tile.
+Enable powers usage in this room. The room controller should be at adjacent tile.
 
 {% api_method_params %}
 controller : <a href="#StructureController">StructureController</a>
