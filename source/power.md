@@ -35,7 +35,28 @@ You can view your GPL on the [Overview page](https://screeps.com/a/#!/overview) 
 
 PCs are immortal. A newly-created PC is tied to your account and exists in it even if not spawned in the game world. After it dies (out of age or forcibly), it is just returned to your account and you can spawn it again in any of your Power Spawns after expiration of a 8-hours cooldown.
 
-PCs can belong to either of the 3 classes: **Operator**, **Commander**, **Executor**.
+PCs can belong to either of the 3 classes: 
+
+<table>
+<tr>
+<td style="padding: 10px; background: #141414"><img src="img/operator.png"></td>
+<td><strong>Operator</strong><br>
+A creep working mainly in the rear, at your base, though it can be used as a saboteur in offensive operations.
+</td>
+</tr>
+<tr style="background: none">
+<td style="padding: 10px; background: #141414"><img src="img/commander.png"></td>
+<td><strong>Commander</strong><br>
+This power creep is not very useful on its own, but it’s a team player. It influences and affects regular creeps, both friendly and hostile.
+</td>
+</tr>
+<tr>
+<td style="padding: 10px; background: #141414"><img src="img/executor.png"></td>
+<td><strong>Executor</strong><br>
+This creep class prefers working alone. Due to its skills, it’s a very effective performer in your economy or as a war machine when defending or attacking.
+</td>
+</tr>
+</table> 
 
 PCs have 0 to 25 development levels and skills (so-called “**powers**,” like superpowers). With each new level gained, you can add a new available skill or increase the level of any of the existing skills.
 
