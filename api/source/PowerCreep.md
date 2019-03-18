@@ -2,7 +2,7 @@
 
 
 Power Creeps are immortal "heroes" that are tied to your account and can be respawned in any `PowerSpawn` after death.
-You can upgrade their abilities ("powers") up to your account Power Level (see [`Game.power`](#Game.power)).
+You can upgrade their abilities ("powers") up to your account Global Power Level (see [`Game.gpl`](#Game.gpl)).
 
 {% api_method PowerCreep.create 'name, className' 1 %}
 
