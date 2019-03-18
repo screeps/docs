@@ -104,6 +104,15 @@ A global object representing world map. See the [documentation](#Game-map) below
 A global object representing the in-game market. See the [documentation](#Game-market) below.
 
 
+{% api_property Game.powerCreeps 'object&lt;string, <a href="#PowerCreep">PowerCreep</a>&gt;' %}
+
+```javascript
+Game.powerCreeps['PC1'].moveTo(flag);
+```
+
+A hash containing all your power creeps with their names as hash keys. Even power creeps 
+not spawned in the world can be accessed here. 
+
 
 
 {% api_property Game.resources 'object' %}
