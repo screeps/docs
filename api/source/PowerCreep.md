@@ -123,8 +123,7 @@ The timestamp when spawning or deleting this creep will become available.
 Undefined if the power creep is spawned in the world.
 
 {% api_property ticksToLive number %}
-The remaining amount of game ticks after which the creep will die and become unspawned. When a power creep
-dies of old age, its spawn cooldown is not activated, you can respawn it immediately. Undefined is the creep
+The remaining amount of game ticks after which the creep will die and become unspawned. Undefined if the creep
 is not spawned in the world. 
 
 
