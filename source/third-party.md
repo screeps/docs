@@ -18,7 +18,7 @@ You can set up an external transpiler to write your Screeps AI in another langua
 
 ### TypeScript
 
-*   [typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
+*   [screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
 *   [typed-screeps](https://github.com/screepers/typed-screeps) is a set of TypeScript declarations to cover the Screeps API.
 
 ### Python
@@ -31,8 +31,9 @@ You can set up an external transpiler to write your Screeps AI in another langua
 
 ### Kotlin
 
-*   [kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) is a starting point for players who want to program in Kotlin.
-*   [kotlin-types](https://github.com/exaV/screeps-kotlin-types) is a set of Kotlin declarations to cover the Screeps API.
+* [screeps-kotlin](https://github.com/exaV/screeps-kotlin) is an example game script in Kotlin.
+* [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) is a starting point for players who want to program in Kotlin.
+* [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types) is a set of Kotlin declarations to cover the Screeps API.
 
 ## API Clients
 
