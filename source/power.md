@@ -55,7 +55,7 @@ This power creep is not very useful on its own, but it’s a team player. It inf
 <td><strong>Executor</strong><br>
 This creep class prefers working alone. Due to its skills, it’s a very effective performer in your economy or as a war machine when defending or attacking.
 </td>
-</tr>
+</tr> 
 </table> 
 
 PCs have 0 to 25 development levels and skills (so-called “**powers**,” like superpowers). With each new level gained, you can add a new available skill or increase the level of any of the existing skills.
@@ -71,3 +71,17 @@ Though PCs age and can die of old age, you can resume their time to live instant
 {% endnote %}
 
 If you want to review how your PCs are configured and create them from scratch, please activate an **experimentation period**. It will enable you to delete and recreate your PCs instantly without losing GPL within the 24-hour period. Each player is granted with 30 experimentation periods. It’s possible we’ll replenish them from time to time by some amount if balance adjustments or new skills are introduced in the game that force players to review their PC configuration.
+
+## Powers
+
+### Operator
+
+{% powers operator %}
+
+### Commander
+
+Under development.
+
+### Executor 
+
+Under development. 

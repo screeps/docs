@@ -4,6 +4,25 @@
 Power Creeps are immortal "heroes" that are tied to your account and can be respawned in any `PowerSpawn` after death.
 You can upgrade their abilities ("powers") up to your account Global Power Level (see [`Game.gpl`](#Game.gpl)).
 
+<table class="table gameplay-info">
+    <tbody>
+    <tr>
+        <td><strong>Time to live</strong></td>
+        <td>5,000</td>
+    </tr>
+    <tr>
+        <td><strong>Hits</strong></td>
+        <td>1,000 per level</td>
+    </tr>
+    <tr>
+        <td><strong>Capacity</strong></td>
+        <td>100 per level</td>
+    </tr>    
+    </tbody>
+</table>
+
+[Full list of available powers](/power.html#Powers)
+
 {% api_method PowerCreep.create 'name, className' 1 %}
 
 ```javascript
@@ -710,12 +729,18 @@ Game.powerCreeps['PowerCreep1'].usePower(PWR_OPERATE_SPAWN, Game.spawns['Spawn1'
 ```
 
 Apply one the creep's powers on the specified target. 
+You can only use powers in rooms either without a controller, or with a [power-enabled](#PowerCreep.enableRoom) controller.
+Only one power can be used during the same tick, each `usePower` call will override the previous one.
+If the target has the same effect of a lower or equal level, it is overridden. If the existing effect level is higher, an error is returned.
+
+[Full list of available powers](/power.html#Powers)   
+
 
 {% api_method_params %}
 power : number
 The power ability to use, one of the `PWR_*` constants.
 ===
-target : <a href="#RoomObject">RoomObject</a> | <a href="#RoomPosition">RoomPosition</a>
+target : <a href="#RoomObject">RoomObject</a>
 A target object in the room. 
 {% endapi_method_params %}
 
