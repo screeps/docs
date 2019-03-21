@@ -172,7 +172,12 @@ hexo.extend.tag.register('powers', function(args) {
         break;
       }
     }
-    result += `<tr><th>${powerName}</th><td>${powerDescription(powerName)}</td></tr>`;
+    result += `<tr><td style="background: #141414; width: 50px; padding: 0; border-top: 1px solid #444">
+        <img src="https://screeps.com/a/app2/assets/powers/${className}/${powerName.toLowerCase().replace(/_/g,'-')}.svg">
+        </td>
+        <th>${powerName}</th>
+        <td>${powerDescription(powerName)}</td>
+        </tr>`;
   }
 
   result += '</table>';
