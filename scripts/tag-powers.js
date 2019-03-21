@@ -87,10 +87,10 @@ function powerDescription(powerName) {
         return `Create a temporary non-repairable rampart structure on the same square with ${effectMetric()} hits. Cannot be used on top of another rampart. Consumes ${powerInfo.energy} energy resource units.`;
 
       case "REGEN_SOURCE":
-        return `Regenerate ${effectMetric()} energy units in a source every {{ powerInfo.period }} ticks.`;
+        return `Regenerate ${effectMetric()} energy units in a source every ${powerInfo.period} ticks.`;
 
       case "REGEN_MINERAL":
-        return `Regenerate ${effectMetric()} mineral units in a deposit every {{ powerInfo.period }} ticks.`;
+        return `Regenerate ${effectMetric()} mineral units in a deposit every ${powerInfo.period} ticks.`;
 
       case "DISRUPT_TERMINAL":
         return `Block withdrawing resources from the terminal.`;
