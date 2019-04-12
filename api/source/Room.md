@@ -383,12 +383,12 @@ An object containing additonal pathfinding flags:
     <li>
         <div class="api-arg-title">plainCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Cost for walking on plain positions. The default is 1.</div>
+        <div class="api-arg-desc">Cost for walking on plain positions. The default is 1 if ignoreRoads is set and 2 otherwise.</div>
     </li>
     <li>
         <div class="api-arg-title">swampCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Cost for walking on swamp positions. The default is 5.</div>
+        <div class="api-arg-desc">Cost for walking on swamp positions. The default is 5 if ignoreRoads is set and 10 otherwise.</div>
     </li>
 </ul>
 
