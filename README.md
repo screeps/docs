@@ -2,7 +2,7 @@ This project contains the sources of the [documentation web site](http://docs.sc
 
 You need to have Node.js in order to build this project.
 
-1. Install all npm dependendcies:
+1. Install all npm dependencies:
 
 ```
 npm install
@@ -28,3 +28,14 @@ You can use `generate-watch` instead of `generate` to sync changes in real time.
 npm run server
 ```
 
+### Docker Support
+
+1. Build the docker image:
+
+`docker build -t screeps_docs .`
+
+2. Run it
+
+`docker run -d -p 3000:3000 screeps_docs`
+
+3. Connect to it at http://localhost:3000
