@@ -9,7 +9,7 @@ As described in the article [Understanding game loop, time and ticks](/game-loop
 
 ## CPU Limit
 
-In order to avoid abuse of execution time (which would affect the duration of the game tick for all players), we have introduced a concept of **CPU time limit**. This is a duration of time in milliseconds during which your game script is allowed to run within one tick. The CPU limit 100 means that after 100 ms execution of your script will be terminated even if it has not accomplished some work yet. Your CPU time limit depends on your [Global Control Level](/control.html) if you have active [subscription](/subscription.html), or fixed at 10 otherwise.
+In order to avoid abuse of execution time (which would affect the duration of the game tick for all players), we have introduced a concept of **CPU time limit**. This is a duration of time in milliseconds during which your game script is allowed to run within one tick. The CPU limit 100 means that after 100 ms execution of your script will be terminated even if it has not accomplished some work yet. Your CPU time limit depends on your [Global Control Level](/control.html) if you have active [subscription](/subscription.html), or fixed at 20 otherwise.
  
 ## Bucket
 
