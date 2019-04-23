@@ -25,7 +25,7 @@ As the system tends to be very CPU intensive it is recommended that you avoid "b
 The following steps will need some common build and development tools, which we'll install here.
 
 ```shell
-sudo apt install -y build-essential tcl git
+sudo apt install -y build-essential tcl git curl
 ```
 
 
