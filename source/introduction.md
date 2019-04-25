@@ -9,11 +9,11 @@ Screeps主要是为了有编程背景的人设计的。和其他RTS游戏不同�
 
 ## 游戏世界
 
-Screeps的游戏世界由很多相互连接的房间组成。每个房间是一个$50 \times 50 $封闭空间，可能有1～4个出口通向其他的房间。世界里的房间数量是有限的，但是会随着玩家的增加而增加。
+Screeps的游戏世界由很多相互连接的房间组成。每个房间是一个 50x50 封闭空间，可能有1～4个出口通向其他的房间。世界里的房间数量是有限的，但是会随着玩家的增加而增加。
 
 ![](https://docs.screeps.com/img/world-map.png)
 
-[下载完整图像](http://static.screeps.com/map.png)（$9100 \times 9100$ PNG, 17.7MB）
+[下载完整图像](http://static.screeps.com/map.png) (9100x9100 PNG, 17.7 MB)
 
 每个房间的布局是独一无二的，由程序生成，包括以下三种元素：
 
@@ -38,5 +38,3 @@ Screeps的游戏世界由很多相互连接的房间组成。每个房间是一�
 母巢（Spawn）是Colony的核心部分。可以存储采集到的能量并用能量建造新的Creep。每个房间Spawn最大的数量为3个。
 
 Spawn本身只能构建基本单位，如果想构造高等单位就需要建造Spawn扩展设施。将在下一篇文章中介绍。
-
-![](<https://raw.githubusercontent.com/nofacer/pic_bed/master/my_blog/footer.jpg>)
