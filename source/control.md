@@ -1,28 +1,30 @@
-title: Control
+title: 控制
 ---
 
-## Global Control Level
+## 全局控制等级 （Global Control Level）
 
-To expand your empire in the game world, you need to develop your main game indicator – your **Global Control Level** (GCL). It affects two important factors: 
+为了扩展你在游戏世界中的疆土你需要提升的一个主要指标是 **Global Control Level** （GCL）。他的主要影响是：
 
-*   **Your CPU Limit.** On the official server you begin the game with a 20 CPU limit which allows you to control just a small number of creeps. However, if you're a [subscribed](/subscription.html) player you gain 10 CPU for each GCL level until your limit reaches 300 CPU. Then it stops increasing.
-*   **The amount of rooms you can control.** For example, to control 3 rooms, you need to have GCL 3.
+* **CPU 限制**。在官方服务器上，每个人开局有 20 个 CPU 的限制，只能控制少量的单位。如果你是订阅（氪金）用户，每提升一个 GCL 等级可以多获得 10 个 CPU 资源，直到达到最大的 300 CPU 限制。
+* **控制房间数量**。比如说你想要控制 3 个房间就需要 3 级的 GCL。
 
-Your current Global Control Level is displayed at your [overview page](https://screeps.com/a/#!/overview).
+
+
+你当前的 GCL 等级在 [overview 页面](https://screeps.com/a/#!/overview) 显示.
 
 ![](img/gcl-cpu.png)
 
-## Room Controller Level
+## 房间控制等级
 
-In order to build any facilities in a room, you need to control it. In the majority of rooms (but not all), there are special objects called **Room Controllers**. In your first room, the Controller is owned by you by default. Any neutral Controller can be [claimed](/api/#Creep.claimController) by your creeps with the `CLAIM` body part, which instantly puts the room under your control.
+如果想要在房间里建造设施，首先需要控制这个房间。在大多数房间里都有一个特殊的装置被称为 **房间控制器**（Room Controller）。你第一个房间里的房间控制器默认归你所有。其他的中立房间控制器可以通过带有 `CLAIM` 部件的 creep 占有（[claim](/api/#Creep.claimController)），取得房间控制权。
 
 ![](img/c1.png)
 
-A newly-seized Controller allows you to build one spawn in the room. In order for you to build extra spawns, roads, and extensions, you have to upgrade the Room Controller Level (RCL) by pumping energy into the controller using [`Creep.upgradeController`](/api/#Creep.upgradeController) method.
+新占领的房间控制器可以让你在该房间建造一个 Spawn。如果需要建造额外的 Spawn 或者其他扩展就需要通过[`Creep.upgradeController`](/api/#Creep.upgradeController)给控制器输入能量来提升房间控制器等级 （Room Controller Level，RCL）。
 
 ![](img/c2.png)
 
-## Available structures per RCL
+## RCL 等级对应可建造建筑
 
 <table>
 <tbody>
@@ -79,18 +81,18 @@ A newly-seized Controller allows you to build one spawn in the room. In order fo
 </tbody>
 </table>
 
-## Attacking controllers
+## 攻击控制器
 
-A Controller cannot be damaged or destroyed. However, a Controller not affected by an [`upgradeController`](/api/#Creep.upgradeController) action will run a downgrade timer losing 20,000 game ticks at RCL 1, or 5,000 game ticks at RCL 2 to 150,000 game ticks at RCL 8. All timers are listed in the [`StructureController`](/api/#StructureController) prototype. As soon as its level reaches 0, a Controller becomes neutral, and another player can reclaim it. Make sure that you upgrade your Controllers from time to time to keep their levels!
+控制器无法被攻击或毁坏。然而，控制器在没有受到 [`upgradeController`](/api/#Creep.upgradeController) 的作用下会缓慢降级，比如说 RCL1 的时候 20,000 个游戏周期会降一级，具体的降级规则看 [`StructureController`](/api/#StructureController)。当 RCL 等级到达 0 点时候，该房间控制器就变成中立的了，其他玩家就可以占领了。
 
-You can attack another player's controller downgrade timer by applying [`attackController`](/api/#Creep.attackController) on it.
+当然你可以通过 [`attackController`](/api/#Creep.attackController) 影响别人的 RC 降级计时器。
 
-![](img/controllerDowngrade.png)
+![](/img/controllerDowngrade.png)
 
-## Raising GCL
+## 提升GCL
 
-Upgrading GCL requires pumping energy into your Controllers – GCL grows in parallel with the level of your Controllers. Any contribution to any of your Controllers affects your GCL, even if the Controller is fully upgraded to the level 8.
+升级 GCL 需要向控制器中注入能量，GCL 与控制器的级别是同步增长的，只要往控制器中注入能量 GCL 就会涨，即使控制器已经满级了。
 
-Having upgraded your GCL once, you will never lose it. Even after complete fail in the game and loss of all your rooms, your GCL is stored in your account forever. It allows you to respawn at a new place and quickly regain your former glory.
+一旦 GCL 级别提升了就不会再降下来，即使游戏输了一个房间都不剩了。重新开始游戏 GCL 仍然还是那么多，可以让你领先在起跑线上。
 
-If some day in the future you plan to claim a room that requires a higher GCL than you have, you can still [reserve](/api/#Creep.reserveController) its Controller. Also, reserving a Controller in a neutral room restores energy sources to their full capacity.
+如果一个房间所需的 GCL 比你的高，你仍然可以[保留](/api/#Creep.reserveController) 。此外，在中立房间保留一个控制器能够将能源恢复到最大容量。
