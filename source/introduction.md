@@ -1,40 +1,42 @@
-title: Introduction
+title: 介绍
 ---
 
-## What kind of game is Screeps
+## Screeps是什么样的游戏
 
-Screeps is a massive multiplayer online real-time strategy game. Each player can create his or her own colony in a **single persistent world** shared by all the players. Such a colony can mine **resources**, build **units**, conquer **territory**. As you conquer more territory, your influence in the game world grows, as well as your abilities to expand your footprint. However, it requires a lot of effort on your part, since multiple players may aim at the same territory.
+Screeps是一款MMORTS（大型多人在线即时战略游戏）。游戏里有很多世界，在每一个世界中，玩家可在该世界创建自己的领地。在领地上可以采集资源，建造单位以及占领别人的领土。随着你征服的领土越来越多，势力范围越来越大，你在游戏世界中的影响力也越来越大。不过荣耀与风险并存，你的领地也同时被虎视眈眈的其他玩家盯着在。
 
-Screeps is developed for people with **programming skills**. Unlike some other RTS games, your units in Screeps can react to events without your participation – provided that you have programmed them properly. And, unlike other MMO, you do not have to play Screeps constantly to play well. It is quite enough just to check once in a while to see if everything goes well.
+Screeps主要是为了有编程背景的人设计的。和其他RTS游戏不同的地方在于，只要你为你的单位（Creep）敲好了代码，就可以让它们自动运行，不用你亲自操作。同时和其他MMO游戏不同之处在于你不用花费成片成片的时间去玩，只用没事的时候抽空看一看一切是否进展顺利。
 
-## Game world
+## 游戏世界
 
-The game world consists of interconnected **rooms**. A room is a closed space 50x50 cells in size. It may have 1-4 exits to other rooms. A number of rooms in the world is limited, but increases as new players join the game. So the single game world is really huge and constantly expanding, like the Universe itself.
+Screeps的游戏世界由很多相互连接的房间组成。每个房间是一个$50 \times 50 $封闭空间，可能有1～4个出口通向其他的房间。世界里的房间数量是有限的，但是会随着玩家的增加而增加。
 
-[![](img/world-map.png)](http://static.screeps.com/map.png)
+![](https://docs.screeps.com/img/world-map.png)
 
-[Download full map image](http://static.screeps.com/map.png) (9100x9100 PNG, 17.7 MB)
+[下载完整图像](http://static.screeps.com/map.png)（$9100 \times 9100$ PNG, 17.7MB）
 
-Each room landscape is unique. The view of each room is generated procedurally and consists of three types of surface:
+每个房间的布局是独一无二的，由程序生成，包括以下三种元素：
 
-*   **Plain land** – simple ground with a movement cost of 2.
-*   **Swamps** increase a movement cost to 10.
-*   **Walls** block movement of all creeps. 
+* 平原（Plain Land）- 普通的地面，移动成本为2。
+* 沼泽（Swamps）- 移动成本为10.
+* 墙（Walls）- 阻止单位移动。
 
-You can customize the room landscape with the help of the following facilities:
+可以通过以下设施改变房间布局：
 
-*   **Roads** decrease a movement cost to 1. Roads deteriorate due to movement and require repair.
-*   **Constructed walls** can be created by players. Unlike natural walls, they may be attacked and destroyed by creeps.
-*   **Ramparts** are your defenses. Only your creeps may move inside your ramparts. Besides, a creep inside a rampart cell cannot be attacked until the rampart is destroyed (though it can attack others). Ramparts deteriorate with each game cycle and require repair.
+* 道路（Roads）- 可以将移动成本减小到1。随着使用道路会损坏，需要维修。
+* 建筑墙壁（Constructed Walls）- 由玩家建造出的墙壁。不像天然墙壁那样，建筑墙壁可以被其他玩家攻击、破坏。
+* 城墙（Ramparts）- 防御工事。自己的单位可以在城墙内移动并且在城墙被破坏之前不会被攻击。城墙会随着游戏时间推进而损坏，需要维修。
 
-In the beginning of the game, you are free to choose the place for your new colony in one of the free rooms inside the zone of the game world available for settlement. After your first spawn is set up, your room will be in **safe mode**. Use this time to create good defenses, or any player will be able to destroy your colony!
+在游戏开始的时候，你可以从世界中随意选择空闲的房间作为自己的领土。之后会有一个安全期，别人没法攻击你。最好利用这段时间加强自己的防御，否则时间一过别人就可以蹂躏你。
 
-## Your colony
+## 殖民地（Colony）
 
-**![](img/colony-center.png)**
+![](https://docs.screeps.com/img/colony-center.png)
 
-**Energy sources** are the main game resource. They can be harvested by worker creeps. The amount of energy in a source is limited, but resumes once in 300 game ticks.
+能量源（Energy Sources）是游戏里的主要资源。 可以由creeps采集。能量源的储量有限，不过会在每300个游戏计时周期恢复。
 
-**Spawns** are your colony centers. They can accumulate mined energy and use it to create your units. There may be no more than 3 spawns in a room. Hence, by building 3 spawns in a room you actually conquer it. You can have multiple spawns totally in all your rooms though.
+母巢（Spawn）是Colony的核心部分。可以存储采集到的能量并用能量建造新的Creep。每个房间Spawn最大的数量为3个。
 
-A spawn itself can build only basic units. In order to build more complex ones, you have to construct one or more spawn **extensions**. Read more about that in the next article.
+Spawn本身只能构建基本单位，如果想构造高等单位就需要建造Spawn扩展设施。将在下一篇文章中介绍。
+
+![](<https://raw.githubusercontent.com/nofacer/pic_bed/master/my_blog/footer.jpg>)
