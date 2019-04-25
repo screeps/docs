@@ -5,7 +5,7 @@ Screeps 的世界危机重重，本文主要介绍保卫自己的领土不受入
 
 ## 安全模式
 
-当你新开一局游戏的时候，房间的 **安全模式** 会被打开。这意味其他的 creeps 不能在你的房间里对你的 creeps 造成任何影响（但是你可以干爆他们，RUA！）。详细的介绍看 [`StructureController`](/api/#StructureController)
+当你新开一局游戏的时候，房间的**安全模式**会被打开。这意味其他的 creeps 不能在你的房间里对你的 creeps 造成任何影响（但是你可以干爆他们，RUA！）。详细的介绍看 [`StructureController`](/api/#StructureController)
 
 ![](img/safe_mode.png)
 
