@@ -10,10 +10,10 @@ _:
   矿物: /minerals.html
   市场: /market.html
   NPC 入侵者: /invaders.html
-  Power: /power.html
+  能量: /power.html
 脚本:
   脚本基础: /scripting-basics.html
-  全家对象: /global-objects.html
+  全局对象: /global-objects.html
   模块: /modules.html
   调试: /debugging.html
   游戏循环: /game-loop.html
@@ -26,16 +26,16 @@ _:
   为什么要订阅？: /subscription.html
   公开测试区域 (PTR): /ptr.html
   第三方工具: /third-party.html
-  Auth Tokens: /auth-tokens.html
+  验证令牌: /auth-tokens.html
   社区服务器: /community-servers.html
   服务条款: /tos.html
   隐私政策: /privacy-policy.html
 
 资源:
-  Blog: http://blog.screeps.com
-  Changelogs: http://blog.screeps.com/categories/Changelogs/
-  Chat: http://chat.screeps.com
-  Forum: https://screeps.com/forum/
+  博客: http://blog.screeps.com
+  修改日志: http://blog.screeps.com/categories/Changelogs/
+  聊天室: http://chat.screeps.com
+  论坛: https://screeps.com/forum/
 
 贡献文章:
   贡献规则: /contributed/rules.html
