@@ -217,7 +217,6 @@ for(const name in Game.creeps) {
 ### 返回值
 
 以浮点数返回当前使用的 CPU 时间。
-Returns currently used CPU time as a float number.
 
 
 {% api_method Game.cpu.halt '' 1 %}
