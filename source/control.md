@@ -16,11 +16,11 @@ title: 控制
 
 ## 房间控制等级
 
-如果想要在房间里建造设施，首先需要控制这个房间。在大多数房间里都有一个特殊的装置被称为 **房间控制器**（Room Controller）。你第一个房间里的房间控制器默认归你所有。其他的中立房间控制器可以通过带有 `CLAIM` 部件的 creep 占有（[claim](/api/#Creep.claimController)），取得房间控制权。
+如果想要在房间里建造设施，首先需要控制这个房间。在大多数房间里都有一个特殊的装置被称为 **房间控制器**（Room Controller）。你第一个房间里的房间控制器默认归你所有。其他的中立房间控制器可以通过带有 `CLAIM` 部件的 creep [占有](/api/#Creep.claimController)，取得房间控制权。
 
 ![](img/c1.png)
 
-新占领的房间控制器可以让你在该房间建造一个 Spawn。如果需要建造额外的 Spawn 或者其他扩展就需要通过[`Creep.upgradeController`](/api/#Creep.upgradeController)给控制器输入能量来提升房间控制器等级 （Room Controller Level，RCL）。
+新占领的房间控制器可以让你在该房间建造一个 Spawn。如果需要建造额外的 Spawn 或者其他扩展就需要通过 [`Creep.upgradeController`](/api/#Creep.upgradeController)给控制器输入能量来提升房间控制器等级 （Room Controller Level，RCL）。
 
 ![](img/c2.png)
 
