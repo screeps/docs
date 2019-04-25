@@ -30,8 +30,8 @@ title: 控制
 <tbody>
 <tr>
 <th style="width: 10%;">RCL</th>
-<th style="width: 15%;">Energy to upgrade</th>
-<th>Structures</th>
+<th style="width: 15%;">升级所需能量</th>
+<th>建筑</th>
 </tr>
 <tr>
 <td>0</td>
