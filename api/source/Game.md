@@ -21,7 +21,7 @@ limit : number
 ===
 tickLimit : number
 当前游戏周期可用的 CPU 时间。
-<br>Usually it is higher than <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">Learn more</a>
+<br>通常它高于 <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">了解更多</a>
 ===
 bucket : number
 在你的 <a href="/cpu-limit.html#Bucket">bucket</a> 中累积的未使用的 CPU 数量。
