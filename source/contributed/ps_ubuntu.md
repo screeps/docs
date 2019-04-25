@@ -100,7 +100,7 @@ sudo su screeps
 
 现在先决条件已经满足并有了新用户, 我们可以为您的游戏世界创建独一无二的服务器环境。
 
-在这个步骤中, 你会需要一个 Steam API Key, 你可以在 [这里]（https://steamcommunity.com/dev/apikey） 免费获取。
+在这个步骤中, 你会需要一个 Steam API Key, 你可以在 [这里](https://steamcommunity.com/dev/apikey) 免费获取。
 
 ```shell
 mkdir ~/world
