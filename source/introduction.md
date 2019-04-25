@@ -33,8 +33,8 @@ Screeps 的游戏世界由很多相互连接的房间组成。每个房间是一
 
 ![](https://docs.screeps.com/img/colony-center.png)
 
-能量源（Energy Sources）是游戏里的主要资源。 可以由 Creeps 采集。能量源的储量有限，不过会在每 300 个游戏计时周期恢复。
+能量源（Energy Sources） 是游戏里的主要资源。 可以由 Creeps 采集。能量源的储量有限，不过会在每 300 个游戏计时周期恢复。
 
-母巢（Spawn）是 Colony 的核心部分。可以存储采集到的能量并用能量建造新的 Creep。每个房间 Spawn 最大的数量为 3 个。
+母巢（Spawn） 是 Colony 的核心部分。可以存储采集到的能量并用能量建造新的 Creep。每个房间 Spawn 最大的数量为 3 个。
 
-Spawn本身只能构建基本单位，如果想构造高等单位就需要建造 Spawn 扩展设施。将在下一篇文章中介绍。
+Spawn 本身只能构建基本单位，如果想构造高等单位就需要建造 Spawn 扩展设施。将在下一篇文章中介绍。
