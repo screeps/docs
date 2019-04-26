@@ -173,7 +173,7 @@ console.log(`Used ${heap.total_heap_size} / ${heap.heap_size_limit}`);
 
 ### 返回值
 
-以下列格式返回具有堆统计星系的对象：
+以下列格式返回具有堆统计信息的对象：
 
 ```javascript-content
 {
