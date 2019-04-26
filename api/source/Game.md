@@ -20,7 +20,7 @@ limit : number
 你在当前指定 shard 的CPU限制。
 ===
 tickLimit : number
-当前游戏周期可用的 CPU 时间。
+当前游戏 tick 可用的 CPU 时间。
 <br>通常它高于 <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">了解更多</a>
 ===
 bucket : number
@@ -155,7 +155,7 @@ for(const i in Game.spawns) {
 console.log(Game.time);
 ```
 
-系统游戏周期计数。他在每个周期自动递增。点此<a href="/game-loop.html">了解更多</a>。
+系统游戏 tick 计数。他在每个 tick 自动递增。点此<a href="/game-loop.html">了解更多</a>。
 
 
 {% api_method Game.cpu.getHeapStatistics '' 1 %}

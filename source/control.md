@@ -83,7 +83,7 @@ title: 控制
 
 ## 攻击控制器
 
-控制器无法被攻击或毁坏。然而，控制器在没有受到 [`upgradeController`](/api/#Creep.upgradeController) 的作用下会缓慢降级，比如说 RCL1 的时候 20,000 个游戏周期会降一级，具体的降级规则看 [`StructureController`](/api/#StructureController)。当 RCL 等级到达 0 点时候，该房间控制器就变成中立的了，其他玩家就可以占领了。
+控制器无法被攻击或毁坏。然而，控制器在没有受到 [`upgradeController`](/api/#Creep.upgradeController) 的作用下会缓慢降级，比如说 RCL1 的时候 20,000 个游戏 tick 会降一级，具体的降级规则看 [`StructureController`](/api/#StructureController)。当 RCL 等级到达 0 点时候，该房间控制器就变成中立的了，其他玩家就可以占领了。
 
 当然你可以通过 [`attackController`](/api/#Creep.attackController) 影响别人的 RC 降级计时器。
 

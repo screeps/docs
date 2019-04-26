@@ -9,7 +9,7 @@ Screeps 的世界危机重重，本文主要介绍保卫自己的领土不受入
 
 ![](img/safe_mode.png)
 
-安全模式持续 **20,000 个游戏周期**（大约20小时，实际取决于每个游戏周期的具体时间）。如果 room controller 存有额外的激活次数也可以通过 [`StructureController.activateSafeMode`](/api/#StructureController.activateSafeMode) 手动激活:
+安全模式持续 **20,000 个游戏 tick**（大约20小时，实际取决于每个游戏 tick 的具体时间）。如果 room controller 存有额外的激活次数也可以通过 [`StructureController.activateSafeMode`](/api/#StructureController.activateSafeMode) 手动激活:
 
     Game.rooms.W1N1.controller.activateSafeMode()
 
@@ -37,7 +37,7 @@ Screeps 的世界危机重重，本文主要介绍保卫自己的领土不受入
 
 和普通的墙一样，城墙的初始耐久也是 1 点，最大的耐久值由控制器等级决定。在之前的文章[控制](/control.html)中介绍过。
 
-城墙和普通墙不一样的地方在于：每过几个游戏周期耐久值就会掉一点，所以需要分配工人来保持确保你所有的城墙保持警惕，并且没有磨损。
+城墙和普通墙不一样的地方在于：每过几个游戏 tick 耐久值就会掉一点，所以需要分配工人来保持确保你所有的城墙保持警惕，并且没有磨损。
 
 ## 主动防御：塔（Towers）
 
