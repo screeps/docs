@@ -20,7 +20,7 @@ title: 总览
 
 ## Other resources
 
-* 获得答案的最快方法是向我们提问 [Slack channel](http://chat.screeps.com)。
-* 你可以通过 [GitHub](https://github.com/search?o=desc&p=1&q=screeps&s=updated&type=Repositories) 找到来自其他玩家的实际工作的例子。
+* 获得答案的最快方法是到 [Slack channel](http://chat.screeps.com) 向我们提问。
+* 你可以在 [GitHub](https://github.com/search?o=desc&p=1&q=screeps&s=updated&type=Repositories) 找到来自其他玩家的实际工作的例子。
 * 如果你依旧有任何问题或者顾虑，请随意[提交申请](http://support.screeps.com/hc/en-us/requests/new)或者通过发邮件到 [contact@screeps.com](mailto:contact.screeps.com) 来联系我们。
 * 我们也有 [forum](http://support.screeps.com/hc/communities/public/topics), [Twitter](https://twitter.com/ScreepsGame) 和 [Facebook](https://facebook.com/ScreepsGame) 。
