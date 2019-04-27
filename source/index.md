@@ -18,7 +18,7 @@ title: 总览
 从 Slack 讨论组加入游戏社区
 {% endindex_block %}
 
-{% index_block "Screeps 编程游戏小组" "shang.qq.com/wpa/qunwpa?idkey=8d9a9245519f3ecc94b23fbdada6d6479d8a3330071e0d44f372bb63a372a083" %}
+{% index_block "Screeps 编程游戏小组" "https://shang.qq.com/wpa/qunwpa?idkey=8d9a9245519f3ecc94b23fbdada6d6479d8a3330071e0d44f372bb63a372a083" %}
 从 QQ 群加入 Screeps 编程游戏小组
 {% endindex_block %}
 
