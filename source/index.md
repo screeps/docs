@@ -22,7 +22,7 @@ title: 总览
 从 QQ 群加入 Screeps 编程游戏小组
 {% endindex_block %}
 
-## Other resources
+## 其他资源
 
 * 获得答案的最快方法是到 [Slack 频道](http://chat.screeps.com) 向我们提问。
 * 你可以在 [GitHub](https://github.com/search?o=desc&p=1&q=screeps&s=updated&type=Repositories) 找到来自其他玩家的实际工作的例子。
