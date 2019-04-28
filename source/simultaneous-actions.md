@@ -16,7 +16,8 @@ title: 同步动作及优先级
         creep.harvest(source); // OK – 执行成功， creep 收获了能量
         // 第二 tick
         creep.build(constructionSite); // OK – 执行成功
-        creep.harvest(source); // OK - 虽然返回值也为 OK ，但由于在同一 tick （上一行）里使用了优先级更高的 [`Creep.build()`](api/#Creep.build) ，所以 [`Creep.harvest()`](api/#Creep.harvest) 实际上被覆盖了，没有被执行。
+        creep.harvest(source); // OK - 虽然返回值也为 OK ，但由于在同一 tick （上一行）里使用了优先级更高的 [`Creep.build()`](api/#Creep.build)
+        //所以 [`Creep.harvest()`](api/#Creep.harvest) 实际上被覆盖了，没有被执行。
 
 虽说如此，但您却能在同一 tick 内执行多个没有优先级冲突的动作。比如说：
 
