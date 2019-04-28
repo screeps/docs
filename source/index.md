@@ -14,17 +14,17 @@ title: 总览
 阅读其他玩家编写的文档，或者由你贡献
 {% endindex_block %}  
 
-{% index_block "讨论组" "http://chat.screeps.com" %}
+{% index_block "Slack 讨论组（英文）" "http://chat.screeps.com" %}
 从 Slack 讨论组加入游戏社区
 {% endindex_block %}
 
-{% index_block "Screeps 编程游戏小组" "https://shang.qq.com/wpa/qunwpa?idkey=8d9a9245519f3ecc94b23fbdada6d6479d8a3330071e0d44f372bb63a372a083" %}
+{% index_block "Screeps 编程游戏小组（中文）" "https://shang.qq.com/wpa/qunwpa?idkey=8d9a9245519f3ecc94b23fbdada6d6479d8a3330071e0d44f372bb63a372a083" %}
 从 QQ 群加入 Screeps 编程游戏小组
 {% endindex_block %}
 
 ## 其他资源
 
-* 获得答案的最快方法是到 [Slack 频道](http://chat.screeps.com) 向我们提问。
+* 获得答案的最快方法是到 [Slack 频道（英文）](http://chat.screeps.com) 向我们提问。
 * 你可以在 [GitHub](https://github.com/search?o=desc&p=1&q=screeps&s=updated&type=Repositories) 找到来自其他玩家的实际工作的例子。
 * 如果你依旧有任何问题或者顾虑，请随意[提交申请](http://support.screeps.com/hc/en-us/requests/new)或者通过发邮件到 [contact@screeps.com](mailto:contact.screeps.com) 来联系我们。
-* 我们也有 [论坛](http://support.screeps.com/hc/communities/public/topics), [Twitter](https://twitter.com/ScreepsGame) 和 [Facebook](https://facebook.com/ScreepsGame) 。
+* 我们也有 [论坛（英文）](http://support.screeps.com/hc/communities/public/topics), [Twitter（英文）](https://twitter.com/ScreepsGame) 和 [Facebook（英文）](https://facebook.com/ScreepsGame) 。
