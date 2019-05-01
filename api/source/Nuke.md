@@ -14,11 +14,11 @@
         <td>在堡垒内外的所有的 creeps 、建筑工地、掉落的资源会在核爆瞬间被移除。对建筑的伤害：
             <ul>
                 <li>10,000,000 hits 在着落点;</li>
-                <li>5,000,000 hits 对周边 5x5 区域的所有建筑.</li>
+                <li>5,000,000 hits 对周边 5x5 区域内的所有建筑.</li>
             </ul>
-            <p>Note that you can stack multiple nukes from different rooms at the same target position to increase damage.</p>
-            <p>If the room is in safe mode, then the safe mode is cancelled immediately, and the safe mode cooldown is reset to 0.</p>
-            <p>The room controller is hit by triggering <code>upgradeBlocked</code> period, which means it is unavailable to activate safe mode again within the next 200 ticks.</p>
+            <p>注：向同一目标发射多枚核弹可叠加伤害。</p>
+            <p>如果目标房间启用了安全模式，则其会被立即取消，但冷却时间会被重置为0。</p>
+            <p>目标房间的控制器会进入 <code>upgradeBlocked</code> ，这意味着在 200 ticks 内其无法重新开启安全模式。</p>
         </td>
     </tr>
     </tbody>
@@ -30,7 +30,7 @@
 
 
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+身份证，可使用 <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> 通过 <code>id</code> 查找对象。
 
 
 
@@ -38,7 +38,7 @@ A unique object identificator. You can use <a href="#Game.getObjectById"><code>
 
 
 
-The name of the room where this nuke has been launched from.
+发射此核弹的房间
 
 
 
@@ -46,6 +46,6 @@ The name of the room where this nuke has been launched from.
 
 
 
-The remaining landing time.
+预计核爆时间
 
 
