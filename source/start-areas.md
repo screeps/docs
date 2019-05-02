@@ -19,7 +19,7 @@ Novice Areas have the day counter. After it runs out, the walls disappear, rooms
 
 The majority of novice sectors are divided into 4x4 room size quarters. Apart from the common outer wall that encircles the entire 10x10 sector, there are also inside walls that intersect these “quarters.” The counters of those walls are lower than the total Novice Area counter. It means that each resident starts out in the game by facing other players only in his own “quarter” first, but after a few days he can meet all the residents of the sector. 
 
-## Respawn Areas
+## 重生区
 
 Another similar kind of isolated world map zones is **Respawn Areas**. They are highlighted with blue color and have only the Nukers usage restriction. All players with any GCL can place their first spawn in this area and claim as many rooms as their GCL allows.
 
