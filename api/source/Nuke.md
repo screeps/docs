@@ -1,4 +1,4 @@
-# Nuke （核弹）
+# Nuke
 
 核弹原爆点，此对象无法被更改或移除。但可以用常数 `FIND_NUKES` 查找即将抵达房间的核弹。核弹只能由 <a href="#StructureNuker"><code>核弹发射井</code></a> 发射
 
