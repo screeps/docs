@@ -1,9 +1,9 @@
-title: Start Areas
+title: 开始区域
 ---
 
-## Novice Areas
+## 新手区
  
-To allow each player start out in the game and develop a colony without facing veterans of the Screeps world, we’ve devised a system of special temporary sectors for novice players. They are marked in green, and the “**Novice Area**” label pops up as you hover the mouse pointer over them.
+  To allow each player start out in the game and develop a colony without facing veterans of the Screeps world, we’ve devised a system of special temporary sectors for novice players. They are marked in green, and the “**Novice Area**” label pops up as you hover the mouse pointer over them.
 
 ![](img/novice.png)
 
