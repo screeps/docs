@@ -11,7 +11,7 @@ Screeps 是个永无止境的大型战略游戏。由于庞大的玩家数，玩
 
 紧接着此房间会进入**20,000 ticks**的[安全模式](/defense.html) （大约 15 小时，但具体取决于单 tick 的[实际耗时](https://status.screeps.com/)）充分利用这段时间来探索房间、规划基建、布置防御、占领资源。
 
-当玩家放下的第一个 Spawn 自动包含 300 能量。 Spawn 每 tick 会自动产出 1 能量，所以玩家不会陷入 Spawn 能量用完且无 creep 可用的尴尬局面。
+当玩家放下的第一个 Spawn 自动包含 300 能量。 Spawn 每 tick 会自动产出 1 能量，所以玩家不会陷入 Spawn 能量耗尽且无 creep 可用的尴尬局面。
 
 {% note info %}
 当 Spawn 和其扩展的总储能量达到 300 时， Spawn 会停止产能。
