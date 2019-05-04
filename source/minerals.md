@@ -1,4 +1,4 @@
-title: Minerals
+title: 矿物
 ---
 
 If energy is the basic construction material in the Screeps world, the minerals are its jewels. By mining and processing minerals, you can significantly speed up your economy and boost the effectiveness of your creeps.
@@ -9,7 +9,7 @@ Working with minerals consists of 3 steps:
 *   **Producing mineral compounds**
 *   **Boosting creeps**
 
-## Mining
+## 采矿
 
 There are 7 types of base minerals shown in the picture below.
 
@@ -19,7 +19,7 @@ Each room contains only one mineral type, so in order to handle them effectively
 
 <img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**Extractor**](/api/#StructureExtractor) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
 
-## Mineral compounds
+## 矿物合成
 
 Base minerals are useless on their own. In order to impart some useful capabilities to them, you have to combine them according to special formulas in the structure called [**Lab**](/api/#StructureLab).
 
@@ -40,7 +40,7 @@ One reaction requires three labs: two as reagent sources, and the third one as t
     console.log(labs[1].mineralType) // -> O
     console.log(labs[2].mineralType) // -> H
 
-## Creep boosts
+## Creep 增强
 
 Apart from running chemical reactions with minerals, a lab can use resulting compounds to permanently upgrade your creeps boosting their specific properties.
 
