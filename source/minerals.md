@@ -1,21 +1,21 @@
 title: 矿物
 ---
 
-If energy is the basic construction material in the Screeps world, the minerals are its jewels. By mining and processing minerals, you can significantly speed up your economy and boost the effectiveness of your creeps.
+如果能量保证了 creep 的小米步枪，矿物则能为其提供坚船利炮。通过开采及使用矿物，玩家可加速其经济建设及提高其 creep 的工作效率。
 
-Working with minerals consists of 3 steps:
+矿物需要经历三个步骤才能被利用：
 
-*   **Mining base minerals**
-*   **Producing mineral compounds**
-*   **Boosting creeps**
+*   **开采基本元素**
+*   **合成矿物**
+*   **增强 Creep**
 
-## 采矿
+## 基本元素开采
 
-There are 7 types of base minerals shown in the picture below.
+下图为游戏中所有的七种基本元素
 
 ![](img/minerals-01.png)
  
-Each room contains only one mineral type, so in order to handle them effectively you need either access to several suitable rooms or trade relationships with other players.
+单个房间最多包含一种类型的矿，所以玩家如果想获得多种矿物Each room contains only one mineral type, so in order to handle them effectively you need either access to several suitable rooms or trade relationships with other players.
 
 <img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**Extractor**](/api/#StructureExtractor) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
 
