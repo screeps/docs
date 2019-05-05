@@ -3,7 +3,7 @@ title: 矿物
 
 如果能量保证了 creep 的小米步枪，矿物则能为其提供坚船利炮。通过开采及使用矿物，玩家可加速其经济建设及提高其 creep 的工作效率。
 
-矿物利用要经历三个步骤：
+矿物利用可分为三个步骤：
 
 *   **开采基本元素**
 *   **合成矿物**
@@ -21,11 +21,11 @@ title: 矿物
 
 ## 矿物合成
 
-基本元素本身无法被使用，玩家得通过[**Lab（实验室）**](/api/#StructureLab)按照特定的方程将其合成为化合物后才得以利用。
+基本元素本身无法被使用，得按照指定的合成路线被[**Lab（实验室）**](/api/#StructureLab)转化为化合物才能得以利用。
 
 ![](img/minerals-02.png)
 
-一个反应需要三个 lab ：两个放反应物，一个收集产物。放置反应物的 lab 必须在收集产物的两格内，且同一 lab 只能不可放置多种化合物。
+完成一个反应需要三个 lab ：两个提供底物，一个进行反应及收集产物。提供底物的 lab 得在进行反应的两格内。同一 lab 不可放置多种化合物，但却能为多个反应提供底物。
 
 <img src="img/2016-03-09_10-32-33.gif" align="right">
 
@@ -42,13 +42,13 @@ title: 矿物
 
 ## Creep 强化
 
- lab 除了可以跑反应，还可用其存着的化合物来强化 Creep 的部件。
+ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件。
 
-用 [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) ，玩家可使用指定的化合物来强化 Creep 的指定[部件](creeps.html)，各化合物的强化效果见下表。一个被强化的部件可以顶多个未强化的部件。玩家得强化每一个部件来完全强化一个 creep 。
+玩家可用 [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) 来强化 Creep 的指定[部件](creeps.html)，各化合物的强化效果见下表。一个被强化部件的工作效率可以顶多个未被强化。玩家得通过强化每一个部件来完全强化一个 creep 。
 
-强化一个部件需要 30 单位的化合物及 20 单位的能量，且一个部件只能接受一种强化类型。
+强化一个部件需要 30 单位的化合物及 20 单位的能量，且一个部件只能被一种化合物强化。
 
-**译者注：**元素全名首字母及其符号。
+**译者注：**元素全名首字母及为其符号。
 
 <style>
 .minerals td {
@@ -111,7 +111,7 @@ title: 矿物
 <th>效果</th>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Base compounds</th>
+<th colspan="5" align="center">基本元素</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/OH.png)hydroxide</td>
@@ -142,7 +142,7 @@ title: 矿物
 <td>—</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Tier 1 compounds</th>
+<th colspan="5" align="center">一级化合物</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/UH.png)utrium hydride</td>
@@ -215,7 +215,7 @@ title: 矿物
 <td>-30% 伤害减免</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Tier 2 compounds</th>
+<th colspan="5" align="center">二级化合物</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/UH2O.png)utrium acid</td>
@@ -288,7 +288,7 @@ title: 矿物
 <td>-50% 伤害减免</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Tier 3 compounds</th>
+<th colspan="5" align="center">三级化合物</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XUH2O.png)catalyzed utrium acid</td>
