@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.2.2"
+    "version": "3.8.0"
   },
   "dependencies": {
     "@screeps/common": "^2.10.2",
     "cheerio": "^0.20.0",
     "concat-files": "^0.1.1",
-    "hexo": "^3.2.2",
+    "hexo": "^3.8.0",
     "hexo-deployer-git": "^0.1.0",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-feed": "^1.1.0",

@@ -8,5 +8,4 @@ services:
       - .:/src
       - .cache:/root/.npm
     working_dir: /src
-    command: /bin/sh start.sh
-
+    command: /bin/sh -c 'dos2unix start.sh && ./start.sh'
