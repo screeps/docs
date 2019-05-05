@@ -3,7 +3,7 @@ title: 矿物
 
 如果能量保证了 creep 的小米步枪，矿物则能为其提供坚船利炮。通过开采及使用矿物，玩家可加速其经济建设及提高其 creep 的工作效率。
 
-矿物需要经历三个步骤才能被利用：
+矿物利用要经历三个步骤：
 
 *   **开采基本元素**
 *   **合成矿物**
@@ -15,9 +15,9 @@ title: 矿物
 
 ![](img/minerals-01.png)
  
-单个房间最多包含一种类型的矿，所以玩家如果想获得多种矿物Each room contains only one mineral type, so in order to handle them effectively you need either access to several suitable rooms or trade relationships with other players.
+单个房间只有一个元素矿产，所以若想获得多种矿产，玩家得控制矿所在房间或与其他玩家建立贸易关系。
 
-<img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**Extractor**](/api/#StructureExtractor) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
+<img src="img/mining_minerals.png" align="right">类似与[能量源](introduction.html#属地（Colony）)，房间中的矿产A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**Extractor**](/api/#StructureExtractor) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
 
 ## 矿物合成
 
