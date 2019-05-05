@@ -15,7 +15,7 @@ title: 矿物
 
 ![](img/minerals-01.png)
  
-单个房间只有一个元素矿产，所以若想获得多种矿产，玩家则得控制矿所在房间或与其他玩家建立贸易关系。
+单个房间只会有一个元素矿产，所以若想获得多种矿产，玩家则得控制多个房间或与其他玩家建立贸易关系。
 
 <img src="img/mining_minerals.png" align="right">右图即为矿的示意图（灰色圆形），其上的字母代表了其种类。矿上需要建造[Extractor（矿机）](/api/#StructureExtractor)（绿色虚线圆环，解锁于房间控制等级 6 级）方可进行开采。矿机建造后，玩家的 Creep 便可像采集能量源般的对矿用 [`harvest`（采集）](/api/#Creep.harvest)并采取相应的元素。
 
