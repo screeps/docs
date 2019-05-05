@@ -177,7 +177,7 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/L.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>15</td>
 <td>`WORK`</td>
-<td>+50% `repair` and `build` 效率且不增加其能量消耗</td>
+<td>+50% `repair` and `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LO.png)lemergium oxide</td>
@@ -205,7 +205,7 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/G.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>10</td>
 <td>`WORK`</td>
-<td>+50% `upgradeController` 效率且不增加其能量消耗</td>
+<td>+50% `upgradeController` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/GO.png)ghodium oxide</td>
@@ -250,7 +250,7 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/LH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>10</td>
 <td>`WORK`</td>
-<td>+80% `repair` and `build` 效率且不增加其能量消耗</td>
+<td>+80% `repair` and `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LHO2.png)lemergium alkalide</td>
@@ -278,7 +278,7 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/GH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>15</td>
 <td>`WORK`</td>
-<td>+80% `upgradeController` 效率且不增加其能量消耗</td>
+<td>+80% `upgradeController` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/GHO2.png)ghodium alkalide</td>
@@ -323,7 +323,7 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/LH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>65</td>
 <td>`WORK`</td>
-<td>+100% `repair` and `build` 效率且不增加其能量消耗</td>
+<td>+100% `repair` and `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XLHO2.png)catalyzed lemergium alkalide</td>
@@ -351,7 +351,7 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/GH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>80</td>
 <td>`WORK`</td>
-<td>+100% `upgradeController` 效率且不增加其能量消耗</td>
+<td>+100% `upgradeController` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XGHO2.png)catalyzed ghodium alkalide</td>
