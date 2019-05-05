@@ -1,7 +1,7 @@
 title: 控制
 ---
 
-## 全局控制等级 （Global Control Level）
+## 全局控制等级 （Global Control Level; 缩写：GCL）
 
 为了扩展你在游戏世界中的疆土你需要提升的一个主要指标是 **Global Control Level** （GCL）。他的主要影响是：
 
@@ -14,7 +14,7 @@ title: 控制
 
 ![](img/gcl-cpu.png)
 
-## 房间控制等级
+## 房间控制等级 （Room Control Level; 缩写：RCL）
 
 如果想要在房间里建造设施，首先需要控制这个房间。在大多数房间里都有一个特殊的装置被称为 **房间控制器**（Room Controller）。你第一个房间里的房间控制器默认归你所有。其他的中立房间控制器可以通过带有 `CLAIM` 部件的 creep [占有](/api/#Creep.claimController)，取得房间控制权。
 
