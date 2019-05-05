@@ -170,21 +170,21 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/K.png) + ![](//static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>10</td>
 <td>`RANGED_ATTACK`</td>
-<td> +100% `rangedAttack` and `rangedMassAttack` 效率</td>
+<td> +100% `rangedAttack` 和 `rangedMassAttack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LH.png)lemergium hydride</td>
 <td>![](//static.screeps.com/upload/mineral-icons/L.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>15</td>
 <td>`WORK`</td>
-<td>+50% `repair` and `build` 效率但不增加其能量消耗</td>
+<td>+50% `repair` 和 `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LO.png)lemergium oxide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/L.png) + ![](//static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>10</td>
 <td>`HEAL`</td>
-<td>+100% `heal` and `rangedHeal` 效率</td>
+<td>+100% `heal` 和 `rangedHeal` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/ZH.png)zynthium hydride</td>
@@ -250,14 +250,14 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/LH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>10</td>
 <td>`WORK`</td>
-<td>+80% `repair` and `build` 效率但不增加其能量消耗</td>
+<td>+80% `repair` 和 `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LHO2.png)lemergium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/LO.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`HEAL`</td>
-<td>+200% `heal` and `rangedHeal` 效率</td>
+<td>+200% `heal` 和 `rangedHeal` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/ZH2O.png)zynthium acid</td>
@@ -316,21 +316,21 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/KHO2.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`RANGED_ATTACK`</td>
-<td>+300% `rangedAttack` and `rangedMassAttack` 效率</td>
+<td>+300% `rangedAttack` 和 `rangedMassAttack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XLH2O.png)catalyzed lemergium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/LH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>65</td>
 <td>`WORK`</td>
-<td>+100% `repair` and `build` 效率但不增加其能量消耗</td>
+<td>+100% `repair` 和 `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XLHO2.png)catalyzed lemergium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/LHO2.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`HEAL`</td>
-<td>+300% `heal` and `rangedHeal` 效率</td>
+<td>+300% `heal` 和 `rangedHeal` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XZH2O.png)catalyzed zynthium acid</td>
