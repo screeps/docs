@@ -1,8 +1,8 @@
-title: Scripting Basics
+title: 脚本编写简介
 ---
 
-Writing scripts for Screeps is similar to writing any other JavaScript application. You write your scripts in a special in-game editor, and they are executed continuously even while you are offline (with the exception of the Simulation Room).
+玩 Screeps 编程游戏正如写其他 JavaScript 代码一样，当玩家在游戏编辑器中提交代码后，其便会挂载在服务器里自动运行（模拟模式除外）。玩此游戏不需要时时刻刻在线。
 
-Your game script is executed each game tick in a loop. The game tick duration depends on the current load of servers. The goal of a script is to process the current situation within the game and pass orders to your creeps and spawns. Commands are not executed instantly. Rather, the game remembers your commands and executes them later, after all players' scripts have been executed. For more details on this topic, see the article [Understanding game loop, time and ticks](/game-loop.html).
+玩家的代码会被服务器循环运行，每个循环被称为一 tick ， tick 的实际时长取决于服务器的负载量。正如编写真实程序一般，玩家得编写自动化的代码来给 Creep 及建筑下达指令。但请留意，不同于常见的编程入门小游戏，Screeps 的代码并不是实时执行的，而是在每 tick 的结束阶段才被执行。有关此内容，请参见[理解游戏循环、游戏时间、ticks](/game-loop.html)
 
-Please remember that the exact duration of the execution of your script is limited by the CPU time available in your account. In case of exceeding the limit, the script execution will be stopped. The exception is the Simulation Room where the script execution time is unlimited.
+代码执行时间的上限被其 [CPU](cpu-limit.html) 所限制，若代码执行超时，则会被强制中断。但为了让玩家更舒适的调试代码，模拟模式无 CPU 限制。
