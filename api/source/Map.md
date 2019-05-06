@@ -1,6 +1,6 @@
 # Game.map
 
-A global object representing world map. Use it to navigate between rooms.
+世界地图对象，用于在房间之间导航。
 
 
 {% api_method Game.map.describeExits 'roomName' 1 %}
@@ -9,17 +9,17 @@ A global object representing world map. Use it to navigate between rooms.
 const exits = Game.map.describeExits('W8N3');
 ```
 
-List all exits available from the room with the given name.
+根据给定的房间名列出所有可用的出口。
 
 {% api_method_params %}
 roomName : string
-The room name.
+房间名。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-The exits information in the following format, or null if the room not found.
+出口信息按照以下格式给出，在房间不存在时返回null。
 
 ```javascript-content
 {
@@ -40,7 +40,7 @@ if(creep.room != anotherRoomName) {
     creep.moveTo(exit);
 }
 else {
-    // go to some place in another room
+    // 到另一个房间的某处去
 }
 ```
 
@@ -48,33 +48,33 @@ else {
 creep.moveTo(new RoomPosition(25, 25, anotherRoomName));
 ```
 
-Find the exit direction from the given room en route to another room.
+查找从给定房间到另一个房间的出口方向。
 
 {% api_method_params %}
 fromRoom : string, <a href="#Room">Room</a>
-Start room name or room object.
+起点房间名或房间对象。
 ===
 toRoom : string, <a href="#Room">Room</a>
-Finish room name or room object.
+终点房间名或房间对象。
 ===
 opts (optional) : object
-An object with the pathfinding options. See <code><a href="#findRoute">findRoute</a></code>.
+包含寻路选项的对象。参见<code><a href="#findRoute">findRoute</a></code>。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-The room direction constant, one of the following:
+房间方向常量，下列之一：
 
 * `FIND_EXIT_TOP`
 * `FIND_EXIT_RIGHT`
 * `FIND_EXIT_BOTTOM`
 * `FIND_EXIT_LEFT`
 			
-Or one of the following error codes:
+或下列错误码：
 {% api_return_codes %}
-ERR_NO_PATH | Path can not be found.
-ERR_INVALID_ARGS | The location is incorrect.
+ERR_NO_PATH | 找不到路径。
+ERR_INVALID_ARGS | 位置不正确。
 {% endapi_return_codes %}
 
 
@@ -93,7 +93,7 @@ if(route.length > 0) {
 ```javascript
 const route = Game.map.findRoute(creep.room, anotherRoomName, {
 	routeCallback(roomName, fromRoomName) {
-		if(roomName == 'W10S10') {	// avoid this room
+		if(roomName == 'W10S10') {	// 回避这个房间
 			return Infinity;
 		}
 		return 1;
@@ -104,8 +104,7 @@ const route = Game.map.findRoute(creep.room, anotherRoomName, {
 let from = new RoomPosition(25, 25, 'E1N1');
 let to = new RoomPosition(25, 25, 'E4N1');
 
-// Use `findRoute` to calculate a high-level plan for this path,
-// prioritizing highways and owned rooms
+// 使用`findRoute`计算路径的高阶计划，优先选择大路和自有房间
 let allowedRooms = { [ from.roomName ]: true };
 Game.map.findRoute(from.roomName, to.roomName, {
 	routeCallback(roomName) {
@@ -125,7 +124,7 @@ Game.map.findRoute(from.roomName, to.roomName, {
 	allowedRooms[info.room] = true;
 });
 
-// Invoke PathFinder, allowing access only to rooms from `findRoute`
+// 调用PathFinder, 只允许访问`findRoute`中的房间
 let ret = PathFinder.search(from, to, {
 	roomCallback(roomName) {
 		if (allowedRooms[roomName] === undefined) {
@@ -137,31 +136,31 @@ let ret = PathFinder.search(from, to, {
 console.log(ret.path);
 ```
 
-Find route from the given room to another room.
+查找从给定房间到另一个房间的路径。
 
 {% api_method_params %} 
 fromRoom : string, <a href="#Room">Room</a>
-Start room name or room object.
+起点房间名或房间对象。
 ===
 toRoom : string, <a href="#Room">Room</a>
-Finish room name or room object.
+终点房间名或房间对象。
 ===
 opts (optional) : object
-An object with the following options:
+包含下列选项的对象：
 					<ul>
 						<li>
 							<div class="api-arg-title">routeCallback</div>
 							<div class="api-arg-type">function</div>
-							<div class="api-arg-desc">This callback accepts two arguments: <code>function(roomName, fromRoomName)</code>. It can be used to calculate the cost of entering that room. You can use this to do things like prioritize your own rooms, or avoid some rooms. You can return a floating point cost or <code>Infinity</code> to block the room.</div>
+							<div class="api-arg-desc">这个回调函数接受两个参数： <code>function(roomName, fromRoomName)</code>。 它可以用来计算进入一个房间的开销。你可以用它实现优先进入自己的房间或者回避某些房间等功能。你应该返回一个浮点数开销，或者返回<code>Infinity</code>代表不可进入。</div>
 						</li>
 					</ul>
 				
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-The route array in the following format:
+如下格式的路径数组：
 
 ```javascript-content
 [
@@ -171,9 +170,9 @@ The route array in the following format:
 ]
 ```
 
-Or one of the following error codes:
+或如下错误码：
 {% api_return_codes %}
-ERR_NO_PATH | Path can not be found.
+ERR_NO_PATH | 找不到路径。
 {% endapi_return_codes %}
 
 
@@ -186,23 +185,23 @@ Game.map.getRoomLinearDistance('E65S55','W65S55', false) // 131
 Game.map.getRoomLinearDistance('E65S55','W65S55', true) // 11
 ```
 
-Get the linear distance (in rooms) between two rooms. You can use this function to estimate the energy cost of sending resources through terminals, or using observers and nukes.
+获取两个房间之间直线距离（房间数）。你可以使用这个函数估算使用终端发送资源的能源开销，或用于使用观察者和核武器。
 
 {% api_method_params %}
 roomName1 : string
-The name of the first room.
+第一个房间名。
 ===
 roomName2 : string
-The name of the second room.
+第二个房间名。
 ===
 continuous (optional) : boolean
-Whether to treat the world map continuous on borders. Set to true if you want to calculate the trade or terminal send cost. Default is false.
+是否视世界地图为在边界连续。 如果要计算交易或终端发送开销，请设置为true。 默认值为false。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-A number of rooms between the given two rooms.
+给定两个房间之间的房间数。
 
 
 {% api_method Game.map.getRoomTerrain 'roomName' 0 %}
@@ -219,20 +218,20 @@ switch(terrain.get(10,15)) {
 }
 ```
 
-Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
+获取<a href="#Room-Terrain">`Room.Terrain` </a>对象，快捷访问静态地形数据。此方法适用于所有房间，哪怕是无法访问的房间。
 
 {% api_method_params %}
 roomName : string
-The room name.
+房间名。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
+一个新<a href="#Room-Terrain">`Room.Terrain`</a>对象。
 
 
-{% api_method Game.map.getTerrainAt 'x, y, roomName|pos' 1 '{"deprecated": "Please use a faster method [`Game.map.getRoomTerrain`](#Game.map.getRoomTerrain) instead."}'%}
+{% api_method Game.map.getTerrainAt 'x, y, roomName|pos' 1 '{"deprecated": "请使用更高效的方法[`Game.map.getRoomTerrain`](#Game.map.getRoomTerrain)替代."}'%}
 
 ```javascript
 console.log(Game.map.getTerrainAt(25,20,'W10N10'));
@@ -242,26 +241,26 @@ console.log(Game.map.getTerrainAt(25,20,'W10N10'));
 console.log(Game.map.getTerrainAt(new RoomPosition(25,20,'W10N10'));
 ```
 
-Get terrain type at the specified room position. This method works for any room in the world even if you have no access to it.
+获取指定房间坐标的地形类型。此方法适用于所有房间，哪怕是无法访问的房间。
 
 {% api_method_params %}
 x : number
-X position in the room.
+房间内X坐标。
 ===
 y : number
-Y position in the room.
+房间内Y坐标。
 ===
 roomName : string
-The room name.
+房间名。
 ===
 pos : <a href="#RoomPosition">RoomPosition</a>
-The position object.
+坐标对象。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following string values:
+下列字符串值：
 <ul>
 				<li><code>plain</code></li>
 				<li><code>swamp</code></li>
@@ -271,8 +270,7 @@ One of the following string values:
 
 {% api_method Game.map.getWorldSize 0 %}
 
-Returns the world size as a number of rooms between world corners. For example, for a world with rooms from W50N50 
-to E50S50 this method will return 102.
+返回世界尺寸，即世界对角之间的房间数。例如对于一个从 W50N50 至 E50S50 的世界这个方法返回102。
 
 {% api_method Game.map.isRoomAvailable 'roomName' 2 %}
 
@@ -282,7 +280,7 @@ if(Game.map.isRoomAvailable(room.name)) {
 }
 ```
 
-Check if the room is available to move into.
+检查一个房间是否可以进入。
 
 {% api_method_params %}
 roomName : string
@@ -290,6 +288,6 @@ The room name.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-A boolean value.
+布尔值
