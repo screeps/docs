@@ -9,3 +9,4 @@ public/
 .deploy*/
 .idea
 .ptr
+.cache/
