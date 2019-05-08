@@ -136,7 +136,7 @@ The name of the second room.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The amount of energy required to perform the transaction.
 
@@ -156,11 +156,11 @@ The order ID as provided in <code>Game.market.orders</code>.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_INVALID_ARGS | The order ID is not valid.
 {% endapi_return_codes %}
 
@@ -183,11 +183,11 @@ The new order price.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the room's terminal or there is no terminal.
 ERR_NOT_ENOUGH_RESOURCES | You don't have enough credits to pay a fee.
 ERR_INVALID_ARGS | The arguments provided are invalid.
@@ -221,11 +221,11 @@ The room where your order will be created. You must have your own Terminal struc
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the room's terminal or there is no terminal.
 ERR_NOT_ENOUGH_RESOURCES | You don't have enough credits to pay a fee.
 ERR_FULL | You cannot create more than 50 orders.
@@ -269,11 +269,11 @@ The name of your room which has to contain an active Terminal with enough amount
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You don't have a terminal in the target room.
 ERR_NOT_ENOUGH_RESOURCES | You don't have enough credits or resource units.
 ERR_FULL | You cannot execute more than 10 deals during one tick.
@@ -300,11 +300,11 @@ How much capacity to add. Cannot be a negative value.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_ENOUGH_RESOURCES | You don't have enough credits to pay a fee.
 ERR_INVALID_ARGS | The arguments provided are invalid.
 {% endapi_return_codes %}
@@ -370,7 +370,7 @@ An object or function that will filter the resulting list using the <a href="htt
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An orders array in the following form:
 
@@ -402,7 +402,7 @@ The order ID.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An object with the order info. See
 <a href="#getAllOrders"><code>getAllOrders</code></a>

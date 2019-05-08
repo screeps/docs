@@ -69,11 +69,11 @@ The name of the structure, for structures that support it (currently only spawns
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_INVALID_TARGET | The structure cannot be placed at the specified location.
 ERR_FULL | You have too many construction sites. The maximum number of construction sites per player is 100.
 ERR_INVALID_ARGS | The location is incorrect.
@@ -102,7 +102,7 @@ The secondary color of a new flag. Should be one of the <code>COLOR_*</code> con
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The name of a new flag, or one of the following error codes:
 <br>
@@ -181,7 +181,7 @@ An object containing pathfinding options (see <a href="#Room.findPath">Room.find
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The closest object if found, null otherwise.
 
@@ -237,7 +237,7 @@ An object containing one of the following options:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The closest object if found, null otherwise.
 
@@ -276,7 +276,7 @@ See <a href="#Room.find">Room.find</a>.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array with the objects found.
 
@@ -316,7 +316,7 @@ An object containing pathfinding options flags (see <a href="#Room.findPath">Roo
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array with path steps in the following format:
 ```javascript-content
@@ -350,7 +350,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A number representing one of the direction constants.
 
@@ -377,7 +377,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A number of squares to the given position.
 
@@ -406,7 +406,7 @@ The range distance.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A boolean value.
 
@@ -438,7 +438,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A boolean value.
 
@@ -464,7 +464,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A boolean value.
 
@@ -484,7 +484,7 @@ Get the list of objects at the specified room position.
 
 
 
-### Return value
+### 返回值
 
 An array with objects at the specified position in the following format:
 
@@ -515,6 +515,6 @@ One of the <code>LOOK_*</code> constants.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array of objects of the given type at the specified position if found.

@@ -137,7 +137,7 @@ The maximum amount of hit points of the creep.
 
 
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 
 
@@ -175,7 +175,7 @@ An object with the creep’s owner info containing the following properties:
 
 {% api_method_params %}
 username : string
-The name of the owner user.
+所有者姓名。
 {% endapi_method_params %}
 
 
@@ -223,11 +223,11 @@ The target object to be attacked.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid attackable object.
@@ -256,11 +256,11 @@ The target controller object.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid owned or reserved controller object.
@@ -291,11 +291,11 @@ The target construction site to be built.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
@@ -322,9 +322,9 @@ The name of a creep's method to be cancelled.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
 OK | The operation has been cancelled successfully.
 ERR_NOT_FOUND | The order with the specified name is not found.
@@ -351,11 +351,11 @@ The target controller object.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid neutral controller object.
@@ -388,11 +388,11 @@ The target structure.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid structure object.
@@ -426,11 +426,11 @@ The amount of resource units to be dropped. If omitted, all the available carrie
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
@@ -456,11 +456,11 @@ The target room controller.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have enough ghodium.
@@ -501,7 +501,7 @@ A body part type, one of the following body part constants:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A number representing the quantity of body parts.
 
@@ -525,11 +525,11 @@ The object to be harvested.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep, or the room controller is owned or reserved by another player.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/minerals.html">Learn more</a>
@@ -566,11 +566,11 @@ The target creep object.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid creep object.
@@ -618,11 +618,11 @@ A creep nearby, or one of the following constants:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
@@ -655,11 +655,11 @@ A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_FOUND | The specified path doesn't match the creep's location.
@@ -751,11 +751,11 @@ An object containing additional options:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
@@ -786,11 +786,11 @@ Whether to enable notification or disable.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
@@ -818,11 +818,11 @@ The target object to be picked up.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
@@ -870,11 +870,11 @@ The target creep.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target provided is invalid.
@@ -901,11 +901,11 @@ The target object to be attacked.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid attackable object.
@@ -942,11 +942,11 @@ The target creep object.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid creep object.
@@ -969,11 +969,11 @@ A ranged attack against all hostile creeps or structures within 3 squares range.
 
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_NO_BODYPART | There are no <code>RANGED_ATTACK</code> body parts in this creep’s body.
@@ -1005,11 +1005,11 @@ The target structure to be repaired.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not carry any energy.
@@ -1039,11 +1039,11 @@ The target controller object to be reserved.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid neutral controller object.
@@ -1077,11 +1077,11 @@ Set to true to allow other players to see this message. Default is false.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 {% endapi_return_codes %}
@@ -1110,11 +1110,11 @@ The sign text. The string is cut off after 100 characters.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid controller object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -1130,11 +1130,11 @@ Kill the creep immediately.
 
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 {% endapi_return_codes %}
@@ -1170,11 +1170,11 @@ The amount of resources to be transferred. If omitted, all the available carried
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
@@ -1209,11 +1209,11 @@ The target controller object to be upgraded.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep or the target controller.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
@@ -1248,11 +1248,11 @@ The amount of resources to be transferred. If omitted, all the available amount 
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep, or there is a hostile rampart on top of the target.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resources.

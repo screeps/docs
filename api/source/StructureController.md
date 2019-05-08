@@ -201,11 +201,11 @@ Activate safe mode if available.
 
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this controller.
 ERR_BUSY | There is another room in safe mode already.
 ERR_NOT_ENOUGH_RESOURCES | There is no safe mode activations available.
@@ -224,11 +224,11 @@ Make your claimed controller neutral again.
 
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this controller.
 {% endapi_return_codes %}
 

@@ -42,7 +42,7 @@ Remove the flag.
 
 
 
-### Return value
+### 返回值
 
 Always returns
 OK
@@ -65,11 +65,11 @@ Secondary color of the flag. One of the <code>COLOR_*</code> constants.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_INVALID_ARGS | <code>color</code> or <code>secondaryColor</code> is not a valid color constant.
 {% endapi_return_codes %}
 
@@ -99,11 +99,11 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_INVALID_TARGET | The target provided is invalid.
 {% endapi_return_codes %}
 

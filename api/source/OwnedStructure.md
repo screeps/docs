@@ -1,7 +1,7 @@
 # OwnedStructure
 
-The base prototype for a structure that has an owner. 
-Such structures can be found using `FIND_MY_STRUCTURES` and `FIND_HOSTILE_STRUCTURES` constants.
+存在拥有者的建筑的基础原型。
+这类建筑可以被用`FIND_MY_STRUCTURES`或`FIND_HOSTILE_STRUCTURES`找到。
 
 {% page inherited/Structure.md %}  
 
@@ -9,7 +9,7 @@ Such structures can be found using `FIND_MY_STRUCTURES` and `FIND_HOSTILE_STRUCT
 
 
 
-Whether this is your own structure.
+是否是你拥有的建筑。
 
 
 
@@ -17,10 +17,10 @@ Whether this is your own structure.
 
 
 
-An object with the structure’s owner info containing the following properties:
+建筑所有者信息，一个包含如下属性的对象：
 
 {% api_method_params %}
 username : string
-The name of the owner user.
+所有者姓名。
 {% endapi_method_params %}
 

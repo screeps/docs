@@ -43,11 +43,11 @@ The class of the new power creep, one of the `POWER_CLASS` constants.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_ENOUGH_RESOURCES | You don't have free Power Levels in your account.
 ERR_NAME_EXISTS | A power creep with the specified name already exists.
 {% endapi_return_codes %} 
@@ -81,7 +81,7 @@ The current amount of hit points of the creep.
 The maximum amount of hit points of the creep.
 
 {% api_property id string %}
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 {% api_property level number %}
 The power creep's level.
@@ -111,7 +111,7 @@ An object with the creep’s owner info containing the following properties:
 
 {% api_method_params %}
 username : string
-The name of the owner user.
+所有者姓名。
 {% endapi_method_params %}
 
 {% api_property powers object %}
@@ -163,9 +163,9 @@ The name of a creep's method to be cancelled.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
 OK | The operation has been cancelled successfully.
 ERR_NOT_OWNER | You are not the owner of the creep.
@@ -188,11 +188,11 @@ cancel : boolean
 Set this to true to cancel previously scheduled deletion.
 {% endapi_method_params %} 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the creep.
 ERR_BUSY | The power creep is spawned in the world.
 {% endapi_return_codes %}
@@ -222,11 +222,11 @@ The amount of resource units to be dropped. If omitted, all the available carrie
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
@@ -254,11 +254,11 @@ The room controller.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_INVALID_TARGET | The target is not a controller structure.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -303,11 +303,11 @@ A creep nearby, or one of the following constants:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
@@ -339,11 +339,11 @@ A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_NOT_FOUND | The specified path doesn't match the creep's location.
@@ -434,11 +434,11 @@ An object containing additional options:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
@@ -463,11 +463,11 @@ Whether to enable notification or disable.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
@@ -494,11 +494,11 @@ The target object to be picked up.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
@@ -523,11 +523,11 @@ The new name of the power creep.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the creep.
 ERR_BUSY | The power creep is spawned in the world.
 ERR_NAME_EXISTS | A power creep with the specified name already exists.
@@ -551,11 +551,11 @@ The target structure.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_TARGET | The target is not a valid power bank object.
@@ -588,11 +588,11 @@ Set to true to allow other players to see this message. Default is false.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 {% endapi_return_codes %}
@@ -613,11 +613,11 @@ Your Power Spawn structure.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the creep or the spawn.
 ERR_BUSY | The power creep is already spawned in the world.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use the spawn.
@@ -636,11 +636,11 @@ so that you can [`spawn`](#PowerCreep.spawn) it again.
 
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 {% endapi_return_codes %}
@@ -676,11 +676,11 @@ The amount of resources to be transferred. If omitted, all the available carried
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
@@ -706,11 +706,11 @@ power : number
 The power ability to upgrade, one of the `PWR_*` constants.
 {% endapi_method_params %}
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the creep.
 ERR_NOT_ENOUGH_RESOURCES | You account Power Level is not enough.
 ERR_FULL | The specified power cannot be upgraded on this creep's level, or the creep reached the maximum level.
@@ -744,11 +744,11 @@ target : <a href="#RoomObject">RoomObject</a>
 A target object in the room. 
 {% endapi_method_params %}
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the creep.
 ERR_BUSY | The creep is not spawned in the world.
 ERR_NO_BODYPART | The creep doesn't have the specified power ability.
@@ -784,11 +784,11 @@ The amount of resources to be transferred. If omitted, all the available amount 
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep, or there is a hostile rampart on top of the target.
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resources.

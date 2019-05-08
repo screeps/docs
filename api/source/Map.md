@@ -170,7 +170,7 @@ opts (optional) : object
 ]
 ```
 
-或如下错误码：
+或如下错误码之一：
 {% api_return_codes %}
 ERR_NO_PATH | 找不到路径。
 {% endapi_return_codes %}

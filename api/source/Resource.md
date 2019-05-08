@@ -1,7 +1,7 @@
 # Resource 
 
-A dropped piece of resource. It will decay after a while if not picked up. 
-Dropped resource pile decays for `ceil(amount/1000)` units per tick. 
+掉落的资源。 如果没有拿起，它会在一段时间后消失。
+掉落的资源以每tick`ceil(amount/1000)`的速度消失。
 
 {% page inherited/RoomObject.md %}
 
@@ -9,7 +9,7 @@ Dropped resource pile decays for `ceil(amount/1000)` units per tick. 
 
 
 
-The amount of resource units containing.
+资源数量。
 
 
 
@@ -17,7 +17,7 @@ The amount of resource units containing.
 
 
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 
 
@@ -25,6 +25,6 @@ A unique object identificator. You can use <a href="#Game.getObjectById"><code>
 
 
 
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 
 
