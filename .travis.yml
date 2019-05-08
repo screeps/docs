@@ -17,8 +17,11 @@ script:
   - npm run generate
   - cd ..        
 after_success:
-  - cd ./public
-  - git init
-  - git add --all .
-  - git commit -m "Travis CI Auto Builder"
-  - git push --quiet --force https://$GH_TOKEN@github.com/screeps-cn/screeps-cn.github.io.git master
+  - 'if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; 
+    then
+      cd ./public;
+      git init;
+      git add --all .;
+      git commit -m "Travis CI Auto Builder";
+      git push --quiet --force https://$GH_TOKEN@github.com/screeps-cn/screeps-cn.github.io.git master;
+    fi'
