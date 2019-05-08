@@ -8,7 +8,7 @@ The base prototype object of all structures.
 
 
 
-The current amount of hit points of the structure.
+当前这个建筑的当前生命值。
 
 
 
@@ -16,7 +16,7 @@ The current amount of hit points of the structure.
 
 
 
-The total amount of hit points of the structure.
+这个建筑的最大生命值。
 
 
 
@@ -24,7 +24,7 @@ The total amount of hit points of the structure.
 
 
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 
 
@@ -32,7 +32,7 @@ A unique object identificator. You can use <a href="#Game.getObjectById"><code>
 
 
 
-One of the <code>STRUCTURE_*</code> constants.
+<code>STRUCTURE_*</code>常量之一。
 
 
 
@@ -40,17 +40,17 @@ One of the <code>STRUCTURE_*</code> constants.
 
 
 
-Destroy this structure immediately.
+立即摧毁这个建筑。
 
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure, and it's not in your room.
-ERR_BUSY | Hostile creeps are in the room.
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 你不是这个建筑的拥有者，或者不在你的房间中。
+ERR_BUSY | 敌对creep在这个房间中。
 {% endapi_return_codes %}
 
 
@@ -59,33 +59,33 @@ ERR_BUSY | Hostile creeps are in the room.
 
 
 
-Check whether this structure can be used. If room controller level is insufficient, then this method will return false, and the structure will be highlighted with red in the game.
+检查这个建筑是否可用。如果房间控制等级不足，这个方法会返回false，并且这个建筑会在游戏中红色高亮。
 
 
 
-### Return value
+### 返回值
 
-A boolean value.
+布尔值。
 
 {% api_method notifyWhenAttacked 'enabled' A %}
 
 
 
-Toggle auto notification when the structure is under attack. The notification will be sent to your account email. Turned on by default.
+切换这个建筑受到攻击时的自动通知。通知会发送到你的账户邮箱。默认开启。
 
 {% api_method_params %}
 enabled : boolean
-Whether to enable notification or disable.
+是否启用通知。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 你不是这个建筑的拥有者。
+ERR_INVALID_ARGS | <code>enable</code>参数不是一个布尔值。
 {% endapi_return_codes %}
 
 

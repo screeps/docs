@@ -54,7 +54,7 @@ if( !(RESOURCE_UTRIUM in creep.room.storage.store) ) {
 const total = _.sum(Game.rooms['W1N1'].storage.store);
 ```
 
-An object with the storage contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. <code>RESOURCE_ENERGY</code> is always defined and equals to 0 when empty, other resources are undefined when empty. You can use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents.
+仓库内容物对象。每一个键都是<code>RESOURCE_*</code>常量，值是资源数量。如果没有<code>RESOURCE_ENERGY</code>，它的值始终为0，而其他资源的值为undefined。你可以使用<a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a>来获得内容物总量。
 
 
 
@@ -62,7 +62,7 @@ An object with the storage contents. Each object key is one of the <code>RESOURC
 
 
 
-The total amount of resources the storage can contain.
+可以容纳的资源总量。
 
 
 
@@ -86,11 +86,11 @@ The amount of resources to be transferred. If omitted, all the available amount 
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
 ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
 ERR_INVALID_TARGET | The target is not a valid object which can contain energy.

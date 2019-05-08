@@ -29,7 +29,7 @@
 
 
 
-一串独一无二的身份识别码，可使用 <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> 来到指定 <code>id</code> 的对象。
+全局唯一的对象标识。你可以通过调用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法取得对象实例。
 
 
 
@@ -37,7 +37,7 @@
 
 
 
-发射此核弹的房间名
+发射此核弹的房间名。
 
 
 
@@ -45,5 +45,5 @@
 
 
 
-着落倒数
+着落倒计时。
 

@@ -2,7 +2,7 @@
 
 <img src="img/tombstone.gif" alt="" align="right" />
 
-A remnant of dead creeps. This is a walkable object. 
+死亡creep的遗物。这个对象不阻碍行走。
 
 <table class="table gameplay-info">
     <tbody>
@@ -33,25 +33,25 @@ room.find(FIND_TOMBSTONES).forEach(tombstone => {
 });
 ````
 
-An object containing the deceased creep or power creep.
+一个包含死亡creep或英雄的对象。
 
 {% api_property deathTime 'number' %}
 
-Time of death. 
+死亡时间。
 
 {% api_property id string %}
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 
 {% api_property store 'object' %}
 
-An object with the tombstone contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. <code>RESOURCE_ENERGY</code> is always defined and equals to 0 when empty, other resources are undefined when empty. You can use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents.
+墓碑内容物对象。每一个键都是<code>RESOURCE_*</code>常量，值是资源数量。如果没有<code>RESOURCE_ENERGY</code>，它的值始终为0，而其他资源的值为undefined。你可以使用<a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a>来获得内容物总量。
 
 
 {% api_property ticksToDecay 'number' %}
 
-The amount of game ticks before this tombstone decays.
+这个墓碑消失的剩余时间。
 
 
 

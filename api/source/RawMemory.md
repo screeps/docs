@@ -82,7 +82,7 @@ Get a raw string representation of the <code>Memory</code> object.
 
 
 
-### Return value
+### 返回值
 
 Returns a string value.
 
