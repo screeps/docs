@@ -76,7 +76,7 @@ const containers = creep.pos.findInRange(FIND_STRUCTURES, 1,
 containers[0].transfer(creep, RESOURCE_ENERGY);
 ```
 
-Transfer resource from this structure to a creep. The target has to be at adjacent square.
+Transfer resource from this structure to a creep. 目标必须在相邻的方格里。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
@@ -98,7 +98,7 @@ OK | 这个操作已经成功纳入计划。
 ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
 ERR_INVALID_TARGET | The target is not a valid object which can contain energy.
 ERR_FULL | The target cannot receive any more energy.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_INVALID_ARGS | The energy amount is incorrect.
 {% endapi_return_codes %}
 

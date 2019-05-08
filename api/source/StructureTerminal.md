@@ -117,7 +117,7 @@ ERR_TIRED | The terminal is still cooling down.
 Game.rooms['W1N1'].terminal.transfer(creep, RESOURCE_ENERGY);
 ```
 
-Transfer resource from this terminal to a creep. The target has to be at adjacent square. You can transfer resources to your creeps from hostile structures as well.
+Transfer resource from this terminal to a creep. 目标必须在相邻的方格里。 You can transfer resources to your creeps from hostile structures as well.
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
@@ -140,7 +140,7 @@ ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile
 ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
 ERR_INVALID_TARGET | The target is not a valid object which can contain energy.
 ERR_FULL | The target cannot receive any more energy.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_INVALID_ARGS | The energy amount is incorrect.
 ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this structure.
 ERR_TIRED | The terminal is still cooling down.

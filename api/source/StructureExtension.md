@@ -78,7 +78,7 @@ Transfer the energy from the extension to a creep. You can transfer resources to
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
-The creep object which energy should be transferred to.
+接受能量传递的creep对象。
 ===
 amount (optional) : number
 The amount of energy to be transferred. If omitted, all the remaining amount of energy will be used.
