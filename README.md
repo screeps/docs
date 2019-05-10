@@ -1,30 +1,20 @@
-This project contains the sources of the [documentation web site](http://docs.screeps.com) for Screeps online game.
+## 声明 Disclaimer
+请留意，此文档仅为临时README，随时会被更新。
 
-You need to have Node.js in order to build this project.
+Pleas be aware this is a temporary readme file, which is a subject to change.
 
-1. Install all npm dependendcies:
+## About this project
+This is an **unofficial** localization project (en-US -> zh-CN) for Screeps docs & api. Since this is a localization project, below messages are only relvant to Chinese-English bilingual personnel.
 
-```
-npm install
-cd api
-npm install
-cd ..
-```
-    
-2. Generate static site:
+## 翻译中文档（实时更新）
+https://screeps-cn.github.io
 
-```
-npm run generate
-cd api
-npm run generate
-cd ..
-```
+## 如何贡献
+欢迎加入翻译及纠错润色
 
-You can use `generate-watch` instead of `generate` to sync changes in real time.
+协助翻译请用 `fork` -> 翻译 -> `pull request` 或联系 @LokiSharp 
 
-3. Run development server:
+纠错及润色用 `issue` 或 `pull request` 均可
 
-```
-npm run server
-```
-
+## 有关我们
+会点英文的 Screeps 玩家
