@@ -81,7 +81,7 @@ An array describing the creep’s body. Each element contains the following prop
 
 {% api_method_params %}
 boost : string | undefined
-If the body part is boosted, this property specifies the mineral type which is used for boosting. One of the <code>RESOURCE_*</code> constants. <a href="/minerals.html">Learn more</a>
+If the body part is boosted, this property specifies the mineral type which is used for boosting. <code>RESOURCE_*</code>常量之一。 <a href="/minerals.html">Learn more</a>
 ===
 type : string
 One of the body part types constants.
@@ -175,7 +175,7 @@ An object with the creep’s owner info containing the following properties:
 
 {% api_method_params %}
 username : string
-所有者姓名。
+拥有者姓名。
 {% endapi_method_params %}
 
 
@@ -228,7 +228,7 @@ The target object to be attacked.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | 这个目标不是一个有效的攻击目标。
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -261,7 +261,7 @@ target : <a href="#Structure">Structure</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid owned or reserved controller object.
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -296,7 +296,7 @@ target : <a href="#ConstructionSite">ConstructionSite</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_ENOUGH_RESOURCES | 这个creep没有携带任何能量。
 ERR_INVALID_TARGET | The target is not a valid construction site object or the structure cannot be built here (probably because of a creep at the same square).
@@ -356,7 +356,7 @@ target : <a href="#StructureController">StructureController</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | 目标不是一个有效的中立控制中心对象。
 ERR_FULL | 你不能在新手区占领超过3个房间。
@@ -393,7 +393,7 @@ target : <a href="#Structure">Structure</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | 目标不是一个有效的建筑对象。
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -422,7 +422,7 @@ resourceType : string
 <code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-丢弃的资源数量。如果没有这个参数，丢弃所有。
+丢弃资源的数量。如果没有这个参数，丢弃全部资源。
 {% endapi_method_params %}
 
 
@@ -431,7 +431,7 @@ amount (optional) : number
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_ARGS | resourceType不是一个有效的<code>RESOURCE_*</code>常量。
 ERR_NOT_ENOUGH_RESOURCES | 这个creep没有足够的资源。
@@ -461,7 +461,7 @@ target : <a href="#StructureController">StructureController</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_ENOUGH_RESOURCES | 这个creep没有足够的ghodium。
 ERR_INVALID_TARGET | 目标不是一个有效的控制中心对象。
@@ -571,7 +571,7 @@ The target creep object.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid creep object.
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -623,7 +623,7 @@ A creep nearby, or one of the following constants:
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
@@ -660,7 +660,7 @@ A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_FOUND | The specified path doesn't match the creep's location.
 ERR_INVALID_ARGS | <code>path</code> is not a valid path array.
@@ -756,7 +756,7 @@ An object containing additional options:
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
@@ -791,7 +791,7 @@ Whether to enable notification or disable.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
 {% endapi_return_codes %}
@@ -823,7 +823,7 @@ The target object to be picked up.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
 ERR_FULL | The creep cannot receive any more resource.
@@ -875,7 +875,7 @@ The target creep.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target provided is invalid.
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -906,7 +906,7 @@ The target object to be attacked.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | 这个目标不是一个有效的攻击目标。
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -947,7 +947,7 @@ The target creep object.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | 目标不是一个有效的creep对象。
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -974,7 +974,7 @@ A ranged attack against all hostile creeps or structures within 3 squares range.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_NO_BODYPART | 这个creep身上没有<code>RANGED_ATTACK</code>部件。
 {% endapi_return_codes %}
@@ -1010,7 +1010,7 @@ The target structure to be repaired.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_ENOUGH_RESOURCES | 这个creep没有携带任何能量。
 ERR_INVALID_TARGET | The target is not a valid creep object.
@@ -1044,7 +1044,7 @@ The target controller object to be reserved.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid neutral controller object.
 ERR_NOT_IN_RANGE | 目标太远了。
@@ -1082,7 +1082,7 @@ Set to true to allow other players to see this message. Default is false.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 {% endapi_return_codes %}
 
@@ -1135,7 +1135,7 @@ Kill the creep immediately.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 {% endapi_return_codes %}
 
@@ -1163,7 +1163,7 @@ target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
 The target object.
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
 The amount of resources to be transferred. If omitted, all the available carried amount is used.
@@ -1175,7 +1175,7 @@ The amount of resources to be transferred. If omitted, all the available carried
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个creep的所有者。
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
@@ -1241,10 +1241,10 @@ target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
 The target object.
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
+被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 
 

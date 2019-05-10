@@ -160,7 +160,7 @@ OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this lab.
 ERR_NOT_ENOUGH_RESOURCES | The source lab do not have enough resources.
 ERR_INVALID_TARGET | The targets are not valid lab objects.
-ERR_FULL | The target cannot receive any more energy.
+ERR_FULL | 目标无法接受更多能量。
 ERR_NOT_IN_RANGE | The targets are too far away.
 ERR_INVALID_ARGS | The reaction cannot be run using this resources.
 ERR_TIRED | The lab is still cooling down.
@@ -179,10 +179,10 @@ target : <a href="#Creep">Creep</a>
 The target object.
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
+被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 
 
@@ -191,10 +191,10 @@ The amount of resources to be transferred. If omitted, all the available amount 
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
+ERR_NOT_OWNER | 你不是目标creep的拥有者，或者这个建筑上有建有敌对堡垒。
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
 ERR_INVALID_TARGET | The target is not a valid Creep object.
-ERR_FULL | The target cannot receive any more energy.
+ERR_FULL | 目标无法接受更多能量。
 ERR_NOT_IN_RANGE | 目标太远了。
 ERR_INVALID_ARGS | The amount or resource type is incorrect.
 {% endapi_return_codes %}

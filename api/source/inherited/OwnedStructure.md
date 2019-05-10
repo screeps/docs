@@ -6,10 +6,10 @@
 
 {% api_property OwnedStructure:owner 'object' %}
 
-建筑所有者信息，一个包含如下属性的对象：
+建筑拥有者信息，一个包含如下属性的对象：
 
 {% api_method_params %}
 username : string
-所有者姓名。
+拥有者姓名。
 {% endapi_method_params %}
 

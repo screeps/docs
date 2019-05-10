@@ -309,8 +309,8 @@ The target creep object.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this spawn or the target creep.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
+ERR_NOT_IN_RANGE | 目标creep太远了。
 ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
@@ -350,9 +350,9 @@ OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the spawn, or the creep.
 ERR_BUSY | The spawn is spawning another creep.
 ERR_NOT_ENOUGH_ENERGY | The spawn does not have enough energy.
-ERR_INVALID_TARGET | The specified target object is not a creep.
+ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
 ERR_FULL | The target creep's time to live timer is full.
-ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_NOT_IN_RANGE | 目标creep太远了。
 ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
@@ -369,7 +369,7 @@ target : <a href="#Creep">Creep</a>
 接受能量传递的creep对象。
 ===
 amount (optional) : number
-The amount of energy to be transferred. If omitted, all the remaining amount of energy will be used.
+被传递能量的数量。如果没有这个参数，传递全部能量。
 {% endapi_method_params %}
 
 
@@ -380,9 +380,9 @@ The amount of energy to be transferred. If omitted, all the remaining amount of 
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this spawn.
 ERR_NOT_ENOUGH_ENERGY | The spawn contains less energy than the given amount.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_FULL | The target creep can not carry the given amount of energy.
-ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
+ERR_FULL | 目标creep无法携带指定数量的能量。
+ERR_NOT_IN_RANGE | 目标creep太远了。
 {% endapi_return_codes %}
 
 
