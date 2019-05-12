@@ -16,7 +16,6 @@ title: 开始区域
 *   无法使用 [Nukers （核弹发射井）](/api/#StructureNuker)。
 
 当新手区倒计时结束，环绕新手区的墙将消失，房间不再被标绿，且额外规则解除。此刻，新手区回归为世界的一部分。区内玩家可选择向其他区域扩张，同时也得面对区外世界玩家的威胁。
-Novice Areas have the day counter. After it runs out, the walls disappear, rooms lose the green mark, all the limitations are cancelled, and the sector becomes a regular part of the world. After zones are opened, residents can start outward expansion, but can also face invasion into their sectors. 
 
 大多数新手由一个 sector （9x9 房间）构成。除了环绕整个 sector 的外墙，还有“十”字型的内墙将这个 sector 隔成 4 个小区。内墙会比外墙先消失，意味着一开始玩家只能在其小区内活动，几天后内墙消失才可以进入其他的小区。
 
