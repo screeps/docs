@@ -2,7 +2,7 @@
 
 <img src="img/factory.png" alt="" align="right" />
 
-Produces commodities from base minerals and other commodities.
+Produces trade commodities from base minerals and other commodities. Learn more about commodities from [this article](/commodities.html). 
 
 <table class="table gameplay-info">
     <tbody>
@@ -31,7 +31,7 @@ Produces commodities from base minerals and other commodities.
     </tr>
     <tr>
         <td><strong>Production cooldown</strong></td>
-        <td>Depends on the blueprint (see the COMMODITIES [constant](/api/#Constants))</td>
+        <td>Depends on the resource</td>
     </tr>
     </tbody>
 </table>
@@ -46,8 +46,14 @@ The amount of game ticks the factory has to wait until the next production is po
 
 {% api_property level number %}
 
+```javascript
+if(!factory.level) {
+    Game.powerCreeps['MyOperator1'].usePower(PWR_OPERATE_FACTORY, factory);
+}
+```
 
-The factory's level.
+The factory's level. Can be set by applying the `PWR_OPERATE_FACTORY` power to a newly built factory. 
+Once set, the level cannot be changed. 
 
 {% api_property store 'object' %}
 

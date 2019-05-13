@@ -44,7 +44,7 @@ Learn more about minerals from [this article](/minerals.html).
     </tr>
     <tr>
         <td><strong>Reaction cooldown</strong></td>
-        <td>Depends on the reaction (see the REACTION_TIME [constant](/api/#Constants))</td>
+        <td>Depends on the reaction (see [this article](/minerals.html))</td>
     </tr>
     <tr>
         <td><strong>Distance to input labs</strong></td>

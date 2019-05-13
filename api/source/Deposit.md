@@ -1,6 +1,7 @@
 # Deposit
 
-A resource deposit. Can be harvested by creeps with a `WORK` body part. Depletes when harvested.
+A rare resource deposit needed for producing commodities. Can be harvested by creeps with a `WORK` body part. 
+Each harvest operation triggers a cooldown period, which becomes longer and longer over time. 
 
 <table class="table gameplay-info">
     <tbody>
@@ -26,7 +27,14 @@ The amount of game ticks until the next harvest action is possible.
 {% api_property depositType 'string' %}
 
 
-The deposit type, one of the <code>RESOURCE_*</code> constants.
+The deposit type, one of the following constants:
+
+```javascript-content
+RESOURCE_MIST
+RESOURCE_BIOMASS
+RESOURCE_METAL
+RESOURCE_SILICON
+```
 
 
 {% api_property ticksToDecay 'number' %}
