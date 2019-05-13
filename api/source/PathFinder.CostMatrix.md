@@ -72,7 +72,7 @@ Copy this CostMatrix into a new CostMatrix with the same data.
 
 
 
-### Return value
+### 返回值
 
 A new CostMatrix instance.
 
@@ -87,7 +87,7 @@ Returns a compact representation of this CostMatrix which can be stored via <cod
 
 
 
-### Return value
+### 返回值
 
 An array of numbers. There's not much you can do with the numbers besides store them for later.
 
@@ -105,7 +105,7 @@ Whatever <code>serialize</code> returned
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 Returns new
 <code>CostMatrix</code>

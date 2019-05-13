@@ -85,7 +85,7 @@ A path array retrieved from <code><a href="#Room.findPath">Room.findPath</a></co
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A serialized string form of the given path.
 
@@ -104,7 +104,7 @@ A serialized path string.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A path array.
 
@@ -139,11 +139,11 @@ The name of the structure, for structures that support it (currently only spawns
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_INVALID_TARGET | The structure cannot be placed at the specified location.
 ERR_FULL | You have too many construction sites. The maximum number of construction sites per player is 100.
 ERR_INVALID_ARGS | The location is incorrect.
@@ -181,7 +181,7 @@ The secondary color of a new flag. Should be one of the <code>COLOR_*</code> con
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The name of a new flag, or one of the following error codes:
 {% api_return_codes %}
@@ -236,7 +236,7 @@ An object with additional options:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array with the objects found.
 
@@ -260,7 +260,7 @@ Another room name or room object.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The room direction constant, one of the following:
 
@@ -395,7 +395,7 @@ An object containing additonal pathfinding flags:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array with path steps in the following format:
 
@@ -437,7 +437,7 @@ If this parameter is false or undefined, the method returns an object parsed usi
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array of events. Each event represents some game action in the following format:
  
@@ -577,7 +577,7 @@ The Y position.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 A
 <a href="#RoomPosition">RoomPosition</a>
@@ -599,7 +599,7 @@ switch(terrain.get(10,15)) {
 
 Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
 
-### Return value
+### 返回值
 
 Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
 
@@ -629,7 +629,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array with objects at the specified position in the following format:
 
@@ -669,7 +669,7 @@ Set to true if you want to get the result as a plain array.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 If `asArray` is set to false or undefined, the method returns
 an object with all the objects in the specified area in the following format:
@@ -735,7 +735,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 An array of objects of the given type at the specified position if found.
 
@@ -768,7 +768,7 @@ Set to true if you want to get the result as a plain array.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 If `asArray` is set to false or undefined, the method returns an object
 with all the objects of the given type in the specified area in the following format:

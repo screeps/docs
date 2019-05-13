@@ -2,12 +2,12 @@
 
 <img src="img/observer.png" alt="" align="right" /> 
 
-Provides visibility into a distant room from your script.
+为你的代码提供远处房间的视野。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td colspan="2"><strong>Controller level</strong></td>
+        <td colspan="2"><strong>控制中心等级</strong></td>
     </tr>
     <tr>
         <td>1-7</td>
@@ -15,19 +15,19 @@ Provides visibility into a distant room from your script.
     </tr>
     <tr>
         <td>8</td>
-        <td>1 observer</td>
+        <td>1 观察者</td>
     </tr>
     <tr>
-        <td><strong>Cost</strong></td>
+        <td><strong>建筑成本</strong></td>
         <td>8,000</td>
     </tr>
     <tr>
-        <td><strong>Hits</strong></td>
+        <td><strong>生命值</strong></td>
         <td>500</td>
     </tr>
     <tr>
-        <td><strong>Range</strong></td>
-        <td>10 rooms</td>
+        <td><strong>观察范围</strong></td>
+        <td>10个房间</td>
     </tr>
     </tbody>
 </table>
@@ -39,7 +39,7 @@ Provides visibility into a distant room from your script.
 
 
 
-Provide visibility into a distant room from your script. The target room object will be available on the next tick.
+为你的代码提供远处房间的视野。目标房间将在下一个tick可见。
 
 {% api_method_params %}
 roomName : string
@@ -47,15 +47,15 @@ The name of the target room.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_INVALID_ARGS | <code>roomName</code> argument is not a valid room name value.
-ERR_NOT_IN_RANGE | Room <code>roomName</code> is not in observing range.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 你不是这个建筑的拥有者。
+ERR_INVALID_ARGS | <code>roomName</code>参数不是一个有效的房间名。
+ERR_NOT_IN_RANGE | 房间<code>roomName</code>不在观察范围内。
+ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}
 
 

@@ -88,12 +88,12 @@ Whether this rampart should be public or non-public.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 你不是这个建筑的拥有者。
 {% endapi_return_codes %}
 
 
