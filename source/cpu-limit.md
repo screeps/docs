@@ -1,26 +1,27 @@
-title: How does CPU limit work
+title: 有关 CPU 限制
 ---
 
-The Screeps game engine exists in two variants: browser-based (**Simulation** **mode**) and server-based (**online mode**). When you play in the Simulation mode, your scripts are executed by means of your browser only. The game API in the Simulation is the same as that on the server, but the server does not take part in game calculations.
+Screeps 游戏引擎有两种运行模式：一种是基于浏览器的**单机模式**，比如主页上的 [sim](https://screeps.com/a/#!/sim) 。另一种是基于服务器的**联机模式**。尽管两种模式以游戏的角度看来没有差别的，且所能调用的 api 都是一模一样的，但执行玩家代码的方法不同。单机模式下，代码都是由浏览器本地执行的，并不需要任何云端服务器的参与。
 
-On the other hand, in the online mode calculations of your scripts do not affect your browser in any way and done on the servers only. In order to maintain them, we offer the subscription that allows you to use CPU time of the game servers.
+而在联机模式下，则是由云端的服务器处理代码。由于租用服务器会产生一定的费用，所以联机模式会设定代码执行时间上限 （CPU） ，但玩家可以通过 DLC 订阅来增加此上限。
 
-As described in the article [Understanding game loop, time and ticks](/game-loop.html), the game process is divided into game iterations, or **ticks**. During each tick, the game engine calculates each player's scripts concurrently. Then all the planned activities are executed. The duration of one game tick is not fixed - a tick ends when all scripts of all players have been executed to the end.
+在[理解游戏循环、游戏时间、 ticks](/game-loop.html) 中，我们提过这个游戏是由很多 tick 构成的。每一 tick ，游戏引擎会执行所有玩家的代码。但 tick 的时长并不固定的——只有当所有玩家的代码被执行后，服务器才会结束这 tick。
 
-## CPU Limit
+## CPU 限制
 
-In order to avoid abuse of execution time (which would affect the duration of the game tick for all players), we have introduced a concept of **CPU time limit**. This is a duration of time in milliseconds during which your game script is allowed to run within one tick. The CPU limit 100 means that after 100 ms execution of your script will be terminated even if it has not accomplished some work yet. Your CPU time limit depends on your [Global Control Level](/control.html) if you have active [subscription](/subscription.html), or fixed at 10 otherwise.
- 
-## Bucket
+为了避免玩家的代码执行时间过长而影响游戏的流畅性，我们引入了** CPU 限制**。其本质是以毫米为单位来限制代码执行时长， 100 CPU 意味着玩家的代码最多可以执行 100 毫秒，当 100 毫秒到后，代码便会被强行终止，无论其是否执行完全。玩家默认有 20 CPU ，但可通过[订阅](/subscription.html)增加 CPU ，具体增量跟玩家的 [GCL](/control.html) 挂钩。
 
-However, for your convenience, there may be a rollover of unused time limit for using in future ticks. This allows to carry out resource-hungry operations in bursts once per several ticks, thus exceeding the CPU limit set in your account provided your scripts have saved resources in the preceding ticks.
+## 库存
+
+方便起见，玩家每 tick 所省下的 CPU 会被存在 `bucket` 中以备不时之需。这样，玩家仍可执行超过其 CPU 限制的代码。
 
 ![](img/cpu-bucket.png)
 
-If a script during a tick worked less time than the account CPU baseline limit set, the resulting difference is added to a cumulative bucket. You may accumulate up to 10,000 CPU. If the bucket contains any accumulation, your script can overrun your CPU limit using up to 500 CPU per tick from the amount accumulated in the bucket.
+如果玩家的代码在 CPU 限制内执行完了，那么其剩余的 CPU 便会被存起来。玩家最多可以存 10,000 CPU ，但每 tick 最多可用 500 CPU 。
 
-For example, if your account limit is set to 150 and you consume only 100 CPU per tick, then 50 CPU per tick will go to the bucket. You will be able to execute either a one-time burst exceeding the limit by 250 CPU every 5 ticks, or a series of 20 bursts for 500 CPU each once per 200 ticks.
+举例来说，如果玩家的 CPU 限制为 150，但其代码每 tick 只要 100 CPU 就执行完了，那么剩下的 50 CPU 则会被存在 `bucket` 中。因此，用省下的 CPU ，玩家可以每 5 tick 执行一个需要 250 CPU 的大型代码，或每 200 tick 连续执行五个各需要 500 CPU 的超大型代码。
 
-The property [`Game.cpu.tickLimit`](/api/#Game.cpu) reflects the amount of CPU that you can spend on a current tick given the accumulation. As soon as the [`Game.cpu.bucket`](/api/#Game.cpu) is full, [`Game.cpu.tickLimit`](/api/#Game.cpu) equals 500. It will start decreasing only after the accumulation is depleted. [`Game.cpu.tickLimit`](/api/#Game.cpu) can never be less than your account limit, i.e the [`Game.cpu.limit`](/api/#Game.cpu) property.
+[`Game.cpu.tickLimit`](/api/#Game.cpu) 便为玩家此 tick  最多使用的 CPU 量。当玩家的 [`Game.cpu.bucket`](/api/#Game.cpu) 存满了后， [`Game.cpu.tickLimit`](/api/#Game.cpu) 便为上限 500 。这个最多多用量只会在玩家 [`Game.cpu.bucket`](/api/#Game.cpu) 快见底后减少，且 [`Game.cpu.tickLimit`](/api/#Game.cpu) 永远不会小于你的 CPU 限制 （[`Game.cpu.limit`](/api/#Game.cpu)）
 
-Therefore, you can plan your limit usage by postponing some calculations (for example pathfinding operations) to the moment when you are able to do them in bursts by exceeding the limit.
+
+因此，玩家根据 CPU 储量，可以保证其需要消耗大量时间的代码（比如寻路代码）不被中断。
