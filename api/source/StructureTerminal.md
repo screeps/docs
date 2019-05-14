@@ -88,7 +88,7 @@ resourceType : string
 One of the <code>RESOURCE_*</code> constants.
 ===
 amount : number
-The amount of resources to be sent. The minimum amount is 100.
+The amount of resources to be sent.
 ===
 destination : string
 The name of the target room. You don't have to gain visibility in this room.
