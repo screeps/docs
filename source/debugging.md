@@ -1,13 +1,13 @@
-title: Debugging
+title: 调试
 ---
 
-There is a standard `console.log()` method as everywhere in Javascript world.
+Javascript 源生的 `console.log()` 。
 
 	for(var i in Game.creeps) {
         console.log(Game.creeps[i]);
     }
 
-Each action command returns code `OK` if the execution was successful and one of the `ERR_*` codes in case of error.
+对于所以的动作指令，若被执行了，则返回值为 `OK`，如果无法被执行，则会返回相应的错误代码 `ERR_*` 。
 
 	var result = creep.attack(target);
     if(result != OK) {
@@ -16,23 +16,23 @@ Each action command returns code `OK` if the execution was successful and one of
     }
 
 
-Note that a seemingly successful command may not always be executed (for example, your creep faces an obstacle it did not know about when the script started).
+注意，一个看似合理的指令并不一定能被执行。（比如， creep 遇见了未被其代码声明的障碍）
 
-In order to safely test your scripts in a parallel copy of the world, you can use our [Public Test Realm](/ptr.html) server.
+玩家可用并行世界副本[公共测试领域](/ptr.html)来测试其代码。
 
-## Debugging in the web version
+## 在浏览器端调试
 
-When playing using the web version of the game, all the console output is being forwarded to the browser console. When you are in the Simulation mode and your script is executed in your browser, that allows you to expand the objects, see and traverse their properties, etc.
+当用浏览器玩此游戏时，所有控制台输出都会被转发到浏览器控制台。在 Simulation 模式下，玩家的代码由浏览器，所以玩家得以扩展，查看和遍历对象及其属性等。
 
-Also, in Chrome browser you can use `debugger` JavaScript keyword to put a breakpoint in the Simulation mode which allows you to pause your script execution for debugging:
+在 Chrome 浏览器里，您可以使用 `debugger` Javascript 关键词来暂停执行并进行调试:
 
 	var result = creep.attack(target);
     if(result != OK) {
         debugger;
     }
 
-## Memory inspector
+## 监测 Memory
 
-If you want to track some values in real-time, write them into Memory and add the corresponding watches in the Memory inspector panel. They will be updated automatically each tick.
+如果玩家想实时观察变量，可选择把它们写入 Memory 并将其加入监测器面板。监测器面板每 tick 会自动更新。
 
 ![](img/chrome_2016-06-21_22-21-36.png)
