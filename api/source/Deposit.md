@@ -39,6 +39,12 @@ RESOURCE_SILICON
 ```
 
 
+{% api_property lastCooldown 'number' %}
+
+
+The cooldown of the last harvest operation on this deposit.
+
+
 {% api_property ticksToDecay 'number' %}
 
 
