@@ -1,11 +1,11 @@
-title: NPC Invaders 
+title: NPC 入侵者
 ---
 
 It seems that intensive mining and industrial development in once virgin regions shattered the environmental balance and enraged mysterious forces we know little about.
 
 ## Invader creeps
 
-Every room where energy is mined has an inner counter at approximately **100,000 units of mined energy** (plus some random variable). After this counter times out, a new game-controlled creep appears at one of the room exits with the goal of hunting your creeps. It will not touch your structures most of the time, but if a structure gets on its way, it will try to destroy it. This creep can use [`attack`](/api/#Creep.attack), [`rangedAttack`](/api/#Creep.rangedAttack), and [`dismantle`](/api/#Creep.dismantle). It is unable to move between rooms. 
+Every room where energy is mined has an inner counter at approximately **100,000 units of mined energy** (plus some random variable). After this counter times out, a new game-controlled creep appears at one of the room exits with the goal of hunting your creeps. It will not touch your structures most of the time, but if a structure gets on its way, it will try to destroy it. This creep can use [`attack`](/api/#Creep.attack), [`rangedAttack`](/api/#Creep.rangedAttack), and [`dismantle`](/api/#Creep.dismantle). It is unable to move between rooms.
 
 ![](img/invader.png)
 
