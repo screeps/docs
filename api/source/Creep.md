@@ -21,7 +21,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         <td>100</td>
         <td>
             <p>Harvests 2 energy units from a source per tick.</p>
-            <p>Harvests 1 mineral unit from a deposit per tick.</p>
+            <p>Harvests 1 resource unit from a mineral or a deposit per tick.</p>
             <p>Builds a structure for 5 energy units per tick.</p>
             <p>Repairs a structure for 100 hits per tick consuming 1 energy unit per tick.</p>
             <p>Dismantles a structure for 50 hits per tick returning 0.25 energy unit per tick.</p>
@@ -517,10 +517,10 @@ if(target) {
 
 ```
 
-Harvest energy from the source or minerals from the mineral deposit. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the harvested resource is put into it; otherwise it is dropped on the ground. The target has to be at an adjacent square to the creep.
+Harvest energy from the source or resources from minerals and deposits. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the harvested resource is put into it; otherwise it is dropped on the ground. The target has to be at an adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>
+target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>, <a href="#Deposit">Deposit</a>
 The object to be harvested.
 {% endapi_method_params %}
 
@@ -536,7 +536,7 @@ ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to ha
 ERR_NOT_ENOUGH_RESOURCES | The target does not contain any harvestable energy or mineral.
 ERR_INVALID_TARGET | The target is not a valid source or mineral object.
 ERR_NOT_IN_RANGE | The target is too far away.
-ERR_TIRED | The extractor is still cooling down.
+ERR_TIRED | The extractor or the deposit is still cooling down.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
 
