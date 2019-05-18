@@ -7,12 +7,12 @@ You can upgrade their abilities ("powers") up to your account Global Power Level
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Time to live</strong></td>
+        <td><strong>寿命</strong></td>
         <td>5,000</td>
     </tr>
     <tr>
-        <td><strong>Hits</strong></td>
-        <td>1,000 per level</td>
+        <td><strong>生命值</strong></td>
+        <td>1,000 每级</td>
     </tr>
     <tr>
         <td><strong>Capacity</strong></td>
@@ -111,7 +111,7 @@ An object with the creep’s owner info containing the following properties:
 
 {% api_method_params %}
 username : string
-所有者姓名。
+拥有者姓名。
 {% endapi_method_params %}
 
 {% api_property powers object %}
@@ -215,7 +215,7 @@ Drop this resource on the ground.
 
 {% api_method_params %}
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
 The amount of resource units to be dropped. If omitted, all the available carried amount is used.
@@ -227,7 +227,7 @@ The amount of resource units to be dropped. If omitted, all the available carrie
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of energy.
@@ -259,9 +259,9 @@ The room controller.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_INVALID_TARGET | The target is not a controller structure.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 
@@ -308,7 +308,7 @@ A creep nearby, or one of the following constants:
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_INVALID_ARGS | The provided direction is incorrect.
@@ -344,7 +344,7 @@ A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_NOT_FOUND | The specified path doesn't match the creep's location.
 ERR_INVALID_ARGS | <code>path</code> is not a valid path array.
@@ -439,7 +439,7 @@ An object containing additional options:
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_INVALID_TARGET | The target provided is invalid.
@@ -468,7 +468,7 @@ Whether to enable notification or disable.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
 {% endapi_return_codes %}
@@ -499,11 +499,11 @@ The target object to be picked up.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
 ERR_FULL | The creep cannot receive any more resource.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 
@@ -556,10 +556,10 @@ The target structure.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_INVALID_TARGET | The target is not a valid power bank object.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 
@@ -593,7 +593,7 @@ Set to true to allow other players to see this message. Default is false.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 {% endapi_return_codes %}
 
@@ -641,7 +641,7 @@ so that you can [`spawn`](#PowerCreep.spawn) it again.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 {% endapi_return_codes %}
 
@@ -669,7 +669,7 @@ target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
 The target object.
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
 The amount of resources to be transferred. If omitted, all the available carried amount is used.
@@ -681,12 +681,12 @@ The amount of resources to be transferred. If omitted, all the available carried
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
 ERR_BUSY | The power creep is not spawned in the world.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The target cannot receive any more resources.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}
 
@@ -777,10 +777,10 @@ target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
 The target object.
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
+被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 
 
@@ -794,7 +794,7 @@ ERR_BUSY | The power creep is not spawned in the world.
 ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resources.
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The creep's carry is full.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}
 

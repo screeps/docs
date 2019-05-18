@@ -42,7 +42,7 @@ The remaining amount of resources.
 
 
 
-The resource type, one of the <code>RESOURCE_*</code> constants.
+The resource type, <code>RESOURCE_*</code>常量之一。
 
 
 

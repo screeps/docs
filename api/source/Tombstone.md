@@ -7,8 +7,8 @@
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Decay</strong></td>
-        <td>5 ticks per body part of the deceased creep</td>
+        <td><strong>消失</strong></td>
+        <td>死去的creep每个身体部件5 tick</td>
     </tr>
     </tbody>
 </table>
@@ -33,7 +33,7 @@ room.find(FIND_TOMBSTONES).forEach(tombstone => {
 });
 ````
 
-一个包含死亡creep或英雄的对象。
+一个内含死亡creep或超能creep的对象。
 
 {% api_property deathTime 'number' %}
 

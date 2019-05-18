@@ -6,7 +6,7 @@ power : number
 效果的超能ID。
 ===
 level : number
-效果的超能。
+效果的超能等级。
 ===
 ticksRemaining : number
 多长时间之后会失去这个效果。

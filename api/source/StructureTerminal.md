@@ -85,7 +85,7 @@ Sends resource to a Terminal in another room with the specified name.
 
 {% api_method_params %}
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount : number
 The amount of resources to be sent. The minimum amount is 100.
@@ -117,17 +117,17 @@ ERR_TIRED | The terminal is still cooling down.
 Game.rooms['W1N1'].terminal.transfer(creep, RESOURCE_ENERGY);
 ```
 
-Transfer resource from this terminal to a creep. The target has to be at adjacent square. You can transfer resources to your creeps from hostile structures as well.
+从终端传递资源给creep。目标必须在相邻的方格里。You can transfer resources to your creeps from hostile structures as well.
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
-The target object.
+目标creep对象。
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
+被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 
 
@@ -136,14 +136,14 @@ The amount of resources to be transferred. If omitted, all the available amount 
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
-ERR_INVALID_TARGET | The target is not a valid object which can contain energy.
-ERR_FULL | The target cannot receive any more energy.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The energy amount is incorrect.
-ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this structure.
-ERR_TIRED | The terminal is still cooling down.
+ERR_NOT_OWNER | 你不是目标creep的拥有者，或者这个建筑上有建有敌对堡垒。
+ERR_NOT_ENOUGH_RESOURCES | 这个建筑内的资源少于给定的数量。
+ERR_INVALID_TARGET | 目标无法接受能量。
+ERR_FULL | 目标无法接受更多能量。
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_INVALID_ARGS | 资源数量不正确。
+ERR_RCL_NOT_ENOUGH | 你的房间控制等级不足。
+ERR_TIRED | 这个终端依然在冷却中。
 {% endapi_return_codes %}
 
 
