@@ -98,7 +98,7 @@ ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 
 
 
-Transfer the energy from this structure to a creep. You can transfer resources to your creeps from hostile structures as well.
+Transfer the energy from this structure to a creep. 你也可以从敌对建筑物传递资源给你的creep。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>

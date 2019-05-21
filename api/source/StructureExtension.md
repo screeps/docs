@@ -74,7 +74,7 @@ The total amount of energy the extension can contain.
 
 
 
-Transfer the energy from the extension to a creep. You can transfer resources to your creeps from hostile structures as well.
+Transfer the energy from the extension to a creep. 你也可以从敌对建筑物传递资源给你的creep。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>

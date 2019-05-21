@@ -172,7 +172,7 @@ ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
 
 
-Transfer resource from this structure to a creep. 目标必须在相邻的方格里。 You can transfer resources to your creeps from hostile structures as well.
+Transfer resource from this structure to a creep. 目标必须在相邻的方格里。 你也可以从敌对建筑物传递资源给你的creep。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
