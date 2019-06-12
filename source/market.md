@@ -1,4 +1,4 @@
-title: Market System
+title: 交易系统
 ---
 
 The market in Screeps allows to trade various resources between players by means of special structures called [Terminals](/api/#StructureTerminal). They are able to instantly transfer resources to other rooms at any distance.
