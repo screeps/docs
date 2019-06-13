@@ -14,7 +14,6 @@ Screeps 是一款特立独行的大型多人线上游戏。普遍而言，线上
 以上限制代码运行时间为团队斟酌损益后提出。且为了防止破坏游戏平衡，单一玩家每月最多使用一个订阅，且价格不随玩家订阅情况改变。
 
 若您不愿破费，20 毫秒看似虽少却已游刃有余。且游戏专设非订阅服，无论订阅与否，所有玩家一视同仁，代码运行上限均为 20 毫秒。您大可于此公平竞争、大展身手。
-If you don’t wish to use such resources on general terms, you can just confine yourself to purchasing a [starter kit on Steam](http://store.steampowered.com/app/464350). A minimum 20 CPU amount will be reserved for you on the server, but it won’t grow following your game level. That's a perfectly fine way to play Screeps too, since we have a standalone non-subscription world shard, where you can compete with other non-subscription players on equal terms.
 
 **译者注：**截止至二零一九年八月 ，官方服务器共有四 shard（shard0 - shard3）。无论是否订阅，shard3 均为 20 CPU。
 

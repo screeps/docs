@@ -1,48 +1,50 @@
 title: 交易系统
 ---
 
-The market in Screeps allows to trade various resources between players by means of special structures called [Terminals](/api/#StructureTerminal). They are able to instantly transfer resources to other rooms at any distance.
+玩家可通过 [terminal（终端）](/api/#StructureTerminal)传送各式资源到指定房间，且无论距离远近，通过终端传送的资源无收发延迟。
 
-Trading on this market requires the in-game currency called **Credits**. Your credits are tied to your account and serve to execute your market orders.
-
-{% note info %}
-In order to get your first credits, deal with someone who already has a market buy order.
-{% endnote %}
-
-## Market orders
-
-The market system is based on **sell and buy orders** tied to your terminals. By creating an order, you designate the terminal, type, and amount of the resource to sell or buy, as well as its price for one unit in credits. Each placed order is visible to all the players in all the game world at the [Market](https://screeps.com/a/#!/market) page or via API method [`Game.market.getAllOrders`](/api/#Market.getAllOrders). Creating any order is subject to a 5% fee in credits.
-
-To execute a trade, the second party also has to have a terminal to receive the resource (when buying from a sell order) or to send out (when selling to a buy order). You complete a trade by using the market interface or the method [`Game.market.deal`](/api/#Market.deal) and designating the other player's order, your terminal, and the amount of resources wanted. Then the two terminals automatically carry out the transaction, the buyer's account is charged with the corresponding amount of credits, and this amount is passed to the seller.
+游戏内的虚拟货币为 **Credits**（暂定中译名：S币）。S币 与玩家账号直接关联，且可用于游戏内交易
 
 {% note info %}
-The energy expenses to transfer resources from one terminal to another are always on the party who executes the deal rather than the order's owner, even in the case of buying a resource upon a sell order. The same is true for terminal cooldown.
+玩家必须从市场接受一笔订单以赚取第一桶金。
+{% endnote %}~~
+
+## 交易系统及市场订单
+
+Screeps 的交易系统本质是由终端收发的市场中间人交易：玩家首先需将订单发送至[市场](https://screeps.com/a/#!/market)，订单须包含以下信息：订单类型（买入或卖出）、资源单价、资源种类、交易总量、发单房间。挂新订单或修改现有订单均含有手续费，**手续费**由挂单方出，为订单总价的 5% ，以 S币计算。
+
+然后其他玩家可通过[`Game.market.getAllOrders`](/api/#Market.getAllOrders)查看所有订单。且可通过 [`Game.market.deal`](/api/#Market.deal) 接收中意的订单。**运输费**由接单方出，可通过 [`Game.market.calcTransactionCost`](/api/#Game.market.calcTransactionCost) 计算，以 energy（能量）计算。
+
+{% note info %}
+由于交易手续费为终端传送消耗，因此无论订单为买入类或卖出类，交易手续费均从接单方终端扣除。
 {% endnote %}
 
-An order cannot be executed until the selling terminal has enough resource to sell, or the user has enough credits to buy. Until that happens, the order remains inactive.
+如果出单方当前没有足够的资源或 S币，则其订单会暂时被暂存于等待列表，直到其终端有足够资源。
 
-## Examples
+## 例子
 
-Here are a few examples to understand the underlying mechanics.
+一下举例以更好的说明：
 
-*   Assume that the player Alice creates a buy order for 1000 units of utrium acid at the price 10 Cr a unit. To create this order, Alice designates her terminal in the room W1N1 and instantly pays a 500 Cr fee.
-*   Player Bob discovers Alice's order and decides to sell 200 units of utrium acid from his reserves. Bob's terminal is in the room W4N2, i.e. 3 rooms away. Therefore, his expenses on sending 200 units of the resource will be 60 of energy. Bob executes the trade on the given order, and 200 of ultrium acid are automatically transported from W4N2 to W1N1, Bob gets 2,000 Cr, and Bob's terminal in W4N2 loses 60 energy units.
-*   Now Bob wants to spend these credits and buy some energy from the player Charlie who offers it through his sell order in the room W1N5 at the price of 0.5 Cr per unit. The 2,000 Cr that Bob earned get him 4,000 energy units. However, the 4-room distance requires covering energy costs of 1,600 energy units. This amount should have been in the Bob's terminal prior to the trade deal execution. Charlie gets 2,000 Cr and doesn't spend any energy on the transfer.
+*   假设玩家“张三”从 W1N1 出了张以单价为 10 ，总量为 1000 UH2O 的买入单。因上文已阐述手续费为商品总价的 5% ，“张三”需要缴纳 500 S币（10 * 1000 * 5%）手续费给市场。
+*   “李四”在市场上发现了“张三”的单，并决定从其相隔 3 个房间的 W4N2 终端卖 200 UH2O 给“张三”，则“李四”需支付 60 能量[^计算公式]。“李四”交易成功后，200 UH2O 便会从“李四”的终端传入“张三”的终端，“李四”同时从“张三”处获得 2,000 S币，且“李四”终端会被扣除 60 能量的运输费。
+*   现在，“李四”又发现了“王五”的单价为 0.5 的卖出单。“李四”觉得用手上的 2,000 S币从“王五”买入 4,000 能量。然而，“王五”的房间跟“李四”的隔了 4 个房间，因此运输费为 1,600 能量。尽管是能量是由“王五”卖给“李四”，但由于“李四”为接单方，运输费还是由“李四”出。于是，“李四”在交易前至少需要有 1,600 能量存于终端。交易成功后，“王五”得到了 2,000 S币，发出了 4,000 能量给“李四”。
 
-This story results in the following balance shift between the players involved:
+小结上述交易：
 
-*   Alice (created a buy order, 1000 utrium acid): +200 utrium acid, -500-2000 credits.
-*   Charlie (sell order, energy): -4000 energy, +2000 credits.
-*   Bob (dealer): -200 utrium acid, +4000-60-1600 energy, +2000-2000 credits.
+*   张三（下了个买入单，总量 1000 UH2O）：+200 UH2O）：, -2000-500 S币
+*   李四（接了两单）：-200 UH2O，+4000-60-1600 能量, +2000-2000 S币.
+*   王五（下了个卖出单，卖能量）：-4000 能量，+2000 S币
 
-## NPC Terminals
+## NPC 终端
 
-All the “highway crossroads” between sectors (i.e. in the rooms W0N0, W10N0, W10N10, etc.) contain neutral NPC Terminals. You can trade with these terminals the same way as with real players using the market interface or the object [`Game.market`](/api/#Game.market). The orders in NPC terminals have limited resources amounts and get replenished according to a set of rules. Although they don’t boast the most competitive prices, they allow you to convert your resource surplus into credits, and vice versa.
+Sector 间的“十字路口”（比如，房间 W0N0，W10N0，W10N10，等），都有 NPC 终端。玩家可像与其他玩家交易一样，通过 [`Game.market`](/api/#Game.market) 与 NPC 交易。尽管 NPC 开出的价格并不是很有竞争力，但不偿为快速买卖资源的方法。
 
-## Subscription Tokens
+## 订阅代币
 
-There are important objects to trade in Screeps: **Subscription Tokens**. Upon its activation, such a token allows its user to get 60 CPU subscription days in Screeps. A subscription token does not exist as an object in the game world, it belongs to an account and is subject to direct trade between players for credits through the same market orders system but without designating trading terminals.
+玩家可从市场上购买**订阅代币**。当玩家激活订阅代币后，会获得为时 60 天的订阅。订阅代币虽不是游戏世界中的物品，，但却可免终端放入市场中交易。
 
-You can buy a subscription token the same way as a regular CPU subscription. It is placed into your account, and you can sell it as a virtual item to another player.
+玩家可像买订阅买订阅代币。购买后，订阅代币会直接被放入账号，并可像虚拟物品一样买卖。
 
-Hence, those players who want to share their resources with others can play Screeps as a free-to-play game! Subscription tokens trading is also possible via the [Steam Community Market](http://steamcommunity.com/market/listings/464350/Subscription%20Token) allowing to trade purchased tokens for real currency using your Steam Wallet.
+因此，如果一个玩家的代码够优秀的话，其可以通过赚订阅代币已订阅。同时，订阅代币也可通过 [Steam 社区市场](http://steamcommunity.com/market/listings/464350/Subscription%20Token)购买。
+
+[^计算公式]: /api/#Game.market.calcTransactionCost
