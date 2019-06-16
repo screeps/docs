@@ -362,3 +362,21 @@ title: 矿物
 </tr>
 </tbody>
 </table>
+
+* HYDROGEN 氢
+* OXYGEN 氧
+* UTRIUM 奥纯
+* KEANIUM 克安
+* LEMERGIUM 灵摩
+* ZYNTHIUM 仁笛
+* CATALYST 萃托
+* zynthium keanite 仁克
+* utrium lemergite 奥灵
+* GHODIUM 寇丁
+* hydroxide 氢氧
+* utrium hydride 氢化奥纯
+* utrium oxide 氧化奥纯
+* utrium acid 奥纯酸
+* utrium alkalide 奥纯碱
+* catalyzed utrium acid 萃奥纯酸
+* catalyzed utrium alkalide 萃奥纯碱
