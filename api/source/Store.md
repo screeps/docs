@@ -18,7 +18,7 @@ console.log(creep.store[RESOURCE_ENERGY]);
 
 
 
-{% api_method getCapacity '[resource]' %}
+{% api_method getCapacity '[resource]' 0 %}
 
 ```javascript
 if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
@@ -38,7 +38,7 @@ The type of the resource.
 
 Returns capacity number, or `null` in case of a not valid `resource` for this store type.
 
-{% api_method getFreeCapacity '[resource]' %}
+{% api_method getFreeCapacity '[resource]' 0 %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
@@ -47,7 +47,7 @@ if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
 ```
 A shorthand for `getCapacity(resource) - getUsedCapacity(resource)`.
 
-{% api_method getUsedCapacity '[resource]' %}
+{% api_method getUsedCapacity '[resource]' 0 %}
 
 ```javascript
 if(Game.rooms['W1N1'].terminal.store.getUsedCapacity() == 0) {
