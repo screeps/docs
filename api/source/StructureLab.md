@@ -67,27 +67,21 @@ The amount of game ticks the lab has to wait until the next reaction is possible
 
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in the lab. Energy is used for boosting creeps.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
-{% api_property energyCapacity 'number' %}
-
-
-
-The total amount of energy the lab can contain.
-
-
-
-{% api_property mineralAmount 'number' %}
-
-
-
-The amount of mineral resources containing in the lab.
+{% api_property mineralAmount 'number' '{"deprecated": true}' %}
+                                                                       
+An alias for [`lab.store[lab.mineralType]`](#StructureExtension.store).
 
 
 
@@ -99,12 +93,21 @@ The type of minerals containing in the lab. Labs can contain only one mineral ty
 
 
 
-{% api_property mineralCapacity 'number' %}
+{% api_property mineralCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                 
+An alias for [`lab.store.getCapacity(lab.mineralType || yourMineral)`](#Store.getCapacity).
 
 
+{% api_property store 'object' %}
 
-The total amount of minerals the lab can contain.
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
+
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method boostCreep 'creep, [bodyPartsCount]' A %}
@@ -166,39 +169,6 @@ ERR_INVALID_ARGS | The reaction cannot be run using this resources.
 ERR_TIRED | The lab is still cooling down.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
-
-
-
-{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-
-Transfer resource from this structure to a creep. The target has to be at adjacent square. You can transfer resources to your creeps from hostile structures as well.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The target object.
-===
-resourceType : string
-One of the <code>RESOURCE_*</code> constants.
-===
-amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
-ERR_INVALID_TARGET | The target is not a valid Creep object.
-ERR_FULL | The target cannot receive any more energy.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The amount or resource type is incorrect.
-{% endapi_return_codes %}
-
 
 
 {% api_method unboostCreep 'creep' A %}

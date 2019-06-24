@@ -44,35 +44,38 @@ Learn more about power from [this article](/power.html).
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in this structure.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
-{% api_property energyCapacity 'number' %}
+{% api_property power 'number' '{"deprecated": true}' %}
+                                                               
+An alias for [`.store[RESOURCE_POWER]`](#StructureExtension.store).
 
 
 
-The total amount of energy this structure can contain.
+{% api_property powerCapacity 'number' '{"deprecated": true}' %}
+                                                                                                               
+An alias for [`.store.getCapacity(RESOURCE_POWER)`](#Store.getCapacity).
+
+{% api_property store 'object' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-{% api_property power 'number' %}
-
-
-
-The amount of power containing in this structure.
-
-
-
-{% api_property powerCapacity 'number' %}
-
-
-
-The total amount of power this structure can contain.
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method processPower '' A %}

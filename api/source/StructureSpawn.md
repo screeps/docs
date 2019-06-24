@@ -50,19 +50,15 @@ recover even if all your creeps died.
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in the spawn.
-
-
-
-{% api_property energyCapacity 'number' %}
-
-
-
-The total amount of energy the spawn can contain
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
@@ -89,6 +85,18 @@ Spawn’s name. You choose the name upon creating a new spawn, and it cannot be 
 
 
 If the spawn is in process of spawning a new creep, this object will contain a [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) object, or null otherwise.
+
+
+{% api_property store 'object' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
+
+
+A [`Store`](#Store) object that contains cargo of this structure.
 
 {% api_method canCreateCreep 'body, [name]' 1 '{"deprecated": "Please use [`StructureSpawn.spawnCreep`](#StructureSpawn.spawnCreep) with `dryRun` flag instead."}' %}
 
@@ -358,32 +366,6 @@ ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spaw
 
 
 
-{% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-
-
-Transfer the energy from the spawn to a creep.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The creep object which energy should be transferred to.
-===
-amount (optional) : number
-The amount of energy to be transferred. If omitted, all the remaining amount of energy will be used.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this spawn.
-ERR_NOT_ENOUGH_ENERGY | The spawn contains less energy than the given amount.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_FULL | The target creep can not carry the given amount of energy.
-ERR_NOT_IN_RANGE | The target creep is too far away.
-{% endapi_return_codes %}
 
 
 # StructureSpawn.Spawning

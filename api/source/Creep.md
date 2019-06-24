@@ -91,22 +91,14 @@ The remaining amount of hit points of this body part.
 {% endapi_method_params %}
 
 
-{% api_property carry object %}
+{% api_property carry object '{"deprecated": true}' %}
 
-```javascript
-const total = _.sum(creep.carry);
-```
-
-An object with the creep's cargo contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. <code>RESOURCE_ENERGY</code> is always defined and equals to 0 when empty, other resources are undefined when empty. You can use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents:
+An alias for [`Creep.store`](#Creep.store). 
 
 
+{% api_property carryCapacity number '{"deprecated": true}' %}
 
-{% api_property carryCapacity number %}
-
-
-
-The total amount of resources the creep can carry.
-
+An alias for [`Creep.store.getCapacity()`](#Store.getCapacity).
 
 
 {% api_property fatigue number %}
@@ -193,6 +185,15 @@ The text message that the creep was saying at the last tick.
 
 Whether this creep is still being spawned.
 
+{% api_property store 'object' %}
+
+```javascript
+if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
+    goHarvest(creep);
+}
+```
+
+A [`Store`](#Store) object that contains cargo of this creep.
 
 
 {% api_property ticksToLive number %}

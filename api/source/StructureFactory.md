@@ -57,18 +57,13 @@ Once set, the level cannot be changed.
 
 {% api_property store 'object' %}
 
-```javascript
-const total = _.sum(factory.store);
-``` 
-
-An object with the structure contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. <code>RESOURCE_ENERGY</code> is always defined and equals to 0 when empty, other resources are undefined when empty. You can use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents.
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 
-{% api_property storeCapacity 'number' %}
-
-
-The total amount of resources the structure can contain.
+{% api_property storeCapacity 'number' '{"deprecated": true}' %}
+                                                                                                               
+An alias for [`.store.getCapacity()`](#Store.getCapacity).
 
 {% api_method produce 'resourceType' A %}
 

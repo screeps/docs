@@ -64,20 +64,27 @@ the room. However, its effectiveness linearly depends on the distance. Each act
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in this structure.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
+{% api_property store 'object' %}
 
-{% api_property energyCapacity 'number' %}
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-The total amount of energy this structure can contain.
-
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method attack 'target' A %}
