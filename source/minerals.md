@@ -25,7 +25,7 @@ title: 矿物
 
 ![](img/minerals-02.png)
 
-完成一个反应需要三个 lab ：两个提供底物，一个进行反应及收集产物。提供底物的 lab 得在进行反应的两格内。同一 lab 不可放置多种化合物，但却能为多个反应提供底物。
+完成一个反应需要三个 lab ：两个提供底物，一个进行反应及收集产物，lab 的间距不得超过两格。同一 lab 不可混合放置多种化合物，但却能同时为多个反应提供底物。
 
 <img src="img/2016-03-09_10-32-33.gif" align="right">
 
@@ -44,11 +44,11 @@ title: 矿物
 
  lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件。
 
-玩家可用 [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) 来强化 Creep 的指定[部件](creeps.html)，各化合物的强化效果见下表。一个被强化部件的工作效率可以顶多个未被强化。玩家得通过强化每一个部件来完全强化一个 creep 。
+玩家可用 [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) 来强化 Creep 的[部件](creeps.html)，各化合物的强化效果见下表。一个被强化过的部件能顶多个未被强化的部件。要想完全强化一个 creep ，玩家得逐一强化该 creep 的部件。 
 
 强化一个部件需要 30 单位的化合物及 20 单位的能量，且一个部件只能被一种化合物强化。
 
-**译者注：**元素全名首字母及为其符号。
+**译者注：**元素、化合物名称的各单词取首及为其符号简写，中文译名见末表
 
 <style>
 .minerals td {
@@ -243,7 +243,7 @@ title: 矿物
 <td>![](//static.screeps.com/upload/mineral-icons/KO.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`RANGED_ATTACK`</td>
-<td>+200% `rangedAttack` and `rangedMassAttack` 效率</td>
+<td>+200% `rangedAttack` 和 `rangedMassAttack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LH2O.png)lemergium acid</td>
@@ -363,20 +363,24 @@ title: 矿物
 </tbody>
 </table>
 
-* HYDROGEN 氢
-* OXYGEN 氧
-* UTRIUM 奥纯
-* KEANIUM 克安
-* LEMERGIUM 灵摩
-* ZYNTHIUM 仁笛
-* CATALYST 萃托
-* zynthium keanite 仁克
-* utrium lemergite 奥灵
-* GHODIUM 寇丁
-* hydroxide 氢氧
-* utrium hydride 氢化奥纯
-* utrium oxide 氧化奥纯
-* utrium acid 奥纯酸
-* utrium alkalide 奥纯碱
-* catalyzed utrium acid 萃奥纯酸
-* catalyzed utrium alkalide 萃奥纯碱
+各矿物中译名：
+
+| 原名 | 译名 |
+| - | - |
+HYDROGEN | 氢
+OXYGEN | 氧
+UTRIUM | 奥纯
+KEANIUM | 克安
+LEMERGIUM | 灵摩
+ZYNTHIUM | 仁笛
+CATALYST | 萃托
+zynthium keanite | 仁克
+utrium lemergite | 奥灵
+GHODIUM | 寇丁
+hydroxide | 氢氧
+utrium hydride | 氢化奥纯
+utrium oxide | 氧化奥纯
+utrium acid | 奥纯酸
+utrium alkalide | 奥纯碱
+catalyzed utrium acid | 萃奥纯酸
+catalyzed utrium alkalide | 萃奥纯碱
