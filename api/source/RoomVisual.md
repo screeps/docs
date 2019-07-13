@@ -60,7 +60,7 @@ new RoomVisual('W1N1').line(10,15, 20,20);
 
 ```javascript
 creep.room.visual.line(creep.pos, target.pos,
-    {color: 'red', style: 'dashed'});
+    {color: 'red', lineStyle: 'dashed'});
 ```
 
 Draw a line.
