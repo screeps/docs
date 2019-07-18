@@ -31,7 +31,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
     <tr>
         <td><code style="background: #333; color: #777;">CARRY</code></td>
         <td>50</td>
-        <td>携带最多50单位能量。</td>
+        <td>携带最多50单位资源。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #f93842;">ATTACK</code></td>
