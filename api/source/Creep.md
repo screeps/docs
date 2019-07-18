@@ -7,65 +7,64 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <th style="width: 20%;">Body part</th>
-        <th style="width: 8%;">Build cost</th>
-        <th>Effect per one body part</th>
+        <th style="width: 20%;">身体部件</th>
+        <th style="width: 8%;">生产成本</th>
+        <th>每个部件效果</th>
     </tr>
     <tr>
         <td><code style="background: #333; color: #a9b7c6;">MOVE</code></td>
         <td>50</td>
-        <td>Decreases fatigue by 2 points per tick.</td>
+        <td>每tick减少2点疲惫值</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #ffe56d;">WORK</code></td>
         <td>100</td>
         <td>
-            <p>Harvests 2 energy units from a source per tick.</p>
-            <p>Harvests 1 mineral unit from a deposit per tick.</p>
-            <p>Builds a structure for 5 energy units per tick.</p>
-            <p>Repairs a structure for 100 hits per tick consuming 1 energy unit per tick.</p>
-            <p>Dismantles a structure for 50 hits per tick returning 0.25 energy unit per tick.</p>
-            <p>Upgrades a controller for 1 energy unit per tick.</p>
+            <p>每tick从能量源采集2单位能量。</p>
+            <p>每tick从矿区采集1单位矿物。</p>
+            <p>每tick增加工地建设进度5点，花费5单位能量。</p>
+            <p>每tick增加建筑100耐久度，花费1单位能量。</p>
+            <p>每tick拆减建筑50点耐久，并返还0.25单位能量。</p>
+            <p>每tick提高控制器升级进度1点，花费1单位能量。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #777;">CARRY</code></td>
         <td>50</td>
-        <td>Can contain up to 50 resource units.</td>
+        <td>携带最多50单位能量。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #f93842;">ATTACK</code></td>
         <td>80</td>
-        <td>Attacks another creep/structure with 30 hits per tick in a short-ranged attack.</td>
+        <td>对相邻的creep或建筑造成30点伤害。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code></td>
         <td>150</td>
         <td>
-            <p>Attacks another single creep/structure with 10 hits per tick in a long-range attack up to 3 squares long.</p>
-            <p>Attacks all hostile creeps/structures within 3 squares range with 1-4-10 hits (depending on the range).</p>
+            <p>单个目标时，每tick对creep或建筑造成10点伤害，范围为3格。</p>
+            <p>多个目标时，每tick对范围内所有creep与建筑造成1-4-10点伤害，具体伤害取决于距离，范围为3格。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #65fd62;">HEAL</code></td>
         <td>250</td>
-        <td>Heals self or another creep restoring 12 hits per tick in short range or 4 hits per tick at a distance.</td>
+        <td>治疗对象可为自己或其它creep。自愈或治疗相邻creep时每tick恢复12点耐久，一定距离内远程治疗每tick恢复4点耐久。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #b99cfb;">CLAIM</code></td>
         <td>600</td>
         <td>
-            <p>Claims a neutral room controller.</p>
-            <p>Reserves a neutral room controller for 1 tick per body part.</p>
-            <p>Attacks a hostile room controller downgrading its timer by 300 ticks per body parts.</p>
-            <p>Attacks a neutral room controller reservation timer by 1 tick per body parts.</p>
-            <p>A creep with this body part will have a reduced life time of 600 ticks and cannot be renewed.</p>
+            <p>占领一个中立房间的控制器。</p>
+            <p>每部件每tick使己方对中立房间控制器的预定时间增加1tick，或使其他玩家的预定时间减少1tick。</p>
+            <p>每部件每tick使其他玩家控制器降级计数器加速300ticks。</p>
+            <p>注：拥有该部件的creep寿命只有600ticks，且无法被renew。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #fff;">TOUGH</code></td>
         <td>10</td>
-        <td>No effect, just additional hit points to the creep's body. Can be boosted to resist damage.</td>
+        <td>无附加效果，唯一作用是增加creep的最大耐久值。可被强化以承受更多伤害。</td>
     </tr>
     </tbody>
 </table>
