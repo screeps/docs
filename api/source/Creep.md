@@ -215,10 +215,10 @@ if(target) {
 
 ```
 
-Attack another creep or structure in a short-ranged attack. Requires the <code>ATTACK</code> body part. If the target is inside a rampart, then the rampart is attacked instead. The target has to be at adjacent square to the creep. If the target is a creep with <code>ATTACK</code> body parts and is not inside a rampart, it will automatically hit back at the attacker.
+Attack another creep, power creep, or structure in a short-ranged attack. Requires the <code>ATTACK</code> body part. If the target is inside a rampart, then the rampart is attacked instead. The target has to be at adjacent square to the creep. If the target is a creep with <code>ATTACK</code> body parts and is not inside a rampart, it will automatically hit back at the attacker.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object to be attacked.
 {% endapi_method_params %}
 
@@ -251,7 +251,7 @@ if(creep.room.controller && !creep.room.controller.my) {
 Decreases the controller's downgrade timer by 300 ticks per every <code>CLAIM</code> body part, or reservation timer by 1 tick per every <code>CLAIM</code> body part. If the controller under attack is owned, it cannot be upgraded or attacked again for the next 1,000 ticks. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>
+target : <a href="#StructureController">StructureController</a>
 The target controller object.
 {% endapi_method_params %}
 
@@ -561,7 +561,7 @@ if(target) {
 Heal self or another creep. It will restore the target creep’s damaged body parts function and increase the hits counter. Requires the <code>HEAL</code> body part. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep object.
 {% endapi_method_params %}
 
@@ -896,7 +896,7 @@ if(targets.length > 0) {
 A ranged attack against another creep or structure. Requires the <code>RANGED_ATTACK</code> body part. If the target is inside a rampart, the rampart is attacked instead. The target has to be within 3 squares range of the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object to be attacked.
 {% endapi_method_params %}
 
@@ -937,7 +937,7 @@ if(target) {
 Heal another creep at a distance. It will restore the target creep’s damaged body parts function and increase the hits counter. Requires the <code>HEAL</code> body part. The target has to be within 3 squares range of the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep object.
 {% endapi_method_params %}
 
@@ -1159,7 +1159,7 @@ for(const resourceType in creep.carry) {
 Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object.
 ===
 resourceType : string
