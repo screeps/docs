@@ -435,7 +435,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of energy.
+ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
 {% endapi_return_codes %}
 
 
