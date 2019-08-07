@@ -224,7 +224,7 @@ Returns an array of objects with the following format:
 Game.market.createOrder(ORDER_SELL, RESOURCE_GHODIUM, 9.95, 10000, "W1N1");
 ```
 
-Create a market order in your terminal. You will be charged <code>price\*amount\*0.05</code> credits when the order is placed. The maximum orders count is 50 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
+Create a market order in your terminal. You will be charged <code>price\*amount\*0.05</code> credits when the order is placed. The maximum orders count is 300 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
 
 {% api_method_params %}
 type : string
