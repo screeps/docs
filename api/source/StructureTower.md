@@ -160,33 +160,3 @@ ERR_INVALID_TARGET | The target is not a valid repairable object.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
 
-
- 
-{% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-
-
-Transfer energy from the structure to a creep. The target has to be at adjacent square.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The creep object which energy should be transferred to.
-===
-amount (optional) : number
-The amount of energy to be transferred. If omitted, all the remaining amount of energy will be used.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The structure contains less energy than the given amount.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_FULL | The target creep can not carry the given amount of energy.
-ERR_NOT_IN_RANGE | The target creep is too far away.
-{% endapi_return_codes %}
-
-

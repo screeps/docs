@@ -45,39 +45,3 @@ A [`Store`](#Store) object that contains cargo of this structure.
                                                                               
 An alias for [`.store.getCapacity()`](#Store.getCapacity).
 
-
-
-{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-```javascript
-storage.transfer(creep, RESOURCE_ENERGY);
-```
-
-Transfer resource from this storage to a creep. The target has to be at adjacent square. You can transfer resources to your creeps from hostile structures as well.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The target object.
-===
-resourceType : string
-One of the <code>RESOURCE_*</code> constants.
-===
-amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
-ERR_INVALID_TARGET | The target is not a valid object which can contain energy.
-ERR_FULL | The target cannot receive any more energy.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The energy amount is incorrect.
-{% endapi_return_codes %}
-
-
