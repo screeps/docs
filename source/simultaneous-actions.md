@@ -1,7 +1,7 @@
 title: Simultaneous execution of creep actions
 ---
 
-The exact methods available to a creep are determined by his parts. You may opt to create an all-in-one creep out of all existing parts, but you won't be able to execute all methods simultaneously. Here are the dependencies:
+The exact methods available to a creep are determined by its parts. You may opt to create an all-in-one creep out of all existing parts, but you won't be able to execute all methods simultaneously. Here are the dependencies:
 
 ![](img/action-priorities.png)
 
