@@ -37,7 +37,7 @@ Creep.prototype.suicide = function() {
     this.say("NO WAY!");
 };
 ```
-The above code overwrites the normal [`creep.suicide()`](http://docs.screeps.com/api/#Creep.suicide) function so that instead of suiciding, the creep will voice his disagreement with the command.
+The above code overwrites the normal [`creep.suicide()`](http://docs.screeps.com/api/#Creep.suicide) function so that instead of suiciding, the creep will voice its disagreement with the command.
 
 ### Storing the original method
 When you overwrite a prototype method you lose access to the original function. In Screeps losing access to a vital function such as [`.move()`](http://docs.screeps.com/api/#Creep.move) could be detrimental. Losing access to vital functions can be avoided by storing the original function in a different property before overwriting it so that it can be used later if needed.
