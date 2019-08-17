@@ -446,7 +446,7 @@ A boolean value.
 
 ```javascript
 if(creep.pos.isNearTo(target)) {
-    creep.transferEnergy(target);
+    creep.transfer(target, RESOURCE_ENERGY);
 }
 ```
 

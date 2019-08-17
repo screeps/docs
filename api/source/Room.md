@@ -187,6 +187,7 @@ The name of a new flag, or one of the following error codes:
 {% api_return_codes %}
 ERR_NAME_EXISTS | There is a flag with the same name already.
 ERR_INVALID_ARGS | The location or the color constant is incorrect.
+ERR_FULL | You have too many flags. The maximum number of flags per player is 10000.
 {% endapi_return_codes %}
 
 
@@ -362,7 +363,7 @@ An object containing additonal pathfinding flags:
     <li>
         <div class="api-arg-title">heuristicWeight</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Weight to apply to the heuristic in the A* formula <code>F = G + weight * H</code>. Use this option only if you understand the underlying A* algorithm mechanics! The default value is 1.2.</div>
+        <div class="api-arg-desc">Weight to apply to the heuristic in the A* formula <code>F = G + weight * H</code>. Use this option only if you understand the underlying A* algorithm mechanics! The default value is 1.</div>
     </li>
     <li>
         <div class="api-arg-title">serialize</div>
@@ -556,6 +557,17 @@ The `data` property is different for each event type according to the following 
             </ul>
         </td>
     </tr>           
+    <tr>
+        <td>`EVENT_TRANSFER`</td>
+        <td>
+            A link performed [`transferEnergy`](https://docs.screeps.com/api/#StructureLink.transferEnergy) or a creep performed [`transfer`](#Creep.transfer) or [`withdraw`](#Creep.withdraw).
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`resourceType` - the type of resource transferred</li>
+                <li>`amount` - the amount of resource transferred</li>
+            </ul>
+        </td>
+    </tr>
 </table>
 
 {% api_method getPositionAt 'x, y' 1 %}

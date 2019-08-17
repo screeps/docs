@@ -52,6 +52,7 @@ The name of the target room.
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this structure.
 ERR_INVALID_ARGS | <code>roomName</code> argument is not a valid room name value.
 ERR_NOT_IN_RANGE | Room <code>roomName</code> is not in observing range.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.

@@ -105,7 +105,9 @@ An array of the last 100 outgoing transactions from your terminals with the foll
 ```
 
 An object with your active and inactive buy/sell orders on the market.
-
+See
+<a href="#getAllOrders"><code>getAllOrders</code></a>
+for properties explanation.
 
 
 {% api_method Game.market.calcTransactionCost 'amount, roomName1, roomName2' 0 %}
@@ -333,25 +335,26 @@ Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 [{
 	id : "55c34a6b5be41a0a6e80c68b",
 	created : 13131117,
-	type : "sell"
+	type : "sell",
 	resourceType : "OH",
 	roomName : "W1N1",
 	amount : 15821,
 	remainingAmount : 30000,
 	price : 2.95
 }, {
-	id : "55c34a6b52411a0a6e80693a",
-	created : 13134122,
-	type : "buy"
-	resourceType : "energy",
-	roomName : "W1N1",
-	amount : 94000,
-	remainingAmount : 94000,
-	price : 0.45
+    createdTimestamp: 1543253147522,
+    type: "sell",
+    amount: 1000,
+    remainingAmount: 1000,
+    resourceType: "O",
+    price: 1,
+    roomName: "E2S7",
+    created: 12010056,
+    id: "5bfc2c9bd719fb605037c06d"
 }, {
 	id : "55c34a6b5be41a0a6e80c123",
-	created : 13105123,
-	type : "sell"
+	createdTimestamp: 1543253155580,
+	type : "sell",
 	resourceType : "token",
 	amount : 3,
 	remainingAmount : 10,
@@ -374,7 +377,8 @@ An orders array in the following form:
 property | description
 ---|---
 `id` | The unique order ID.
-`created` | The order creation time in game ticks.
+`created` | The order creation time in game ticks. This property is absent for orders of the inter-shard market.
+`createdTimestamp` | The order creation time <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">in milliseconds since UNIX epoch time</a>. This property is absent for old orders.
 `type` | Either <code>ORDER_SELL</code> or <code>ORDER_BUY</code>.
 `resourceType` | Either one of the <code>RESOURCE_*</code> constants or <code>SUBSCRIPTION_TOKEN</code>.
 `roomName` | The room where this order is placed.

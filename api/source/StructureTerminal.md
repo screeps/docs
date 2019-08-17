@@ -142,6 +142,8 @@ ERR_INVALID_TARGET | The target is not a valid object which can contain energy.
 ERR_FULL | The target cannot receive any more energy.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_INVALID_ARGS | The energy amount is incorrect.
+ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this structure.
+ERR_TIRED | The terminal is still cooling down.
 {% endapi_return_codes %}
 
 

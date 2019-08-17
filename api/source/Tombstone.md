@@ -15,7 +15,7 @@ A remnant of dead creeps. This is a walkable object.
 
 {% page inherited/RoomObject.md %}
 
-{% api_property creep '<a href="#Creep">Creep</a>' %}
+{% api_property creep '<a href="#Creep">Creep</a> | <a href="#PowerCreep">PowerCreep</a>' %}
 
 ```javascript
 room.find(FIND_TOMBSTONES).forEach(tombstone => {
@@ -25,8 +25,15 @@ room.find(FIND_TOMBSTONES).forEach(tombstone => {
     }    
 });
 ```
+```javascript
+room.find(FIND_TOMBSTONES).forEach(tombstone => {
+    if(tombstone.creep instanceof PowerCreep) {
+        console.log(`Power creep died here`);   
+    }    
+});
+````
 
-An object containing the deceased creep.
+An object containing the deceased creep or power creep.
 
 {% api_property deathTime 'number' %}
 

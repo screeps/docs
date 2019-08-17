@@ -72,6 +72,22 @@ progressTotal : number
 The progress required to reach the next level.
 {% endapi_method_params %}
 
+{% api_property Game.gpl 'object' %}
+
+Your Global Power Level, an object with the following properties :
+
+{% api_method_params %}
+level : number
+The current level.
+===
+progress : number
+The current progress to the next level.
+===
+progressTotal : number
+The progress required to reach the next level.
+{% endapi_method_params %}
+
+
 
 {% api_property Game.map object %}
 
@@ -86,6 +102,16 @@ A global object representing world map. See the [documentation](#Game-map) below
 
 
 A global object representing the in-game market. See the [documentation](#Game-market) below.
+
+
+{% api_property Game.powerCreeps 'object&lt;string, <a href="#PowerCreep">PowerCreep</a>&gt;' %}
+
+```javascript
+Game.powerCreeps['PC1'].moveTo(flag);
+```
+
+A hash containing all your power creeps with their names as hash keys. Even power creeps 
+not spawned in the world can be accessed here. 
 
 
 
@@ -207,6 +233,17 @@ Get amount of CPU time used from the beginning of the current game tick. Alway
 ### Return value
 
 Returns currently used CPU time as a float number.
+
+
+{% api_method Game.cpu.halt '' 1 %}
+
+```javascript
+Game.cpu.halt();
+```
+
+*This method is only available when **Virtual machine** is set to **Isolated** in your [account runtime settings](https://screeps.com/a/#!/account/runtime).*
+
+Reset your runtime environment and wipe all data in heap memory.
 
 {% api_method Game.cpu.setShardLimits 'limits' 1 %}
 

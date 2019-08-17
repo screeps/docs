@@ -6,6 +6,7 @@
     "version": "3.2.2"
   },
   "dependencies": {
+    "@screeps/common": "^2.10.2",
     "cheerio": "^0.20.0",
     "concat-files": "^0.1.1",
     "hexo": "^3.2.2",
@@ -42,7 +43,7 @@
   "scripts": {
     "clean": "hexo clean",
     "server": "browser-sync start --server public --files \"public/**.*\"",
-    "generate": "hexo generate",
+    "generate": "hexo clean && hexo generate",
     "generate-watch": "hexo generate --watch",
     "hexo-server": "hexo server"
   }

@@ -112,7 +112,7 @@ An object containing additional pathfinding flags.
     <li>
         <div class="api-arg-title">maxRooms</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16.</div>
+        <div class="api-arg-desc">The maximum allowed rooms to search. The default is 16, maximum is 64.</div>
     </li>
     <li>
         <div class="api-arg-title">maxCost</div>
@@ -122,7 +122,7 @@ An object containing additional pathfinding flags.
     <li>
         <div class="api-arg-title">heuristicWeight</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Weight to apply to the heuristic in the A\* formula <code>F = G + weight \* H</code>. Use this option only if you understand the underlying A\* algorithm mechanics! The default value is 1.2.</div>
+        <div class="api-arg-desc">Weight to apply to the heuristic in the A\* formula <code>F = G + weight \* H</code>. Use this option only if you understand the underlying A\* algorithm mechanics! The default value is 1.</div>
     </li>
 </ul>
 				

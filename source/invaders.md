@@ -15,7 +15,7 @@ Currently, NPC invaders attacks do not generate any e-mail notifications, since 
 
 ## Raids
 
-There is a 10% chance that you will get not only a lone Invader but a whole company of them, from 2 to 5. Each Invader has its own role: melee attacker, ranged attacker, or healer. Ranged attackers are different from melee ones in their behavior: they try to stay at a distance from your creeps. The function of healers is evidently to heal other raid members. Also, some creeps may be boosted with ![](//static.screeps.com/upload/mineral-icons/UH.png), ![](//static.screeps.com/upload/mineral-icons/KO.png), ![](//static.screeps.com/upload/mineral-icons/LO.png), or ![](//static.screeps.com/upload/mineral-icons/ZH.png).
+There is a 10% chance that you will get not only a lone Invader but a whole company of them, from 2 to 5. Each Invader has its own role: melee attacker, ranged attacker, or healer. Ranged attackers are different from melee ones in their behavior: they try to stay at a distance from your creeps. The function of healers is evidently to heal other raid members. Also, some creeps may be boosted with ![](//static.screeps.com/upload/mineral-icons/UH.png), ![](//static.screeps.com/upload/mineral-icons/KO.png), ![](//static.screeps.com/upload/mineral-icons/LO.png), ![](//static.screeps.com/upload/mineral-icons/ZH.png), or ![](//static.screeps.com/upload/mineral-icons/GO.png).
 
 ## Invader creep types
 

@@ -395,7 +395,7 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_TARGET | The target is not a valid creep object.
+ERR_INVALID_TARGET | The target is not a valid structure object.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
@@ -433,6 +433,7 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
+ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of energy.
 {% endapi_return_codes %}
 
@@ -532,8 +533,8 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep, or the room controller is owned or reserved by another player.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/minerals.html">Learn more</a>
-ERR_NOT_ENOUGH_RESOURCES | The target source does not contain any harvestable energy.
-ERR_INVALID_TARGET | The target is not a valid source object.
+ERR_NOT_ENOUGH_RESOURCES | The target does not contain any harvestable energy or mineral.
+ERR_INVALID_TARGET | The target is not a valid source or mineral object.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_TIRED | The extractor is still cooling down.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
@@ -592,11 +593,17 @@ if(path.length > 0) {
 }
 ```
 
-Move the creep one square in the specified direction. Requires the <code>MOVE</code> body part.
+```javascript
+creep1.move(TOP);
+creep1.pull(creep2);
+creep2.move(creep1);
+```
+
+Move the creep one square in the specified direction. Requires the <code>MOVE</code> body part, or another creep nearby <a href="#Creep.pull">pulling</a> the creep. In case if you call <code>move</code> on a creep nearby, the <code>ERR_TIRED</code> and the <code>ERR_NO_BODYPART</code> checks will be bypassed; otherwise, the <code>ERR_NOT_IN_RANGE</code> check will be bypassed. 
 
 {% api_method_params %}
-direction : number
-One of the following constants:
+direction : <a href="#Creep">Creep</a>|number
+A creep nearby, or one of the following constants:
 					<ul>
 						<li><code>TOP</code></li>
 						<li><code>TOP_RIGHT</code></li>
@@ -621,6 +628,7 @@ ERR_BUSY | The creep is still being spawned.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_ARGS | The provided direction is incorrect.
+ERR_NOT_IN_RANGE | The target creep is too far away
 {% endapi_return_codes %}
 
 
@@ -754,6 +762,7 @@ ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_TARGET | The target provided is invalid.
 ERR_NO_PATH | No path to the target could be found.
+ERR_NOT_FOUND | The creep has no memorized path to reuse.
 {% endapi_return_codes %}
 
 
@@ -817,7 +826,58 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
-ERR_FULL | The creep cannot receive any more energy.
+ERR_FULL | The creep cannot receive any more resource.
+ERR_NOT_IN_RANGE | The target is too far away.
+{% endapi_return_codes %}
+
+
+
+{% api_method pull 'target' 0 %}
+
+```javascript
+creep1.move(TOP);
+creep1.pull(creep2);
+creep2.move(creep1);
+```
+
+```javascript
+const target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+    filter: function(object) {
+        return (object.getActiveBodyparts(MOVE) == 0) && 
+            object.memory.destinationId &&
+            !object.pos.isNearTo(Game.getObjectById(object.memory.destinationId));
+    }
+});
+if(target) {
+    if(creep.pull(target) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(target);
+    } else {
+        target.move(creep);
+        if(creep.pos.isNearTo(Game.getObjectById(target.memory.destinationId))) {
+            creep.move(creep.pos.getDirectionTo(target));
+        } else {
+            creep.moveTo(Game.getObjectById(target.memory.destinationId));
+        }
+    }
+}
+```
+
+Help another creep to follow this creep. The fatigue generated for the target's move will be added to the creep instead of the target. Requires the <code>MOVE</code> body part. The target has to be at adjacent square to the creep. The creep must <a href="#Creep.move">move</a> elsewhere, and the target must <a href="#Creep.move">move</a> towards the creep.
+
+{% api_method_params %}
+target : <a href="#Creep">Creep</a>
+The target creep.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_BUSY | The creep is still being spawned.
+ERR_INVALID_TARGET | The target provided is invalid.
 ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
@@ -1121,7 +1181,7 @@ ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The target cannot receive any more resources.
 ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The resources amount is incorrect.
+ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}
 
 
@@ -1157,7 +1217,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep or the target controller.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
-ERR_INVALID_TARGET | The target is not a valid controller object.
+ERR_INVALID_TARGET | The target is not a valid controller object, or the controller upgrading is blocked.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
@@ -1199,5 +1259,5 @@ ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resource
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The creep's carry is full.
 ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The resource amount or type is incorrect.
+ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}

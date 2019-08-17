@@ -26,12 +26,11 @@ html(lang='en')
         .tocify-wrapper
             .logo
                 a(href="https://screeps.com/a/")
-                    img(src="img/logo.png")
+                    img(src="img/logotype_bw_animation.svg")
                 a(href="/api/")
                     | api
                     if is_ptr()
                         | &nbsp;[ptr]
-                    endif
             .search
                 input.search#input-search(type="text" placeholder="Search")
             ul.search-results
@@ -39,7 +38,6 @@ html(lang='en')
                 a.back(href="/index.html")
                     | Back to docs
                     img(src="img/link-external.svg")
-            endif
             #toc
                 #toc-loading Loading...
 
@@ -48,6 +46,7 @@ html(lang='en')
             .content.api-content
                 h1.divider Global Objects
                 != page.pages['Game.md']
+                != page.pages['InterShardMemory.md']
                 != page.pages['Map.md']
                 != page.pages['Market.md']
                 != page.pages['Memory.md']
@@ -62,6 +61,7 @@ html(lang='en')
                 != page.pages['Nuke.md']
                 != page.pages['OwnedStructure.md']
                 != page.pages['PathFinder.CostMatrix.md']
+                != page.pages['PowerCreep.md']
                 != page.pages['Resource.md']
                 != page.pages['Room.md']
                 != page.pages['Room.Terrain.md']

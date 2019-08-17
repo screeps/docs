@@ -5,7 +5,7 @@ title: Control
 
 To expand your empire in the game world, you need to develop your main game indicator – your **Global Control Level** (GCL). It affects two important factors: 
 
-*   **Your CPU Limit.** You begin the game with a 30 CPU limit which allows you to control just a small number of creeps. However, you gain 10 CPU with each GCL level achieved until your limit reaches 300 CPU. Then it stops increasing.
+*   **Your CPU Limit.** On the official server you begin the game with a 20 CPU limit which allows you to control just a small number of creeps. However, if you're a [subscribed](/subscription.html) player you gain 10 CPU for each GCL level until your limit reaches 300 CPU. Then it stops increasing.
 *   **The amount of rooms you can control.** For example, to control 3 rooms, you need to have GCL 3.
 
 Your current Global Control Level is displayed at your [overview page](https://screeps.com/a/#!/overview).

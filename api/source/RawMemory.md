@@ -46,7 +46,7 @@ The segment contents.
 
 
 
-{% api_property RawMemory.interShardSegment 'string' %}
+{% api_property RawMemory.interShardSegment 'string' '{"deprecated": "Please use [`InterShardMemory`](#InterShardMemory) instead."}'%}
 
 ```javascript
 RawMemory.interShardSegment = JSON.stringify({
