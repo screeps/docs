@@ -557,6 +557,17 @@ The `data` property is different for each event type according to the following 
             </ul>
         </td>
     </tr>           
+    <tr>
+        <td>`EVENT_TRANSFER`</td>
+        <td>
+            A link performed [`transferEnergy`](https://docs.screeps.com/api/#StructureLink.transferEnergy) or a creep performed [`transfer`](#Creep.transfer) or [`withdraw`](#Creep.withdraw).
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`resourceType` - the type of resource transferred</li>
+                <li>`amount` - the amount of resource transferred</li>
+            </ul>
+        </td>
+    </tr>
 </table>
 
 {% api_method getPositionAt 'x, y' 1 %}
