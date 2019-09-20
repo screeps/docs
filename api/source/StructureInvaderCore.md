@@ -31,10 +31,6 @@ during its lifetime.
         <td><strong>Hits</strong></td>
         <td>1,000,000</td>
     </tr>
-    <tr>
-        <td><strong>Return damage</strong></td>
-        <td>50%</td>
-    </tr>
     
     </tbody>
 </table>
