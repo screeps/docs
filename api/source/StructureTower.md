@@ -91,10 +91,10 @@ A [`Store`](#Store) object that contains cargo of this structure.
 
 
 
-Remotely attack any creep in the room.
+Remotely attack any creep, power creep or structure in the room.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target creep.
 {% endapi_method_params %}
 
@@ -116,10 +116,10 @@ ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 
 
 
-Remotely heal any creep in the room.
+Remotely heal any creep or power creep in the room.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep.
 {% endapi_method_params %}
 

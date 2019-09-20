@@ -63,7 +63,7 @@ Learn more about minerals from [this article](/minerals.html).
 
 
 
-The amount of game ticks the lab has to wait until the next reaction is possible.
+The amount of game ticks the lab has to wait until the next reaction or unboost operation is possible.
 
 
 
