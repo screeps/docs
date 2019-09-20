@@ -10,7 +10,7 @@ public ramparts around it, and doesn't perform any actions. While in this stage 
 spawning creeps, becomes vulnerable, and receives `EFFECT_COLLAPSE_TIMER` which will remove the stronghold when this timer is over.  
 
 An active Invader Core spawns level-0 Invader Cores in neighbor rooms. These lesser Invader Cores are spawned
-near the room controller and don't perform any activity except reserving the controller. One Invader Core can spawn up to 10 lesser Cores
+near the room controller and don't perform any activity except reserving/attacking the controller. One Invader Core can spawn up to 10 lesser Cores
 during its lifetime. 
 
 <table class="table gameplay-info">
