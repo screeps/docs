@@ -2,10 +2,13 @@
 Applied effects, an array of objects with the following properties:
 
 {% api_method_params %}
-power : number
-Power ID of the applied effect.
+power (optional) : number
+Power ID of the applied effect. Either `power` or `effect` property is present.
 ===
-level : number
+effect (optional) : number
+Natural effect ID of the applied effect. Either `power` or `effect` property is present.
+===
+level (optional) : number 
 Power level of the applied effect.
 ===
 ticksRemaining : number
