@@ -14,7 +14,7 @@ title: 矿物
 下图为游戏中所有的七种基本元素
 
 ![](img/minerals-01.png)
- 
+
 单个房间只会有一个元素矿产，所以若想获得多种矿产，玩家则得控制多个房间或与其他玩家建立贸易关系。
 
 <img src="img/mining_minerals.png" align="right">右图即为矿的示意图（灰色圆形），其上的字母代表了其种类。矿上需要建造[Extractor（矿机）](/api/#StructureExtractor)（绿色虚线圆环，解锁于房间控制等级 6 级）方可进行开采。矿机建造后，玩家的 Creep 便可像采集能量源般的对矿用 [`harvest`（采集）](/api/#Creep.harvest)并采取相应的元素。
@@ -29,7 +29,7 @@ title: 矿物
 
 <img src="img/2016-03-09_10-32-33.gif" align="right">
 
-    var labs = room.find(FIND_MY_STRUCTURES, 
+    var labs = room.find(FIND_MY_STRUCTURES,
         {filter: {structureType: STRUCTURE_LAB}});
 
     labs[0].runReaction(labs[1], labs[2]);
@@ -48,7 +48,7 @@ title: 矿物
 
 强化一个部件需要 30 单位的化合物及 20 单位的能量，且一个部件只能被一种化合物强化。
 
-**译者注：**元素全名首字母及为其符号。
+**译注：**元素全名首字母及为其符号。
 
 <style>
 .minerals td {
@@ -79,7 +79,7 @@ title: 矿物
 .minerals img {
     margin-right: 5px;
     vertical-align: middle;
-} 
+}
 .minerals__divider th {
     background-color: #333;
     color: #ffe099;
