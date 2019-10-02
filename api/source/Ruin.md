@@ -24,27 +24,13 @@ The time when the structure has been destroyed.
 
 A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
 
-{% api_property my 'boolean' %}
-
-Whether this was your own structure.
-
-
-{% api_property owner 'object' %}
-
-An object with the structure’s owner info containing the following properties:
-
-{% api_method_params %}
-username : string
-The name of the owner user.
-{% endapi_method_params %}
-
 {% api_property store 'object' %}
 
 A [`Store`](#Store) object that contains resources of this structure.
 
-{% api_property structureType 'string' %}
+{% api_property structure '<a href="#Structure">Structure</a> | <a href="#OwnedStructure">OwnedStructure</a>' %}
 
-The same as in the destroyed structure.
+An object containing basic data of the destroyed structure.
 
 
 {% api_property ticksToDecay 'number' %}
