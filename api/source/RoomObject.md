@@ -6,14 +6,11 @@ Any object with a position in a room. Almost all game objects prototypes are de
 Applied effects, an array of objects with the following properties:
 
 {% api_method_params %}
-power (optional) : number
-Power ID of the applied effect. Either `power` or `effect` property is present.
-===
-effect (optional) : number
-Natural effect ID of the applied effect. Either `power` or `effect` property is present.
+effect : number
+Effect ID of the applied effect. Can be either natural effect ID or Power ID.
 ===
 level (optional) : number 
-Power level of the applied effect.
+Power level of the applied effect. Absent if the effect is not a Power effect.
 ===
 ticksRemaining : number
 How many ticks will the effect last.
