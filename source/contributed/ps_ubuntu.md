@@ -14,7 +14,7 @@ For players who want to run a headless server (one without a desktop or windows 
 
 ### Server
 
-This article assumes the user is running Ubuntu 16. It is recommended that the machine have at least two cores and 2gb of ram, although for single players and a couple of bots a one core 2gb machine will work with reasonable tick speeds.
+This article assumes the user is running at least Ubuntu 16. It is recommended that the machine have at least two cores and 2gb of ram, although for single players and a couple of bots a one core 2gb machine will work with reasonable tick speeds.
 
 As the system tends to be very CPU intensive it is recommended that you avoid "burstable" servers that don't provide constant cpu, such as the AWS t2 line.
 
@@ -28,10 +28,18 @@ sudo apt install -y build-essential tcl git
 
 ### Install Node
 
-The main world runs on Node10, but Ubuntu only provides an older version of Node6. Fortunately there is another apt repository we can use to get the most up to date versions.
+The main world runs on Node10, but Ubuntu often provides older versions of Node. Fortunately there is another apt repository we can use to get the most up to date versions.
+
+For Ubuntu 16 through 18:
 
 ```shell
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt install -y nodejs
+```
+
+For Ubuntu 19, Node10 is already default so just run:
+
+```shell
 sudo apt install -y nodejs
 ```
 
