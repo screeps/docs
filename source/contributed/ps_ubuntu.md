@@ -1,15 +1,14 @@
 ---
 title: Private server on Ubuntu using MongoDB and Redis
 contributed:
-    name: tedivm
-    link: https://github.com/tedivm
-    date: 2018-02-07
+  name: tedivm
+  link: https://github.com/tedivm
+  date: 2018-02-07
 ---
 
 The Screeps engine is [Open Source](https://github.com/screeps/screeps), allowing people to run Private Servers on their own. The Steam Client even provides a tool to make launching private servers easier.
 
 For players who want to run a headless server (one without a desktop or windows system, such as when running on Linode or AWS) a little more work is needed to get a reliable server, especially since the built in LokiJS engine does not scale well over time. This tutorial will guide you through installing Screeps in dedicated environment with MongoDB and redis.
-
 
 ## Prerequisites
 
@@ -19,7 +18,6 @@ This article assumes the user is running Ubuntu 16. It is recommended that the m
 
 As the system tends to be very CPU intensive it is recommended that you avoid "burstable" servers that don't provide constant cpu, such as the AWS t2 line.
 
-
 ### Build Tools
 
 The following steps will need some common build and development tools, which we'll install here.
@@ -28,16 +26,14 @@ The following steps will need some common build and development tools, which we'
 sudo apt install -y build-essential tcl git
 ```
 
-
 ### Install Node
 
-The main world runs on Node8, but Ubuntu only provides an older version of Node6. Fortunately there is another apt repository we can use to get the most up to date versions.
+The main world runs on Node10, but Ubuntu only provides an older version of Node6. Fortunately there is another apt repository we can use to get the most up to date versions.
 
 ```shell
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
-
 
 ### Install Mongo
 
@@ -62,7 +58,6 @@ sudo systemctl start mongod
 sudo systemctl enable mongod
 ```
 
-
 ### Install redis
 
 Like the Mongo example above the distro version of redis is extremely outdated, but in this case there is a PPA available rather than an official apt repository for the project. This PPA is well maintained and has even been "blessed" by the redis developers.
@@ -77,7 +72,6 @@ sudo apt install redis-server
 ```
 
 That's it! The redis server is remarkably simple and the apt package takes care of making sure it stays running.
-
 
 ## Screeps Server
 
@@ -110,21 +104,19 @@ npx screeps init
 
 The `init` call creates the configuration for your server in `.screepsrc`. You should read through this file, which is pretty well documented, but the only things you will likely want to change are `runners_cnt` and `processors_cnt`. On a smaller system (two cores) you'll want to set these to the number of processor cores available, but on larger systems you may want to leave a core or two free for use by MongoDB. If you want to run multiple worlds on the same server you should make sure to limit each server so their total combined `runners_cnt` and total combined `processors_cnt` values do not exceed the number of processors on the system.
 
-
 ### Install Server Mods
 
 There are a few mods we'll be installing to enable the new backend and make the server easier to use and manage.
 
-* [screepsmod-mongo](https://github.com/ScreepsMods/screepsmod-mongo) replaces the LokiJS based storage with a mongodb and redis solution.
-* [screepsmod-auth](https://github.com/ScreepsMods/screepsmod-auth) allows players to set a password that can be used to log into the server with third party tools.
-* [screepsmod-tickrate](https://github.com/ScreepsMods/screepsmod-tickrate) lets the server admin modify the minimum tick rate on the fly from the screeps cli tool.
-* [screepsmod-admin-utils](https://github.com/ScreepsMods/screepsmod-admin-utils) adds some useful functions to the screeps cli.
-* [screepsmod-features](https://github.com/ScreepsMods/screepsmod-features) exposes a list of features supported by the server.
+- [screepsmod-mongo](https://github.com/ScreepsMods/screepsmod-mongo) replaces the LokiJS based storage with a mongodb and redis solution.
+- [screepsmod-auth](https://github.com/ScreepsMods/screepsmod-auth) allows players to set a password that can be used to log into the server with third party tools.
+- [screepsmod-admin-utils](https://github.com/ScreepsMods/screepsmod-admin-utils) adds some useful functions to the screeps cli including letting the server admin modify the minimum tick rate on the fly from the screeps cli tool.
+- [screepsmod-features](https://github.com/ScreepsMods/screepsmod-features) exposes a list of features supported by the server.
 
 We can install all of these at once with a simple command (still running as the user `screeps`).
 
 ```shell
-npm install screepsmod-mongo screepsmod-auth screepsmod-tickrate screepsmod-admin-utils screepsmod-features
+npm install screepsmod-mongo screepsmod-auth screepsmod-admin-utils screepsmod-features
 ```
 
 Then just confirm that the `mods.json` file looks like this-
@@ -134,7 +126,6 @@ Then just confirm that the `mods.json` file looks like this-
   "mods": [
     "node_modules/screepsmod-mongo/index.js",
     "node_modules/screepsmod-auth/index.js",
-    "node_modules/screepsmod-tickrate/index.js",
     "node_modules/screepsmod-admin-utils/index.js",
     "node_modules/screepsmod-features/index.js"
   ],
