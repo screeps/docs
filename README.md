@@ -26,6 +26,10 @@ This is an [**unofficial**](https://github.com/screeps/docs/issues/105) localiza
 
 ## 中文教程（暂未经官方认证）
 
+https://twodam.net/tags/screeps by [LuckyKoala](https://github.com/LuckyKoala)
+
 https://www.jianshu.com/nb/38374718 by [HoPGoldy](https://github.com/HoPGoldy)
 
-https://twodam.net/tags/screeps by [LuckyKoala](https://github.com/LuckyKoala)
+https://zhuanlan.zhihu.com/p/86394646 by [趣味的吃](https://www.zhihu.com/people/guo-guo-80-14-75/activities)
+
+https://zhuanlan.zhihu.com/c_1097137377700667392 by [九日木彡](https://www.zhihu.com/people/noname-mr/activities)
