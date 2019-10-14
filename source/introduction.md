@@ -9,11 +9,9 @@ Screeps is developed for people with **programming skills**. Unlike some other R
 
 ## Game world
 
-The game world consists of interconnected **rooms**. A room is a closed space 50x50 cells in size. It may have 1-4 exits to other rooms. A number of rooms in the world is limited, but increases as new players join the game. So the single game world is really huge and constantly expanding, like the Universe itself.
+The game world consists of interconnected **rooms**. A room is a closed space 50x50 cells in size. It may have from 1 to 4 exits to other rooms. The world is separated into **shards** which are connected by intershard portals. You can consider shards a Z-axis of the world.
 
-[![](img/world-map.png)](http://static.screeps.com/map.png)
-
-[Download full map image](http://static.screeps.com/map.png) (9100x9100 PNG, 17.7 MB)
+![](img/shards.png)
 
 Each room landscape is unique. The view of each room is generated procedurally and consists of three types of surface:
 

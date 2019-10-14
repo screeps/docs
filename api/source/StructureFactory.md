@@ -71,7 +71,7 @@ An alias for [`.store.getCapacity()`](#Store.getCapacity).
 factory.produce(RESOURCE_UTRIUM_BAR);
 ```
 
-Produces the specified commodity.
+Produces the specified commodity. All ingredients should be available in the factory store.
 
 {% api_method_params %}
 resourceType : string
