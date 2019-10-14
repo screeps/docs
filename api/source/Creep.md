@@ -81,7 +81,7 @@ An array describing the creep’s body. Each element contains the following prop
 
 {% api_method_params %}
 boost : string | undefined
-If the body part is boosted, this property specifies the mineral type which is used for boosting. One of the <code>RESOURCE_*</code> constants. <a href="/minerals.html">Learn more</a>
+If the body part is boosted, this property specifies the mineral type which is used for boosting. One of the <code>RESOURCE_*</code> constants. <a href="/resources.html">Learn more</a>
 ===
 type : string
 One of the body part types constants.
@@ -533,7 +533,7 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep, or the room controller is owned or reserved by another player.
 ERR_BUSY | The creep is still being spawned.
-ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/minerals.html">Learn more</a>
+ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/resources.html">Learn more</a>
 ERR_NOT_ENOUGH_RESOURCES | The target does not contain any harvestable energy or mineral.
 ERR_INVALID_TARGET | The target is not a valid source or mineral object.
 ERR_NOT_IN_RANGE | The target is too far away.
@@ -1200,7 +1200,7 @@ if(creep.room.controller) {
 
 Upgrade your controller to the next level using carried energy. Upgrading controllers raises your Global Control Level in parallel. Requires <code>WORK</code> and <code>CARRY</code> body parts. The target has to be within 3 squares range of the creep. 
 
-A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/minerals.html">ghodium mineral boost</a>.
+A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/resources.html">ghodium mineral boost</a>.
 
 Upgrading the controller raises its `ticksToDowngrade` timer by 100. The timer must be full in order for controller to be levelled up.
 

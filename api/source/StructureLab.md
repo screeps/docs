@@ -3,7 +3,7 @@
 <img src="img/lab.png" alt="" align="right" />
 
 Produces mineral compounds from base minerals, boosts and unboosts creeps. 
-Learn more about minerals from [this article](/minerals.html).
+Learn more about minerals from [this article](/resources.html).
 
 <table class="table gameplay-info">
     <tbody>
@@ -44,7 +44,7 @@ Learn more about minerals from [this article](/minerals.html).
     </tr>
     <tr>
         <td><strong>Reaction cooldown</strong></td>
-        <td>Depends on the reaction (see [this article](/minerals.html))</td>
+        <td>Depends on the reaction (see [this article](/resources.html))</td>
     </tr>
     <tr>
         <td><strong>Distance to input labs</strong></td>
