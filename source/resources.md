@@ -78,7 +78,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 .commodities td {
     border-top: 1px solid #333;
     color: #bbb;
-    background-color: #222;
+    background-color: #22242b;
     font-size: 13px;
 }
 @media (min-width: 1280px) {
@@ -113,7 +113,7 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 }
 .minerals__head th,
 .commodities__head th{
-    background-color: #222;
+    background-color: #22242b;
     color: #ccc;
     font-weight: normal !important;
     font-size: 11px;
