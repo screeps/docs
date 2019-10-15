@@ -2,7 +2,7 @@
 
 <img src="img/factory.png" alt="" align="right" />
 
-Produces trade commodities from base minerals and other commodities. Learn more about commodities from [this article](/commodities.html). 
+Produces trade commodities from base minerals and other commodities. Learn more about commodities from [this article](/resources.html#Commodities). 
 
 <table class="table gameplay-info">
     <tbody>
