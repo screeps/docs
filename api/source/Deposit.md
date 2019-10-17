@@ -10,8 +10,8 @@ Learn more about deposits from [this article](/resources.html).
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Cooldown</strong></td>
-        <td>Depends on the previously harvested amount</td>
+        <td><strong>Cooldown</strong></td> 
+        <td>`0.001 * totalHarvested ^ 1.2`<td>
     </tr>
     <tr>
         <td><strong>Decay</strong></td>
