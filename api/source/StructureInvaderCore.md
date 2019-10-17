@@ -21,15 +21,15 @@ during its lifetime.
     </tr>
     <tr>
         <td><strong>Active time</strong></td>
-        <td>150,000 ticks</td>
+        <td>80,000 ticks</td>
     </tr>
     <tr>
         <td><strong>Spawns lesser cores</strong></td>
-        <td>Every 15,000 ticks</td>
+        <td>Every 2,000 ticks</td>
     </tr>
     <tr>
         <td><strong>Hits</strong></td>
-        <td>1,000,000</td>
+        <td>100,000</td>
     </tr>
     
     </tbody>
