@@ -40,6 +40,11 @@ RESOURCE_METAL
 RESOURCE_SILICON
 ```
 
+{% api_property id 'string' %}
+
+A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+
+
 
 {% api_property lastCooldown 'number' %}
 
