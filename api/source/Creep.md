@@ -7,65 +7,64 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <th style="width: 20%;">身体组件</th>
-        <th style="width: 8%;">组件花费</th>
-        <th>每个组件的效果</th>
+        <th style="width: 20%;">身体部件</th>
+        <th style="width: 8%;">生产成本</th>
+        <th>每个部件效果</th>
     </tr>
     <tr>
         <td><code style="background: #333; color: #a9b7c6;">MOVE</code></td>
         <td>50</td>
-        <td>每tick减少两点疲劳。</td>
+        <td>每tick减少2点疲惫值</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #ffe56d;">WORK</code></td>
         <td>100</td>
         <td>
-            <p>每tick从source采集2个单位energy。</p>
-            <p>每tick采集1个单位的矿物。</p>
-            <p>每tick消耗5个单位energy建造建筑物。</p>
-            <p>每tick花费1个单位energy修复建筑物100hits。</p>
-            <p>每tick拆除建筑物50hits并回收0.25个单位energy。</p>
-            <p>每tick花费1个单位energy升级一个controller。</p>
+            <p>每tick从能量源采集2单位能量。</p>
+            <p>每tick从矿区采集1单位矿物。</p>
+            <p>每tick增加工地建设进度5点，花费5单位能量。</p>
+            <p>每tick增加建筑100耐久度，花费1单位能量。</p>
+            <p>每tick拆减建筑50点耐久，并返还0.25单位能量。</p>
+            <p>每tick提高控制器升级进度1点，花费1单位能量。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #777;">CARRY</code></td>
         <td>50</td>
-        <td>可以装最多50个单位的资源。</td>
+        <td>携带最多50单位资源。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #f93842;">ATTACK</code></td>
         <td>80</td>
-        <td>攻击其他creep/structure造成30 hits伤害，近战攻击。</td>
+        <td>对相邻的creep或建筑造成30点伤害。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code></td>
         <td>150</td>
         <td>
-            <p>攻击其他单个creep/structure造成10hits伤害，3格距离远程攻击。</p>
-            <p>攻击3格范围内所有creeps/structures,造成1-4-10 hits伤害 (取决于攻击距离)。</p>
+            <p>单个目标时，每tick对creep或建筑造成10点伤害，范围为3格。</p>
+            <p>多个目标时，每tick对范围内所有creep与建筑造成1-4-10点伤害，具体伤害取决于距离，范围为3格。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #65fd62;">HEAL</code></td>
         <td>250</td>
-        <td>每tick近距离治疗自己或其他creep，恢复12hits生命，或者远距离治疗4hits生命。</td>
+        <td>治疗对象可为自己或其它creep。自愈或治疗相邻creep时每tick恢复12点耐久，一定距离内远程治疗每tick恢复4点耐久。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #b99cfb;">CLAIM</code></td>
         <td>600</td>
         <td>
-            <p>宣称占领一个中立房间。</p>
-            <p>预定一个中立房间的控制器，每个组件增加1 tick计时器。</p>
-            <p>攻击敌方房间的控制器，每个组件减少其300tick计时器。</p>
-            <p>攻击中立房间控制器，每个组件减少其1 tick计时器。</p>
-            <p>每包含一个该组件，creep将会减少600tick最大寿命（不可恢复）。</p>
+            <p>占领一个中立房间的控制器。</p>
+            <p>每部件每tick使己方对中立房间控制器的预定时间增加1tick，或使其他玩家的预定时间减少1tick。</p>
+            <p>每部件每tick使其他玩家控制器降级计数器加速300ticks。</p>
+            <p>注：拥有该部件的creep寿命只有600ticks，且无法被renew。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #fff;">TOUGH</code></td>
         <td>10</td>
-        <td>没有任何效果的白板，只是用来增加creep的生命值，能承受更多伤害。</td>
+        <td>无附加效果，唯一作用是增加creep的最大耐久值。可被强化以承受更多伤害。</td>
     </tr>
     </tbody>
 </table>
