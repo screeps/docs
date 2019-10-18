@@ -1,7 +1,7 @@
-title: Organizing scripts using modules
+title: 使用模块归纳代码
 ---
 
-For your convenience, you may divide your scripts into modules with the help of Node.js-like syntax – the `require` function and the `module.exports` object. For example, you can create a module called 'scout' with the following content:
+我们引入了 Node.js 的 `require` 和 `module.exports` 以方便玩家归纳整理代码。举例来说，玩家可以创造一个“侦察兵”模块：
 
     module.exports = {
         run(creep) {
@@ -9,7 +9,7 @@ For your convenience, you may divide your scripts into modules with the help of 
         }
     }
 
-Then you may include this module from the main module this way:
+然后将“侦察兵”模块导入主模块：
 
     var scout = require('scout');
 
@@ -17,35 +17,31 @@ Then you may include this module from the main module this way:
         scout.run(Game.creeps[i]);
     }
 
-Besides your own modules, you can also access some embedded modules. Currently, it is the [lodash](http://lodash.com) module which you can use like this:
+除了亲自编写的模块，玩家还可以借用其他人的模块。目前我们内置了 [lodash](http://lodash.com) 库。
 
-    var _ = require('lodash');
+    var _ = require('lodash'); // 译注：由版本更新，此行现可省略
 
     var harvesters = _.filter(Game.creeps, {
         memory: {role: 'harvester'}
     });
 
-## Binary modules
+## 二进制模块
 
-Besides normal script modules, you can create special binary modules. Such a module is loaded
-as a raw `Buffer` with binary data when you call `require`. It allows you to use 
-techniques like [WebAssembly](http://webassembly.org/) to compile code written in different languages 
-and run it in Screeps. 
+除了上述的普通模块，玩家还可以二进制模块。其会在玩家调用 `require` 时以原始二进制形式加载，由此允许玩家运行用其他语言（比如 [WebAssembly](http://webassembly.org/) ）编写的代码。
 
-WebAssembly is a binary compiled code format that allows to run C/C++ or Rust code (as well as other supported languages in the future) directly with native performance. Please refer to the WebAssembly [documentation](https://developer.mozilla.org/en-US/docs/WebAssembly) for more info.
+WebAssembly 是个二进制编译的代码格式。其可以快速高效的运行 C/C++ 或 Rust 代码（及其他支持的语言）。参阅 [WebAssembly 文档](https://developer.mozilla.org/en-US/docs/WebAssembly)以获取更多信息。
 
-Here is a short example of how to compile C/C++ code using [Emscripten](https://kripken.github.io/emscripten-site/index.html) and upload the binary file to Screeps.
+以下简述了如何用 [Emscripten](https://kripken.github.io/emscripten-site/index.html) 编译 C/C++ 代码及如何上传编译后的文件到游戏里。
 
-### Build `.wasm` file
+### 创建 `.wasm` 文件
 
 {% note info %}
-You can skip this step if you use an already compiled `.wasm` file from the web. For example, 
-we've already compiled the [`addTwo.wasm`](img/addTwo.wasm) file for you from the example below.
+省略此步如果您想上传的文件已经是 `.wasm` 格式。
 {% endnote %}
 
-Install Emsripten SDK using [these instructions](https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html#sdk-installation-instructions).
+安装 [Emsripten SDK]((https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html#sdk-installation-instructions))。
 
-Write your native C function and save it as `addTwo.c` file:
+编写你的 C 函数并保存为 `addTwo.c`
 
 ```c++
 int addTwo(int a, int b) {
@@ -53,46 +49,48 @@ int addTwo(int a, int b) {
 }
 ```
 
-Compile it to `addTwo.wasm` using this command:
+将其编译成 `addTwo.wasm`：
 ```
 emcc -s WASM=1 -s SIDE_MODULE=1 -O3 addTwo.c -o addTwo.wasm
 ```
 
-### Upload binary module
+### 上传二进制模块
 
-Add a new module `addTwo` with binary type using this switch:
+点击此按钮添加新的二进制模组 `addTwo`：
 
-![](img/binary1.png) 
+![](img/binary1.png)
 
+以二进制模组的形式上传 `addTwo.wasm`：
 Upload your `addTwo.wasm` file as binary module contents, so that it looks as follows:
 
-![](img/binary2.png) 
+![](img/binary2.png)
 
+点击 ✔️ 提交代码。
 Click the ✔️ button to commit your modules.
 
-### Run your native module in Screeps
+### 在 Screeps 使用二进制模块
 
-If you uploaded your binary module correctly, you should see the following in your in-game IDE:
+如果您正确上传了你的二进制模块，您应该能在游戏内置 IDE 看见下图：
 
-![](img/binary3.png) 
+![](img/binary3.png)
 
-Now you can use the following code to run your imported binary code in `main` using WebAssembly API:
+现在可通过 WebAssembly API 将二进制代码导入您的 `main`
 
 ```javascript
-// This will return an ArrayBuffer with `addTwo.wasm` binary contents
+// 这将返回带有 `addTwo.wasm` 二进制内容的 ArrayBuffer
 const bytecode = require('addTwo');
 
 const wasmModule = new WebAssembly.Module(bytecode);
 
 const imports = {};
 
-// Some predefined environment for Emscripten. See here:
+//有关 Emscripten 允许环境，请参见:
 // https://github.com/WebAssembly/tool-conventions/blob/master/DynamicLinking.md
 imports.env = {
     memoryBase: 0,
     tableBase: 0,
     memory: new WebAssembly.Memory({ initial: 256 }),
-    table: new WebAssembly.Table({ initial: 0, element: 'anyfunc' })    
+    table: new WebAssembly.Table({ initial: 0, element: 'anyfunc' })
 };
 
 const wasmInstance = new WebAssembly.Instance(wasmModule, imports);
