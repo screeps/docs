@@ -112,7 +112,7 @@ An object with the following properties:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The
 <code>RoomVisual</code>
@@ -179,7 +179,7 @@ An object with the following properties:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The
 <code>RoomVisual</code>
@@ -250,7 +250,7 @@ An object with the following properties:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The
 <code>RoomVisual</code>
@@ -312,7 +312,7 @@ An object with the following properties:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The
 <code>RoomVisual</code>
@@ -394,7 +394,7 @@ An object with the following properties:
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The
 <code>RoomVisual</code>
@@ -410,7 +410,7 @@ Remove all visuals from the room.
 
 
 
-### Return value
+### 返回值
 
 The
 <code>RoomVisual</code>
@@ -428,6 +428,6 @@ Get the stored size of all visuals added in the room in the current tick. It mus
 
 
 
-### Return value
+### 返回值
 
 The size of the visuals in bytes.

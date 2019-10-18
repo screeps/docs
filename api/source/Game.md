@@ -1,35 +1,34 @@
 # Game    
 
-The main global game object containing all the game play information.
+包含所有游戏信息的主要全局游戏对象。
 
 
 {% api_property Game.constructionSites 'object&lt;string, <a href="#ConstructionSite">ConstructionSite</a>&gt;' %}
 
 
-
-A hash containing all your construction sites with their id as hash keys.
-
+包含你所有施工工地的 hash，并以 id 作为关键字。
 
 
 {% api_property Game.cpu 'object' %}
 
 
+包含有关 CPU 使用率信息的对象，具有以下属性：
 
-An object containing information about your CPU usage with the following properties:
 
 {% api_method_params %}
 limit : number
-Your assigned CPU limit for the current shard.
+你在当前指定 shard 的CPU限制。
 ===
 tickLimit : number
-An amount of available CPU time at the current game tick.<br>Usually it is higher than <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">Learn more</a>
+当前游戏 tick 可用的 CPU 时间。
+<br>通常它高于 <code>Game.cpu.limit</code>. <a href="/cpu-limit.html">了解更多</a>
 ===
 bucket : number
-An amount of unused CPU accumulated in your <a href="/cpu-limit.html#Bucket">bucket</a>.
+在你的 <a href="/cpu-limit.html#Bucket">bucket</a> 中累积的未使用的 CPU 数量。
 ===
 shardLimits : object<br>&lt;string,number&gt;
-An object with limits for each shard with shard names as keys. You can use [`setShardLimits`](#Game.setShardLimits)
-method to re-assign them.
+每个 shard 限制的对象，以 shard 名称为关键字。你可以使用 [`setShardLimits`](#Game.setShardLimits)
+ 方法重设他们。
 {% endapi_method_params %}
 
 
@@ -41,8 +40,7 @@ for(const i in Game.creeps) {
 }
 ```
 
-A hash containing all your creeps with creep names as hash keys.
-
+包含你所有 creep 的 hash，并以 creep 名作为关键字。
 
 
 {% api_property Game.flags 'object&lt;string, <a href="#Flag">Flag</a>&gt;' %}
@@ -51,57 +49,51 @@ A hash containing all your creeps with creep names as hash keys.
 creep.moveTo(Game.flags.Flag1);
 ```
 
-A hash containing all your flags with flag names as hash keys.
-
+包含你所有 flag 的 hash，以 flag 名作为关键字。
 
 
 {% api_property Game.gcl 'object' %}
 
 
-
-Your <a href="/control.html#Global-Control-Level">Global Control Level</a>, an object with the following properties :
+你的<a href="/control.html#Global-Control-Level">全局控制等级（Global Control Level）</a>的对象，具有以下属性：
 
 {% api_method_params %}
 level : number
-The current level.
+当前的等级。
 ===
 progress : number
-The current progress to the next level.
+到下一个等级当前的进展。
 ===
 progressTotal : number
-The progress required to reach the next level.
+到下一个等级所需的进展。
 {% endapi_method_params %}
 
 {% api_property Game.gpl 'object' %}
 
-Your Global Power Level, an object with the following properties :
+你的全局能量等级（Global Power Level）</a>的对象，具有以下属性：
 
 {% api_method_params %}
 level : number
-The current level.
+当前的等级。
 ===
 progress : number
-The current progress to the next level.
+到下一个等级当前的进展。
 ===
 progressTotal : number
-The progress required to reach the next level.
+到下一个等级所需的进展。
 {% endapi_method_params %}
-
 
 
 {% api_property Game.map object %}
 
 
-
-A global object representing world map. See the [documentation](#Game-map) below.
-
+表示世界地图的全局对象。 请参照此[文档](#Game-map)。
 
 
 {% api_property Game.market object %}
 
 
-
-A global object representing the in-game market. See the [documentation](#Game-market) below.
+表示游戏内市场的全局对象。 请参照此[文档](#Game-market) 
 
 
 {% api_property Game.powerCreeps 'object&lt;string, <a href="#PowerCreep">PowerCreep</a>&gt;' %}
@@ -110,38 +102,34 @@ A global object representing the in-game market. See the [documentation](#Game-m
 Game.powerCreeps['PC1'].moveTo(flag);
 ```
 
-A hash containing all your power creeps with their names as hash keys. Even power creeps 
-not spawned in the world can be accessed here. 
-
+包含你所有能量 creep 的 hash，以 creep 名作为关键字。升值可以在这里访问没有生产的能量 creep。 
 
 
 {% api_property Game.resources 'object' %}
 
 
-
-An object with your global resources that are bound to the account, like subscription tokens. Each object key is a resource constant, values are resources amounts.
-
+表示你账户中全局资源的对象，例如订阅令牌。每个对象的关键字都是一个资源常量，值是资源量。
 
 
 {% api_property Game.rooms 'object&lt;string, <a href="#Room">Room</a>&gt;' %}
 
 
+包含所有对你可用的房间的 hash，以房间名作为关键字。一个房间在你有一个 creep 或者自有建筑在其中时可见。
 
-A hash containing all the rooms available to you with room names as hash keys. A room is visible if you have a creep or an owned structure in it.
 
 {% api_property Game.shard 'object' %}
 
-An object describing the world shard where your script is currently being executed in.
+表示当前正在执行脚本的 shard 的对象。
 
 {% api_method_params %}
 name : string
-The name of the shard.
+shard 的名称。
 ===
 type : string
-Currently always equals to `normal`.
+目前总是等于 `normal`.
 ===
 ptr : boolean
-Whether this shard belongs to the [PTR](/ptr.html).
+这个 shard 是否为 [PTR](/ptr.html).
 {% endapi_method_params %}
 
 {% api_property Game.spawns 'object&lt;string, <a href="#StructureSpawn">StructureSpawn</a>&gt;' %}
@@ -152,16 +140,13 @@ for(const i in Game.spawns) {
 }
 ```
 
-A hash containing all your spawns with spawn names as hash keys.
-
+包含你所有 spawn 的 hash，以 spawn 名作为关键字。
 
 
 {% api_property Game.structures 'object&lt;string, <a href="#Structure">Structure</a>&gt;' %}
 
 
-
-A hash containing all your structures with structure id as hash keys.
-
+包含你所有 structures 的 hash，以 structures 名作为关键字。
 
 
 {% api_property Game.time 'number' %}
@@ -170,7 +155,7 @@ A hash containing all your structures with structure id as hash keys.
 console.log(Game.time);
 ```
 
-System game tick counter. It is automatically incremented on every tick. <a href="/game-loop.html">Learn more</a>
+系统游戏 tick 计数。他在每个 tick 自动递增。点此<a href="/game-loop.html">了解更多</a>。
 
 
 {% api_method Game.cpu.getHeapStatistics '' 1 %}
@@ -180,15 +165,15 @@ let heap = Game.cpu.getHeapStatistics();
 console.log(`Used ${heap.total_heap_size} / ${heap.heap_size_limit}`);
 ```
 
-*This method is only available when **Virtual machine** is set to **Isolated** in your [account runtime settings](https://screeps.com/a/#!/account/runtime).* 
+*这个方法只在**虚拟机**在你的[账户运行时设置](https://screeps.com/a/#!/account/runtime)中被设为 **Isolated** 时可用* 
 
-Use this method to get heap statistics for your virtual machine. The return value is almost identical to the Node.js function [`v8.getHeapStatistics()`](https://nodejs.org/dist/latest-v8.x/docs/api/v8.html#v8_v8_getheapstatistics). This function returns one additional property: `externally_allocated_size` which is the total amount of currently allocated memory which is not included in the v8 heap but counts against this isolate's memory limit. `ArrayBuffer` instances over a certain size are externally allocated and will be counted here.
+使用此方法获取虚拟机的堆统计信息。 返回值几乎与 Node.js 函数 [`v8.getHeapStatistics()`](https://nodejs.org/dist/latest-v8.x/docs/api/v8.html#v8_v8_getheapstatistics)相同。 此函数返回一个附加属性： `externally_allocated_size`，它是当前分配的内存总量，不包含在 v8 堆中，但会计入此隔离的内存限制。 超过一定大小的 `ArrayBuffer` 实例是外部分配的，将在此计算。
 
 
 
-### Return value
+### 返回值
 
-Returns an objects with heap statistics in the following format:
+以下列格式返回具有堆统计信息的对象：
 
 ```javascript-content
 {
@@ -226,13 +211,12 @@ for(const name in Game.creeps) {
 
 ```
 
-Get amount of CPU time used from the beginning of the current game tick. Always returns 0 in the Simulation mode.
+获取当前游戏开始时使用的 CPU 时间总量。在模拟模式下始终返回 0.
 
 
+### 返回值
 
-### Return value
-
-Returns currently used CPU time as a float number.
+以浮点数返回当前使用的 CPU 时间。
 
 
 {% api_method Game.cpu.halt '' 1 %}
@@ -241,9 +225,9 @@ Returns currently used CPU time as a float number.
 Game.cpu.halt();
 ```
 
-*This method is only available when **Virtual machine** is set to **Isolated** in your [account runtime settings](https://screeps.com/a/#!/account/runtime).*
+*这个方法只在**虚拟机**在你的[账户运行时设置](https://screeps.com/a/#!/account/runtime)中被设为 **Isolated** 时可用* 
 
-Reset your runtime environment and wipe all data in heap memory.
+重置你的运行环境并擦除堆内存中的所有数据。
 
 {% api_method Game.cpu.setShardLimits 'limits' 1 %}
 
@@ -251,22 +235,21 @@ Reset your runtime environment and wipe all data in heap memory.
 Game.cpu.setShardLimits({shard0: 20, shard1: 10});
 ```
 
-Allocate CPU limits to different shards. Total amount of CPU should remain equal to 
- [`Game.cpu.shardLimits`](#Game.cpu). This method can be used only once per 12 hours.
+分配 CPU 限制到不同的 shard。CPU总量应保持等于 [`Game.cpu.shardLimits`](#Game.cpu)。此方法每 12 小时只能使用一次。
 
 {% api_method_params %}
 limits : object&lt;string, number&gt;
-An object with CPU values for each shard in the same format as `Game.cpu.shardLimits`.
+表示每个 shard 的 CPU 值，与 `Game.cpu.shardLimits` 格式相同。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+以下代码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_BUSY | 12-hours cooldown period is not over yet.
-ERR_INVALID_ARGS | The argument is not a valid shard limits object.
+OK | 该操作已成功安排。
+ERR_BUSY | 12 小时的冷却时间尚未结束。
+ERR_INVALID_ARGS | 该参数不是有效的 shard 限制对象。
 {% endapi_return_codes %}
 
 
@@ -277,7 +260,7 @@ creep.memory.sourceId = creep.pos.findClosestByRange(FIND_SOURCES).id;
 const source = Game.getObjectById(creep.memory.sourceId);
 ```
 
-Get an object with the specified unique ID. It may be a game object of any type. Only objects from the rooms which are visible to you can be accessed.
+获取具有唯一指定 ID 的对象。 它可以是任何类型的游戏对象。 只能访问您可见的房间内的物体。
 
 {% api_method_params %}
 id : string
@@ -285,9 +268,9 @@ The unique identificator.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-Returns an object instance or null if it cannot be found.
+返回一个对象实例，若找不到则返回 null。
 
 {% api_method Game.notify 'message, [groupInterval]' A %}
 
@@ -308,12 +291,12 @@ if(Game.spawns['Spawn1'].energy == 0) {
 
 ```
 
-Send a custom message at your profile email. This way, you can set up notifications to yourself on any occasion within the game. You can schedule up to 20 notifications during one game tick. Not available in the Simulation Room.
+向你的个人资料中的邮件发送信息。由此，你可以在游戏中的任何场合为自己设置通知。你最多可以安排 20 个通知。在模拟模式中不可用。
 
 {% api_method_params %}
 message : string
-Custom text which will be sent in the message. Maximum length is 1000 characters.
+将在消息中发送的自定义文本。最大长度为 1000 个字符。
 ===
 groupInterval : number
-If set to 0 (default), the notification will be scheduled immediately. Otherwise, it will be grouped with other notifications and mailed out later using the specified time in minutes.
+如果被设为 0 (默认), 通知将被立即安排。 否早他将于其他通知编组，并在指定的时间（分钟）寄出。
 {% endapi_method_params %}

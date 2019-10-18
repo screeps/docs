@@ -127,9 +127,9 @@ The name of a new creep. It should be unique creep name, i.e. the <code>Game.cre
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
 OK | A creep with the given body and name can be created.
 ERR_NOT_OWNER | You are not the owner of this spawn.
@@ -188,7 +188,7 @@ The memory of a new creep. If provided, it will be immediately stored into <code
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
 The name of a new creep or one of these error codes:
 {% api_return_codes %}
@@ -284,11 +284,11 @@ An object with additional options for the spawning process.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this spawn.
 ERR_NAME_EXISTS | There is a creep with the same name already.
 ERR_BUSY | The spawn is already in process of spawning another creep.
@@ -311,14 +311,14 @@ The target creep object.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this spawn or the target creep.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
+ERR_NOT_IN_RANGE | 目标creep太远了。
 ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
@@ -350,17 +350,17 @@ The target creep object.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of the spawn, or the creep.
 ERR_BUSY | The spawn is spawning another creep.
 ERR_NOT_ENOUGH_ENERGY | The spawn does not have enough energy.
-ERR_INVALID_TARGET | The specified target object is not a creep.
+ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
 ERR_FULL | The target creep's time to live timer is full.
-ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_NOT_IN_RANGE | 目标creep太远了。
 ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
@@ -401,11 +401,11 @@ Game.spawns['Spawn1'].spawning.cancel();
 
 Cancel spawning immediately. Energy spent on spawning is not returned. 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this spawn.
 {% endapi_return_codes %}
 
@@ -432,11 +432,11 @@ An array with the direction constants:
     </ul>
 {% endapi_method_params %}
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this spawn.
 ERR_INVALID_ARGS | The directions is array is invalid.
 {% endapi_return_codes %}

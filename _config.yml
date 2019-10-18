@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Screeps Documentation
+title: Screeps 中文文档
 subtitle:
 description:
 author: Screeps
-language: en
+language: zh-cn
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://docs.screeps.com/
+url: http://screeps-cn.github.io/
 root: /
 permalink: :title/
 
@@ -72,4 +72,4 @@ marked:
   breaks: false
   smartypants: false
 
-github: screeps/docs
+github: screeps-cn/docs

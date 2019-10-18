@@ -125,17 +125,17 @@ The number of body parts of the corresponding type to be boosted. Body parts are
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this lab.
 ERR_NOT_FOUND | The mineral containing in the lab cannot boost any of the creep's body parts.
 ERR_NOT_ENOUGH_RESOURCES | The lab does not have enough energy or minerals.
 ERR_INVALID_TARGET | The targets is not valid creep object.
 ERR_NOT_IN_RANGE | The targets are too far away.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
+ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}
 
 
@@ -155,19 +155,19 @@ The second source lab.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this lab.
 ERR_NOT_ENOUGH_RESOURCES | The source lab do not have enough resources.
 ERR_INVALID_TARGET | The targets are not valid lab objects.
-ERR_FULL | The target cannot receive any more energy.
+ERR_FULL | 目标无法接受更多能量。
 ERR_NOT_IN_RANGE | The targets are too far away.
 ERR_INVALID_ARGS | The reaction cannot be run using this resources.
 ERR_TIRED | The lab is still cooling down.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
+ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}
 
 
@@ -182,15 +182,15 @@ The target creep.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this lab, or the target creep.
 ERR_INVALID_TARGET | The target is not a valid Creep object.
 ERR_TIRED | The lab is still cooling down.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_NOT_FOUND | The target has no boosted parts.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
+ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}

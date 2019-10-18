@@ -2,13 +2,13 @@
 
 <img src="img/tombstone.gif" alt="" align="right" />
 
-A remnant of dead creeps. This is a walkable object. 
+死亡creep的遗物。这个对象不阻碍行走。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Decay</strong></td>
-        <td>5 ticks per body part of the deceased creep</td>
+        <td><strong>消失</strong></td>
+        <td>死去的creep每个身体部件5 tick</td>
     </tr>
     </tbody>
 </table>
@@ -33,25 +33,25 @@ room.find(FIND_TOMBSTONES).forEach(tombstone => {
 });
 ````
 
-An object containing the deceased creep or power creep.
+一个内含死亡creep或超能creep的对象。
 
 {% api_property deathTime 'number' %}
 
-Time of death. 
+死亡时间。
 
 {% api_property id string %}
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 
 {% api_property store 'object' %}
 
-A [`Store`](#Store) object that contains cargo of this structure.
+一个表示该结构所存储资源的 [`Store`](#Store) 对象。
 
 
 {% api_property ticksToDecay 'number' %}
 
-The amount of game ticks before this tombstone decays.
+这个墓碑消失的剩余时间。
 
 
 

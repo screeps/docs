@@ -108,19 +108,19 @@ The amount of energy to be transferred. If omitted, all the available energy is 
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
+OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this link.
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
+ERR_NOT_ENOUGH_RESOURCES | 这个建筑内的资源少于给定的数量。
 ERR_INVALID_TARGET | The target is not a valid StructureLink object.
-ERR_FULL | The target cannot receive any more energy.
-ERR_INVALID_ARGS | The energy amount is incorrect.
+ERR_FULL | 目标无法接受更多能量。
+ERR_INVALID_ARGS | 资源数量不正确。
 ERR_TIRED | The link is still cooling down.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this link.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 

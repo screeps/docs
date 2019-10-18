@@ -1,54 +1,54 @@
-title: Server-side architecture overview
+title: 服务器架构总览
 ---
 
-Since Screeps is a game from programmers for programmers, you might possibly be interested in how it works server-side. We, on our part, want to reveal some advanced architectural solutions of this project too.
+既然Screeps是一个为程序员设计的游戏, 你可能会对它服务器端怎么工作感兴趣. 对于我们来说, 我们也想把这个项目的一些高级架构透露出来.
 
-## Key facts
+## 重中之重
 
-*   The techs used on the server side are [Node.js](https://nodejs.org/en/) 8.9.3, [MongoDB](http://mongodb.org) 3, [Redis](http://redis.io/) 3.
-*   20k lines of server side JavaScript code.
-*   Run-time computations are done in parallel on 40 quad-core dedicated servers on [OVH](http://ovh.com/us) using 160 x Intel Xeon CPU E3-1231 v3 processor cores (with respective number of node instances).
-*   MongoDB for each shard runs on 24-core machine with 128 GB of RAM and handles 30k update requests per second.
-*   Player run-time code is optimized to work in memory and does not make any hard drive or database requests.
+*   服务器端使用的软件有 [Node.js](https://nodejs.org/en/) 8.9.3, [MongoDB](http://mongodb.org) 3, [Redis](http://redis.io/) 3.
+*   我们在服务器端写了20k行的JS代码
+*   运行时计算在ovh上的40个四核专用服务器上并行完成，使用160个Intel Xeon CPU E3-1231 v3处理器内核（具有相应数量的节点实例）。
+*   每个shard的MongoDB 数据库都在一台有24核心，128GRAM的机器上运行，每秒处理30k的请求。
+*   玩家的运行时代码是在内存中工作，不进行任何硬盘和数据库请求
 
-## Architectural overview
+## 架构总览
 
-All the game data is stored in MongoDB. Each game object is a separate database document. It explains the specific view of `id` property objects which are assigned by the database.
+所有的游戏数据都是储存在 MongoDB 里. 每一个游戏对象都是分散的数据库文档(表). 它解释了由数据库分配的`id`属性对象的特定视图。
 
-Each game tick is controlled by a special syncing code based on Redis. A tick consists of two stages:
+每一个游戏中的tick都是被Redis上的特殊同步代码控制的. 一个tick有两个阶段:
 
-1.  **Player scripts calculation.**
-2.  **Commands processing.**
+1.  **阶段1：解析代码**
+2.  **阶段2：执行代码**
 
-A larger picture of stages processing flow could look like this:
+下面是一张阶段处理流程图:
 
 ![](img/architecture_stage1.png)
 
 ![](img/architecture_stage2.png)
 
-A task queue is created for each stage. The tasks of the first stage are scripts of all active players, while the second stage deals with game world rooms. The queue is stored as a Redis List, each task being processed separately by a separate machine.
+每一个阶段都会创建一个任务队列。第一阶段的任务是执行所有活跃玩家的脚本，而第二阶段是处理游戏世界的房间。队列存储为一个redis列表，每个任务都由单独的计算机单独处理。
 
-A tick begins with forming a list of all active players which are put into queue for processing their game scripts. All run-time servers receive tasks from the queue, request the DB data the player needs, and launch computation of their game script, collecting commands for various game objects. After the queue is up, the second stage commences. All active commands are put into queue, and run-time servers start processing commands for objects in each room.
+每个tick开始时会生成一个列表，其中列出了所有活跃的玩家，这些玩家被放入队列中以处理他们的游戏脚本。所有服务器从队列接收任务，请求玩家需要的数据库数据，并启动他或她的游戏脚本的运算处理，收集各种游戏对象的命令。当队列净空后，第二阶段开始。所有活动的命令都被放入队列，运行时服务器开始处理每个房间中对象的命令。（通俗点讲，第一阶段只会把所有检测到的活跃玩家的代码解析出来，看看哪些需要在第二阶段执行，第二阶段去执行这些代码）
 
-Though different rooms on the processing stage and different players on the calculation stage are handled separately in parallel, the number of parallel processes strictly corresponds to the CPU cores number. One room and one player are processed synchronously by one core which rules out various race conditions.
+尽管第二阶段的不同房间和第一阶段的不同玩家被分别并行处理，但并行处理的数量严格和cpu的数量对应。一个房间和一个玩家由一个核心同步处理，排除了各种其他条件。
 
-After both stages are finished, a certain number of requests for changing game objects in the database is formed. These requests are carried out [in bulk](https://docs.mongodb.org/manual/core/bulk-write-operations/) after the processing stage is finished. MongoDB 3 uses a new storage engine [WiredTiger](http://www.wiredtiger.com/) which due to concurrency on document level allows leveraging the advantages of several parallel threads on the DB server. After the DB change is finished, the whole system switches to the next tick processing.
+两个阶段完成后，就形成了一定数量的更改数据库中游戏对象的请求。 这些要求在第二阶段结束后[在bulk里得到了执行](https://docs.mongodb.org/manual/core/bulk-write-operations/)。 MongoDB 3 使用了新的储存引擎[WiredTiger](http://www.wiredtiger.com/) 根据文档级的并发性，它允许利用数据库服务器上多个并行线程的优势。 当整个数据库操作完成后, 整个系统开始执行下一个tick的操作.
 
-DB objects updating is the only operation that requires hard drive access. A disk flush is performed only once a minute on the DB server and does not affect run-time servers which do not work with the disk at all (it is absent on them). Run-time servers receive ready data of game objects and the `Memory` object which are loaded into RAM even prior to the tasks launch. All the useful work is performed by CPU cores of run-time servers which are "rented" by players on the first stage of the tick, i.e. computation stage.
+数据库对象更新是唯一需要硬盘访问的操作。在数据库服务器上，磁盘刷新每分钟只执行一次，不会影响根本不使用磁盘的运行时服务器（它们上没有磁盘）。运行时服务器接收游戏对象和`内存`对象的就绪数据，这些数据甚至在任务启动之前就加载到RAM中。所有有用的工作都是由运行时服务器的cpu核心来完成的，这些cpu核心在tick的第一阶段即计算阶段被玩家“租用”。
 
-## Scaling
+## 服务器扩展
 
-The system is designed to allow easy scaling on two levels:
+该系统的设计允许在两个级别上轻松扩展：
 
-*   As the load on the DB increases (i.e. players get more active in the game world shard), we can either increase the number of CPU cores to work with WiredTiger or add more world shards (each with its own separate database).
-*   As the load on the total CPU resulting from players calculations increases, we can just add more run-time servers performing these computations. In a minute after they launch, they can already receive and process tasks from Redis queues.
+*   当数据库上的负载增加时 (例如： 玩家们在shard上更加活跃), 我们可以选择增加WiredTiger的CPU数或增加更多的shard (每一个shard都有自己的数据库).
+*   当玩家计算所产生的cpu总负载的增加时，我们可以添加更多的运行时服务器来执行这些计算。在它们启动后的一分钟内，它们就可以从redis队列接收和处理任务。
 
-## Script running environment
+## 玩家脚本运行环境
 
-The Node.js [`vm`](https://nodejs.org/api/vm.html) library is used when performing tasks on the computing game scripts stage. Each node instance process launches a separate fork that does not have access to its parent process. This fork immediately makes an advance request to the database for the data it needs for calculations. Then it creates a context for the user and executes [`vm.runInContext`](https://nodejs.org/api/vm.html#vm_vm_runincontext_code_contextifiedsandbox_options). The context is saved in the fork for the future use which allows you to use the `global` object and `require` cache repeatedly in your scripts. Also, compilation of the script produces [code cached data](http://v8project.blogspot.com.by/2015/07/code-caching.html) which is stored and used to speed up later compilations.
+Node.JS的 [`vm`](https://nodejs.org/api/vm.html) 库在计算游戏脚本阶段执行任务时使用. 每个节点实例进程都启动一个单独的fork，该fork不能访问其父进程。 这个fork立即向数据库发出一个预先请求，以获取计算所需的数据。 然后它为用户创建一个context并执行 [`vm.runInContext`](https://nodejs.org/api/vm.html#vm_vm_runincontext_code_contextifiedsandbox_options). context会保存在fork中以备将来使用，这允许您在脚本中重复使用`global`对象和`require`缓存。 而且，编译[缓存脚本代码] (http://v8project.blogspot.com.by/2015/07/code-caching.html) 可以加快之后的代码编译速度
 
 ![](img/architecture_run.png)
 
-Though `runInContext` is invoked with an execution timeout specific for each player, it is not always able to gracefully finish script execution at certain workload types. If this situation occurs, the whole fork rather than vm is terminated when the time is out. All the players contexts in this process disappear and get re-created from scratch.
+尽管`runincontext`是特定于每个玩家的代码执行超时才会被调用的，但它并不总是能够在某些工作负载类型下优雅地完成脚本执行。如果出现这种情况，则在超时时终止整个fork而不是vm。这个过程中的所有玩家context都会消失，然后从头开始重新创建。
 
-For the future, we plan to open-source the code of all the system for you to launch Screeps simulation on your local machine and study it.
+未来，我们计划开源所有服务器端系统的代码，让您在自己的机器上可以启动Screeps进行模拟并研究。

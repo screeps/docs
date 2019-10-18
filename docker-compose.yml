@@ -1,0 +1,11 @@
+version: '3'
+services:
+  server:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/src
+      - .cache:/root/.npm
+    working_dir: /src
+    command: /bin/sh -c 'dos2unix start.sh && ./start.sh'

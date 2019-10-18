@@ -1,30 +1,30 @@
-title: Respawning
+title: 出生
 ---
 
-In Screeps, the game is never over, and a global win of any player is hardly ever possible. The game is devised in such a way that you can always continue playing, gain revenge, change landscape, save your achievements, etc.
+Screeps 是个永无止境的大型战略游戏。由于庞大的玩家数，玩家力压群雄取得绝对性胜利的可能微乎其微。游戏的主旨是在于让玩家得以用其编程本领以一己之力面对挑战、优化代码、改变地貌、建立联盟、攻防变换等。
 
-## Initial spawn
+## 初生
 
-The game begins from your appearance on the map. You can choose any room with a neutral Controller and at least one energy source, although we recommend to choose a room with two sources and inside one of the [Start Areas](/start-areas.html). So, after analyzing the landscape, place your spawn on the map:
+玩家可以在任意有中立控制器的房间开始游戏，然而我们建议玩家选择有两个[能量源](/introduction.html#属地（Colony）)的[保护区](/start-areas.html)初生。当玩家观察地形并对此房间满意后，便可在此房间点击合适位置里放下 Spawn ：
 
 ![](img/CreateSpawn.png)
 
-Now the room is in [Safe mode](/defense.html) during **20,000 game ticks** (approx. 15** **hours depending on the tick duration). Use this period to explore the room, develop, plan defenses, and prepare for capturing territory and resources. 
+紧接着此房间会进入**20,000 ticks**的[安全模式](/defense.html) （大约 15 小时，但具体取决于单 tick 的[实际耗时](https://status.screeps.com/)）充分利用这段时间来探索房间、规划基建、布置防御、占领资源。
 
-When the spawn is placed, it has 300 energy units first. For your safety, the spawn is constantly refilled with a small amount of 1 energy unit per tick, so that you won't stuck without energy. 
+当玩家放下的第一个 Spawn 自动包含 300 能量。 Spawn 每 tick 会自动产出 1 能量，所以玩家不会陷入 Spawn 能量耗尽且无 creep 可用的尴尬局面。
 
 {% note info %}
-A spawn stops generating energy when there are 300 energy units in the spawn itself or any other spawns and extensions in the room.
+当 Spawn 和其扩展的总储能量达到 300 时， Spawn 会停止产能。
 {% endnote %}
 
-## Respawn
+## 重生
 
-If you have chosen hastily and now want to move to a more interesting room, or if another player forced you to do so, you can restart the game with the help of the **Respawn** feature. It has a 180 seconds timeout. You will also need to respawn if your rooms are captured by an enemy and you don't have an extra foothold with creeps to build a spawn. 
+如果玩家对当下的房间布局不满意，或是受到过多其他玩家的威胁，玩家可以选择**重生**。重生有着 180 秒的冷却时间。一般而言，如果玩家的房间已被敌对势力侵占且没有足够资源背水一战，重生后东山再起也不失大雅。
 
 ![](img/Respawn.png)
 
 ![](img/RespawnConfirm.png)
 
-As you have already known from the article [Control](/control.html), a player's **Global Control Level** (GCL) remains the same after the Respawn. So, if you have a right to claim 3 rooms, you will never lose it.  
+回顾[控制](/control.html)，玩家的**全局控制等级**（GCL）是只升不降的。所以重生并不会减少玩家所能控制的房间数，比如玩家重生前可控制三个房间，重生后仍可控制三个房间。
 
-Always try to control as many rooms as your GCL allows. It will allow your colony develop at the maximum speed. Even after a respawn from scratch, a high GCL will let you find a place with many free rooms and instantly claim some into your domain for parallel development.
+在 GCL 许可的条件下多占领房间能有效地推动属地建设。即便重生后一无所有，高 GCL 能让玩家迅速占领多个房间并着手重建。

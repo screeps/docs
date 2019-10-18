@@ -1,11 +1,11 @@
-title: Resources
+title: 资源
 ---
 
 There are 4 kinds of resources in the game: **energy**, **minerals**, **power**, and **commodities**. 
 Resources can be harvested, processed, traded on the market, carried by creeps, and stored in structures.
 All resource kinds have different purposes, and you start playing only with access to the most basic one: energy.
 
-## Energy
+## 能量
 
 {% note info %}
 **Where to get:** a [`Source`](/api/#Source) in almost any room. <br>
@@ -16,7 +16,7 @@ All resource kinds have different purposes, and you start playing only with acce
 Energy is the main construction material in the Screeps world. Your base works on energy, so harvesting plenty of it is vital for any colony.
 You can harvest energy not only in your home room, but also in other rooms remotely to increase energy income.
 
-## Minerals
+## 矿物
 
 {% note info %}
 **Where to get:** a [`Mineral`](/api/#Mineral) in almost any room. <br>
@@ -24,27 +24,31 @@ You can harvest energy not only in your home room, but also in other rooms remot
 **Needed for:** boosting creeps' capabilities, and also for producing trade commodities.
 {% endnote %}
 
-By mining and processing minerals, you can significantly speed up your economy and boost the effectiveness of your creeps.
+如果能量保证了 creep 的小米步枪，矿物则能为其提供坚船利炮。通过开采及使用矿物，玩家可加速其经济建设及提高其 creep 的工作效率。
 
-Working with minerals consists of 3 steps:
+矿物利用可分为三个步骤：
 
-### Harvesting
+*   **开采基本元素**
+*   **合成矿物**
+*   **强化 Creep**
 
-There are 7 types of base minerals shown in the picture below.
+### 基本元素开采
+
+下图为游戏中所有的七种基本元素
 
 ![](img/minerals-01.png)
  
-Each room contains only one mineral type, so in order to handle them effectively you need either access to several suitable rooms or trade relationships with other players.
+单个房间只会有一个元素矿产，所以若想获得多种矿产，玩家则得控制多个房间或与其他玩家建立贸易关系。
 
-<img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**{% resource 'Extract' %}or**](/api/#Structure{% resource 'Extract' %}or) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
+<img src="img/mining_minerals.png" align="right">右图即为矿的示意图（灰色圆形），其上的字母代表了其种类。矿上需要建造[Extractor（矿机）](/api/#StructureExtractor)（绿色虚线圆环，解锁于房间控制等级 6 级）方可进行开采。矿机建造后，玩家的 Creep 便可像采集能量源般的对矿用 [`harvest`（采集）](/api/#Creep.harvest)并采取相应的元素。
 
-### Mineral compounds
+### 矿物合成
 
-Base minerals are useless on their own. In order to impart some useful capabilities to them, you have to combine them according to special formulas in the structure called [**Lab**](/api/#StructureLab).
+基本元素本身无法被使用，得按照指定的合成路线被[**Lab（实验室）**](/api/#StructureLab)转化为化合物才能得以利用。
 
 ![](img/minerals-02.png)
 
-One reaction requires three labs: two as reagent sources, and the third one as the produce collector. The labs should be within the range of 2 squares from each other. One lab cannot contain more than one mineral type at the same time.
+完成一个反应需要三个 lab ：两个提供底物，一个进行反应及收集产物，lab 的间距不得超过两格。同一 lab 不可混合放置多种化合物，但却能同时为多个反应提供底物。
 
 <img src="img/2016-03-09_10-32-33.gif" align="right">
 
@@ -53,19 +57,21 @@ One reaction requires three labs: two as reagent sources, and the third one as t
 
     labs[0].runReaction(labs[1], labs[2]);
 
-    // on the next tick...
+    // 下一 tick ...
 
     console.log(labs[0].mineralType) // -> OH
     console.log(labs[1].mineralType) // -> O
     console.log(labs[2].mineralType) // -> H
 
-### Creep boosts
+### Creep 强化
 
-Apart from running chemical reactions with minerals, a lab can use resulting compounds to permanently upgrade your creeps boosting their specific properties.
+lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件。
 
-Each compound is applied to one body part of the creep of a certain type using the [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) method according to the table below and boosts the effectiveness of one of the actions of this creep. The boosted part works as two, three, or even four corresponding parts. To boost the whole creep, you need to boost all its parts of the given type.
+玩家可用 [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) 来强化 Creep 的[部件](creeps.html)，各化合物的强化效果见下表。一个被强化过的部件能顶多个未被强化的部件。要想完全强化一个 creep ，玩家得逐一强化该 creep 的部件。 
 
-Boosting one body part takes 30 mineral compound units and 20 energy units. One body part can be boosted only with one compound type.
+强化一个部件需要 30 单位的化合物及 20 单位的能量，且一个部件只能被一种化合物强化。
+
+**译者注：**元素、化合物名称的各单词取首及为其符号简写，中文译名见末表
 
 <style>
 .minerals,
@@ -132,8 +138,8 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Mineral compounds</span>
-<em>(click to expand)</em>
+<span>矿物化合物</span>
+<em>(点击展开)</em>
 </div>
 
 <div class="collapsible-table__content">
@@ -147,14 +153,14 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 </colgroup>
 <tbody>
 <tr class=minerals__head>
-<th>Name</th>
-<th>Formula</th>
-<th>Time</th>
-<th>Body part</th>
-<th>Effect</th>
+<th>名称</th>
+<th>化学式</th>
+<th>合成时间</th>
+<th>影响部件</th>
+<th>效果</th>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Base compounds</th>
+<th colspan="5" align="center">基本元素</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/OH.png)hydroxide</td>
@@ -185,77 +191,77 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>—</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Tier 1 compounds</th>
+<th colspan="5" align="center">一级化合物</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/UH.png)utrium hydride</td>
 <td>![](//static.screeps.com/upload/mineral-icons/U.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>10</td>
 <td>`ATTACK`</td>
-<td>+100% `attack` effectiveness</td>
+<td>+100% `attack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/UO.png)utrium oxide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/U.png) + ![](//static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>10</td>
 <td>`WORK`</td>
-<td>+200% `harvest` effectiveness</td>
+<td>+200% `harvest` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/KH.png)keanium hydride</td>
 <td>![](//static.screeps.com/upload/mineral-icons/K.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>10</td>
 <td>`CARRY`</td>
-<td>+50 capacity</td>
+<td>+50 容量</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/KO.png)keanium oxide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/K.png) + ![](//static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>10</td>
 <td>`RANGED_ATTACK`</td>
-<td>+100% `rangedAttack` and `rangedMassAttack` effectiveness</td>
+<td>+100% `rangedAttack` 和 `rangedMassAttack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LH.png)lemergium hydride</td>
 <td>![](//static.screeps.com/upload/mineral-icons/L.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>15</td>
 <td>`WORK`</td>
-<td>+50% `repair` and `build` effectiveness without increasing the energy cost</td>
+<td>+50% `repair` 和 `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LO.png)lemergium oxide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/L.png) + ![](//static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>10</td>
 <td>`HEAL`</td>
-<td>+100% `heal` and `rangedHeal` effectiveness</td>
+<td>+100% `heal` 和 `rangedHeal` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/ZH.png)zynthium hydride</td>
 <td>![](//static.screeps.com/upload/mineral-icons/Z.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>20</td>
 <td>`WORK`</td>
-<td>+100% `dismantle` effectiveness</td>
+<td>+100% `dismantle` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/ZO.png)zynthium oxide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/Z.png) + ![](//static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>10</td>
 <td>`MOVE`</td>
-<td>+100% fatigue decrease speed</td>
+<td>+100% [fatigue(疲劳值)](creeps.html#移动力) 减低速度</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/GH.png)ghodium hydride</td>
 <td>![](//static.screeps.com/upload/mineral-icons/G.png) + ![](//static.screeps.com/upload/mineral-icons/H.png)</td>
 <td>10</td>
 <td>`WORK`</td>
-<td>+50% `upgradeController` effectiveness without increasing the energy cost</td>
+<td>+50% `upgradeController` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/GO.png)ghodium oxide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/G.png) + ![](//static.screeps.com/upload/mineral-icons/O.png)</td>
 <td>10</td>
 <td>`TOUGH`</td>
-<td>-30% damage taken</td>
+<td>30% 伤害减免</td>
 </tr>
 <tr class=minerals__divider>
 <th colspan="5" align="center">Tier 2 compounds</th>
@@ -265,70 +271,70 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>![](//static.screeps.com/upload/mineral-icons/UH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`ATTACK`</td>
-<td>+200% `attack` effectiveness</td>
+<td>+200% `attack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/UHO2.png)utrium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/UO.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`WORK`</td>
-<td>+400% `harvest` effectiveness</td>
+<td>+400% `harvest` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/KH2O.png)keanium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/KH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`CARRY`</td>
-<td>+100 capacity</td>
+<td>+100 容量</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/KHO2.png)keanium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/KO.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`RANGED_ATTACK`</td>
-<td>+200% `rangedAttack` and `rangedMassAttack` effectiveness</td>
+<td>+200% `rangedAttack` 和 `rangedMassAttack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LH2O.png)lemergium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/LH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>10</td>
 <td>`WORK`</td>
-<td>+80% `repair` and `build` effectiveness without increasing the energy cost</td>
+<td>+80% `repair` 和 `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/LHO2.png)lemergium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/LO.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`HEAL`</td>
-<td>+200% `heal` and `rangedHeal` effectiveness</td>
+<td>+200% `heal` 和 `rangedHeal` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/ZH2O.png)zynthium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/ZH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>40</td>
 <td>`WORK`</td>
-<td>+200% `dismantle` effectiveness</td>
+<td>+200% `dismantle` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/ZHO2.png)zynthium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/ZO.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>5</td>
 <td>`MOVE`</td>
-<td>+200% fatigue decrease speed</td>
+<td>+200% [fatigue(疲劳值)](creeps.html#移动力) 减低速度</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/GH2O.png)ghodium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/GH.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>15</td>
 <td>`WORK`</td>
-<td>+80% `upgradeController` effectiveness without increasing the energy cost</td>
+<td>+80% `upgradeController` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/GHO2.png)ghodium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/GO.png) + ![](//static.screeps.com/upload/mineral-icons/OH.png)</td>
 <td>30</td>
 <td>`TOUGH`</td>
-<td>-50% damage taken</td>
+<td>50% 伤害减免</td>
 </tr>
 <tr class=minerals__divider>
 <th colspan="5" align="center">Tier 3 compounds</th>
@@ -338,75 +344,98 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 <td>![](//static.screeps.com/upload/mineral-icons/UH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`ATTACK`</td>
-<td>+300% `attack` effectiveness</td>
+<td>+300% `attack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XUHO2.png)catalyzed utrium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/UHO2.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`WORK`</td>
-<td>+600% `harvest` effectiveness</td>
+<td>+600% `harvest` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XKH2O.png)catalyzed keanium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/KH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`CARRY`</td>
-<td>+150 capacity</td>
+<td>+150 容量</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XKHO2.png)catalyzed keanium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/KHO2.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`RANGED_ATTACK`</td>
-<td>+300% `rangedAttack` and `rangedMassAttack` effectiveness</td>
+<td>+300% `rangedAttack` 和 `rangedMassAttack` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XLH2O.png)catalyzed lemergium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/LH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>65</td>
 <td>`WORK`</td>
-<td>+100% `repair` and `build` effectiveness without increasing the energy cost</td>
+<td>+100% `repair` 和 `build` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XLHO2.png)catalyzed lemergium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/LHO2.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`HEAL`</td>
-<td>+300% `heal` and `rangedHeal` effectiveness</td>
+<td>+300% `heal` and `rangedHeal` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XZH2O.png)catalyzed zynthium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/ZH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>160</td>
 <td>`WORK`</td>
-<td>+300% `dismantle` effectiveness</td>
+<td>+300% `dismantle` 效率</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XZHO2.png)catalyzed zynthium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/ZHO2.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>60</td>
 <td>`MOVE`</td>
-<td>+300% fatigue decrease speed</td>
+<td>+300% [fatigue(疲劳值)](creeps.html#移动力) 减低速度</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XGH2O.png)catalyzed ghodium acid</td>
 <td>![](//static.screeps.com/upload/mineral-icons/GH2O.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>80</td>
 <td>`WORK`</td>
-<td>+100% `upgradeController` effectiveness without increasing the energy cost</td>
+<td>+100% `upgradeController` 效率但不增加其能量消耗</td>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XGHO2.png)catalyzed ghodium alkalide</td>
 <td>![](//static.screeps.com/upload/mineral-icons/GHO2.png) + ![](//static.screeps.com/upload/mineral-icons/X.png)</td>
 <td>150</td>
 <td>`TOUGH`</td>
-<td>-70% damage taken</td>
+<td>70% 伤害减免</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+
+
+各矿物中译名：
+
+|原名|译名|
+|-|-|
+|HYDROGEN | 氢|
+|OXYGEN | 氧|
+|UTRIUM | 奥纯|
+|KEANIUM | 克安|
+|LEMERGIUM | 灵摩|
+|ZYNTHIUM | 仁笛|
+|CATALYST | 萃托|
+|zynthium keanite | 仁克|
+|utrium lemergite | 奥灵|
+|GHODIUM | 寇丁|
+|hydroxide | 氢氧|
+|utrium hydride | 氢化奥纯|
+|utrium oxide | 氧化奥纯|
+|utrium acid | 奥纯酸|
+|utrium alkalide | 奥纯碱|
+|catalyzed utrium acid | 萃奥纯酸|
+|catalyzed utrium alkalide | 萃奥纯碱|
 
 
 ## Power

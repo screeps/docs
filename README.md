@@ -1,30 +1,35 @@
-This project contains the sources of the [documentation web site](http://docs.screeps.com) for Screeps online game.
+## 声明 Disclaimer
 
-You need to have Node.js in order to build this project.
+请留意，此文档仅为临时README，随时会被更新。
 
-1. Install all npm dependendcies:
+Please be aware this is a temporary readme, which is a subject to change.
 
-```
-npm install
-cd api
-npm install
-cd ..
-```
-    
-2. Generate static site:
+## About
 
-```
-npm run generate
-cd api
-npm run generate
-cd ..
-```
+This is an [**unofficial**](https://github.com/screeps/docs/issues/105) localization (en-US -> zh-CN) of Screeps [docs](https://docs.screeps.com/) & [api](https://docs.screeps.com/api). Since this repo is all about localization/translation, below messages are provided in simplified Chinese solely.
 
-You can use `generate-watch` instead of `generate` to sync changes in real time.
+## 翻译中文档（实时更新）
 
-3. Run development server:
+翻译版（中 zh-CN）： https://screeps-cn.github.io
 
-```
-npm run server
-```
+原版（英 en-US）： https://docs.screeps.com
 
+## 欢迎参与翻译及润色
+
+常驻翻译请联系[团队人员](https://github.com/orgs/screeps-cn/people)以获取编辑限权
+
+润色及纠错请 `fork` -> 修改 -> `pull request` 到此 repo 或 开 `issue` 指出
+
+## 有关我们
+
+会英文的 Screeps 中国玩家，自发于 Q 群：[Screeps 编程游戏小组](https://shang.qq.com/wpa/qunwpa?idkey=8d9a9245519f3ecc94b23fbdada6d6479d8a3330071e0d44f372bb63a372a083)
+
+## 中文教程（暂未经官方认证）
+
+https://twodam.net/tags/screeps by [LuckyKoala](https://github.com/LuckyKoala)
+
+https://www.jianshu.com/nb/38374718 by [HoPGoldy](https://github.com/HoPGoldy)
+
+https://zhuanlan.zhihu.com/p/86394646 by [趣味的吃](https://www.zhihu.com/people/guo-guo-80-14-75/activities)
+
+https://zhuanlan.zhihu.com/c_1097137377700667392 by [九日木彡](https://www.zhihu.com/people/noname-mr/activities)

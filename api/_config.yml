@@ -11,7 +11,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://docs.screeps.com/api
+url: http://screeps-cn.github.io/api
 root: /api/
 permalink: :title.html
 permalink_defaults:

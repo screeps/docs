@@ -79,7 +79,7 @@ y : number
 Y position in the room.
 {% endapi_method_params %}
 
-### Return value
+### 返回值
 
 One of the following integer values:
 
@@ -145,7 +145,7 @@ A typed array view in which terrain will be copied to.
 
 See usage examples. Learn more about <a href="/modules.html#Binary-modules">_binary modules_</a>.
 
-### Return value
+### 返回值
 
 Copy of underlying room terrain representations as a new `Uint8Array` [typed array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) of size 2500.
 

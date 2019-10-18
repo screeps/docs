@@ -1,10 +1,10 @@
 # ConstructionSite
 
-A site of a structure which is currently under construction. A construction site can be created using the 'Construct' button at the left of the game field or the [`Room.createConstructionSite`](#Room.createConstructionSite) method.
+一个正在建设中的工地。可以使用游戏界面右侧的'Construct'按钮创建工地或[`Room.createConstructionSite`](#Room.createConstructionSite)方法。
 
-To build a structure on the construction site, give a worker creep some amount of energy and perform [`Creep.build`](#Creep.build) action.
+要在工地建造一个建筑，需要给工人creep一些能量并执行[`Creep.build`](#Creep.build)动作。
 
-You can remove enemy construction sites by moving a creep on it.
+如果想移除敌人的工地，只需让一个creep踩在上面即可。
 
 {% page inherited/RoomObject.md %} 
 
@@ -12,7 +12,7 @@ You can remove enemy construction sites by moving a creep on it.
  
 
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+全局唯一的对象标识。你可以通过调用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法取得对象实例。
 
 
 
@@ -20,7 +20,7 @@ A unique object identificator. You can use <a href="#Game.getObjectById"><code>G
 
 
 
-Whether this is your own construction site.
+你是否拥有这个工地。
 
 
 
@@ -28,11 +28,11 @@ Whether this is your own construction site.
 
 
 
-An object with the structure’s owner info containing the following properties:
+建筑拥有者信息，一个包含如下属性的对象：
 
 {% api_method_params %}
 username : string
-The name of the owner user.
+拥有者姓名。
 {% endapi_method_params %}
 
 
@@ -40,7 +40,7 @@ The name of the owner user.
 
 
 
-The current construction progress.
+当前建造进度。
 
 
 
@@ -48,7 +48,7 @@ The current construction progress.
 
 
 
-The total construction progress needed for the structure to be built.
+完成建造所需的建造总进度。
 
 
 
@@ -56,7 +56,7 @@ The total construction progress needed for the structure to be built.
 
 
 
-One of the <code>STRUCTURE_*</code> constants.
+<code>STRUCTURE_*</code>常量之一。
 
 
 
@@ -64,16 +64,16 @@ One of the <code>STRUCTURE_*</code> constants.
 
 
 
-Remove the construction site.
+删除这个工地。
 
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this construction site, and it's not in your room.
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 你不是这个工地的拥有者，或者这不是你的房间。
 {% endapi_return_codes %}
 
 

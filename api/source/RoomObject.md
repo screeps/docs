@@ -1,26 +1,26 @@
 # RoomObject
 
-Any object with a position in a room. Almost all game objects prototypes are derived from `RoomObject`.
+房间中所有具有坐标的对象。几乎所有的游戏对象原型都是从`RoomObject`派生出来的。
 
 {% api_property effects array %}
-Applied effects, an array of objects with the following properties:
+附加的效果，一个对象数组包含如下属性：
 
 {% api_method_params %}
-effect : number
-Effect ID of the applied effect. Can be either natural effect ID or Power ID.
+power : number
+被应用的效果id。可以是自然效果或者超能效果。
 ===
-level (optional) : number 
-Power level of the applied effect. Absent if the effect is not a Power effect.
+level : number
+被应用的效果等级。如果不是超能效果的话则不存在。
 ===
 ticksRemaining : number
-How many ticks will the effect last.
+多长时间之后会失去这个效果。
 {% endapi_method_params %}
 
 {% api_property pos '<a href="#RoomPosition">RoomPosition</a>' %}
  
 
 
-An object representing the position of this object in the room.
+表示该对象在房间中的坐标的对象。
 
 
 
@@ -28,6 +28,6 @@ An object representing the position of this object in the room.
 
 
 
-The link to the Room object. May be undefined in case if an object is a flag or a construction site and is placed in a room that is not visible to you.
+Room对象的链接。如果对象是标志或工地并且放置在你不可见的房间中，则可能为undefined。
 
 

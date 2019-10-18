@@ -120,17 +120,17 @@ The target room position.
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 你不是这个建筑的拥有者。
 ERR_NOT_ENOUGH_RESOURCES | The structure does not have enough energy and/or ghodium.
 ERR_INVALID_TARGET | The target is not a valid RoomPosition.
 ERR_NOT_IN_RANGE | The target room is out of range.
 ERR_TIRED | This structure is still cooling down.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
+ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}
 
 
