@@ -7,65 +7,64 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <th style="width: 20%;">Body part</th>
-        <th style="width: 8%;">Build cost</th>
-        <th>Effect per one body part</th>
+        <th style="width: 20%;">身体部件</th>
+        <th style="width: 8%;">生产成本</th>
+        <th>每个部件效果</th>
     </tr>
     <tr>
         <td><code style="background: #333; color: #a9b7c6;">MOVE</code></td>
         <td>50</td>
-        <td>Decreases fatigue by 2 points per tick.</td>
+        <td>每tick减少2点疲惫值</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #ffe56d;">WORK</code></td>
         <td>100</td>
         <td>
-            <p>Harvests 2 energy units from a source per tick.</p>
-            <p>Harvests 1 mineral unit from a deposit per tick.</p>
-            <p>Builds a structure for 5 energy units per tick.</p>
-            <p>Repairs a structure for 100 hits per tick consuming 1 energy unit per tick.</p>
-            <p>Dismantles a structure for 50 hits per tick returning 0.25 energy unit per tick.</p>
-            <p>Upgrades a controller for 1 energy unit per tick.</p>
+            <p>每tick从能量源采集2单位能量。</p>
+            <p>每tick从矿区采集1单位矿物。</p>
+            <p>每tick增加工地建设进度5点，花费5单位能量。</p>
+            <p>每tick增加建筑100耐久度，花费1单位能量。</p>
+            <p>每tick拆减建筑50点耐久，并返还0.25单位能量。</p>
+            <p>每tick提高控制器升级进度1点，花费1单位能量。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #777;">CARRY</code></td>
         <td>50</td>
-        <td>Can contain up to 50 resource units.</td>
+        <td>携带最多50单位资源。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #f93842;">ATTACK</code></td>
         <td>80</td>
-        <td>Attacks another creep/structure with 30 hits per tick in a short-ranged attack.</td>
+        <td>对相邻的creep或建筑造成30点伤害。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code></td>
         <td>150</td>
         <td>
-            <p>Attacks another single creep/structure with 10 hits per tick in a long-range attack up to 3 squares long.</p>
-            <p>Attacks all hostile creeps/structures within 3 squares range with 1-4-10 hits (depending on the range).</p>
+            <p>单个目标时，每tick对creep或建筑造成10点伤害，范围为3格。</p>
+            <p>多个目标时，每tick对范围内所有creep与建筑造成1-4-10点伤害，具体伤害取决于距离，范围为3格。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #65fd62;">HEAL</code></td>
         <td>250</td>
-        <td>Heals self or another creep restoring 12 hits per tick in short range or 4 hits per tick at a distance.</td>
+        <td>治疗对象可为自己或其它creep。自愈或治疗相邻creep时每tick恢复12点耐久，一定距离内远程治疗每tick恢复4点耐久。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #b99cfb;">CLAIM</code></td>
         <td>600</td>
         <td>
-            <p>Claims a neutral room controller.</p>
-            <p>Reserves a neutral room controller for 1 tick per body part.</p>
-            <p>Attacks a hostile room controller downgrading its timer by 300 ticks per body parts.</p>
-            <p>Attacks a neutral room controller reservation timer by 1 tick per body parts.</p>
-            <p>A creep with this body part will have a reduced life time of 600 ticks and cannot be renewed.</p>
+            <p>占领一个中立房间的控制器。</p>
+            <p>每部件每tick使己方对中立房间控制器的预定时间增加1tick，或使其他玩家的预定时间减少1tick。</p>
+            <p>每部件每tick使其他玩家控制器降级计数器加速300ticks。</p>
+            <p>注：拥有该部件的creep寿命只有600ticks，且无法被renew。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #fff;">TOUGH</code></td>
         <td>10</td>
-        <td>No effect, just additional hit points to the creep's body. Can be boosted to resist damage.</td>
+        <td>无附加效果，唯一作用是增加creep的最大耐久值。可被强化以承受更多伤害。</td>
     </tr>
     </tbody>
 </table>
@@ -81,7 +80,7 @@ An array describing the creep’s body. Each element contains the following prop
 
 {% api_method_params %}
 boost : string | undefined
-If the body part is boosted, this property specifies the mineral type which is used for boosting. One of the <code>RESOURCE_*</code> constants. <a href="/minerals.html">Learn more</a>
+If the body part is boosted, this property specifies the mineral type which is used for boosting. <code>RESOURCE_*</code>常量之一。 <a href="/minerals.html">Learn more</a>
 ===
 type : string
 One of the body part types constants.
@@ -175,7 +174,7 @@ An object with the creep’s owner info containing the following properties:
 
 {% api_method_params %}
 username : string
-所有者姓名。
+拥有者姓名。
 {% endapi_method_params %}
 
 
@@ -228,11 +227,11 @@ The target object to be attacked.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_TARGET | The target is not a valid attackable object.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>ATTACK</code> body parts in this creep’s body.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_INVALID_TARGET | 这个目标不是一个有效的攻击目标。
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>ATTACK</code>部件。
 {% endapi_return_codes %}
 
 
@@ -252,7 +251,7 @@ Decreases the controller's downgrade timer by 300 ticks per every <code>CLAIM</c
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
-The target controller object.
+目标控制中心对象。
 {% endapi_method_params %}
 
 
@@ -261,11 +260,11 @@ The target controller object.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid owned or reserved controller object.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are not enough <code>CLAIM</code> body parts in this creep’s body.
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有足够的<code>CLAIM</code>部件。
 ERR_TIRED | You have to wait until the next attack is possible.
 {% endapi_return_codes %}
 
@@ -287,7 +286,7 @@ Build a structure at the target construction site using carried energy. Requires
 
 {% api_method_params %}
 target : <a href="#ConstructionSite">ConstructionSite</a>
-The target construction site to be built.
+待建造的目标工地。
 {% endapi_method_params %}
 
 
@@ -296,12 +295,12 @@ The target construction site to be built.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_NOT_ENOUGH_RESOURCES | 这个creep没有携带任何能量。
 ERR_INVALID_TARGET | The target is not a valid construction site object or the structure cannot be built here (probably because of a creep at the same square).
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>WORK</code>部件。
 {% endapi_return_codes %}
 
 
@@ -318,7 +317,7 @@ Cancel the order given during the current game tick.
 
 {% api_method_params %}
 methodName : string
-The name of a creep's method to be cancelled.
+需要被取消的creep方法名。
 {% endapi_method_params %}
 
 
@@ -326,7 +325,7 @@ The name of a creep's method to be cancelled.
 
 如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been cancelled successfully.
+OK | 这个操作被成功取消了。
 ERR_NOT_FOUND | The order with the specified name is not found.
 {% endapi_return_codes %}
 
@@ -347,7 +346,7 @@ Claims a neutral controller under your control. Requires the <code>CLAIM</code> 
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
-The target controller object.
+目标控制中心对象。
 {% endapi_method_params %}
 
 
@@ -356,13 +355,13 @@ The target controller object.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_TARGET | The target is not a valid neutral controller object.
-ERR_FULL | You cannot claim more than 3 rooms in the Novice Area.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>CLAIM</code> body parts in this creep’s body.
-ERR_GCL_NOT_ENOUGH | Your Global Control Level is not enough.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_INVALID_TARGET | 目标不是一个有效的中立控制中心对象。
+ERR_FULL | 你不能在新手区占领超过3个房间。
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>CLAIM</code>部件。
+ERR_GCL_NOT_ENOUGH | 你的全局控制等级不足。
 {% endapi_return_codes %}
 
 
@@ -384,7 +383,7 @@ Dismantles any (even hostile) structure returning 50% of the energy spent on its
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
-The target structure.
+目标建筑。
 {% endapi_method_params %}
 
 
@@ -393,11 +392,11 @@ The target structure.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_TARGET | The target is not a valid structure object.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_INVALID_TARGET | 目标不是一个有效的建筑对象。
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>WORK</code>部件。
 {% endapi_return_codes %}
 
 
@@ -415,14 +414,14 @@ for(const resourceType in creep.carry) {
 }
 ```
 
-Drop this resource on the ground.
+将资源丢弃到地上。
 
 {% api_method_params %}
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resource units to be dropped. If omitted, all the available carried amount is used.
+丢弃资源的数量。如果没有这个参数，丢弃全部资源。
 {% endapi_method_params %}
 
 
@@ -431,10 +430,10 @@ The amount of resource units to be dropped. If omitted, all the available carrie
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of energy.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_INVALID_ARGS | resourceType不是一个有效的<code>RESOURCE_*</code>常量。
+ERR_NOT_ENOUGH_RESOURCES | 这个creep没有足够的资源。
 {% endapi_return_codes %}
 
 
@@ -452,7 +451,7 @@ Add one more available safe mode activation to a room controller. The creep has 
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
-The target room controller.
+目标控制中心。
 {% endapi_method_params %}
 
 
@@ -461,11 +460,11 @@ The target room controller.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have enough ghodium.
-ERR_INVALID_TARGET | The target is not a valid controller object.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_NOT_ENOUGH_RESOURCES | 这个creep没有足够的ghodium。
+ERR_INVALID_TARGET | 目标不是一个有效的控制中心对象。
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 
@@ -483,11 +482,11 @@ if(target) {
 }
 ```
 
-Get the quantity of live body parts of the given type. Fully damaged parts do not count.
+获取指定类型可用的身体部件数量。完全毁坏的部件不会被计算。
 
 {% api_method_params %}
 type : string
-A body part type, one of the following body part constants:
+一个身体部件类型，下列身体部件类型常量之一：
 					<ul>
 						<li><code>MOVE</code></li>
 						<li><code>WORK</code></li>
@@ -531,13 +530,13 @@ The object to be harvested.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep, or the room controller is owned or reserved by another player.
-ERR_BUSY | The creep is still being spawned.
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/minerals.html">Learn more</a>
 ERR_NOT_ENOUGH_RESOURCES | The target does not contain any harvestable energy or mineral.
 ERR_INVALID_TARGET | The target is not a valid source or mineral object.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_TIRED | The extractor is still cooling down.
-ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
+ERR_NO_BODYPART | 这个creep身上没有<code>WORK</code>部件。
 {% endapi_return_codes %}
 
 
@@ -571,11 +570,11 @@ The target creep object.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid creep object.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>HEAL</code> body parts in this creep’s body.
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>HEAL</code>部件。
 {% endapi_return_codes %}
 
 
@@ -623,8 +622,8 @@ A creep nearby, or one of the following constants:
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_ARGS | The provided direction is incorrect.
@@ -660,8 +659,8 @@ A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_FOUND | The specified path doesn't match the creep's location.
 ERR_INVALID_ARGS | <code>path</code> is not a valid path array.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
@@ -756,8 +755,8 @@ An object containing additional options:
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_TARGET | The target provided is invalid.
@@ -791,8 +790,8 @@ Whether to enable notification or disable.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
 {% endapi_return_codes %}
 
@@ -823,11 +822,11 @@ The target object to be picked up.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
 ERR_FULL | The creep cannot receive any more resource.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 
@@ -875,10 +874,10 @@ The target creep.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target provided is invalid.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 
@@ -906,10 +905,10 @@ The target object to be attacked.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_TARGET | The target is not a valid attackable object.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_INVALID_TARGET | 这个目标不是一个有效的攻击目标。
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_NO_BODYPART | There are no <code>RANGED_ATTACK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
 
@@ -947,11 +946,11 @@ The target creep object.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_TARGET | The target is not a valid creep object.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>HEAL</code> body parts in this creep’s body.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_INVALID_TARGET | 目标不是一个有效的creep对象。
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>HEAL</code>部件。
 {% endapi_return_codes %}
 
 
@@ -974,9 +973,9 @@ A ranged attack against all hostile creeps or structures within 3 squares range.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_NO_BODYPART | There are no <code>RANGED_ATTACK</code> body parts in this creep’s body.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_NO_BODYPART | 这个creep身上没有<code>RANGED_ATTACK</code>部件。
 {% endapi_return_codes %}
 
 
@@ -1010,12 +1009,12 @@ The target structure to be repaired.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not carry any energy.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_NOT_ENOUGH_RESOURCES | 这个creep没有携带任何能量。
 ERR_INVALID_TARGET | The target is not a valid creep object.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>WORK</code>部件。
 {% endapi_return_codes %}
 
 
@@ -1044,10 +1043,10 @@ The target controller object to be reserved.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid neutral controller object.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_NO_BODYPART | There are no <code>CLAIM</code> body parts in this creep’s body.
 {% endapi_return_codes %}
 
@@ -1082,8 +1081,8 @@ Set to true to allow other players to see this message. Default is false.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 {% endapi_return_codes %}
 
 
@@ -1115,9 +1114,9 @@ The sign text. The string is cut off after 100 characters.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_BUSY | The creep is still being spawned.
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_INVALID_TARGET | The target is not a valid controller object.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
 
@@ -1135,8 +1134,8 @@ Kill the creep immediately.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 {% endapi_return_codes %}
 
 
@@ -1163,7 +1162,7 @@ target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
 The target object.
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
 The amount of resources to be transferred. If omitted, all the available carried amount is used.
@@ -1175,12 +1174,12 @@ The amount of resources to be transferred. If omitted, all the available carried
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep.
-ERR_BUSY | The creep is still being spawned.
+ERR_NOT_OWNER | 你不是这个creep的拥有者。
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The target cannot receive any more resources.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}
 
@@ -1215,11 +1214,11 @@ The target controller object to be upgraded.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep or the target controller.
-ERR_BUSY | The creep is still being spawned.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
+ERR_BUSY | 这个creep依然在孵化中。
+ERR_NOT_ENOUGH_RESOURCES | 这个creep没有携带任何能量。
 ERR_INVALID_TARGET | The target is not a valid controller object, or the controller upgrading is blocked.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_NO_BODYPART | 这个creep身上没有<code>WORK</code>部件。
 {% endapi_return_codes %}
 
 
@@ -1241,10 +1240,10 @@ target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
 The target object.
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
+被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 
 
@@ -1254,10 +1253,10 @@ The amount of resources to be transferred. If omitted, all the available amount 
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep, or there is a hostile rampart on top of the target.
-ERR_BUSY | The creep is still being spawned.
+ERR_BUSY | 这个creep依然在孵化中。
 ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resources.
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The creep's carry is full.
-ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NOT_IN_RANGE | 目标太远了。
 ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}

@@ -1,7 +1,9 @@
 title: 同步动作及优先级
 ---
 
-**译注**：此章所提及所有的“冲突”及“优先级”都是对同一 [creep](/creeps.html) 而言。有关不同 creep 的冲突，参见[“结束阶段”](/game-loop.html)。
+{% note info %}
+**译者注：**此章所提及所有的“冲突”及“优先级”都是对同一 [creep](/creeps.html) 而言。有关不同 creep 的冲突，参见[“结束阶段”](/game-loop.html)。
+{% endnote %}
 
 ## 不同动作的优先级
 

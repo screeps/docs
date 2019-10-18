@@ -1,20 +1,31 @@
-title: Why subscription?
+title: 为什么要订阅？
 ---
 
 {% note info %}
-Everything below is about the official MMO world only. The single-player mode and unofficial private servers are available without subscribing.
+以下内容仅适用于官方大型多人在线服务器。单机模式或私服不需要订阅也可以游玩。
 {% endnote %}
 
-Screeps is an unusual MMO game that has no counterparts at the moment. There are numerous online games where your character exists in the game world only while you’re online and disappears after you exit the game. There are fewer games that have your character or units continue some defined automatic activity even after logging out. But only Screeps runs your scripts in full continuously, on the **24/7 basis**, and you are allowed to use them for anything JavaScript allows. 
+Screeps 是一款与众不同的大型多人线上游戏。对于大多数的在线游戏来说，你的角色仅在你登陆的时候存在于游戏世界中，如果你退出，它就会消失。 
+只有少数游戏可以在你登出后继续执行一些预定义的自动活动。
+而只有Screeps会 **24/7** 无间断运行玩家的代码，并且你可以做任何事情，只要它可以用JavaScript实现。
 
-This makes Screeps more like a hosting or cloud computing service rather than a traditional online game. We offer you **server CPU time** and fixed amount of memory that you can use as you wish (though it’s still preferable to use it in relation with the game!). Though a new player gets a quite low initial CPU limit, after upgrading your game level you can end up with your limit up to 300 ms per game tick which is quite a serious hosting asset. 
+这让 Screeps 更像一个云服务器而非传统意义上的网游。我们为你提供 **服务器CPU时间** 和一定量的存储空间，你可以使用他们做任何事情。
+（虽说它更适合用来做与这个游戏相关的事情！）
+虽然新玩家的初始CPU限制相当低，但在升级游戏级别之后，你最终可以得到 每tick 300毫秒的CPU时间，这是一个非常客观的托管资产。
+   
+在我们设计游戏时，我们考虑了很多因素，但最后得出的结论是，只需要一个模型就能实现合理计费：游戏时间订阅（或者，在我们称之为CPU时间）。
+并且我们不提供多重订阅的选项：所有的玩家都支付相同的费用。
+这样我们避免了为某些玩家群体创造游戏优势，因为所有玩家都被平等地分配了服务器资源。
 
-As we designed the game, we were considering numerous options and finally came to a conclusion that justification of such expenses requires only one model: game time (or, in our case, CPU time) subscription. And note that we don’t offer multiple subscription options: the subscription cost is the same for all players. Thus we avoid creating game advantages for certain groups of players since all are provided with equal opportunities to use server resources. 
+如果您不想使用这些常规资源，您可以仅购买[Steam上的入门套件](http://store.steampowered.com/app/464350)。
+服务器上将为您保留至少20CPU，但它不会随着您的游戏级别而增长。
+这同样是玩Screeps的绝佳方式，因为我们有一个独立的非订阅世界，您可以在其中与其他非订阅玩家平等竞争。
 
-If you don’t wish to use such resources on general terms, you can just confine yourself to purchasing a [starter kit on Steam](http://store.steampowered.com/app/464350). A minimum 20 CPU amount will be reserved for you on the server, but it won’t grow following your game level. That's a perfectly fine way to play Screeps too, since we have a standalone non-subscription world shard, where you can compete with other non-subscription players on equal terms.
+**译者注：**截止至2019年8月，官方服务器共有四 shard（shard0 - shard3）。无论是否订阅，shard3 均为 20 CPU。
+大约2018年10月以前，入门套餐为10 CPU送1个月订阅。
 
-## See also
+## 参见
 
-*   [How does CPU limit work](/cpu-limit.html)
-*   [Control](/control.html)
-*   [In-game Subscription Tokens](/market.html#Subscription-Tokens)
+*   [CPU限制是如何工作的？](/cpu-limit.html)
+*   [控制](/control.html)
+*   [订阅代币](/market.html#Subscription-Tokens)

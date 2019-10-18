@@ -2,19 +2,19 @@
 
 <img src="img/terminal.png" alt="" align="right" />
 
-Sends any resources to a Terminal in another room. The destination Terminal can belong to any player. 
-Each transaction requires additional energy (regardless of the transfer resource type) that can be 
-calculated using [`Game.market.calcTransactionCost`](#Game.market.calcTransactionCost) method. 
-For example, sending 1000 mineral units from W0N0 to W10N5 will consume 742 energy units. 
-You can track your incoming and outgoing transactions using the [`Game.market`](#Game.market) object. 
-Only one Terminal per room is allowed that can be addressed by [`Room.terminal`](#Room.terminal) property.
+终端可以发送任意资源到另一个房间的终端。目标终端可以属于任何一个玩家。
+每个事务都需要额外消耗能量（无论传输资源类型如何），
+可以使用[`Game.market.calcTransactionCost`](#Game.market.calcTransactionCost)计算所需能量。
+例如，从W0N0发送1000单位矿物到W10N5需要消耗742单位能量。
+你可以使用[`Game.market`](#Game.market)对象跟踪你的收入和支出事务。
+一个房间只会有一个终端，所以可以通过[`Room.terminal`](#Room.terminal)属性访问。
 
-Terminals are used in the [Market system](/market.html).
+终端可以用于[交易系统](/market.html).
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td colspan="2"><strong>Controller level</strong></td>
+        <td colspan="2"><strong>控制中心等级</strong></td>
     </tr>
     <tr>
         <td>1-5</td>
@@ -25,19 +25,19 @@ Terminals are used in the [Market system](/market.html).
         <td>1 terminal</td>
     </tr>
     <tr>
-        <td><strong>Cost</strong></td>
+        <td><strong>建筑成本</strong></td>
         <td>100,000</td>
     </tr>
     <tr>
-        <td><strong>Hits</strong></td>
+        <td><strong>生命值</strong></td>
         <td>3,000</td>
     </tr>
     <tr>
-        <td><strong>Capacity</strong></td>
+        <td><strong>容量</strong></td>
         <td>300,000</td>
     </tr>
     <tr>
-        <td><strong>Cooldown on send</strong></td>
+        <td><strong>冷却时间</strong></td>
         <td>10 ticks</td>
     </tr>
     </tbody>
@@ -47,14 +47,14 @@ Terminals are used in the [Market system](/market.html).
 
 {% api_property cooldown 'number' %}
 
-The remaining amount of ticks while this terminal cannot be used to make [`StructureTerminal.send`](#StructureTerminal.send) or [`Game.market.deal`](#Game.market.deal) calls.
+这个终端不能调用[`StructureTerminal.send`](#StructureTerminal.send)或[`Game.market.deal`](#Game.market.deal)的剩余tick。
 
 
 {% api_property store 'object' %}
 
 ```javascript
 if( !(RESOURCE_UTRIUM in Game.rooms['W1N1'].terminal.store) ) {
-    // need more utrium!
+    // 需要更多utrium!
 }
 ```
 
@@ -81,20 +81,20 @@ Game.rooms['W1N1'].terminal.send(RESOURCE_UTRIUM, 100, 'W2N3',
 	'trade contract #1');
 ```
 
-Sends resource to a Terminal in another room with the specified name.
+发送资源给指定房间的终端
 
 {% api_method_params %}
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount : number
-The amount of resources to be sent. The minimum amount is 100.
+发送资源数量。最小100。
 ===
 destination : string
-The name of the target room. You don't have to gain visibility in this room.
+目标房间名称。这个房间不需要对你可见。
 ===
 description (optional) : string
-The description of the transaction. It is visible to the recipient. The maximum length is 100 characters.
+这个事务的备注。它只对收件人可见。最大长度100字符。
 {% endapi_method_params %}
 
 
@@ -104,30 +104,30 @@ The description of the transaction. It is visible to the recipient. The maximum 
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个建筑的拥有者。
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have the required amount of resources.
-ERR_INVALID_ARGS | The arguments provided are incorrect.
-ERR_TIRED | The terminal is still cooling down. 
+ERR_NOT_ENOUGH_RESOURCES | 这个建筑没有对应数量的资源。
+ERR_INVALID_ARGS | 无效参数。
+ERR_TIRED | 这个终端依然在冷却中。
 {% endapi_return_codes %}
 
 
 
-{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
+{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "请使用[`Creep.withdraw`](#Creep.withdraw)替代。"}' %}
 
 ```javascript
 Game.rooms['W1N1'].terminal.transfer(creep, RESOURCE_ENERGY);
 ```
 
-Transfer resource from this terminal to a creep. The target has to be at adjacent square. You can transfer resources to your creeps from hostile structures as well.
+从终端传递资源给creep。目标必须在相邻的方格里。你也可以从敌对建筑物传递资源给你的creep。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
-The target object.
+目标creep对象。
 ===
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
+被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
 {% endapi_method_params %}
 
 
@@ -136,14 +136,14 @@ The amount of resources to be transferred. If omitted, all the available amount 
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
-ERR_INVALID_TARGET | The target is not a valid object which can contain energy.
-ERR_FULL | The target cannot receive any more energy.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The energy amount is incorrect.
-ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this structure.
-ERR_TIRED | The terminal is still cooling down.
+ERR_NOT_OWNER | 你不是目标creep的拥有者，或者这个建筑上有建有敌对堡垒。
+ERR_NOT_ENOUGH_RESOURCES | 这个建筑内的资源少于给定的数量。
+ERR_INVALID_TARGET | 目标无法接受能量。
+ERR_FULL | 目标无法接受更多能量。
+ERR_NOT_IN_RANGE | 目标太远了。
+ERR_INVALID_ARGS | 资源数量不正确。
+ERR_RCL_NOT_ENOUGH | 你的房间控制等级不足。
+ERR_TIRED | 这个终端依然在冷却中。
 {% endapi_return_codes %}
 
 
