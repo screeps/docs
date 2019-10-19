@@ -1,27 +1,24 @@
 title: 资源
 ---
 
-There are 4 kinds of resources in the game: **energy**, **minerals**, **power**, and **commodities**. 
-Resources can be harvested, processed, traded on the market, carried by creeps, and stored in structures.
-All resource kinds have different purposes, and you start playing only with access to the most basic one: energy.
+游戏中有 4 种资源：**能源(energy)**，**矿物(minerals)**，**超能(power)**和**商品(commodities)**。资源可以被采集，加工，在市场上交易，由 creeps 携带并存储在建筑物中。所有资源类型都有不同的用途，您只有在获得最基本的资源（能源）的情况下才能开始游戏。
 
 ## 能量
 
 {% note info %}
-**Where to get:** a [`Source`](/api/#Source) in almost any room. <br>
-**How to get:** send a creep with a `WORK` part and [`harvest`](/api/#Creep.harvest) it. <br>
-**Needed for:** spawning creeps, building structures.
+**从哪里获取:** 绝大多数房间中都有的 [`Source`](/api/#Source) 结构. <br>
+**怎么样获取:** 派遣一个拥有 `WORK` 身体部件的 creep 来 [`采集(harvest)`](/api/#Creep.harvest) 它。<br>
+**用来干什么:** 孵化 creeps，建造建筑。
 {% endnote %} 
 
-Energy is the main construction material in the Screeps world. Your base works on energy, so harvesting plenty of it is vital for any colony.
-You can harvest energy not only in your home room, but also in other rooms remotely to increase energy income.
+能量是 Screeps 世界中的主要建筑材料。你的基地运转依赖于能量。所以采集更多的能量对于每个领地都至关重要。你不仅可以从占领的房间里采集能量，同样可以从其他房间里采集能量来提高收入。
 
 ## 矿物
 
 {% note info %}
-**Where to get:** a [`Mineral`](/api/#Mineral) in almost any room. <br>
-**How to get:** build a [`Structure{% resource 'Extract' %}or`](/api/#Structure{% resource 'Extract' %}or), send a creep with a `WORK` part, and [`harvest`](/api/#Creep.harvest) it. <br>
-**Needed for:** boosting creeps' capabilities, and also for producing trade commodities.
+**从哪里获取:** 绝大多数房间中都有的 [`Mineral`](/api/#Mineral) 结构。 <br>
+**怎么样获取:** 建造一个 [`StructureExtractor`](/api/#StructureExtractor), 然后派遣一个拥有 `WORK` 身体部件的 creep 来 [`采集(harvest)`](/api/#Creep.harvest) 它。<br>
+**用来干什么:** 强化 creep 的能力, 或者生产贸易商品。
 {% endnote %}
 
 如果能量保证了 creep 的小米步枪，矿物则能为其提供坚船利炮。通过开采及使用矿物，玩家可加速其经济建设及提高其 creep 的工作效率。
@@ -70,8 +67,6 @@ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件
 玩家可用 [`StructureLab.boostCreep`](/api/#StructureLab.boostCreep) 来强化 Creep 的[部件](creeps.html)，各化合物的强化效果见下表。一个被强化过的部件能顶多个未被强化的部件。要想完全强化一个 creep ，玩家得逐一强化该 creep 的部件。 
 
 强化一个部件需要 30 单位的化合物及 20 单位的能量，且一个部件只能被一种化合物强化。
-
-**译者注：**元素、化合物名称的各单词取首及为其符号简写，中文译名见末表
 
 <style>
 .minerals,
@@ -264,7 +259,7 @@ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件
 <td>30% 伤害减免</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Tier 2 compounds</th>
+<th colspan="5" align="center">二级化合物</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/UH2O.png)utrium acid</td>
@@ -337,7 +332,7 @@ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件
 <td>50% 伤害减免</td>
 </tr>
 <tr class=minerals__divider>
-<th colspan="5" align="center">Tier 3 compounds</th>
+<th colspan="5" align="center">三级化合物</th>
 </tr>
 <tr>
 <td>![](//static.screeps.com/upload/mineral-icons/XUH2O.png)catalyzed utrium acid</td>
@@ -415,77 +410,155 @@ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件
 </div>
 
 
-各矿物中译名：
+**译者注：**元素、化合物名称的各单词取首及为其符号简写，中文译名见下表。
 
-|原名|译名|
-|-|-|
-|HYDROGEN | 氢|
-|OXYGEN | 氧|
-|UTRIUM | 奥纯|
-|KEANIUM | 克安|
-|LEMERGIUM | 灵摩|
-|ZYNTHIUM | 仁笛|
-|CATALYST | 萃托|
-|zynthium keanite | 仁克|
-|utrium lemergite | 奥灵|
-|GHODIUM | 寇丁|
-|hydroxide | 氢氧|
-|utrium hydride | 氢化奥纯|
-|utrium oxide | 氧化奥纯|
-|utrium acid | 奥纯酸|
-|utrium alkalide | 奥纯碱|
-|catalyzed utrium acid | 萃奥纯酸|
-|catalyzed utrium alkalide | 萃奥纯碱|
-
-
-## Power
-
-{% note info %}
-**Where to get:** a [`StructurePowerBank`](/api/#StructurePowerBank) in "highway" rooms. <br>
-**How to get:** destroy the structure and loot the dropped resource. <br>
-**Needed for:** creating Power Creeps.
-{% endnote %}
-
-See this article for more info: [Power](power.html).
-
-## Commodities
-
-{% note info %}
-**Where to get:** a [`Deposit`](/api/#Deposit) in "highway" rooms. <br>
-**How to get:** send a creep with a `WORK` part and [`harvest`](/api/#Creep.harvest) it. <br>
-**Needed for:** producing trade commodities and earning credits.
-{% endnote %}
-
-Trade commodities are resources that NPC market traders are most interested in. These resources have no other purpose
-other than to be sold and generate credits. Producing high-level commodities is the most profitable business in the game.
-
-
-### Harvesting
-
-You harvest raw commodities from a [`Deposit`](/api/#Deposit) in "highway" rooms that divide living sectors on the map.
-There are 4 types of raw resources: Metal, Silicon, Biomass, Mist. 
-They are distributed unevenly across the world map: one resource type per map quadrant (NW, NE, SW, SE). 
-
-![](img/commodities.png)
-
-Unlike minerals, these deposits exhaust as you harvest them: the more you harvest, the longer cooldown becomes. 
-They vanish when you stop harvesting it after some time, and reappear elsewhere nearby. 
-Also, a new deposit will appear in the sector if all other deposits are exhausted below some level.
-
-### Basic commodities
-
-Selling raw resources may be not very profitable. 
-This is why it's a better idea to build a [**Factory**](/api/#StructureFactory) (available at RCL 7) in order to [`produce`](/api/#StructureFactory.produce) more complex commodities.
-
-A newly built factory has no level which means it can produce just a few basic commodities out of all kinds of existing resources ("any level" tier in the tables below). 
-They also can be used to store resources in a "compressed" form.
 
 <div class="collapsible-table">
 
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Compressing commodities</span>
-<em>(click to expand)</em>
+<span>矿物中译名</span>
+<em>(点击展开)</em>
+</div>
+
+<div class="collapsible-table__content">
+
+<table class="minerals">
+<colgroup>
+<col></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr class=minerals__head>
+<th>原名</th>
+<th>译名</th>
+</tr>
+<tr class=minerals__divider>
+<th colspan="5" align="center">基本元素</th>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/H.png) HYDROGEN</td>
+<td>氢</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/O.png) OXYGEN</td>
+<td>氧</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/U.png) UTRIUM</td>
+<td>奥纯</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/K.png) KEANIUM</td>
+<td>克安</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/L.png) LEMERGIUM</td>
+<td>灵摩</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/Z.png) ZYNTHIUM</td>
+<td>仁笛</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/X.png) CATALYST</td>
+<td>萃托</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/G.png) GHODIUM</td>
+<td>寇丁</td>
+</tr>
+<tr class=minerals__divider>
+<th colspan="5" align="center">一级化合物</th>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/ZK.png) zynthium keanite</td>
+<td>仁克</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/UL.png) utrium lemergite</td>
+<td>奥灵</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/OH.png) hydroxide</td>
+<td>氢氧</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/UH.png) utrium hydride</td>
+<td>氢化奥纯</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/UO.png) utrium oxide</td>
+<td>氧化奥纯</td>
+</tr>
+<tr class=minerals__divider>
+<th colspan="5" align="center">二级化合物</th>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/UH2O.png) utrium acid</td>
+<td>奥纯酸</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/UHO2.png) utrium alkalide</td>
+<td>奥纯碱</td>
+</tr>
+<tr class=minerals__divider>
+<th colspan="5" align="center">三级化合物</th>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/XUH2O.png) catalyzed utrium acid</td>
+<td>萃奥纯酸</td>
+</tr>
+<tr>
+<td>![](//static.screeps.com/upload/mineral-icons/XUHO2.png) catalyzed utrium alkalide</td>
+<td>萃奥纯碱</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+## 超能
+
+{% note info %}
+**从哪里获取:** 高速公路房间中的 [`StructurePowerBank`](/api/#StructurePowerBank) 结构. <br>
+**怎么样获取:** 摧毁该结构并搜刮掉落的资源<br>
+**用来干什么:** 创造超能 creep。
+{% endnote %} 
+
+查看该文章来了解更多信息: [超能](power.html).
+
+## 商品
+
+{% note info %}
+**从哪里获取:** 高速公路房间中的 [`Deposit`](/api/#StructurePowerBank) 结构. <br>
+**怎么样获取:** 派遣一个包含 `WORK` 身体部件的 creep 来 [`采集`](/api/#Creep.harvest) 它。<br>
+**用来干什么:** 生产交易商品来赚取积分 (credits)。
+{% endnote %} 
+
+商品是 NPC 市场交易者最感兴趣的资源。这些资源除了被出售和赚取 credits 外没有其他任何作用。 生产高级商品是游戏中最赚钱的业务。
+
+### 采集
+
+您可以从“高速公路”房间中的沉积物中提取原始资源，“高速公路”是指地图上不同区域之间的房间。有4种原始资源：金属(Metal)，硅(Silicon)，生物质(Biomass)，迷雾(Mist)。 它们在世界地图上并不是均匀分布的：每个地图象限（西北，东北，西南，东南）一种资源类型。
+
+![](img/commodities.png)
+
+与矿物不同，这些沉积物(deposits)在采集(harvest)时会耗尽：采集的越多，重生时间就越长。当您停止采集一段时间后，沉积物将会消失并重新出现在附近的其他地方。此外，如果某区块的沉积物都被消耗到一定水平之下，则会出现新的沉积物。
+
+### 基础商品
+
+出售原始资源可能不是很赚钱。这就是为什么最好建造一个 [**工厂(Factory)**](/api/#StructureFactory) (在 RCL 7 时解锁)，以便 [生产(`produce`)](/api/#StructureFactory.produce) 更复杂的商品的原因。
+
+刚刚建立的工厂是没有等级的，这意味着它只能从各种现有资源中生产几种基本商品（下表中的“每一级”商品）。它们还可以用于以“压缩”任何资源。
+
+<div class="collapsible-table">
+
+<div class="collapsible-table__header">
+<i class="fa fa-plus-square"></i>
+<span>压缩商品</span>
+<em>(点击展开)</em>
 ![](img/commodities1.png)
 </div>
 
@@ -493,101 +566,101 @@ They also can be used to store resources in a "compressed" form.
 <table class="commodities">
 <tbody>
 <tr class=commodities__head>
-<th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th>
+<th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th>
 </tr> 
-<tr><td>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/U.png)Utrium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource "Lemergium bar" %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/L.png)Lemergium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/Z.png)Zynthium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/K.png)Keanium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Ghodium melt' %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/G.png)Ghodium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/O.png)Oxygen&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/H.png)Hydrogen&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Purifier' %}&nbsp;&times;&nbsp;<em>100</em></td><td>Any level</td><td>![](//static.screeps.com/upload/mineral-icons/X.png)Catalyst&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Battery' %}&nbsp;&times;&nbsp;<em>50</em></td><td>Any level</td><td>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>600</em></td><td>10&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/U.png)Utrium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource "Lemergium bar" %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/L.png)Lemergium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/Z.png)Zynthium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/K.png)Keanium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Ghodium melt' %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/G.png)Ghodium&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/O.png)Oxygen&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/H.png)Hydrogen&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Purifier' %}&nbsp;&times;&nbsp;<em>100</em></td><td>全等级通用</td><td>![](//static.screeps.com/upload/mineral-icons/X.png)Catalyst&nbsp;&times;&nbsp;<em>500</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Battery' %}&nbsp;&times;&nbsp;<em>50</em></td><td>全等级通用</td><td>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>600</em></td><td>10&nbsp;ticks</td></tr>
 </tbody>
 </table>
 
 </div>
 </div>
  
- You can decompress to recover raw resources when you need them. 
+您也可以在需要时解压它们来恢复原始资源。
  
  <div class="collapsible-table">
  
  <div class="collapsible-table__header">
  <i class="fa fa-plus-square"></i>
- <span>Decompressing commodities</span>
- <em>(click to expand)</em>
+ <span>解压商品</span>
+ <em>(点击展开)</em>
  ![](img/commodities2.png)
  </div>
  
  <div class="collapsible-table__content">
  <table class="commodities">
- <tr class="commodities__head"><th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th></tr> 
- <tr><td>![](//static.screeps.com/upload/mineral-icons/U.png)Utrium&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>![](//static.screeps.com/upload/mineral-icons/L.png)Lemergium&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Lemergium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>![](//static.screeps.com/upload/mineral-icons/Z.png)Zynthium&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>![](//static.screeps.com/upload/mineral-icons/K.png)Keanium&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>![](//static.screeps.com/upload/mineral-icons/G.png)Ghodium&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Ghodium melt' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>![](//static.screeps.com/upload/mineral-icons/O.png)Oxygen&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>![](//static.screeps.com/upload/mineral-icons/H.png)Hydrogen&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>![](//static.screeps.com/upload/mineral-icons/X.png)Catalyst&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Purifier' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
- <tr><td>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>500</em></td><td>Any level</td><td>{% resource 'Battery' %}&nbsp;&times;&nbsp;<em>50</em></td><td>10&nbsp;ticks</td></tr>
+ <tr class="commodities__head"><th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th></tr> 
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/U.png)Utrium&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/L.png)Lemergium&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Lemergium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/Z.png)Zynthium&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/K.png)Keanium&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/G.png)Ghodium&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Ghodium melt' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/O.png)Oxygen&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/H.png)Hydrogen&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>![](//static.screeps.com/upload/mineral-icons/X.png)Catalyst&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Purifier' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>200</em></td><td>20&nbsp;ticks</td></tr>
+ <tr><td>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>500</em></td><td>全等级通用</td><td>{% resource 'Battery' %}&nbsp;&times;&nbsp;<em>50</em></td><td>10&nbsp;ticks</td></tr>
  </table> 
 
  </div>
  </div>
- 
- When you gain access to regional deposit resources, you can start producing additional basic commodities from them.
+
+当您获得区域性沉积资源后，您就可以开始使用他们来生产其他基本商品。
  
 <div class="collapsible-table">
 
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Basic regional commodities</span>
-<em>(click to expand)</em>
+<span>基本区域性商品</span>
+<em>(点击展开)</em>
 ![](img/commodities3.png)
 </div>
 
 <div class="collapsible-table__content">
 <table class="commodities">
-<tr class="commodities__head"><th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th></tr> 
-<tr><td>{% resource 'Wire' %}&nbsp;&times;&nbsp;<em>20</em></td><td>Any level</td><td>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Silicon' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Cell' %}&nbsp;&times;&nbsp;<em>20</em></td><td>Any level</td><td>{% resource 'Lemergium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Biomass' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td>
-<tr><td>{% resource 'Alloy' %}&nbsp;&times;&nbsp;<em>20</em></td><td>Any level</td><td>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Metal' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td></tr>
-<tr><td>{% resource 'Condensate' %}&nbsp;&times;&nbsp;<em>20</em></td><td>Any level</td><td>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Mist' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td></tr>
+<tr class="commodities__head"><th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th></tr> 
+<tr><td>{% resource 'Wire' %}&nbsp;&times;&nbsp;<em>20</em></td><td>全等级通用</td><td>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Silicon' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Cell' %}&nbsp;&times;&nbsp;<em>20</em></td><td>全等级通用</td><td>{% resource 'Lemergium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Biomass' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td>
+<tr><td>{% resource 'Alloy' %}&nbsp;&times;&nbsp;<em>20</em></td><td>全等级通用</td><td>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Metal' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td></tr>
+<tr><td>{% resource 'Condensate' %}&nbsp;&times;&nbsp;<em>20</em></td><td>全等级通用</td><td>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Mist' %}&nbsp;&times;&nbsp;<em>100</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>40</em></td><td>8&nbsp;ticks</td></tr>
 </table>
 </div>
 </div>
 
-All commodities above can be produced in a factory of any level.
+上述的所有商品都可以从任何等级的工厂中生产。
 
-### Higher commodities
+### 高级商品
   
-The full use of factories is possible with [Operators](power.html#Power-Creeps) only, and their `OPERATE_FACTORY` power. 
-When an Operator uses this power on a factory without a level, the level of the factory is permanently set to the level of the power, and the same effect is applied on the factory. 
-It enables the factory to produce commodities of the corresponding level. 
-The factory can only produce commodities of exactly the same level, or "any level" commodities. 
-Once set, the factory level cannot be changed. 
-When the effect duration ends, the factory simply becomes inactive, but its level remains the same ("any level" commodities are still available though). 
-You need an Operator with the same power level to reactivate it again. 
-Another level cannot be applied, the only way to change the factory level is to rebuild it.
+只有 [操作员(Operators)](power.html#Power-Creeps) 和它的 `OPERATE_FACTORY` 能力才能使工厂全功率运作。
+当一个操作员对一个没有等级的工厂使用了他的能力后，工厂的等级就会被锁定到和能力相同的等级，并且超能效果会停留在工厂上。
+该能力会使得工厂可以生产对应等级的商品。
+即工厂只能生产该等级的商品或者”全等级通用“商品。
+一旦进行了设置，该工厂的等级将无法被修改。
+当效果持续时间结束后，工厂将不再工作，但是其等级依旧会保留（依旧可以生产”全等级通用“商品）。
+此时您就需要使用操作员使用相同等级的能力来重新激活它。
+注意，工厂的等级无法被其他等级的超能修改，只有重新建造才能改变工厂的等级。
   
-Each of high-level commodities requires lower level commodities to be produced which forms production chains. There are four production chains, one for each of new resource types: 
-**Mechanical** (consumes Metal), **Electronical** (consumes Silicon), **Biological** (consumes Biomass), and **Mystical** (consumes Mist), as well as common components. 
-These commodities have the most lucrative prices on the market.
+每一个高等级的商品都需要其对应产业链上的低等级产品才能进行生产。游戏里一共有四条产业链，每种类型的新资源对应其中的一条：
+**机械(Mechanical)** (消耗金属), **电子(Electronical)** (消耗硅), **生物(Biological)** (消耗生物质), **奥秘(Mystical)** (消耗迷雾), 以及常规商品。 
+这些货物是市场上最值钱。
 
 <div class="collapsible-table">
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Common higher commodities</span>
-<em>(click to expand)</em>
+<span>常规高等商品</span>
+<em>(点击展开)</em>
 ![](img/commodities4.png)
 </div>
 
 <div class="collapsible-table__content">
 <table class="commodities">
-<tr class="commodities__head"><th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th></tr> 
+<tr class="commodities__head"><th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th></tr> 
 <tr><td>{% resource 'Composite' %}&nbsp;&times;&nbsp;<em>20</em></td><td>Lvl 1</td><td>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>20</em></td><td>50&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Crystal' %}&nbsp;&times;&nbsp;<em>6</em></td><td>Lvl 2</td><td>{% resource 'Lemergium bar' %}&nbsp;&times;&nbsp;<em>6</em><br>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>6</em><br>{% resource 'Purifier' %}&nbsp;&times;&nbsp;<em>6</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>45</em></td><td>21&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Liquid' %}&nbsp;&times;&nbsp;<em>12</em></td><td>Lvl 3</td><td>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>12</em><br>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>12</em><br>{% resource 'Ghodium melt' %}&nbsp;&times;&nbsp;<em>12</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>90</em></td><td>60&nbsp;ticks</td></tr>
@@ -598,14 +671,14 @@ These commodities have the most lucrative prices on the market.
 <div class="collapsible-table">
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Mechanical chain</span>
-<em>(click to expand)</em>
+<span>机械 (Mechanical) 产业链</span>
+<em>(点击展开)</em>
 ![](img/commodities5.png)
 </div>
 
 <div class="collapsible-table__content">
 <table class="commodities">
-<tr class="commodities__head"><th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th></tr>
+<tr class="commodities__head"><th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th></tr>
 <tr><td>{% resource 'Tube' %}&nbsp;&times;&nbsp;<em>2</em></td><td>Lvl 1</td><td>{% resource 'Alloy' %}&nbsp;&times;&nbsp;<em>40</em><br>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>16</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>8</em></td><td>45&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Fixtures' %}</td><td>Lvl 2</td><td>{% resource 'Composite' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Alloy' %}&nbsp;&times;&nbsp;<em>41</em><br>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>161</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>8</em></td><td>115&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Frame' %}</td><td>Lvl 3</td><td>{% resource 'Fixtures' %}&nbsp;&times;&nbsp;<em>2</em><br>{% resource 'Tube' %}&nbsp;&times;&nbsp;<em>4</em><br>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>330</em><br>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>31</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>16</em></td><td>125&nbsp;ticks</td></tr>
@@ -618,14 +691,14 @@ These commodities have the most lucrative prices on the market.
 <div class="collapsible-table">
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Biological chain</span>
-<em>(click to expand)</em>
+<span>生物 (Biological) 产业链</span>
+<em>(点击展开)</em>
 ![](img/commodities6.png)
 </div>
 
 <div class="collapsible-table__content">
 <table class="commodities">
-<tr class="commodities__head"><th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th></tr>
+<tr class="commodities__head"><th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th></tr>
 <tr><td>{% resource 'Phlegm' %}&nbsp;&times;&nbsp;<em>2</em></td><td>Lvl 1</td><td>{% resource 'Cell' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>36</em><br>{% resource 'Lemergium bar' %}&nbsp;&times;&nbsp;<em>16</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>8</em></td><td>35&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Tissue' %}&nbsp;&times;&nbsp;<em>2</em></td><td>Lvl 2</td><td>{% resource 'Phlegm' %}&nbsp;&times;&nbsp;<em>10</em><br>{% resource 'Cell' %}&nbsp;&times;&nbsp;<em>10</em><br>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>110</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>16</em></td><td>164&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Muscle' %}</td><td>Lvl 3</td><td>{% resource 'Tissue' %}&nbsp;&times;&nbsp;<em>3</em><br>{% resource 'Phlegm' %}&nbsp;&times;&nbsp;<em>3</em><br>{% resource 'Zynthium bar' %}&nbsp;&times;&nbsp;<em>50</em><br>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>50</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>16</em></td><td>250&nbsp;ticks</td></tr>
@@ -638,14 +711,14 @@ These commodities have the most lucrative prices on the market.
 <div class="collapsible-table">
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Electronical chain</span>
-<em>(click to expand)</em>
+<span>电子 (Electronical) 产业链</span>
+<em>(点击展开)</em>
 ![](img/commodities7.png)
 </div>
 
 <div class="collapsible-table__content">
 <table class="commodities">
-<tr class="commodities__head"><th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th></tr>
+<tr class="commodities__head"><th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th></tr>
 <tr><td>{% resource 'Switch' %}&nbsp;&times;&nbsp;<em>5</em></td><td>Lvl 1</td><td>{% resource 'Wire' %}&nbsp;&times;&nbsp;<em>40</em><br>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>95</em><br>{% resource 'Utrium bar' %}&nbsp;&times;&nbsp;<em>35</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>20</em></td><td>70&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Transistor' %}</td><td>Lvl 2</td><td>{% resource 'Switch' %}&nbsp;&times;&nbsp;<em>4</em><br>{% resource 'Wire' %}&nbsp;&times;&nbsp;<em>15</em><br>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>85</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>8</em></td><td>59&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Microchip' %}</td><td>Lvl 3</td><td>{% resource 'Transistor' %}&nbsp;&times;&nbsp;<em>2</em><br>{% resource 'Composite' %}&nbsp;&times;&nbsp;<em>50</em><br>{% resource 'Wire' %}&nbsp;&times;&nbsp;<em>117</em><br>{% resource 'Purifier' %}&nbsp;&times;&nbsp;<em>25</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>16</em></td><td>250&nbsp;ticks</td></tr>
@@ -658,14 +731,14 @@ These commodities have the most lucrative prices on the market.
 <div class="collapsible-table">
 <div class="collapsible-table__header">
 <i class="fa fa-plus-square"></i>
-<span>Mystical chain</span>
-<em>(click to expand)</em>
+<span>奥秘 (Mystical) 产业链</span>
+<em>(点击展开)</em>
 ![](img/commodities8.png)
 </div>
 
 <div class="collapsible-table__content">
 <table class="commodities">
-<tr class="commodities__head"><th>Product</th><th>Factory</th><th>Components</th><th>Cooldown</th></tr>
+<tr class="commodities__head"><th>产品</th><th>工厂等级</th><th>材料</th><th>冷却</th></tr>
 <tr><td>{% resource 'Concentrate' %}&nbsp;&times;&nbsp;<em>3</em></td><td>Lvl 1</td><td>{% resource 'Condensate' %}&nbsp;&times;&nbsp;<em>30</em><br>{% resource 'Keanium bar' %}&nbsp;&times;&nbsp;<em>15</em><br>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>54</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>12</em></td><td>41&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Extract' %}&nbsp;&times;&nbsp;<em>2</em></td><td>Lvl 2</td><td>{% resource 'Concentrate' %}&nbsp;&times;&nbsp;<em>10</em><br>{% resource 'Condensate' %}&nbsp;&times;&nbsp;<em>30</em><br>{% resource 'Oxidant' %}&nbsp;&times;&nbsp;<em>60</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>16</em></td><td>128&nbsp;ticks</td></tr>
 <tr><td>{% resource 'Spirit' %}</td><td>Lvl 3</td><td>{% resource 'Extract' %}&nbsp;&times;&nbsp;<em>2</em><br>{% resource 'Concentrate' %}&nbsp;&times;&nbsp;<em>6</em><br>{% resource 'Reductant' %}&nbsp;&times;&nbsp;<em>90</em><br>{% resource 'Purifier' %}&nbsp;&times;&nbsp;<em>20</em><br>{% resource 'Energy' %}&nbsp;&times;&nbsp;<em>16</em></td><td>200&nbsp;ticks</td></tr>
