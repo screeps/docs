@@ -16,21 +16,28 @@ during its lifetime.
 <table class="table gameplay-info">
     <tbody>
     <tr>
+        <td><strong>Hits</strong></td>
+        <td>100,000</td>
+    </tr>
+    <tr>
         <td><strong>Deploy time</strong></td>
         <td>5,000 ticks</td>
     </tr>
     <tr>
         <td><strong>Active time</strong></td>
-        <td>80,000 ticks</td>
+        <td>80,000 ticks with 10% random variation</td>
     </tr>
     <tr>
-        <td><strong>Spawns lesser cores</strong></td>
-        <td>Every 2,000 ticks</td>
+        <td><strong>Lesser cores spawn interval</strong></td>
+        <td>
+            <b>Stronghold level 1</b>: 4000 ticks<br>
+            <b>Stronghold level 2</b>: 3500 ticks<br>
+            <b>Stronghold level 3</b>: 3000 ticks<br>
+            <b>Stronghold level 4</b>: 2500 ticks<br>
+            <b>Stronghold level 5</b>: 2000 ticks<br>
+        </td>
     </tr>
-    <tr>
-        <td><strong>Hits</strong></td>
-        <td>100,000</td>
-    </tr>
+    
     
     </tbody>
 </table>
