@@ -20,7 +20,7 @@ You can harvest energy not only in your home room, but also in other rooms remot
 
 {% note info %}
 **Where to get:** a [`Mineral`](/api/#Mineral) in almost any room. <br>
-**How to get:** build a [`Structure{% resource 'Extract' %}or`](/api/#Structure{% resource 'Extract' %}or), send a creep with a `WORK` part, and [`harvest`](/api/#Creep.harvest) it. <br>
+**How to get:** build a [`StructureExtractor`](/api/#StructureExtractor), send a creep with a `WORK` part, and [`harvest`](/api/#Creep.harvest) it. <br>
 **Needed for:** boosting creeps' capabilities, and also for producing trade commodities.
 {% endnote %}
 
@@ -36,7 +36,7 @@ There are 7 types of base minerals shown in the picture below.
  
 Each room contains only one mineral type, so in order to handle them effectively you need either access to several suitable rooms or trade relationships with other players.
 
-<img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**{% resource 'Extract' %}or**](/api/#Structure{% resource 'Extract' %}or) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
+<img src="img/mining_minerals.png" align="right">A mineral deposit is located in a room at a spot marked by a special symbol. To start mining the deposit, you need to construct the special structure [**Extractor**](/api/#StructureExtractor) on top of it (available at Room Controller Level 6). Upon building it, you can start applying the method [`harvest`](/api/#Creep.harvest) to the deposit thus mining the corresponding mineral in the same way you harvest energy.
 
 ### Mineral compounds
 
