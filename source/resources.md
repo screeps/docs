@@ -409,16 +409,6 @@ Boosting one body part takes 30 mineral compound units and 20 energy units. One 
 </div>
 
 
-## Power
-
-{% note info %}
-**Where to get:** a [`StructurePowerBank`](/api/#StructurePowerBank) in "highway" rooms. <br>
-**How to get:** destroy the structure and loot the dropped resource. <br>
-**Needed for:** creating Power Creeps.
-{% endnote %}
-
-See this article for more info: [Power](power.html).
-
 ## Commodities
 
 {% note info %}
@@ -645,3 +635,14 @@ These commodities have the most lucrative prices on the market.
 </table>
 </div>
 </div>
+
+
+## Power
+
+{% note info %}
+**Where to get:** a [`StructurePowerBank`](/api/#StructurePowerBank) in "highway" rooms. <br>
+**How to get:** destroy the structure and loot the dropped resource. <br>
+**Needed for:** creating Power Creeps.
+{% endnote %}
+
+See this article for more info: [Power](power.html).
