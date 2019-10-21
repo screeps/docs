@@ -59,26 +59,24 @@ title: NPC 入侵者
 
 ![](img/chrome_2016-11-24_14-55-59.png)
 
-## Strongholds
+## 要塞 (Stronghold)
 
-If invaders started raiding your rooms, check your map sector &mdash; there will be their home base somewhere. 
-This NPC Stronghold can be attacked and destroyed, which will cause invaders to stop appearing in your rooms until the next stronghold spawns.
+如果入侵者开始袭击您的房间，请检查您的区域地图 &mdash; 他们的基地就在区块内的某个房间内。该 NPC 要塞可以被攻击和摧毁，一旦被摧毁，区块内的所有房间将不再刷新入侵者，直到下一个要塞出现为止。
 
-Each NPC Stronghold has the `EFFECT_COLLAPSE_TIMER` on every structure. A new stronghold will appear somewhere in the sector almost immediately after the previous one has collapsed.
-If you destroy the stronghold, its ruins will remain with the same effect timer which gives you some invader-free time.
+每个 NPC 要塞的建筑上都有 `EFFECT_COLLAPSE_TIMER` 效果。当前一个要塞崩溃后，下一个会立刻出现在区块的某个房间内。
+如果您摧毁了要塞，它的废墟 (ruins) 将会保留同样的效果计时器，从而让您在这段时间内免受 NPC 的进攻。
 
-There are many stronghold types. Each type has different structures layout and defenders AI. 
-You can estimate stronghold's difficulty by checking the `level` property on the [`StructureInvaderCore`](/api/#StructureInvaderCore).
+要塞的类型有很多种，每种类型都有不同的建筑布局和防御 AI。您可以通过检查 [`StructureInvaderCore`](/api/#StructureInvaderCore) 上的 `level` 属性来估计该要塞的进攻难度。
 
 ![](img/stronghold1.png) ![](img/stronghold5.png)
 
-There is one more reason to conquer an NPC Stronghold &mdash; it contains resources in its treasury. 
-Every stronghold has a few containers, and the core structure ruin also will contain resources after you destroy it. 
-Here is an example of a level 5 stronghold loot:
+我们还有另一个理由来征服一个 NPC 要塞 &mdash; 他的仓库中存放着很多宝贵的资源。
+每一个要塞都有数个 container。并且在你摧毁核心建筑 (`StructureInvaderCore`) 之后，它的废墟也会包含大量的资源。
+以下是一个 5 级要塞战利品的例子：
 
 ![](img/stronghold_loot5.png) ![](img/stronghold_loot1.png) ![](img/stronghold_loot2.png) ![](img/stronghold_loot3.png) ![](img/stronghold_loot4.png)
 
-An active NPC Stronghold not only spawns invader creeps in the sector but also spawns lesser cores in rooms nearby every few thousands of ticks.
-Such cores will not have any structures or creeps, but will reserve the controller so that you cannot harvest energy in this room without destroying the core first. 
+一个正常的 NPC 要塞不仅会在区块中生成入侵者，并且每隔几千 ticks 还会在临近的房间内生成较小的要塞核心。
+这种核心不会包含任何建筑或者 creep。但是他会预定 (reserve) 房间的控制器，在摧毁它之前，您将无法从该房间采集能量。
 
 ![](img/invader-core-expand.gif)
