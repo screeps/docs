@@ -3,7 +3,7 @@
 <img src="img/lab.png" alt="" align="right" />
 
 Produces mineral compounds from base minerals, boosts and unboosts creeps. 
-Learn more about minerals from [this article](/minerals.html).
+Learn more about minerals from [this article](/resources.html).
 
 <table class="table gameplay-info">
     <tbody>
@@ -44,7 +44,7 @@ Learn more about minerals from [this article](/minerals.html).
     </tr>
     <tr>
         <td><strong>Reaction cooldown</strong></td>
-        <td>Depends on the reaction (see the REACTION_TIME [constant](/api/#Constants))</td>
+        <td>Depends on the reaction (see [this article](/resources.html))</td>
     </tr>
     <tr>
         <td><strong>Distance to input labs</strong></td>
@@ -63,31 +63,25 @@ Learn more about minerals from [this article](/minerals.html).
 
 
 
-The amount of game ticks the lab has to wait until the next reaction is possible.
+The amount of game ticks the lab has to wait until the next reaction or unboost operation is possible.
 
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in the lab. Energy is used for boosting creeps.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
-{% api_property energyCapacity 'number' %}
-
-
-
-The total amount of energy the lab can contain.
-
-
-
-{% api_property mineralAmount 'number' %}
-
-
-
-The amount of mineral resources containing in the lab.
+{% api_property mineralAmount 'number' '{"deprecated": true}' %}
+                                                                       
+An alias for [`lab.store[lab.mineralType]`](#StructureExtension.store).
 
 
 
@@ -99,12 +93,21 @@ The type of minerals containing in the lab. Labs can contain only one mineral ty
 
 
 
-{% api_property mineralCapacity 'number' %}
+{% api_property mineralCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                 
+An alias for [`lab.store.getCapacity(lab.mineralType || yourMineral)`](#Store.getCapacity).
 
 
+{% api_property store 'object' %}
 
-The total amount of minerals the lab can contain.
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
+
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method boostCreep 'creep, [bodyPartsCount]' A %}
@@ -166,39 +169,6 @@ ERR_INVALID_ARGS | The reaction cannot be run using this resources.
 ERR_TIRED | The lab is still cooling down.
 ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}
-
-
-
-{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-
-Transfer resource from this structure to a creep. 目标必须在相邻的方格里。 你也可以从敌对建筑物传递资源给你的creep。
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The target object.
-===
-resourceType : string
-<code>RESOURCE_*</code>常量之一。
-===
-amount (optional) : number
-被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
-{% endapi_method_params %}
-
-
-### 返回值
-
-如下错误码之一：
-{% api_return_codes %}
-OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是目标creep的拥有者，或者这个建筑上有建有敌对堡垒。
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
-ERR_INVALID_TARGET | The target is not a valid Creep object.
-ERR_FULL | 目标无法接受更多能量。
-ERR_NOT_IN_RANGE | 目标太远了。
-ERR_INVALID_ARGS | The amount or resource type is incorrect.
-{% endapi_return_codes %}
-
 
 
 {% api_method unboostCreep 'creep' A %}

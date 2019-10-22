@@ -105,7 +105,7 @@ function powerDescription(powerName) {
         return `Increase max limit of energy that can be used for upgrading a Level 8 Controller each tick by ${effectMetric()} energy units.`;
 
       case "OPERATE_FACTORY":
-        return `An unknown power.`;
+        return `Set the level of the factory to the level of the power. This action is permanent, it cannot be undone, and another power level cannot be applied. Apply the same power again to renew its effect.`;
     }
   }
 

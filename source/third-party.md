@@ -45,7 +45,7 @@ The Screeps API is not official and may change at any time. These clients are ma
 
 ## Apps
 
-*   [Screeps Monitor](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor) is an Android app that provides players with account and game statistics, as well as a full messaging client and a market history.
+*   [Screeps Monitor](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor) is an Android app that provides players with account and game statistics, as well as a full messaging client and a market history. (No longer available).
 
 
 ## Backups
@@ -90,7 +90,7 @@ Screeps runs constantly, and as a player it's not possible to watch everything t
 Pushing code to the server can be done using these plugins to common programs.
 
 *   [grunt-screeps](https://github.com/screeps/grunt-screeps) is written and maintained by the Screeps team. It used to upload code to the screeps server using [Grunt](https://gruntjs.com/).
-*   [gulp-screeps](https://github.com/pcmulder/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
+*   [gulp-screeps](https://github.com/screepers/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
 
 
 ## Web Client Extensions

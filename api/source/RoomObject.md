@@ -7,10 +7,10 @@
 
 {% api_method_params %}
 power : number
-效果的超能ID。
+被应用的效果id。可以是自然效果或者超能效果。
 ===
 level : number
-效果的超能。
+被应用的效果等级。如果不是超能效果的话则不存在。
 ===
 ticksRemaining : number
 多长时间之后会失去这个效果。

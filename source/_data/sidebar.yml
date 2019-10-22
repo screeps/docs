@@ -7,10 +7,10 @@ _:
   防御: /defense.html
   重生: /respawn.html
   初始区域: /start-areas.html
-  矿物: /minerals.html
+  资源: /resources.html
   市场: /market.html
   NPC 入侵者: /invaders.html
-  能量: /power.html
+  超能: /power.html
 脚本:
   脚本基础: /scripting-basics.html
   全局对象: /global-objects.html

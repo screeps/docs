@@ -1,7 +1,7 @@
 # Mineral
 
 A mineral deposit. Can be harvested by creeps with a `WORK` body part using the extractor structure. 
-Learn more about minerals from [this article](/minerals.html).
+Learn more about minerals from [this article](/resources.html).
 
 <table class="table gameplay-info">
     <tbody>

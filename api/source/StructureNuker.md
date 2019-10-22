@@ -62,35 +62,27 @@ Incoming nuke cannot be moved or cancelled. Nukes cannot be launched from or to 
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in this structure.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
-{% api_property energyCapacity 'number' %}
+{% api_property ghodium 'number' '{"deprecated": true}' %}
+                                                                 
+An alias for [`.store[RESOURCE_GHODIUM]`](#StructureExtension.store).
 
 
 
-The total amount of energy this structure can contain.
-
-
-
-{% api_property ghodium 'number' %}
-
-
-
-The amount of ghodium containing in this structure.
-
-
-
-{% api_property ghodiumCapacity 'number' %}
-
-
-
-The total amount of ghodium this structure can contain.
+{% api_property ghodiumCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                 
+An alias for [`.store.getCapacity(RESOURCE_GHODIUM)`](#Store.getCapacity).
 
 
 
@@ -99,6 +91,18 @@ The total amount of ghodium this structure can contain.
 
 
 The amount of game ticks until the next launch is possible.
+
+
+{% api_property store 'object' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
+
+
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 

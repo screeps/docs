@@ -46,7 +46,7 @@ room.find(FIND_TOMBSTONES).forEach(tombstone => {
 
 {% api_property store 'object' %}
 
-墓碑内容物对象。每一个键都是<code>RESOURCE_*</code>常量，值是资源数量。如果没有<code>RESOURCE_ENERGY</code>，它的值始终为0，而其他资源的值为undefined。你可以使用<a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a>来获得内容物总量。
+一个表示该结构所存储资源的 [`Store`](#Store) 对象。
 
 
 {% api_property ticksToDecay 'number' %}

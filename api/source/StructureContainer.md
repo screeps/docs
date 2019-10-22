@@ -55,8 +55,11 @@ const total = _.sum(container.store);
 {% api_property storeCapacity 'number' %}
 
 
+A [`Store`](#Store) object that contains cargo of this structure.
 
-The total amount of resources the structure can contain.
+{% api_property storeCapacity 'number' '{"deprecated": true}' %}
+                                       
+An alias for [`.store.getCapacity()`](#Store.getCapacity).
 
 
 
