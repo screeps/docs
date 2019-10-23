@@ -36,7 +36,7 @@ that can be addressed by [`Room.storage`](#Room.storage) property.</p>
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 A [`Store`](#Store) object that contains cargo of this structure.
 

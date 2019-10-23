@@ -55,7 +55,7 @@ if(!factory.level) {
 The factory's level. Can be set by applying the `PWR_OPERATE_FACTORY` power to a newly built factory. 
 Once set, the level cannot be changed. 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 A [`Store`](#Store) object that contains cargo of this structure.
 

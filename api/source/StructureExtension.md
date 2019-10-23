@@ -67,7 +67,7 @@ An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 The total amount of energy the extension can contain.
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {

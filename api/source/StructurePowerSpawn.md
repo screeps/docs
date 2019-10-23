@@ -66,7 +66,7 @@ An alias for [`.store[RESOURCE_POWER]`](#StructureExtension.store).
                                                                                                                
 An alias for [`.store.getCapacity(RESOURCE_POWER)`](#Store.getCapacity).
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {

@@ -98,7 +98,7 @@ The type of minerals containing in the lab. Labs can contain only one mineral ty
 An alias for [`lab.store.getCapacity(lab.mineralType || yourMineral)`](#Store.getCapacity).
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {

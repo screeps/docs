@@ -44,7 +44,7 @@ Time of death.
 A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 A [`Store`](#Store) object that contains cargo of this structure.
 

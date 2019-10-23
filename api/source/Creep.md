@@ -185,7 +185,7 @@ The text message that the creep was saying at the last tick.
 
 Whether this creep is still being spawned.
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {

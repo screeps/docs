@@ -93,7 +93,7 @@ An alias for [`.store.getCapacity(RESOURCE_GHODIUM)`](#Store.getCapacity).
 The amount of game ticks until the next launch is possible.
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {

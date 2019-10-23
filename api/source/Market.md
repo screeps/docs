@@ -407,7 +407,7 @@ property | description
 `price` | The current price per unit.
 
 
-{% api_method Game.market.getHistory 'resourceType' 1 %}
+{% api_method Game.market.getHistory '[resourceType]' 1 %}
 
 Get daily price history of the specified resource on the market for the last 14 days. 
 

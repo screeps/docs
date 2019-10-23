@@ -106,7 +106,7 @@ Power creep’s name. You can choose the name while creating a new power creep, 
 An object with the creep’s owner info containing the following properties:
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {

@@ -50,7 +50,7 @@ Terminals are used in the [Market system](/market.html).
 The remaining amount of ticks while this terminal cannot be used to make [`StructureTerminal.send`](#StructureTerminal.send) or [`Game.market.deal`](#Game.market.deal) calls.
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 A [`Store`](#Store) object that contains cargo of this structure.
 
