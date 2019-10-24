@@ -67,7 +67,7 @@
 spawn.memory.queue = [];
 ```
 
-<code>Memory.spawns[spawn.name]</code> 的一个简写。您可以使用它来快速访问衍生的特定内存数据对象。 <a href="/global-objects.html#Memory-object">了解更多关于 memory</a>
+<code>Memory.spawns[spawn.name]</code> 的一个简写。您可以使用它来快速访问母巢的特定内存数据对象。 <a href="/global-objects.html#Memory-object">了解更多关于 memory</a>
 
 
 
