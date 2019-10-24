@@ -2,8 +2,8 @@
 
 <img src="img/deposit.png" alt="" align="right" />
 
-A rare resource deposit needed for producing commodities. Can be harvested by creeps with a `WORK` body part. 
-Each harvest operation triggers a cooldown period, which becomes longer and longer over time.
+生产商品所需的稀有资源储备。 可以通过带有 `WORK` 身体部位的 creeps 来收获。
+每次收获操作都会触发冷却时间，冷却时间会随着时间的流逝而越来越长。
 
 Learn more about deposits from [this article](/resources.html). 
 
@@ -25,13 +25,13 @@ Learn more about deposits from [this article](/resources.html).
 {% api_property cooldown 'number' %}
 
 
-The amount of game ticks until the next harvest action is possible.
+直到下一次收获动作为止的 ticks 的数量。
 
 
 {% api_property depositType 'string' %}
 
 
-The deposit type, one of the following constants:
+deposit 类型, 以下常量之一:
 
 ```javascript-content
 RESOURCE_MIST
@@ -42,17 +42,16 @@ RESOURCE_SILICON
 
 {% api_property id 'string' %}
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
-
+唯一的对象标识符。您可以使用 <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> 方法通过其 <code>id</code> 检索对象实例。 。
 
 
 {% api_property lastCooldown 'number' %}
 
 
-The cooldown of the last harvest operation on this deposit.
+该矿床上次收获作业的冷却时间。
 
 
 {% api_property ticksToDecay 'number' %}
 
 
-The amount of game ticks when this deposit will disappear.
+收获所需要的 ticks 的数量。
