@@ -28,8 +28,8 @@ This is an [**unofficial**](https://github.com/screeps/docs/issues/105) localiza
 
 https://twodam.net/tags/screeps by [LuckyKoala](https://github.com/LuckyKoala)
 
-https://www.jianshu.com/nb/38374718 by [HoPGoldy](https://github.com/HoPGoldy)
+https://www.jianshu.com/p/5431cb7f42d3 by [HoPGoldy](https://github.com/HoPGoldy)
 
-https://zhuanlan.zhihu.com/p/86394646 by [趣味的吃](https://www.zhihu.com/people/guo-guo-80-14-75/activities)
+https://www.jianshu.com/nb/40235961 by [趣味的吃](https://www.jianshu.com/u/14a95c23386e)
 
 https://zhuanlan.zhihu.com/c_1097137377700667392 by [九日木彡](https://www.zhihu.com/people/noname-mr/activities)
