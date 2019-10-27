@@ -2,43 +2,43 @@
 
 <img src="img/road_plain.png" alt="" align="right" />
 
-Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE` body parts. You can also build roads on top of natural terrain walls which are otherwise impassable.
+将每个身体部件的移动成本降低至 1。建造道路之后，你就可以用更少的 `MOVE` 身体部件来孵化一个 creep。你也可以在自然墙壁上建造一个道路来使其可以通行。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Controller level</strong></td>
-        <td>Any (including neutral rooms)</td>
+        <td><strong>控制器等级</strong></td>
+        <td>任何等级 (包括无主房间)</td>
     </tr>
     <tr>
-        <td><strong>Cost</strong></td>
+        <td><strong>花费</strong></td>
         <td>
             <ul>
-                <li>300 on plain land</li>
-                <li>1,500 on swamp</li>
-                <li>45,000 on walls</li>
+                <li>在平原上: 300</li>
+                <li>在沼泽上: 1,500</li>
+                <li>在墙壁上: 45,000</li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td><strong>Hits</strong></td>
+        <td><strong>生命值</strong></td>
         <td>
             <ul>
-                <li>5,000 on plain land</li>
-                <li>25,000 on swamp</li>
-                <li>750,000 on walls</li>
+                <li>在平原上: 5,000 hits</li>
+                <li>在沼泽上: 25,000 hits</li>
+                <li>在墙壁上: 750,000 hits</li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td><strong>Decay</strong></td>
+        <td><strong>老化</strong></td>
         <td>
             <ul>
-                <li>Loses 100 hits every 1,000 ticks on plain land</li>
-                <li>Loses 500 hits every 1,000 ticks on swamp</li>
-                <li>Loses 15,000 hits every 1,000 ticks on walls</li>
+                <li>在平原上: 每 1,000 ticks 失去 100 hits</li>
+                <li>在沼泽上: 每 1,000 ticks 失去 500 hits</li>
+                <li>在墙壁上: 每 1,000 ticks 失去 15,000 hits</li>
             </ul>
-            Note: every creep step decreases the decay timer for 1 tick per each creep body part</td>
+            注意: creep 的每次移动都会导致更快的老化, 每一个身体部件都会降低老化计时器 1 tick。</td>
     </tr>
     </tbody>
 </table> 
@@ -50,6 +50,6 @@ Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE
 
 
 
-The amount of game ticks when this road will lose some hit points.
+这格道路还有多久就要因老化而失去生命值。
 
 
