@@ -2,7 +2,7 @@
 
 <img src="img/rampart.png" alt="" align="right" />
 
-阻止敌方 creep 进行移动。并防御本格空间上的我方建筑和 creep。可以当做可控门来进行使用。
+阻挡敌方 creep 的移动。并防御本格空间上的我方建筑和 creep。可以当做可控门来进行使用。
 
 <table class="table gameplay-info">
     <tbody>
