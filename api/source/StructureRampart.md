@@ -2,13 +2,12 @@
 
 <img src="img/rampart.png" alt="" align="right" />
 
-Blocks movement of hostile creeps, and defends your creeps and structures on the same tile. 
-Can be used as a controllable gate.
+阻挡敌方 creep 的移动。并防御本格空间上的我方建筑和 creep。可以当做可控门来进行使用。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td colspan=2><strong>Controller level</strong></td>
+        <td colspan=2><strong>控制器等级</strong></td>
     </tr>
     <tr>
         <td>1</td>
@@ -16,43 +15,43 @@ Can be used as a controllable gate.
     </tr>
     <tr>
         <td>2</td>
-        <td>300,000 max hits</td>
+        <td>最大生命值: 300,000 hits</td>
     </tr>
     <tr>
         <td>3</td>
-        <td>1,000,000 max hits</td>
+        <td>最大生命值: 1,000,000 hits</td>
     </tr>
     <tr>
         <td>4</td>
-        <td>3,000,000 max hits</td>
+        <td>最大生命值: 3,000,000 hits</td>
     </tr>
     <tr>
         <td>5</td>
-        <td>10,000,000 max hits</td>
+        <td>最大生命值: 10,000,000 hits</td>
     </tr>
     <tr>
         <td>6</td>
-        <td>30,000,000 max hits</td>
+        <td>最大生命值: 30,000,000 hits</td>
     </tr>
     <tr>
         <td>7</td>
-        <td>100,000,000 max hits</td>
+        <td>最大生命值: 100,000,000 hits</td>
     </tr>
     <tr>
         <td>8</td>
-        <td>300,000,000 max hits</td>
+        <td>最大生命值: 300,000,000 hits</td>
     </tr>
     <tr>
-        <td><strong>Cost</strong></td>
+        <td><strong>花费</strong></td>
         <td>1</td>
     </tr>
     <tr>
-        <td><strong>Hits when constructed</strong></td>
+        <td><strong>建造完成时的生命值</strong></td>
         <td>1</td>
     </tr>
     <tr>
-        <td><strong>Decay</strong></td>
-        <td>Loses 300 hits every 100 ticks</td>
+        <td><strong>老化</strong></td>
+        <td>每 100 ticks 失去 300 hits</td>
     </tr>
     </tbody>
 </table>
@@ -63,16 +62,14 @@ Can be used as a controllable gate.
 {% api_property isPublic 'boolean' %}
 
 
-
-If false (default), only your creeps can step on the same square. If true, any hostile creeps can pass through.
+当值为 false (默认) 时。只有你的 creep 能通过。当值为 true 时，任何玩家的 creep 都可以通过。
 
 
 
 {% api_property ticksToDecay 'number' %}
 
 
-
-The amount of game ticks when this rampart will lose some hit points.
+还有多少 tick 就要因老化而失去生命值。
 
 
 
@@ -80,11 +77,11 @@ The amount of game ticks when this rampart will lose some hit points.
 
 
 
-Make this rampart public to allow other players' creeps to pass through.
+将该 rampart 的状态设置为开放，从而允许其他玩家的 creep 通过。
 
 {% api_method_params %}
 isPublic : boolean
-Whether this rampart should be public or non-public.
+该 rampart 是否开放
 {% endapi_method_params %}
 
 

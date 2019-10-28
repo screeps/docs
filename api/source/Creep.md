@@ -7,65 +7,64 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <th style="width: 20%;">Body part</th>
-        <th style="width: 8%;">Build cost</th>
-        <th>Effect per one body part</th>
+        <th style="width: 20%;">身体部件</th>
+        <th style="width: 8%;">生产成本</th>
+        <th>每个部件效果</th>
     </tr>
     <tr>
         <td><code style="background: #333; color: #a9b7c6;">MOVE</code></td>
         <td>50</td>
-        <td>Decreases fatigue by 2 points per tick.</td>
+        <td>每tick减少2点疲惫值</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #ffe56d;">WORK</code></td>
         <td>100</td>
         <td>
-            <p>Harvests 2 energy units from a source per tick.</p>
-            <p>Harvests 1 mineral unit from a deposit per tick.</p>
-            <p>Builds a structure for 5 energy units per tick.</p>
-            <p>Repairs a structure for 100 hits per tick consuming 1 energy unit per tick.</p>
-            <p>Dismantles a structure for 50 hits per tick returning 0.25 energy unit per tick.</p>
-            <p>Upgrades a controller for 1 energy unit per tick.</p>
+            <p>每tick从能量源采集2单位能量。</p>
+            <p>每tick从矿区采集1单位矿物。</p>
+            <p>每tick增加工地建设进度5点，花费5单位能量。</p>
+            <p>每tick增加建筑100耐久度，花费1单位能量。</p>
+            <p>每tick拆减建筑50点耐久，并返还0.25单位能量。</p>
+            <p>每tick提高控制器升级进度1点，花费1单位能量。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #777;">CARRY</code></td>
         <td>50</td>
-        <td>Can contain up to 50 resource units.</td>
+        <td>携带最多50单位资源。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #f93842;">ATTACK</code></td>
         <td>80</td>
-        <td>Attacks another creep/structure with 30 hits per tick in a short-ranged attack.</td>
+        <td>对相邻的creep或建筑造成30点伤害。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code></td>
         <td>150</td>
         <td>
-            <p>Attacks another single creep/structure with 10 hits per tick in a long-range attack up to 3 squares long.</p>
-            <p>Attacks all hostile creeps/structures within 3 squares range with 1-4-10 hits (depending on the range).</p>
+            <p>单个目标时，每tick对creep或建筑造成10点伤害，范围为3格。</p>
+            <p>多个目标时，每tick对范围内所有creep与建筑造成1-4-10点伤害，具体伤害取决于距离，范围为3格。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #65fd62;">HEAL</code></td>
         <td>250</td>
-        <td>Heals self or another creep restoring 12 hits per tick in short range or 4 hits per tick at a distance.</td>
+        <td>治疗对象可为自己或其它creep。自愈或治疗相邻creep时每tick恢复12点耐久，一定距离内远程治疗每tick恢复4点耐久。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #b99cfb;">CLAIM</code></td>
         <td>600</td>
         <td>
-            <p>Claims a neutral room controller.</p>
-            <p>Reserves a neutral room controller for 1 tick per body part.</p>
-            <p>Attacks a hostile room controller downgrading its timer by 300 ticks per body parts.</p>
-            <p>Attacks a neutral room controller reservation timer by 1 tick per body parts.</p>
-            <p>A creep with this body part will have a reduced life time of 600 ticks and cannot be renewed.</p>
+            <p>占领一个中立房间的控制器。</p>
+            <p>每部件每tick使己方对中立房间控制器的预定时间增加1tick，或使其他玩家的预定时间减少1tick。</p>
+            <p>每部件每tick使其他玩家控制器降级计数器加速300ticks。</p>
+            <p>注：拥有该部件的creep寿命只有600ticks，且无法被renew。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #fff;">TOUGH</code></td>
         <td>10</td>
-        <td>No effect, just additional hit points to the creep's body. Can be boosted to resist damage.</td>
+        <td>无附加效果，唯一作用是增加creep的最大耐久值。可被强化以承受更多伤害。</td>
     </tr>
     </tbody>
 </table>
@@ -91,22 +90,14 @@ The remaining amount of hit points of this body part.
 {% endapi_method_params %}
 
 
-{% api_property carry object %}
+{% api_property carry object '{"deprecated": true}' %}
 
-```javascript
-const total = _.sum(creep.carry);
-```
-
-An object with the creep's cargo contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. <code>RESOURCE_ENERGY</code> is always defined and equals to 0 when empty, other resources are undefined when empty. You can use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents:
+An alias for [`Creep.store`](#Creep.store). 
 
 
+{% api_property carryCapacity number '{"deprecated": true}' %}
 
-{% api_property carryCapacity number %}
-
-
-
-The total amount of resources the creep can carry.
-
+An alias for [`Creep.store.getCapacity()`](#Store.getCapacity).
 
 
 {% api_property fatigue number %}
@@ -193,6 +184,15 @@ The text message that the creep was saying at the last tick.
 
 Whether this creep is still being spawned.
 
+{% api_property store 'object' %}
+
+```javascript
+if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
+    goHarvest(creep);
+}
+```
+
+A [`Store`](#Store) object that contains cargo of this creep.
 
 
 {% api_property ticksToLive number %}
@@ -215,10 +215,10 @@ if(target) {
 
 ```
 
-Attack another creep or structure in a short-ranged attack. Requires the <code>ATTACK</code> body part. If the target is inside a rampart, then the rampart is attacked instead. The target has to be at adjacent square to the creep. If the target is a creep with <code>ATTACK</code> body parts and is not inside a rampart, it will automatically hit back at the attacker.
+Attack another creep, power creep, or structure in a short-ranged attack. Requires the <code>ATTACK</code> body part. If the target is inside a rampart, then the rampart is attacked instead. The target has to be at adjacent square to the creep. If the target is a creep with <code>ATTACK</code> body parts and is not inside a rampart, it will automatically hit back at the attacker.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object to be attacked.
 {% endapi_method_params %}
 
@@ -252,7 +252,7 @@ Decreases the controller's downgrade timer by 300 ticks per every <code>CLAIM</c
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
-目标控制中心对象。
+目标房间控制器对象。
 {% endapi_method_params %}
 
 
@@ -380,7 +380,7 @@ if(target) {
 
 ```
 
-Dismantles any (even hostile) structure returning 50% of the energy spent on its repair. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the energy is put into it; otherwise it is dropped on the ground. The target has to be at adjacent square to the creep.
+Dismantles any structure that can be constructed (even hostile) returning 50% of the energy spent on its repair. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the energy is put into it; otherwise it is dropped on the ground. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
@@ -517,10 +517,10 @@ if(target) {
 
 ```
 
-Harvest energy from the source or minerals from the mineral deposit. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the harvested resource is put into it; otherwise it is dropped on the ground. The target has to be at an adjacent square to the creep.
+Harvest energy from the source or resources from minerals and deposits. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the harvested resource is put into it; otherwise it is dropped on the ground. The target has to be at an adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>
+target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>, <a href="#Deposit">Deposit</a>
 The object to be harvested.
 {% endapi_method_params %}
 
@@ -532,11 +532,11 @@ The object to be harvested.
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | You are not the owner of this creep, or the room controller is owned or reserved by another player.
 ERR_BUSY | 这个creep依然在孵化中。
-ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/minerals.html">Learn more</a>
+ERR_NOT_FOUND | 未找到 extractor。你必须建造一个 extractor 来开采矿物。<a href="/minerals.html">Learn more</a>
 ERR_NOT_ENOUGH_RESOURCES | The target does not contain any harvestable energy or mineral.
 ERR_INVALID_TARGET | The target is not a valid source or mineral object.
 ERR_NOT_IN_RANGE | 目标太远了。
-ERR_TIRED | The extractor is still cooling down.
+ERR_TIRED | extractor 仍在冷却中。
 ERR_NO_BODYPART | 这个creep身上没有<code>WORK</code>部件。
 {% endapi_return_codes %}
 
@@ -561,7 +561,7 @@ if(target) {
 Heal self or another creep. It will restore the target creep’s damaged body parts function and increase the hits counter. Requires the <code>HEAL</code> body part. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep object.
 {% endapi_method_params %}
 
@@ -896,7 +896,7 @@ if(targets.length > 0) {
 A ranged attack against another creep or structure. Requires the <code>RANGED_ATTACK</code> body part. If the target is inside a rampart, the rampart is attacked instead. The target has to be within 3 squares range of the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object to be attacked.
 {% endapi_method_params %}
 
@@ -937,7 +937,7 @@ if(target) {
 Heal another creep at a distance. It will restore the target creep’s damaged body parts function and increase the hits counter. Requires the <code>HEAL</code> body part. The target has to be within 3 squares range of the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep object.
 {% endapi_method_params %}
 
@@ -1159,7 +1159,7 @@ for(const resourceType in creep.carry) {
 Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object.
 ===
 resourceType : string
@@ -1199,7 +1199,7 @@ if(creep.room.controller) {
 
 Upgrade your controller to the next level using carried energy. Upgrading controllers raises your Global Control Level in parallel. Requires <code>WORK</code> and <code>CARRY</code> body parts. The target has to be within 3 squares range of the creep. 
 
-A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/minerals.html">ghodium mineral boost</a>.
+A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/resources.html">ghodium mineral boost</a>.
 
 Upgrading the controller raises its `ticksToDowngrade` timer by 100. The timer must be full in order for controller to be levelled up.
 
@@ -1237,7 +1237,7 @@ Withdraw resources from a structure or tombstone. The target has to be at adjace
 This method should not be used to transfer resources between creeps. To transfer between creeps, use the [`transfer`](#Creep.transfer) method on the original creep.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
+target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>, <a href="#Ruin">Ruin</a>
 The target object.
 ===
 resourceType : string

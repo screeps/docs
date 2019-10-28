@@ -9,16 +9,16 @@ hexo.extend.tag.register('api_method', function(args) {
   var signatures = args[1].split('|').map(i => `(${i})`).join('<br>');
   var inherited = '';
   var cpuDescription = {
-    0: 'This method has insignificant CPU cost.',
-    1: 'This method has low CPU cost.',
-    2: 'This method has medium CPU cost.',
-    3: 'This method has high CPU cost.',
-    A: 'This method is an action that changes game state. It has additional 0.2 CPU cost added to its natural cost in case if OK code is returned.',
+    0: '该方法的CPU开销很小。',
+    1: '该方法具有较低的CPU开销。',
+    2: '该方法的CPU开销中等。',
+    3: '这种方法的CPU成本很高。',
+    A: '这个方法是一个改变游戏状态的动作。在返回OK代码的情况下，它的自然成本增加了0.2个CPU成本。',
   };
   var m = args[0].match(/^(.*?):(.*)$/);
   if(m) {
     args[0] = m[2];
-    inherited = `<div class="api-property__inherited">Inherited from <a href="#${m[1]}">${m[1]}</a></div>`;
+    inherited = `<div class="api-property__inherited">继承自 <a href="#${m[1]}">${m[1]}</a></div>`;
   }
   var opts = {};
   if(args[3]) {
@@ -29,7 +29,7 @@ hexo.extend.tag.register('api_method', function(args) {
         <div class="api-property__cpu api-property__cpu--${args[2]}" title="${cpuDescription[args[2]]}"></div>
         </h2>`;
   if(opts.deprecated) {
-    var text = 'This method is deprecated and will be removed soon.';
+    var text = '此方法已被弃用，不久将被删除。';
     if(opts.deprecated !== true) {
       text += ' '+opts.deprecated;
     }

@@ -217,7 +217,7 @@ const targets = creep.room.find(FIND_HOSTILE_CREEPS, {
 });
 ```
 
-Find all objects of the specified type in the room.
+Find all objects of the specified type in the room. Results are cached automatically for the specified room and type before applying any custom filters. This automatic cache lasts until the end of the tick.
 
 {% api_method_params %}
 type : number
@@ -239,6 +239,32 @@ An object with additional options:
 ### 返回值
 
 An array with the objects found.
+
+constant|type|description
+---|---|---
+`FIND_EXIT_TOP` | RoomPosition | Only exit positions located at the top of the room.
+`FIND_EXIT_RIGHT` | RoomPosition | Only exit positions located on the right side of the room.
+`FIND_EXIT_BOTTOM` | RoomPosition | Only exit positions located at the bottom of the room.
+`FIND_EXIT_LEFT` | RoomPosition | Only exit positions located on the left side of the room.
+`FIND_EXIT` | RoomPosition | All exit positions.
+`FIND_CREEPS` | Creep | All creeps.
+`FIND_MY_CREEPS` | Creep | Only creeps owned by you.
+`FIND_HOSTILE_CREEPS` | Creep | Only creeps not owned by you.
+`FIND_SOURCES_ACTIVE` | Source | Only sources that have energy.
+`FIND_SOURCES` | Source | All sources.
+`FIND_DROPPED_RESOURCES` | Resource | All dropped resources.
+`FIND_STRUCTURES` | Structure | All structures.
+`FIND_MY_STRUCTURES` | Structure | Only structures owned by you. Does not include neutral structures.
+`FIND_HOSTILE_STRUCTURES` | Structure | Only structures not owned by you. Does not include neutral structures.
+`FIND_FLAGS` | Flag | All flags
+`FIND_MY_SPAWNS` | StructureSpawn | Only spawns owned by you.
+`FIND_HOSTILE_SPAWNS` | StructureSpawn | Spawns not owned by you.
+`FIND_CONSTRUCTION_SITES` | ConstructionSite | All construction sites.
+`FIND_MY_CONSTRUCTION_SITES` | ConstructionSite | Only construction sites owned by you.
+`FIND_HOSTILE_CONSTRUCTION_SITES` | ConstructionSite | Only construction sites not owned by you.
+`FIND_MINERALS` | Mineral | All mineral deposits.
+`FIND_NUKES` | Nuke | All launched nukes.
+`FIND_TOMBSTONES` | Tombstone | All tombstones
 
 {% api_method findExitTo 'room' 3 %}
 
@@ -557,6 +583,17 @@ The `data` property is different for each event type according to the following 
             </ul>
         </td>
     </tr>           
+    <tr>
+        <td>`EVENT_TRANSFER`</td>
+        <td>
+            A link performed [`transferEnergy`](https://docs.screeps.com/api/#StructureLink.transferEnergy) or a creep performed [`transfer`](#Creep.transfer) or [`withdraw`](#Creep.withdraw).
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`resourceType` - the type of resource transferred</li>
+                <li>`amount` - the amount of resource transferred</li>
+            </ul>
+        </td>
+    </tr>
 </table>
 
 {% api_method getPositionAt 'x, y' 1 %}

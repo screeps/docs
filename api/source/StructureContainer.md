@@ -54,9 +54,11 @@ const total = _.sum(container.store);
 
 {% api_property storeCapacity 'number' %}
 
+一个包含了该建筑中所存储的货物的 [`Store`](#Store) 对象。
 
-
-The total amount of resources the structure can contain.
+{% api_property storeCapacity 'number' '{"deprecated": true}' %}
+                                       
+An alias for [`.store.getCapacity()`](#Store.getCapacity).
 
 
 

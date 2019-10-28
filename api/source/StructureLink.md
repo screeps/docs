@@ -63,19 +63,26 @@ The amount of game ticks the link has to wait until the next transfer is possibl
 
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in the link.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
+
+{% api_property store 'object' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-{% api_property energyCapacity 'number' %}
-
-
-
-The total amount of energy the link can contain.
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 

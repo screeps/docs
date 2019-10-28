@@ -2,17 +2,16 @@
 
 <img src="img/portal.png" alt="" align="right" />
 
-A non-player structure. Instantly teleports your creeps to a distant room acting as a room exit tile. 
-Portals appear randomly in the central room of each sector.</p>
+一个非玩家建造的建筑。立刻将你的 creep 传送至一个遥远房间的出口位置。传送门会在每个区块的中央房间随机刷新。</p>
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Stable time</strong></td>
-        <td>10 days</td>
+        <td><strong>稳定时间</strong></td>
+        <td>10 天</td>
     </tr>
     <tr>
-        <td><strong>Decay time</strong></td>
+        <td><strong>老化时间</strong></td>
         <td>30,000 ticks</td>
     </tr>
     </tbody>
@@ -23,17 +22,16 @@ Portals appear randomly in the central room of each sector.</p>
 
 {% api_property destination '<a href="#RoomPosition">RoomPosition</a> | object' %}
 
-If this is an **inter-room** portal, then this property contains a `RoomPosition` object 
-leading to the point in the destination room.
+如果这是个**通往其他房间**的传送门，则该属性为指向目的地房间出口位置的 `RoomPosition` 对象。
 
-If this is an **inter-shard** portal, then this property contains an object with `shard` and `room` string properties.
-Exact coordinates are undetermined, the creep will appear at any free spot in the destination room.
+如果这是个**通往其他 shard** 的传送门，则该属性为一个包含了 `shard` 和 `room` 字符串属性的对象。无法确定其具体出口位置，creep 会被随机传送到目标房间的任意空闲位置。
+
 
 
 {% api_property ticksToDecay 'number' %}
 
 
 
-The amount of game ticks when the portal disappears, or undefined when the portal is stable.
+还有多少 tick 就要因老化而失去生命值，当传送门稳定时其值为 undefined。
 
 

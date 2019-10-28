@@ -63,30 +63,37 @@
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-建筑内的能量数量。
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
+{% api_property store 'object' %}
 
-{% api_property energyCapacity 'number' %}
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-建筑最大能量容量。
-
+一个代表这该结构所存储能量的 [`Store`](#Store) 对象。
 
 
 {% api_method attack 'target' A %}
 
 
 
-远程攻击房间里的任意creep。
+远程攻击房间里的任意 creep、超能 creep 或房间内的结构。
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 目标creep。
 {% endapi_method_params %}
 
@@ -108,10 +115,10 @@ ERR_RCL_NOT_ENOUGH | 房间控制等级不足。
 
 
 
-远程治疗房间里的任意creep。
+远程治疗房间里的任意 creep 或 超能 creep。
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep.
 {% endapi_method_params %}
 
@@ -151,34 +158,4 @@ ERR_NOT_ENOUGH_ENERGY | 这个塔没有足够的能量。
 ERR_INVALID_TARGET | 这个目标不是一个有效的可维修对象。
 ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}
-
-
- 
-{% api_method transferEnergy 'target, [amount]' A '{"deprecated": "请使用[`Creep.withdraw`](#Creep.withdraw)代替。"}' %}
-
-
-
-从建筑传递能量给creep。目标必须在相邻的方格里。
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-接受能量传递的creep对象。
-===
-amount (optional) : number
-被传递能量的数量。如果没有这个参数，传递全部可用数量的能量。
-{% endapi_method_params %}
-
-
-### 返回值
-
-如下错误码之一：
-{% api_return_codes %}
-OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是目标creep的拥有者，或者这个建筑上有建有敌对堡垒。
-ERR_NOT_ENOUGH_RESOURCES | 这个建筑内的能量少于给定的数量。
-ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
-ERR_FULL | 目标creep无法携带指定数量的能量。
-ERR_NOT_IN_RANGE | 目标creep太远了。
-{% endapi_return_codes %}
-
 

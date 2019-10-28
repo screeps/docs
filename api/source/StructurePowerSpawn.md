@@ -44,35 +44,38 @@ Learn more about power from [this article](/power.html).
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in this structure.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
-{% api_property energyCapacity 'number' %}
+{% api_property power 'number' '{"deprecated": true}' %}
+                                                               
+An alias for [`.store[RESOURCE_POWER]`](#StructureExtension.store).
 
 
 
-The total amount of energy this structure can contain.
+{% api_property powerCapacity 'number' '{"deprecated": true}' %}
+                                                                                                               
+An alias for [`.store.getCapacity(RESOURCE_POWER)`](#Store.getCapacity).
+
+{% api_property store 'object' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-{% api_property power 'number' %}
-
-
-
-The amount of power containing in this structure.
-
-
-
-{% api_property powerCapacity 'number' %}
-
-
-
-The total amount of power this structure can contain.
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method processPower '' A %}
@@ -93,30 +96,3 @@ ERR_NOT_ENOUGH_RESOURCES | The structure does not have enough energy or power re
 ERR_RCL_NOT_ENOUGH | 房间控制中心等级不足。
 {% endapi_return_codes %}
 
-
-{% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-
-
-Transfer the energy from this structure to a creep. 你也可以从敌对建筑物传递资源给你的creep。
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-接受能量传递的creep对象。
-===
-amount (optional) : number
-被传递能量的数量。如果没有这个参数，传递全部能量。
-{% endapi_method_params %}
-
-
-### 返回值
-
-如下错误码之一：
-{% api_return_codes %}
-OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是目标creep的拥有者，或者这个建筑上有建有敌对堡垒。
-ERR_NOT_ENOUGH_RESOURCES | This structure less energy than the given amount.
-ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
-ERR_FULL | 目标creep无法携带指定数量的能量。
-ERR_NOT_IN_RANGE | 目标creep太远了。
-{% endapi_return_codes %}
