@@ -229,7 +229,7 @@ room.controller.unclaim();
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER |你不是该控制器的所有者。
+ERR_NOT_OWNER | 你不是该控制器的所有者。
 {% endapi_return_codes %}
 
 
