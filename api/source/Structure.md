@@ -1,6 +1,6 @@
 # Structure
 
-The base prototype object of all structures.
+所有建筑的基础原型对象。
 
 {% page inherited/RoomObject.md %}
 
