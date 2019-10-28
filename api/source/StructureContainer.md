@@ -2,33 +2,33 @@
 
 <img src="img/container.png" alt="" align="right" />
 
-A small container that can be used to store resources. This is a walkable structure. All dropped resources automatically goes to the container at the same tile.
+一个可以用来存储资源的小型容器。这是一个允许走上去的建筑。所有丢弃在同一方格上的资源都会被自动存储到 container 中。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Controller level</strong></td>
-        <td>Any (including neutral rooms)</td>
+        <td><strong>控制器等级</strong></td>
+        <td>任何等级 (包括无主房间)</td>
     </tr>
     <tr>
-        <td><strong>Available per room</strong></td>
+        <td><strong>每个房间允许建造的数量</strong></td>
         <td>5</td>
     </tr>
     <tr>
-        <td><strong>Capacity</strong></td>
+        <td><strong>容量</strong></td>
         <td>2,000</td>
     </tr>
     <tr>
-        <td><strong>Cost</strong></td>
+        <td><strong>建筑花费</strong></td>
         <td>5,000</td>
     </tr>
     <tr>
-        <td><strong>Hits</strong></td>
+        <td><strong>生命值</strong></td>
         <td>250,000</td>
     </tr>
     <tr>
-        <td><strong>Decay</strong></td>
-        <td>Loses 5,000 hits every 500 ticks in an owned room, and every 100 ticks in an unowned room.</td>
+        <td><strong>老化</strong></td>
+        <td>在被自己控制的房间内每 500 tick 失去 5,000 生命值, 在没有控制的房间内该时间将降低至 100 tick。</td>
     </tr>
     </tbody>
 </table>
@@ -58,7 +58,7 @@ const total = _.sum(container.store);
 
 {% api_property storeCapacity 'number' '{"deprecated": true}' %}
                                        
-An alias for [`.store.getCapacity()`](#Store.getCapacity).
+[`.store.getCapacity()`](#Store.getCapacity) 的别名。
 
 
 
@@ -66,42 +66,6 @@ An alias for [`.store.getCapacity()`](#Store.getCapacity).
 
 
 
-The amount of game ticks when this container will lose some hit points.
-
-
-
-{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-```javascript
-const containers = creep.pos.findInRange(FIND_STRUCTURES, 1,
-      {filter: {structureType: STRUCTURE_CONTAINER}});
-containers[0].transfer(creep, RESOURCE_ENERGY);
-```
-
-Transfer resource from this structure to a creep. 目标必须在相邻的方格里。
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The target object.
-===
-resourceType : string
-<code>RESOURCE_*</code>常量之一。
-===
-amount (optional) : number
-被传递资源的数量。如果没有这个参数，传递全部可用数量的资源。
-{% endapi_method_params %}
-
-
-### 返回值
-
-如下错误码之一：
-{% api_return_codes %}
-OK | 这个操作已经成功纳入计划。
-ERR_NOT_ENOUGH_RESOURCES | 这个建筑内的资源少于给定的数量。
-ERR_INVALID_TARGET | 目标无法接受资源。
-ERR_FULL | 目标无法接受更多能量。
-ERR_NOT_IN_RANGE | 目标太远了。
-ERR_INVALID_ARGS | 资源数量不正确。
-{% endapi_return_codes %}
+还有多少 tick 就要因老化而失去生命值。
 
 
