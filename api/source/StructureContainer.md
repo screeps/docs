@@ -54,8 +54,7 @@ const total = _.sum(container.store);
 
 {% api_property storeCapacity 'number' %}
 
-
-A [`Store`](#Store) object that contains cargo of this structure.
+一个包含了该建筑中所存储的货物的 [`Store`](#Store) 对象。
 
 {% api_property storeCapacity 'number' '{"deprecated": true}' %}
                                        
