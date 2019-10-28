@@ -2,12 +2,12 @@
 
 <img src="img/factory.png" alt="" align="right" />
 
-Produces trade commodities from base minerals and other commodities. Learn more about commodities from [this article](/resources.html#Commodities). 
+使用基础矿物和其他商品(commodities)来生产贸易商品。点击 [本文](/resources.html#Commodities) 来了解有关商品的更多信息。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td colspan="2"><strong>Controller level</strong></td>
+        <td colspan="2"><strong>控制器等级</strong></td>
     </tr>
     <tr>
         <td>1-6</td>
@@ -18,20 +18,20 @@ Produces trade commodities from base minerals and other commodities. Learn more 
         <td>1 factory</td>
     </tr>
     <tr>
-        <td><strong>Cost</strong></td>
+        <td><strong>生产花费</strong></td>
         <td>100,000</td>
     </tr>
     <tr>
-        <td><strong>Hits</strong></td>
+        <td><strong>生命值</strong></td>
         <td>1000</td>
     </tr>
     <tr>
-        <td><strong>Capacity</strong></td>
+        <td><strong>容量</strong></td>
         <td>50,000</td>
     </tr>
     <tr>
-        <td><strong>Production cooldown</strong></td>
-        <td>Depends on the resource</td>
+        <td><strong>生产冷却</strong></td>
+        <td>取决于生产的资源</td>
     </tr>
     </tbody>
 </table>
@@ -42,7 +42,7 @@ Produces trade commodities from base minerals and other commodities. Learn more 
 
 
 
-The amount of game ticks the factory has to wait until the next production is possible.
+还有多少 tick 才能进行下一次生产。
 
 {% api_property level number %}
 
@@ -52,18 +52,18 @@ if(!factory.level) {
 }
 ```
 
-The factory's level. Can be set by applying the `PWR_OPERATE_FACTORY` power to a newly built factory. 
-Once set, the level cannot be changed. 
+工厂的等级，可以通过 `PWR_OPERATE_FACTORY` 超能来给一个新建的工厂设置等级。
+一旦被设置，等级将无法再次更改。
 
 {% api_property store 'object' %}
 
-A [`Store`](#Store) object that contains cargo of this structure.
+一个包含了该建筑中所存储的货物的 [`Store`](#Store) 对象。
 
 
 
 {% api_property storeCapacity 'number' '{"deprecated": true}' %}
                                                                                                                
-An alias for [`.store.getCapacity()`](#Store.getCapacity).
+[`.store.getCapacity()`](#Store.getCapacity) 的别名。
 
 {% api_method produce 'resourceType' A %}
 
@@ -71,25 +71,25 @@ An alias for [`.store.getCapacity()`](#Store.getCapacity).
 factory.produce(RESOURCE_UTRIUM_BAR);
 ```
 
-Produces the specified commodity. All ingredients should be available in the factory store.
+生产指定商品。工厂存储中应该包含所有的生产用料。
 
 {% api_method_params %}
 resourceType : string
-One of the <code>RESOURCE_*</code> constants.
+<code>RESOURCE_*</code> 常量之一。
 {% endapi_method_params %}
 
 
-### Return value
+### 返回值
 
-One of the following codes:
+下列返回码之一：
 {% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of this structure.
-ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use the factory.
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have the required amount of resources.
-ERR_INVALID_ARGS | The arguments provided are incorrect.
-ERR_INVALID_TARGET | The factory cannot produce the commodity of this level.
-ERR_TIRED | The factory is still cooling down. 
-ERR_BUSY | The factory is not operated by the `PWR_OPERATE_FACTORY` power. 
-ERR_FULL | The factory cannot contain the produce.
+OK | 这个操作已经成功纳入计划。
+ERR_NOT_OWNER | 你不是该控制器的所有者。
+ERR_RCL_NOT_ENOUGH | 房间控制器等级不足以使用该建筑。
+ERR_NOT_ENOUGH_RESOURCES | 生产所需的资源数量不足。
+ERR_INVALID_ARGS | 提供的参数不正确。
+ERR_INVALID_TARGET | 此工厂无法生产该等级的商品。
+ERR_TIRED | 工厂仍在冷却。
+ERR_BUSY | 无法通过 `PWR_OPERATE_FACTORY` 超能来操作此工厂。
+ERR_FULL | 此工厂的存储已无法容纳要生产的商品。
 {% endapi_return_codes %}
