@@ -5,16 +5,16 @@
 生产商品所需的稀有资源储备。 可以通过带有 `WORK` 身体部位的 creeps 来收获。
 每次收获操作都会触发冷却时间，冷却时间会随着时间的流逝而越来越长。
 
-Learn more about deposits from [this article](/resources.html). 
+点击 [本文](/resources.html) 了解更多关于 deposits 的信息。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Cooldown</strong></td> 
+        <td><strong>冷却</strong></td> 
         <td>`0.001 * totalHarvested ^ 1.2`<td>
     </tr>
     <tr>
-        <td><strong>Decay</strong></td>
+        <td><strong>老化</strong></td>
         <td>50,000 ticks after appearing or last harvest operation</td>
     </tr>
     </tbody>

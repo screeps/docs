@@ -1,12 +1,12 @@
 # Flag
 
-A flag. Flags can be used to mark particular spots in a room. Flags are visible to their owners only. You cannot have more than 10,000 flags.
+一个旗帜，旗帜可以用来标记房间中的一个特定的地点。旗帜只对其所有者可见。你最多只能拥有 10,000 个旗帜。
 
 {% page inherited/RoomObject.md %}
  
 {% api_property color number %}
 
-Flag primary color. One of the <code>COLOR_*</code> constants.
+旗帜的主要颜色。<code>COLOR_*</code> 常量之一。
 
 
 
@@ -14,7 +14,7 @@ Flag primary color. One of the <code>COLOR_*</code> constants.
 
 
 
-A shorthand to <code>Memory.flags[flag.name]</code>. You can use it for quick access the flag's specific memory data object.
+指向 <code>Memory.flags[flag.name]</code> 的链接。你可以使用它来快速访问到该旗帜的内存数据对象。
 
 
 
@@ -22,7 +22,7 @@ A shorthand to <code>Memory.flags[flag.name]</code>. You can use it for quick ac
 
  
 
-Flag’s name. You can choose the name while creating a new flag, and it cannot be changed later. This name is a hash key to access the flag via the <a href="#Game.flags">Game.flags</a> object. The maximum name length is 60 charactes.
+旗帜的名称。你可以在创建新的旗帜时为其指定名字，名字一旦确定无法修改。此名称是 <a href="#Game.flags">Game.flags</a> 对象中指向该旗帜对象的哈希键。你可以使用它来快速访问到该旗帜。名称最长不能超过 60 字符。
 
 
 
@@ -30,7 +30,7 @@ Flag’s name. You can choose the name while creating a new flag, and it cannot 
 
 
 
-Flag secondary color. One of the <code>COLOR_*</code> constants.
+旗帜的次要颜色。<code>COLOR_*</code> 常量之一。
 
 
 
@@ -38,15 +38,15 @@ Flag secondary color. One of the <code>COLOR_*</code> constants.
 
 
 
-Remove the flag.
+移除该旗帜。
 
 
 
 ### 返回值
 
-Always returns
+永远返回
 OK
-.
+。
 
 {% api_method setColor 'color, [secondaryColor]' A %}
 
@@ -54,14 +54,14 @@ OK
 Game.flags.Flag1.setColor(COLOR_GREEN, COLOR_WHITE);
 ```
 
-Set new color of the flag.
+给旗帜设置一个新颜色
 
 {% api_method_params %}
 color : string
-Primary color of the flag. One of the <code>COLOR_*</code> constants.
+旗帜的主要颜色。<code>COLOR_*</code> 常量之一。
 ===
 secondaryColor (optional) : string
-Secondary color of the flag. One of the <code>COLOR_*</code> constants.
+旗帜的次要颜色。<code>COLOR_*</code> 常量之一。
 {% endapi_method_params %}
 
 
@@ -70,7 +70,7 @@ Secondary color of the flag. One of the <code>COLOR_*</code> constants.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_INVALID_ARGS | <code>color</code> or <code>secondaryColor</code> is not a valid color constant.
+ERR_INVALID_ARGS | <code>color</code> 或者 <code>secondaryColor</code> 不是一个有效的 <code>COLOR_*</code> 常量。
 {% endapi_return_codes %}
 
 
@@ -85,17 +85,17 @@ Game.flags.Flag1.setPosition(10,20);
 Game.flags.Flag1.setPosition( new RoomPosition(10, 20, 'W3S5') );
 ```
 
-Set new position of the flag.
+给旗帜设置一个新的位置。
 
 {% api_method_params %}
 x : number
-The X position in the room.
+相同房间内的 x 坐标。
 ===
 y : number
-The Y position in the room.
+相同房间内的 y 坐标。
 ===
 pos : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 {% endapi_method_params %}
 
 
@@ -104,7 +104,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_INVALID_TARGET | The target provided is invalid.
+ERR_INVALID_TARGET | 提供了无效的目标。
 {% endapi_return_codes %}
 
 
