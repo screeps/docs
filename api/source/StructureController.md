@@ -179,7 +179,7 @@ The sign real date.
 
 
 
-The amount of game ticks when this controller will lose one level. This timer is set to 50% on level upgrade or downgrade, and it can be increased by using <code><a href="#Creep.upgradeController">Creep.upgradeController</a></code>. Must be full to upgrade the controller level.
+The amount of game ticks when this controller will lose one level. This timer is set to 50% on level upgrade or downgrade, and it can be increased by using <code><a href="#Creep.upgradeController">Creep.upgradeController</a></code>. Must be full to upgrade the controller to the next level.
 
 
 
