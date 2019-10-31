@@ -1,13 +1,6 @@
 # PathFinder.CostMatrix
 
-Container for custom navigation cost data. By default `PathFinder` will only consider 
-terrain data (plain, swamp, wall) — if you need to route around obstacles such as buildings 
-or creeps you must put them into a `CostMatrix`. Generally you will create your `CostMatrix`
- from within `roomCallback`. If a non-0 value is found in a room's CostMatrix then that value 
- will be used instead of the default terrain cost. You should avoid using large values in your 
- CostMatrix and terrain cost flags. For example, running `PathFinder.search` with 
- `{ plainCost: 1, swampCost: 5 }` is faster than running it with `{plainCost: 2, swampCost: 10 }` 
- even though your paths will be the same.
+存放自定义导航寻路成本的对象。默认情况下，`PathFinder` 在寻路时只考虑地形 (平原、沼泽、墙壁) —— 如果您需要绕过建筑或者 creep，就需要把他们放进一个 `CostMatrix` 里。通常情况下，您将在 `roomCallback` 内部创建 `CostMatrix`。如果在房间的 CostMatrix 里找到了一个非零值，那么它将替代默认的地形移动成本。您应该避免在 CostMatrix 和地形移动成本标志里使用较大值。例如，使用 `{ plainCost: 1, swampCost: 5 }` 的 `PathFinder.search` 将比使用 `{plainCost: 2, swampCost: 10 }` 的运行的更快，并且他们将会寻路出相同的路径。
 
 
 
@@ -17,7 +10,7 @@ or creeps you must put them into a `CostMatrix`. Generally you will create your 
 let costs = new PathFinder.CostMatrix;
 ``` 
 
-Creates a new CostMatrix containing 0's for all positions. 
+创建一个新的 CostMatrix，其中所有位置的移动成本都为 0。
  
   
 
@@ -28,20 +21,20 @@ Creates a new CostMatrix containing 0's for all positions.
 ```javascript
 let costs = new PathFinder.CostMatrix;
 let pos = Game.spawns['Spawn1'].pos;
-costs.set(pos.x, pos.y, 255); // Can't walk over a building
+costs.set(pos.x, pos.y, 255); // 不能从该建筑上移动
 ```
 
-Set the cost of a position in this CostMatrix.
+在 CostMatrix 中设置指定位置的移动成本。
 
 {% api_method_params %}
 x : number
-X position in the room.
+位置在房间中的 x 坐标。
 ===
 y : number
-Y position in the room.
+位置在房间中的 y 坐标。
 ===
 cost : number
-Cost of this position. Must be a whole number. A cost of 0 will use the terrain cost for that tile. A cost greater than or equal to 255 will be treated as unwalkable.
+该位置的移动成本，必须是整数。值为 0 时将使用该地块默认的地形移动成本。大于或等于 255 的移动成本将视为无法通过。
 {% endapi_method_params %}
 
 
@@ -51,14 +44,14 @@ Cost of this position. Must be a whole number. A cost of 0 will use the terrain 
 
 
 
-Get the cost of a position in this CostMatrix.
+获取该 CostMatrix 中指定位置的移动成本。
 
 {% api_method_params %}
 x : number
-X position in the room.
+位置在房间中的 x 坐标。
 ===
 y : number
-Y position in the room.
+位置在房间中的 y 坐标。
 {% endapi_method_params %}
 
 
@@ -68,13 +61,13 @@ Y position in the room.
 
 
 
-Copy this CostMatrix into a new CostMatrix with the same data.
+使用当前 CostMatrix 中的相同数据创建一个新的 CostMatrix。
 
 
 
 ### 返回值
 
-A new CostMatrix instance.
+一个新的 CostMatrix 实例。
 
 {% api_method serialize '' 1 %}
 
@@ -83,13 +76,13 @@ let costs = new PathFinder.CostMatrix;
 Memory.savedMatrix = costs.serialize();
 ```
 
-Returns a compact representation of this CostMatrix which can be stored via <code>JSON.stringify</code>.
+返回该 CostMatrix 的紧凑形式，使其可以使用 <code>JSON.stringify</code> 进行存储。
 
 
 
 ### 返回值
 
-An array of numbers. There's not much you can do with the numbers besides store them for later.
+一个 number 数组。它除了可以被保存起来以备后续使用之外没有什么作用。
 
 {% api_method PathFinder.CostMatrix.deserialize 'val' 1 %}
 
@@ -97,16 +90,16 @@ An array of numbers. There's not much you can do with the numbers besides store 
 let costs = PathFinder.CostMatrix.deserialize(Memory.savedMatrix)
 ```
 
-Static method which deserializes a new CostMatrix using the return value of <code>serialize</code>.
+静态方法，可以将 <code>serialize</code> 方法返回的值反序列化为一个新的 CostMatrix。
 
 {% api_method_params %}
 val : object
-Whatever <code>serialize</code> returned
+任何 <code>serialize</code> 的返回值。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-Returns new
+返回新的
 <code>CostMatrix</code>
-instance.
+实例。
