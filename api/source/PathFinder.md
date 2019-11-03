@@ -1,6 +1,6 @@
 # PathFinder
  
- Contains powerful methods for pathfinding in the game world. This module is written in fast native C++ code and supports custom navigation costs and paths which span multiple rooms. 
+ 包含了在游戏中进行寻路的强大方法。这个模块使用原生的高性能 C++ 代码实现，并支持跨越多个房间的自定义寻路成本及路径。
 
 {% api_method PathFinder.search 'origin, goal, [opts]' 3 %}
 
@@ -56,73 +56,73 @@
   creep.move(creep.pos.getDirectionTo(pos));
 ```
 
-Find an optimal path between <code>origin</code> and <code>goal</code>.
+在 <code>origin</code> 和 <code>goal</code> 之间查找最佳路径。
 
 {% api_method_params %}
 origin : <a href="#RoomPosition">RoomPosition</a>
-The start position.
+起始位置。
 ===
 goal : object
 
-A goal or an array of goals. If more than one goal is supplied then the cheapest path found out of all the goals will be returned. A goal is either a RoomPosition or an object as defined below.
+一个或一组目标。如果提供了多个目标，则返回所有目标中移动成本最低的路径。目标可以是一个 RoomPosition 或者包含下列定义的对象：
 
-<em><strong>Important:</strong></em> Please note that if your goal is not walkable (for instance, a source) then you should set <code>range</code> to at least 1 or else you will waste many CPU cycles searching for a target that you can't walk on.
+<em><strong>重要：</strong></em> 请注意，如果您的目标是无法行走的（例如，一个 source），请至少将 <code>range</code> 设置成至少为 1。否则您将浪费很多 CPU 资源来查找一个无法到达的目标。
 					<ul>
 						<li>
 							<div class="api-arg-title">pos</div>
 							<div class="api-arg-type"><a href="#RoomPosition"><code>RoomPosition</code></a></div>
-							<div class="api-arg-desc">The target.</div>
+							<div class="api-arg-desc">目标。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">range</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Range to <code>pos</code> before goal is considered reached. The default is 0.</div>
+							<div class="api-arg-desc"><code>pos</code> 周围被当作目的地的范围。默认为 0。</div>
 						</li>
 					</ul>
 				
 ===
 opts (optional) : object
-An object containing additional pathfinding flags.
+一个包含其他寻路选项的对象。
 <ul>
     <li>
         <div class="api-arg-title">roomCallback</div>
         <div class="api-arg-type">function</div>
-        <div class="api-arg-desc">Request from the pathfinder to generate a <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a> for a certain room. The callback accepts one argument, <code>roomName</code>. This callback will only be called once per room per search. If you are running multiple pathfinding operations in a single room and in a single tick you may consider caching your CostMatrix to speed up your code. Please read the CostMatrix documentation below for more information on CostMatrix. If you return <code>false</code> from the callback the requested room will not be searched, and it won't count against <code>maxRooms</code></div>
+        <div class="api-arg-desc">该回调可以用来生成某些房间的 <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a>，并提供给 pathfinder 来增强寻路效果。该回调拥有一个 <code>roomName</code> 参数。在寻路搜索中，每个房间只会被执行一次回调。如果您要在 1 tick 内为单个房间执行多次寻路操作，可以考虑缓存您的 CostMatrix 来提高代码运行效率。请阅读下方的 CostMatrix 文档来了解更多关于 CostMatrix 的信息。如果该回调返回 <code>false</code>，则对应的房间不会被搜索，并且该房间也不会加入到 <code>maxRooms</code>里。</div>
     </li>
     <li>
         <div class="api-arg-title">plainCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Cost for walking on plain positions. The default is 1.</div>
+        <div class="api-arg-desc">平原上的移动成本，默认为 1。</div>
     </li>
     <li>
         <div class="api-arg-title">swampCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Cost for walking on swamp positions. The default is 5.</div>
+        <div class="api-arg-desc">沼泽上的移动成本，默认为 5。</div>
     </li>
     <li>
         <div class="api-arg-title">flee</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">Instead of searching for a path <em>to</em> the goals this will search for a path <em>away</em> from the goals. The cheapest path that is out of <code>range</code> of every goal will be returned. The default is false.</div>
+        <div class="api-arg-desc">与其寻找<em>前往</em>目标的道路，不如寻找<em>远离</em>目标的道路。返回远离每个目标 <code>range</code> 的移动成本最低的路径。默认为 false。</div>
     </li>
     <li>
         <div class="api-arg-title">maxOps</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed pathfinding operations. You can limit CPU time used for the search based on ratio 1 op ~ 0.001 CPU. The default value is 2000.</div>
+        <div class="api-arg-desc">寻路所允许的最大消耗。你可以限制用于搜索路径的 CPU 时间，基于 1 op ~ 0.001 CPU 的比例。默认值为 2000。</div>
     </li>
     <li>
         <div class="api-arg-title">maxRooms</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed rooms to search. The default is 16, maximum is 64.</div>
+        <div class="api-arg-desc">寻路所允许的最大房间数。默认值为 16，最大至为 64。</div>
     </li>
     <li>
         <div class="api-arg-title">maxCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed cost of the path returned. If at any point the pathfinder detects that it is impossible to find a path with a cost less than or equal to `maxCost` it will immediately halt the search. The default is Infinity.</div>
+        <div class="api-arg-desc">寻路所允许的最大移动成本。如果 pathfinder 发现无论如何都找不到移动成本小于等于 `maxCost` 的路径时，它将立即停止搜索。默认值为无穷大(Infinity)。</div>
     </li>
     <li>
         <div class="api-arg-title">heuristicWeight</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Weight to apply to the heuristic in the A\* formula <code>F = G + weight \* H</code>. Use this option only if you understand the underlying A\* algorithm mechanics! The default value is 1.</div>
+        <div class="api-arg-desc">应用于 A\* 算法 <code>F = G + weight \* H</code> 中的启发式权重(weight)。在使用该选项之前您最好已经了解了 A\* 算法的底层实现！默认值为 1。</div>
     </li>
 </ul>
 				
@@ -131,14 +131,14 @@ An object containing additional pathfinding flags.
 
 ### 返回值
 
-An object containing the following properties:
+包含以下属性的对象：
 
-property | description
+属性 | 介绍
 ---|---
-`path` | An array of RoomPosition objects.
-`ops` | Total number of operations performed before this path was calculated.
-`cost` | The total cost of the path as derived from `plainCost`, `swampCost` and any given CostMatrix instances.
-`incomplete` | If the pathfinder fails to find a complete path, this will be true. Note that `path` will still be populated with a partial path which represents the closest path it could find given the search parameters.			
+`path` | RoomPosition 对象数组。
+`ops` | 寻路完成时的 operation 总消耗。
+`cost` | 从 `plainCost`，`swampCost` 和任何给定的 CostMatrix 实例推导出的移动总成本。
+`incomplete` | 如果 pathfinder 找不到完整的路径的话，该值将为 true。注意，`path` 中依旧会有部分路径，其中的不完整路径代表在当前搜索限制下所能找到的最接近的路径。	
 
 
 {% api_method PathFinder.use 'isEnabled' 0 '{"deprecated": true}' %} 
@@ -148,11 +148,11 @@ PathFinder.use(true);
 Game.creeps.John.moveTo(Game.spawns['Spawn1']);
 ```
 
-Specify whether to use this new experimental pathfinder in game objects methods. This method should be invoked every tick. It affects the following methods behavior: <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, <a href="#RoomPosition.findClosestByPath"><code>RoomPosition.findClosestByPath</code></a>, <a href="#Creep.moveTo"><code>Creep.moveTo</code></a>.
+指定是否在游戏中使用新的实验性 pathfinder。该方法应在每个 tick 调用。它将影响以下方法的行为：<a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, <a href="#RoomPosition.findClosestByPath"><code>RoomPosition.findClosestByPath</code></a>, <a href="#Creep.moveTo"><code>Creep.moveTo</code></a>.
 
 {% api_method_params %}
 isEnabled : boolean
-Whether to activate the new pathfinder or deactivate. The default is `true`.
+是否要激活新的 pathfinder。默认值为 `true`。
 {% endapi_method_params %}
 
 
