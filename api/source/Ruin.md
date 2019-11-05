@@ -2,13 +2,13 @@
 
 <img src="img/ruin.png" alt="" align="right" />
 
-A destroyed structure. This is a walkable object. 
+一个被摧毁的建筑。该对象允许其他单位在其上行走。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
         <td><strong>Decay</strong></td>
-        <td>500 ticks except some special cases</td>
+        <td>500 tick 除了某些情况外</td>
     </tr>
     </tbody>
 </table>
@@ -18,24 +18,24 @@ A destroyed structure. This is a walkable object.
 
 {% api_property destroyTime 'number' %}
 
-The time when the structure has been destroyed. 
+该建筑被摧毁的时间。
 
 {% api_property id string %}
 
-A unique object identificator. You can use <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> method to retrieve an object instance by its <code>id</code>.
+一个唯一的对象标识。你可以使用 <a href="#Game.getObjectById"><code>Game.getObjectById</code></a> 方法获取对象实例。
 
 {% api_property store 'object' %}
 
-A [`Store`](#Store) object that contains resources of this structure.
+一个包含了该建筑中所存储资源的 [`Store`](#Store) 对象。
 
 {% api_property structure '<a href="#Structure">Structure</a> | <a href="#OwnedStructure">OwnedStructure</a>' %}
 
-An object containing basic data of the destroyed structure.
+一个包含了已被摧毁建筑基本信息的对象。
 
 
 {% api_property ticksToDecay 'number' %}
 
-The amount of game ticks before this ruin decays.
+该废墟离老化消失还有多少 tick。
 
 
 

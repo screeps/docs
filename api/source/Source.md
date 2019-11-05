@@ -1,16 +1,16 @@
 # Source
  
-An energy source object. Can be harvested by creeps with a `WORK` body part.
+一个能量源对象。可以被拥有 `WORK` 身体部件的 creep 采集。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Energy amount</strong></td>
-        <td>4000 in center rooms<br />3000 in an owned or reserved room<br />1500 in an unreserved room</td>
+        <td><strong>能量容量</strong></td>
+        <td>中央房间：4000<br />被控制(owned)或者被预定(reserved)房间：3000<br />未预定房间：1500</td>
     </tr>
     <tr>
-        <td><strong>Energy regeneration</strong></td>
-        <td>Every 300 game ticks</td>
+        <td><strong>能量再生</strong></td>
+        <td>每 300 tick</td>
     </tr>
     </tbody>
 </table>
@@ -21,7 +21,7 @@ An energy source object. Can be harvested by creeps with a `WORK` body part.
 
 
 
-The remaining amount of energy.
+能量的剩余容量。
 
 
 
@@ -29,7 +29,7 @@ The remaining amount of energy.
 
 
 
-The total amount of energy in the source.
+该 source 的总能量容量。
 
 
 
@@ -45,6 +45,6 @@ The total amount of energy in the source.
 
 
 
-The remaining time after which the source will be refilled.
+该 source 还有多少 tick 将会再生。
 
 

@@ -2,12 +2,12 @@
 
 <img src="img/keeperLair.png" alt="" align="right" />
 
-Non-player structure. Spawns NPC Source Keepers that guards energy sources and minerals in some rooms. This structure cannot be destroyed.
+非玩家建筑。孵化 NPC 资源守护者(Source Keeper)来守卫某些房间中的能量 source 和 mineral。该建筑无法被摧毁。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Spawning time</strong></td>
+        <td><strong>孵化时间</strong></td>
         <td>300</td>
     </tr>
     </tbody>
@@ -17,6 +17,6 @@ Non-player structure. Spawns NPC Source Keepers that guards energy sources and m
 
 {% api_property ticksToSpawn 'number' %}
 
-Time to spawning of the next Source Keeper.
+距离孵化下一个资源守护者还有多少 tick。
 
 

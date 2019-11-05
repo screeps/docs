@@ -2,12 +2,12 @@
 
 <img src="img/link.png" alt="" align="right" /> 
 
-Remotely transfers energy to another Link in the same room.
+将能量远程传输到同一房间的另一个 Link 中。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td colspan="2"><strong>Controller level</strong></td>
+        <td colspan="2"><strong>控制器等级</strong></td>
     </tr>
     <tr>
         <td>1-4</td>
@@ -30,23 +30,23 @@ Remotely transfers energy to another Link in the same room.
         <td>6 links</td>
     </tr>
     <tr>
-        <td><strong>Cost</strong></td>
+        <td><strong>建造花费</strong></td>
         <td>5,000</td>
     </tr>
     <tr>
-        <td><strong>Hits</strong></td>
+        <td><strong>生命值</strong></td>
         <td>1,000</td>
     </tr>
     <tr>
-        <td><strong>Capacity</strong></td>
+        <td><strong>容量</strong></td>
         <td>800</td>
     </tr>
     <tr>
-        <td><strong>Cooldown time</strong></td>
-        <td>1 tick per tile of the linear distance to the target</td>
+        <td><strong>冷却时间</strong></td>
+        <td>该 Link 到目标的线性距离每格增加 1 tick 冷却。</td>
     </tr>
     <tr>
-        <td><strong>Energy loss</strong></td>
+        <td><strong>能量传输损耗</strong></td>
         <td>3%</td>
     </tr>
     </tbody>
@@ -59,19 +59,19 @@ Remotely transfers energy to another Link in the same room.
 
 
 
-The amount of game ticks the link has to wait until the next transfer is possible.
+下次传输之前还需多少 tick 的冷却。
 
 
 
 {% api_property energy 'number' '{"deprecated": true}' %}
                                                                 
-An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
+[`.store[RESOURCE_ENERGY]`](#StructureExtension.store) 的别名。
 
 
 
 {% api_property energyCapacity 'number' '{"deprecated": true}' %}
                                                                                                                 
-An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
+[`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity) 的别名。
 
 {% api_property store 'object' %}
 
@@ -82,7 +82,7 @@ if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
 ```
 
 
-A [`Store`](#Store) object that contains cargo of this structure.
+一个包含了该建筑中所存储资源的 [`Store`](#Store) 对象。
 
 
 
@@ -97,14 +97,14 @@ const linkTo = linkFrom.pos.findInRange(FIND_MY_STRUCTURES, 2,
 linkFrom.transferEnergy(linkTo);
 ```
 
-Remotely transfer energy to another link at any location in the same room.
+将能量远程传输到同一房间中任何位置的另一个 Link 中。
 
 {% api_method_params %}
 target : <a href="#StructureLink">StructureLink</a>
-The target object.
+目标对象。
 ===
 amount (optional) : number
-The amount of energy to be transferred. If omitted, all the available energy is used.
+将要传输的能量值。如果省略，所有能量都将被传输。
 {% endapi_method_params %}
 
 
@@ -113,13 +113,13 @@ The amount of energy to be transferred. If omitted, all the available energy is 
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this link.
+ERR_NOT_OWNER | 你不是该 link 的所有者。
 ERR_NOT_ENOUGH_RESOURCES | 这个建筑内的资源少于给定的数量。
-ERR_INVALID_TARGET | The target is not a valid StructureLink object.
+ERR_INVALID_TARGET | 目标不是一个有效的 StructureLink 对象。
 ERR_FULL | 目标无法接受更多能量。
 ERR_INVALID_ARGS | 资源数量不正确。
-ERR_TIRED | The link is still cooling down.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this link.
+ERR_TIRED | 该 link 仍在冷却中。
+ERR_RCL_NOT_ENOUGH | 房间控制器等级不足以使用该 link。
 ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 

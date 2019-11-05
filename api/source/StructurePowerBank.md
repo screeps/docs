@@ -2,26 +2,24 @@
 
 <img src="img/powerBank.png" alt="" align="right" />
 
-Non-player structure. Contains power resource which can be obtained by destroying the structure.
-Hits the attacker creep back on each attack. Learn more about power
-from [this article](/power.html).
+非玩家建筑。储存着超能资源，可以通过摧毁该建筑获得。攻击该建筑的 creep 每次攻击都会承受反弹回来的伤害。点击[本文](/power.html)了解更多关于超能的信息。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>Hits</strong></td>
+        <td><strong>生命值</strong></td>
         <td>2,000,000</td>
     </tr>
     <tr>
-        <td><strong>Return damage</strong></td>
+        <td><strong>反弹伤害</strong></td>
         <td>50%</td>
     </tr>
     <tr>
-        <td><strong>Capacity</strong></td>
+        <td><strong>容量</strong></td>
         <td>500 — 10,000</td>
     </tr>
     <tr>
-        <td><strong>Decay</strong></td>
+        <td><strong>老化</strong></td>
         <td>5,000 ticks</td>
     </tr>
     </tbody>
@@ -34,7 +32,7 @@ from [this article](/power.html).
 
 
 
-The amount of power containing.
+储存的 power 容量。
 
 
 
@@ -42,4 +40,4 @@ The amount of power containing.
 
 
 
-The amount of game ticks when this structure will disappear.
+该建筑还有多少 tick 就要因老化而消失。
