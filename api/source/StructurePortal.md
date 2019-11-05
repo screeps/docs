@@ -2,7 +2,7 @@
 
 <img src="img/portal.png" alt="" align="right" />
 
-一个非玩家建造的建筑。立刻将你的 creep 传送至一个遥远房间的出口位置。传送门会在每个区块的中央房间随机刷新。</p>
+一个非玩家建筑。立刻将你的 creep 传送至一个遥远房间的出口位置。传送门会在每个区块的中央房间随机刷新。</p>
 
 <table class="table gameplay-info">
     <tbody>

@@ -2,7 +2,7 @@
 
 <img src="img/powerBank.png" alt="" align="right" />
 
-非玩家建造的建筑。储存着超能资源，可以通过摧毁该建筑获得。攻击该建筑的 creep 每次攻击都会承受反弹回来的伤害。点击[本文](/power.html)了解更多关于超能的信息。
+非玩家建筑。储存着超能资源，可以通过摧毁该建筑获得。攻击该建筑的 creep 每次攻击都会承受反弹回来的伤害。点击[本文](/power.html)了解更多关于超能的信息。
 
 <table class="table gameplay-info">
     <tbody>
