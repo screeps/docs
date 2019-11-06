@@ -112,7 +112,7 @@ opts (optional) : object
     <li>
         <div class="api-arg-title">maxRooms</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">寻路所允许的最大房间数。默认值为 16，最大至为 64。</div>
+        <div class="api-arg-desc">寻路所允许的最大房间数。默认值为 16，最大值为 64。</div>
     </li>
     <li>
         <div class="api-arg-title">maxCost</div>

@@ -14,7 +14,7 @@
         <td>50,000 ticks</td>
     </tr>
     <tr>
-        <td><strong>密度(Density)变化几率</strong></td>
+        <td><strong>丰度(Density)变化几率</strong></td>
         <td><code>DENSITY_LOW</code>: 100% 变化<br /> <code>DENSITY_MODERATE</code>: 5% 变化<br /> <code>DENSITY_HIGH</code>: 5% 变化<br /> <code>DENSITY_ULTRA</code>: 100% 变化</td>
     </tr>
     </tbody>

@@ -402,7 +402,7 @@ y : number
 Y position of the target in the same room.
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>. The position doesn't have to be in the same room with the creep.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。 The position doesn't have to be in the same room with the creep.
 ===
 opts (optional) : object
 An object containing additional options:

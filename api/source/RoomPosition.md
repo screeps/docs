@@ -309,7 +309,7 @@ y : number
 Y position in the room.
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 ===
 opts (optional) : object
 An object containing pathfinding options flags (see <a href="#Room.findPath">Room.findPath</a> for more details).
@@ -346,7 +346,7 @@ y : number
 Y position in the room.
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 {% endapi_method_params %}
 
 
@@ -373,7 +373,7 @@ y : number
 Y position in the room.
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 {% endapi_method_params %}
 
 
@@ -434,7 +434,7 @@ y : number
 Y position in the room.
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 {% endapi_method_params %}
 
 
@@ -460,7 +460,7 @@ y : number
 Y position in the room.
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 {% endapi_method_params %}
 
 
