@@ -1,14 +1,13 @@
 # Room
 
-An object representing the room in which your units and structures are in.
-It can be used to look around, find paths, etc. Every `RoomObject` in the room contains
-its linked `Room` instance in the `room` property.
+一个代表了你的单位和建筑所在房间的对象。
+它可以被用来“环顾四周”，查找路径等。所有 `RoomObject` 都有一个链接到其所在房间 `Room` 实例的属性 `room`。
 
 {% api_property controller '<a href="#StructureController">StructureController</a>' %}
 
 
 
-The Controller structure of this room, if present, otherwise undefined.
+该房间中的控制器（Controller）建筑，如果它存在的话，否则为 undefined。
 
 
 
@@ -16,7 +15,7 @@ The Controller structure of this room, if present, otherwise undefined.
 
 
 
-Total amount of energy available in all spawns and extensions in the room.
+本房间中所有 spawn 和 extension 中的可用能量总额。
 
 
 
@@ -24,7 +23,7 @@ Total amount of energy available in all spawns and extensions in the room.
 
 
 
-Total amount of <code>energyCapacity</code> of all spawns and extensions in the room.
+本房间中所有 spawn 和 extension 的 <code>energyCapacity</code> 总额。
 
 
 {% api_property memory 'any' %}
@@ -33,7 +32,7 @@ Total amount of <code>energyCapacity</code> of all spawns and extensions in the 
 room.memory.stage = 2;
 ```
 
-A shorthand to <code>Memory.rooms[room.name]</code>. You can use it for quick access the room’s specific memory data object. <a href="/global-objects.html#Memory-object">Learn more about memory</a>
+<code>Memory.rooms[room.name]</code> 的简写。你可以用它来快速访问到该房间特定的内存数据对象。<a href="/global-objects.html#Memory-object">点此了解有关内存的更多信息</a>。
 
 
 
@@ -41,7 +40,7 @@ A shorthand to <code>Memory.rooms[room.name]</code>. You can use it for quick ac
 
 
 
-The name of the room.
+房间名称。
 
 
 
@@ -49,7 +48,7 @@ The name of the room.
 
 
 
-The Storage structure of this room, if present, otherwise undefined.
+该房间中的 Storage 建筑，如果它存在的话，否则为 undefined。
 
 
 
@@ -57,15 +56,14 @@ The Storage structure of this room, if present, otherwise undefined.
 
 
 
-The Terminal structure of this room, if present, otherwise undefined.
+该房间中的 Terminal 建筑，如果它存在的话，否则为 undefined。
 
 
 
 {% api_property visual '<a href="#RoomVisual">RoomVisual</a>' %}
 
 
-
-A <a href="#RoomVisual">RoomVisual</a> object for this room. You can use this object to draw simple shapes (lines, circles, text labels) in the room.
+该房间的 <a href="#RoomVisual">RoomVisual</a> 对象。您可以使用该对象在房间中绘制简单的形状 (线条，圆，文本标签)。
 
 
 
@@ -77,17 +75,17 @@ Memory.path = Room.serializePath(path);
 creep.moveByPath(Memory.path);
 ```
 
-Serialize a path array into a short string representation, which is suitable to store in memory.
+将路径数组序列化为适合存储在内存中的短字符串形式。
 
 {% api_method_params %}
 path : array
-A path array retrieved from <code><a href="#Room.findPath">Room.findPath</a></code>.
+<code><a href="#Room.findPath">Room.findPath</a></code> 返回的路径数组。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-A serialized string form of the given path.
+参数路径的序列化字符串。
 
 {% api_method Room.deserializePath 'path' 1 %}
 
@@ -96,17 +94,17 @@ const path = Room.deserializePath(Memory.path);
 creep.moveByPath(path);
 ```
 
-Deserialize a short string path representation into an array form.
+将短字符串形式的路径反序列化为路径数组。
 
 {% api_method_params %}
 path : string
-A serialized path string.
+一个序列化路径字符串。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-A path array.
+一个路径数组
 
 {% api_method createConstructionSite 'x, y, structureType, [name]|pos, structureType, [name]' A %}
 
@@ -119,23 +117,23 @@ Game.rooms.sim.createConstructionSite(10, 15, STRUCTURE_SPAWN,
     'MySpawn2');
 ```
 
-Create new <a href="#ConstructionSite">ConstructionSite</a> at the specified location.
+在指定位置创建一个新的 <a href="#ConstructionSite">ConstructionSite</a>。
 
 {% api_method_params %}
 x : number
-The X position.
+X 坐标。
 ===
 y : number
-The Y position.
+Y 坐标。
 ===
 pos : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以为 <a href="#RoomPosition">RoomPosition</a>  对象或任何包含 <a href="#RoomPosition">RoomPosition</a> 的对象。
 ===
 structureType : string
-One of the <code>STRUCTURE_*</code> constants.
+<code>STRUCTURE_*</code> 常量之一。
 ===
-name (optional) : string
-The name of the structure, for structures that support it (currently only spawns).
+name (可选) : string
+建筑的名称，该建筑必须支持设置名字（当前仅有 spawn）。
 {% endapi_method_params %}
 
 
@@ -144,10 +142,10 @@ The name of the structure, for structures that support it (currently only spawns
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_INVALID_TARGET | The structure cannot be placed at the specified location.
-ERR_FULL | You have too many construction sites. The maximum number of construction sites per player is 100.
-ERR_INVALID_ARGS | The location is incorrect.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html">Learn more</a>
+ERR_INVALID_TARGET | 该建筑无法被放置在指定位置。
+ERR_FULL | 你已经放置了太多建筑工地。其上限为 100。
+ERR_INVALID_ARGS | 不正确的位置。
+ERR_RCL_NOT_ENOUGH | 房间控制器级别不足。<a href="/control.html">了解更多</a>
 {% endapi_return_codes %}
 
 
@@ -158,36 +156,36 @@ ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html"
 Game.rooms.sim.createFlag(5, 12, 'Flag1');
 ```
 
-Create new <a href="#Flag">Flag</a> at the specified location.
+在指定位置创建一个新的 <a href="#Flag">Flag</a>。
 
 {% api_method_params %}
 x : number
-The X position.
+X 坐标。
 ===
 y : number
-The Y position.
+Y 坐标。
 ===
 pos : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以为 <a href="#RoomPosition">RoomPosition</a>  对象或任何包含 <a href="#RoomPosition">RoomPosition</a> 的对象。
 ===
-name (optional) : string
-The name of a new flag. It should be unique, i.e. the <code>Game.flags</code> object should not contain another flag with the same name (hash key). If not defined, a random name will be generated. The maximum length is 60 characters.
+name (可选) : string
+新旗帜的名称。它应该是唯一的，即 <code>Game.flags</code> 不应该包含拥有相同名称(哈希键)的不同旗帜。如果未定义，则会生成随机名称。最长不得超过 60 字符。
 ===
-color (optional) : string
-The color of a new flag. Should be one of the <code>COLOR_*</code> constants. The default value is <code>COLOR_WHITE</code>.
+color (可选) : string
+新旗帜的颜色。应为 <code>COLOR_*</code> 常量之一。默认值为 <code>COLOR_WHITE</code>。
 ===
-secondaryColor (optional) : string
-The secondary color of a new flag. Should be one of the <code>COLOR_*</code> constants. The default value is equal to <code>color</code>.
+secondaryColor (可选) : string
+新旗帜的次要颜色。应为 <code>COLOR_*</code> 常量之一。默认值等于 <code>color</code> 属性值。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-The name of a new flag, or one of the following error codes:
+新旗帜的名称，或者下列错误码之一：
 {% api_return_codes %}
-ERR_NAME_EXISTS | There is a flag with the same name already.
-ERR_INVALID_ARGS | The location or the color constant is incorrect.
-ERR_FULL | You have too many flags. The maximum number of flags per player is 10000.
+ERR_NAME_EXISTS | 该名称已被现有的旗帜使用。
+ERR_INVALID_ARGS | 位置或者颜色不正确。
+ERR_FULL | 你放置了太多旗帜，每个玩家最多允许放置 10000 个旗帜。
 {% endapi_return_codes %}
 
 
@@ -217,19 +215,19 @@ const targets = creep.room.find(FIND_HOSTILE_CREEPS, {
 });
 ```
 
-Find all objects of the specified type in the room. Results are cached automatically for the specified room and type before applying any custom filters. This automatic cache lasts until the end of the tick.
+查找房间中指定类型的所有对象。在应用自定义的 filter 之前，搜索结果会被自动缓存到指定的房间和类型，自动缓存将持续到本 tick 结束。
 
 {% api_method_params %}
 type : number
-One of the <code>FIND_*</code> constants.
+<code>FIND_*</code> 常量之一。
 ===
-opts (optional) : object
-An object with additional options:
+opts (可选) : object
+包含下列可选项的对象：
 					<ul>
 						<li>
 							<div class="api-arg-title">filter</div>
 							<div class="api-arg-type">object, function, string</div>
-							<div class="api-arg-desc">The result list will be filtered using the <a href="https://lodash.com/docs#filter">Lodash.filter</a> method.</div>
+							<div class="api-arg-desc">将会使用 <a href="https://lodash.com/docs#filter">Lodash.filter</a> 方法对结果列表进行筛选。</div>
 						</li>
 					</ul>
 
@@ -238,33 +236,33 @@ An object with additional options:
 
 ### 返回值
 
-An array with the objects found.
+找到的对象数组
 
-constant|type|description
+常量|类型|介绍
 ---|---|---
-`FIND_EXIT_TOP` | RoomPosition | Only exit positions located at the top of the room.
-`FIND_EXIT_RIGHT` | RoomPosition | Only exit positions located on the right side of the room.
-`FIND_EXIT_BOTTOM` | RoomPosition | Only exit positions located at the bottom of the room.
-`FIND_EXIT_LEFT` | RoomPosition | Only exit positions located on the left side of the room.
-`FIND_EXIT` | RoomPosition | All exit positions.
-`FIND_CREEPS` | Creep | All creeps.
-`FIND_MY_CREEPS` | Creep | Only creeps owned by you.
-`FIND_HOSTILE_CREEPS` | Creep | Only creeps not owned by you.
-`FIND_SOURCES_ACTIVE` | Source | Only sources that have energy.
-`FIND_SOURCES` | Source | All sources.
-`FIND_DROPPED_RESOURCES` | Resource | All dropped resources.
-`FIND_STRUCTURES` | Structure | All structures.
-`FIND_MY_STRUCTURES` | Structure | Only structures owned by you. Does not include neutral structures.
-`FIND_HOSTILE_STRUCTURES` | Structure | Only structures not owned by you. Does not include neutral structures.
-`FIND_FLAGS` | Flag | All flags
-`FIND_MY_SPAWNS` | StructureSpawn | Only spawns owned by you.
-`FIND_HOSTILE_SPAWNS` | StructureSpawn | Spawns not owned by you.
-`FIND_CONSTRUCTION_SITES` | ConstructionSite | All construction sites.
-`FIND_MY_CONSTRUCTION_SITES` | ConstructionSite | Only construction sites owned by you.
-`FIND_HOSTILE_CONSTRUCTION_SITES` | ConstructionSite | Only construction sites not owned by you.
-`FIND_MINERALS` | Mineral | All mineral deposits.
-`FIND_NUKES` | Nuke | All launched nukes.
-`FIND_TOMBSTONES` | Tombstone | All tombstones
+`FIND_EXIT_TOP` | RoomPosition | 位于房间顶部的出口位置。
+`FIND_EXIT_RIGHT` | RoomPosition | 位于房间右侧的出口位置。
+`FIND_EXIT_BOTTOM` | RoomPosition | 位于房间底部的出口位置。
+`FIND_EXIT_LEFT` | RoomPosition | 位于房间左侧的出口位置。
+`FIND_EXIT` | RoomPosition | 所有出口位置。
+`FIND_CREEPS` | Creep | 所有 creep。
+`FIND_MY_CREEPS` | Creep | 所有属于您的 creep。
+`FIND_HOSTILE_CREEPS` | Creep | 所有不属于您的 creep。
+`FIND_SOURCES_ACTIVE` | Source | 仍有能量的 source。
+`FIND_SOURCES` | Source | 所有 source。
+`FIND_DROPPED_RESOURCES` | Resource | 所有掉落的资源。
+`FIND_STRUCTURES` | Structure | 所有建筑。
+`FIND_MY_STRUCTURES` | Structure | 所有属于您的建筑，不包含中立建筑。
+`FIND_HOSTILE_STRUCTURES` | Structure | 所有不属于您的建筑，不包含中立建筑。
+`FIND_FLAGS` | Flag | 所有旗帜。
+`FIND_MY_SPAWNS` | StructureSpawn | 属于您的 spawn。
+`FIND_HOSTILE_SPAWNS` | StructureSpawn | 不属于您的 spawn。
+`FIND_CONSTRUCTION_SITES` | ConstructionSite | 所有建筑工地。
+`FIND_MY_CONSTRUCTION_SITES` | ConstructionSite | 所有属于您的建筑工地。
+`FIND_HOSTILE_CONSTRUCTION_SITES` | ConstructionSite | 所有不属于您的建筑工地。
+`FIND_MINERALS` | Mineral | 所有矿床。
+`FIND_NUKES` | Nuke | 所有已发射的核弹。
+`FIND_TOMBSTONES` | Tombstone | 所有墓碑。
 
 {% api_method findExitTo 'room' 3 %}
 
@@ -273,32 +271,32 @@ const exitDir = creep.room.findExitTo(anotherCreep.room);
 const exit = creep.pos.findClosestByRange(exitDir);
 creep.moveTo(exit);
 
-// or simply:
+// 或简写为：
 creep.moveTo(anotherCreep);
 creep.moveTo(new RoomPosition(25,25, anotherCreep.pos.roomName));
 ```
 
-Find the exit direction en route to another room. Please note that this method is not required for inter-room movement, you can simply pass the target in another room into <a href="#Creep.moveTo"><code>Creep.moveTo</code></a> method.
+找到通往另一个房间的出口方向。请注意，房间之间的移动不需要此方法，您只需将另一个房间中的目标传递给 <a href="#Creep.moveTo"><code>Creep.moveTo</code></a> 方法即可。
 
 {% api_method_params %}
 room : string, <a href="#Room">Room</a>
-Another room name or room object.
+其他房间的名称或者房间对象。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-The room direction constant, one of the following:
+出口方向常量，下列之一：
 
 * `FIND_EXIT_TOP`
 * `FIND_EXIT_RIGHT`
 * `FIND_EXIT_BOTTOM`
 * `FIND_EXIT_LEFT`
 
-Or one of the following error codes:
+或者下列错误码之一：
 {% api_return_codes %}
-ERR_NO_PATH | Path can not be found.
-ERR_INVALID_ARGS | The location is incorrect.
+ERR_NO_PATH | 无法找到路径。
+ERR_INVALID_ARGS | 不正确的位置。
 {% endapi_return_codes %}
 
 
@@ -315,11 +313,11 @@ PathFinder.use(true);
 const path = creep.room.findPath(creep.pos, targetPos, {
     costCallback: function(roomName, costMatrix) {
 	    if(roomName == 'W1N5') {
-		    // set anotherCreep's location as walkable
+		    // 将其他 creep 所处位置设置为可通过
 			costMatrix.set(anotherCreep.pos.x, anotherCreep.pos.y, 0);
-			// set flag location as an obstacle
+			// 将旗帜的位置设置为障碍
 			costMatrix.set(flag.pos.x, flag.pos.y, 255);
-			// increase cost for (25,20) location to 50
+			// 将位置 (25,20) 的移动成本设置为 50
 			costMatrix.set(25, 20, 50);
 		}
 	}
@@ -339,82 +337,82 @@ if( path.length ) {
 }
 ```
 
-Find an optimal path inside the room between fromPos and toPos using <a href="http://en.wikipedia.org/wiki/Jump_point_search" target="_blank">Jump Point Search algorithm</a>.
+使用跳点搜索算法 (<a href="http://en.wikipedia.org/wiki/Jump_point_search" target="_blank">Jump Point Search</a>) 在 fromPos 和 toPos 之间找到房间内的最佳路径。
 
 {% api_method_params %}
 fromPos : <a href="#RoomPosition">RoomPosition</a>
-The start position.
+起始位置。
 ===
 toPos : <a href="#RoomPosition">RoomPosition</a>
-The end position.
+结束位置。
 ===
-opts (optional) : object
-An object containing additonal pathfinding flags:
+opts (可选) : object
+包含下列寻路可选项的对象：
 <ul>
     <li>
         <div class="api-arg-title">ignoreCreeps</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">Treat squares with creeps as walkable. Can be useful with too many moving creeps around or in some other cases. The default value is false.</div>
+        <div class="api-arg-desc">将其他 creep 所处的地块视作可通行的。在附件有大量移动的 creep 或者其他一些情况时会很有用。默认值为 false。</div>
     </li>
     <li>
         <div class="api-arg-title">ignoreDestructibleStructures</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">Treat squares with destructible structures (constructed walls, ramparts, spawns, extensions) as walkable. The default value is false.</div>
+        <div class="api-arg-desc">将可破坏的建筑 (constructed walls, ramparts, spawns, extensions) 所在的地块视作可通行的。默认为 false。</div>
     </li>
     <li>
         <div class="api-arg-title">ignoreRoads</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">Ignore road structures. Enabling this option can speed up the search. The default value is false. This is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">无视道路。启用该项将加快搜索速度。默认值为 false。仅当新的 <a href="#PathFinder"><code>PathFinder</code></a> 启用时才可用。</div>
     </li>
     <li>
         <div class="api-arg-title">costCallback</div>
         <div class="api-arg-type">function(string, CostMatrix)</div>
-        <div class="api-arg-desc">You can use this callback to modify a <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a> for any room during the search. The callback accepts two arguments, <code>roomName</code> and <code>costMatrix</code>. Use the <code>costMatrix</code> instance to make changes to the positions costs. If you return a new matrix from this callback, it will be used instead of the built-in cached one. This option is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">你可以使用该回调在搜索过程中为任意房间修改 <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a>。回调接受两个参数，<code>roomName</code> 和 <code>costMatrix</code>。使用 <code>costMatrix</code> 实例来修改地形移动成本。如果你从回调中返回了一个新的 matrix。它将会代替内置的缓存 matrix。仅当新的 <a href="#PathFinder"><code>PathFinder</code></a> 启用时才可用。</div>
     </li>
     <li>
         <div class="api-arg-title">ignore</div>
         <div class="api-arg-type">array</div>
-        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as walkable tiles during the search. This option cannot be used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
+        <div class="api-arg-desc">一个数组，其元素为房间中的对象或者 <a href="#RoomPosition">RoomPosition</a> 对象，在搜索时会将该数组中的对象位置视作可通行的地块。当启用新的 <a href="#PathFinder"><code>PathFinder</code></a> 时无法使用。（请用 <code>costCallback</code> 选项代替）。</div>
     </li>
     <li>
         <div class="api-arg-title">avoid</div>
         <div class="api-arg-type">array</div>
-        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as obstacles during the search. This option cannot be used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
+        <div class="api-arg-desc">一个数组，其元素为房间中的对象或者 <a href="#RoomPosition">RoomPosition</a> 对象，在搜索时会将该数组中的对象位置视作无法通行的地块。当启用新的 <a href="#PathFinder"><code>PathFinder</code></a> 时无法使用。（请用 <code>costCallback</code> 选项代替）。</div>
     </li>
     <li>
         <div class="api-arg-title">maxOps</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum limit of possible pathfinding operations. You can limit CPU time used for the search based on ratio 1 op ~ 0.001 CPU. The default value is 2000.</div>
+        <div class="api-arg-desc">用于寻路的消耗上限。你可以限制在寻路上花费的 CPU 时间，基于 1 op ~ 0.001 CPU 的比例。默认值为 2000。</div>
     </li>
     <li>
         <div class="api-arg-title">heuristicWeight</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Weight to apply to the heuristic in the A* formula <code>F = G + weight * H</code>. Use this option only if you understand the underlying A* algorithm mechanics! The default value is 1.</div>
+        <div class="api-arg-desc">应用于 A\* 算法 <code>F = G + weight \* H</code> 中的启发式权重(weight)。在使用该选项之前您最好已经了解了 A\* 算法的底层实现！默认值为 1。</div>
     </li>
     <li>
         <div class="api-arg-title">serialize</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">If true, the result path will be serialized using <code><a href="#Room.serializePath">Room.serializePath</a></code>. The default is false.</div>
+        <div class="api-arg-desc">如果为 true，将会使用 <code><a href="#Room.serializePath">Room.serializePath</a></code> 对结果路径进行序列化。默认值为 false。</div>
     </li>
     <li>
         <div class="api-arg-title">maxRooms</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16. This is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">寻路所允许的最大房间数。默认值为 16。仅当新的 <a href="#PathFinder"><code>PathFinder</code></a> 启用时才可用。</div>
     </li>
     <li>
         <div class="api-arg-title">range</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Find a path to a position in specified linear range of target. The default is 0.</div>
+        <div class="api-arg-desc">找到到达位于目标指定线性区域内位置的路径。默认值为 0.</div>
     </li>
     <li>
         <div class="api-arg-title">plainCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Cost for walking on plain positions. The default is 1.</div>
+        <div class="api-arg-desc">平原地形的移动成本。默认为 1。</div>
     </li>
     <li>
         <div class="api-arg-title">swampCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Cost for walking on swamp positions. The default is 5.</div>
+        <div class="api-arg-desc">沼泽地形的移动成本。默认为 5。</div>
     </li>
 </ul>
 
@@ -423,7 +421,7 @@ An object containing additonal pathfinding flags:
 
 ### 返回值
 
-An array with path steps in the following format:
+一个数组，其元素为如下形式的路径步骤：
 
 ```javascript-content
 [
@@ -437,12 +435,12 @@ An array with path steps in the following format:
 {% api_method getEventLog '[raw]' 1 %}
 
 ```javascript
-// track events performed by a particular creep
+// 追踪特定 creep 执行的事件
 _.filter(creep.room.getEventLog(), {objectId: creep.id});
 ```
 
 ```javascript
-// Find all hostile actions against your creeps and structures
+// 查找针对您的 creep 和建筑的所有敌对行动
 _.forEach(Game.rooms, room => {
     let eventLog = room.getEventLog();
     let attackEvents = _.filter(eventLog, {event: EVENT_ATTACK});
@@ -455,17 +453,17 @@ _.forEach(Game.rooms, room => {
 });
 ```
 
-Returns an array of events happened on the previous tick in this room.  
+返回该房间中前一个 tick 发生的事件数组。
 
 {% api_method_params %}
 raw : boolean
-If this parameter is false or undefined, the method returns an object parsed using `JSON.parse` which incurs some CPU cost on the first access (the return value is cached on subsequent calls). If `raw` is truthy, then raw JSON in string format is returned.
+如果该参数为 false 或者未定义，则本方法将会返回使用 `JSON.parse` 解析后的对象，在首次访问时可能会造成一些 CPU 消耗（返回值会被缓存以方便后续调用）。如果 `raw` 为 true。则原始的 JSON 字符串将会被返回。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-An array of events. Each event represents some game action in the following format:
+事件数组。每个事件都代表一个游戏动作，其格式如下：
  
 ```javascript-content
 {
@@ -475,26 +473,26 @@ An array of events. Each event represents some game action in the following form
 }
 ```
 
-The `data` property is different for each event type according to the following table:
+不同类型事件的 `data` 属性都是不相同的，详见下表：
 <table>
     <tr>
-        <th>event</th><th>description</th>
+        <th>事件</th><th>介绍</th>
     </tr>
     <tr>
         <td>`EVENT_ATTACK`</td>
         <td>
-            A creep or a structure performed an attack to another object.
+            一个 creep 或者建筑攻击了另一个对象。
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`damage` - the amount of hits damaged</li>
-                <li>`attackType` - one of the following constants:
+                <li>`targetId` - 目标对象 ID</li>
+                <li>`damage` - 造成的 hit 伤害量</li>
+                <li>`attackType` - 下列常量之一：
                     <ul>
-                        <li>`EVENT_ATTACK_TYPE_MELEE` - a creep attacked with [attack](#Creep.attack)</li>
-                        <li>`EVENT_ATTACK_TYPE_RANGED` - a creep attacked with [rangedAttack](#Creep.rangedAttack), or a tower attacked with [attack](#StructureTower.attack)</li> 
-                        <li>`EVENT_ATTACK_TYPE_RANGED_MASS` - a creep attacked with [rangedMassAttack](#Creep.rangedMassAttack)</li>
-                        <li>`EVENT_ATTACK_TYPE_DISMANTLE` - a creep attacked with [dismantle](#Creep.dismantle)</li>
-                        <li>`EVENT_ATTACK_TYPE_HIT_BACK` - a creep hit back on another creep's [attack](#Creep.attack)</li>
-                        <li>`EVENT_ATTACK_TYPE_NUKE` - a nuke landed</li>
+                        <li>`EVENT_ATTACK_TYPE_MELEE` - creep 使用 [attack](#Creep.attack) 进行了攻击</li>
+                        <li>`EVENT_ATTACK_TYPE_RANGED` - creep 使用 [rangedAttack](#Creep.rangedAttack) 进行了攻击，或者 tower 使用 [attack](#StructureTower.attack) 进行了攻击</li> 
+                        <li>`EVENT_ATTACK_TYPE_RANGED_MASS` - creep 使用 [rangedMassAttack](#Creep.rangedMassAttack) 进行了攻击</li>
+                        <li>`EVENT_ATTACK_TYPE_DISMANTLE` - creep 使用 [dismantle](#Creep.dismantle) 进行了攻击</li>
+                        <li>`EVENT_ATTACK_TYPE_HIT_BACK` - creep 反击了其他 creep 的 [attack](#Creep.attack) 攻击</li>
+                        <li>`EVENT_ATTACK_TYPE_NUKE` - 核弹着陆</li>
                     </ul>
                 </li></ul>
         </td>
@@ -502,44 +500,44 @@ The `data` property is different for each event type according to the following 
     <tr>
         <td>`EVENT_OBJECT_DESTROYED`</td>
         <td>
-            A game object is destroyed or killed.
-            <ul><li>`type` - the type of the destroyed object</li></ul>
+            一个游戏对象被摧毁或是被消灭。
+            <ul><li>`type` - 被摧毁对象的类型</li></ul>
         </td>
     </tr>
     <tr>
         <td>`EVENT_ATTACK_CONTROLLER`</td>
-        <td>A creep performed [`attackController`](#Creep.attackController) in the room.</td>
+        <td>一个 creep 在该房间执行了 [`attackController`](#Creep.attackController)</td>
     </tr>
     <tr>
         <td>`EVENT_BUILD`</td>
         <td>
-            A creep performed [`build`](#Creep.build) in the room.
+            一个 creep 在该房间执行了 [`build`](#Creep.build)。
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of build progress gained</li>
-                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+                <li>`targetId` - 目标对象的 ID</li>
+                <li>`amount` - 取得的建造进度</li>
+                <li>`energySpent` - 此次行动消耗的能量</li></ul>
         </td>
     </tr>
     <tr>
         <td>`EVENT_HARVEST`</td>
         <td>
-            A creep performed [`harvest`](#Creep.harvest) in the room.
+            一个 creep 在该房间执行了 [`harvest`](#Creep.harvest)。
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of resource harvested</li></ul>
+                <li>`targetId` - 目标对象的 ID</li>
+                <li>`amount` - 资源采集量</li></ul>
         </td>
     </tr>
     <tr>
         <td>`EVENT_HEAL`</td>
         <td>
-            A creep or a tower healed a creep.
+            一个 creep 或者 tower 治疗了另一个 creep。
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of hits healed</li>
-                <li>`healType` - one of the following constants:
+                <li>`targetId` - 目标对象的 ID</li>
+                <li>`amount` - hit 治疗量</li>
+                <li>`healType` - 下列常量之一:
                     <ul>
-                        <li>`EVENT_HEAL_TYPE_MELEE` - a creep healed with [heal](#Creep.heal)</li>
-                        <li>`EVENT_HEAL_TYPE_RANGED` - a creep healed with [rangedHeal](#Creep.rangedHeal), or a tower healed with [heal](#StructureTower.heal)</li>
+                        <li>`EVENT_HEAL_TYPE_MELEE` - 一个 creep 使用 [heal](#Creep.heal) 进行了治疗</li>
+                        <li>`EVENT_HEAL_TYPE_RANGED` - 一个 creep 使用 [rangedHeal](#Creep.rangedHeal)进行了治疗，或者一个 tower 使用 [heal](#StructureTower.heal) 进行了治疗</li>
                     </ul>
                 </li></ul>
         </td>
@@ -547,50 +545,50 @@ The `data` property is different for each event type according to the following 
     <tr>
         <td>`EVENT_REPAIR`</td>
         <td>
-            A creep or a tower repaired a structure.
+            一个 creep 或者 tower 修复了建筑。
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of hits repaired</li> 
-                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+                <li>`targetId` - 目标对象 ID</li>
+                <li>`amount` - hit 修复量</li> 
+                <li>`energySpent` - 此次行动消耗的能量</li></ul>
             </ul>
         </td>
     </tr>        
     <tr>
         <td>`EVENT_RESERVE_CONTROLLER`</td>
         <td>
-            A creep performed [`reserveController`](#Creep.reserveController) in the room.
+            一个 creep 在该房间执行了 [`reserveController`](#Creep.reserveController)。
             <ul>
-                <li>`amount` - the amount of reservation time gained</li></ul>
+                <li>`amount` - 取得的预定时间</li></ul>
         </td>
     </tr> 
     <tr>
         <td>`EVENT_UPGRADE_CONTROLLER`</td>
         <td>
-            A creep performed [`upgradeController`](#Creep.upgradeController) in the room.
+            一个 creep 在该房间执行了 [`upgradeController`](#Creep.upgradeController)。
             <ul>
-                <li>`amount` - the amount of control points gained</li> 
-                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+                <li>`amount` - 获得的控制点数（control points）</li> 
+                <li>`energySpent` - 此次行动消耗的能量</li></ul>
             </ul>
         </td>
     </tr>    
     <tr>
         <td>`EVENT_EXIT`</td>
         <td>
-            A creep moved to another room.
+            一个 creep 移动到了其他房间。
             <ul>
-                <li>`room` - the name of the target room</li> 
-                <li>`x`, `y` - the coordinates in another room where the creep has appeared</li></ul>
+                <li>`room` - 目标房间的名称</li> 
+                <li>`x`, `y` - creep 将要出现在其他房间的坐标位置</li></ul>
             </ul>
         </td>
     </tr>           
     <tr>
         <td>`EVENT_TRANSFER`</td>
         <td>
-            A link performed [`transferEnergy`](https://docs.screeps.com/api/#StructureLink.transferEnergy) or a creep performed [`transfer`](#Creep.transfer) or [`withdraw`](#Creep.withdraw).
+            一个 link 执行了 [`transferEnergy`](https://docs.screeps.com/api/#StructureLink.transferEnergy) 或者一个 creep 执行了 [`transfer`](#Creep.transfer) 或 [`withdraw`](#Creep.withdraw)。
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`resourceType` - the type of resource transferred</li>
-                <li>`amount` - the amount of resource transferred</li>
+                <li>`targetId` - 目标对象 ID</li>
+                <li>`resourceType` - 被转移的资源类型</li>
+                <li>`amount` - 被转移的资源总量</li>
             </ul>
         </td>
     </tr>
@@ -603,22 +601,22 @@ const pos = Game.rooms.sim.getPositionAt(5,12);
 const source = pos.findClosestByRange(FIND_SOURCES_ACTIVE);
 ```
 
-Creates a <a href="#RoomPosition">RoomPosition</a> object at the specified location.
+获取指定位置的 <a href="#RoomPosition">RoomPosition</a>  对象。
 
 {% api_method_params %}
 x : number
-The X position.
+X 坐标。
 ===
 y : number
-The Y position.
+Y 坐标。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-A
+一个 
 <a href="#RoomPosition">RoomPosition</a>
-object or null if it cannot be obtained.
+对象，如果无法获取则返回 null。
 
 {% api_method getTerrain '' 0 %}
 
@@ -634,11 +632,11 @@ switch(terrain.get(10,15)) {
 }
 ```
 
-Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
+获取一个 <a href="#Room-Terrain">`Room.Terrain`</a> 对象，可以用它来快速访问房间内的静态地形数据。即使没有指定房间的视野，您依旧可以使用该方法访问它的地形数据，该方法适用于游戏世界中的所有房间。
 
 ### 返回值
 
-Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
+返回一个新的 <a href="#Room-Terrain">`Room.Terrain`</a> 对象。
 
 {% api_method lookAt 'x, y|target' 2 %}
 
@@ -652,23 +650,23 @@ look.forEach(function(lookObject) {
 });
 ```
 
-Get the list of objects at the specified room position.
+获取指定房间位置的对象数组。
 
 {% api_method_params %}
 x : number
-X position in the room.
+该房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+该房间中的 Y 坐标。
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-An array with objects at the specified position in the following format:
+一个位于指定位置的对象数组，格式如下：
 
 ```javascript-content
 [
@@ -686,30 +684,29 @@ An array with objects at the specified position in the following format:
 const look = creep.room.lookAtArea(10,5,11,7);
 ```
 
-Get the list of objects at the specified room area.
+获取指定房间区域内的对象列表。
 
 {% api_method_params %}
 top : number
-The top Y boundary of the area.
+区域顶部边界的 Y 坐标。
 ===
 left : number
-The left X boundary of the area.
+区域左侧边界的 X 坐标。
 ===
 bottom : number
-The bottom Y boundary of the area.
+区域底部边界的 Y 坐标。
 ===
 right : number
-The right X boundary of the area.
+区域右侧边界的 X 坐标。
 ===
-asArray (optional) : boolean
-Set to true if you want to get the result as a plain array.
+asArray (可选) : boolean
+设为 true 来获得纯数组形式。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-If `asArray` is set to false or undefined, the method returns
-an object with all the objects in the specified area in the following format:
+如果 `asArray` 值为 false 或者未定义，则该方法以如下格式返回指定区域内的对象：
 
 ```javascript-content
 // 10,5,11,7
@@ -730,7 +727,7 @@ an object with all the objects in the specified area in the following format:
 }
 ```
 
-If `asArray` is set to true, the method returns an array in the following format:
+如果 `asArray` 值为 true，则该方法以如下格式返回指定区域内的对象数组：
 
 ```javascript-content
 [
@@ -755,26 +752,26 @@ if(found.length && found[0].getActiveBodyparts(ATTACK) == 0) {
 }
 ```
 
-Get an object with the given type at the specified room position.
+在指定位置查找指定类型的对象。
 
 {% api_method_params %}
 type : string
-One of the <code>LOOK_*</code> constants.
+<code>LOOK_*</code> 常量之一。
 ===
 x : number
-X position in the room.
+该房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+该房间中的 Y 坐标。
 ===
 target : object
-Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-An array of objects of the given type at the specified position if found.
+在指定位置找到的指定类型的对象数组。
 
 {% api_method lookForAtArea 'type, top, left, bottom, right, [asArray]' 1 %}
 
@@ -782,33 +779,32 @@ An array of objects of the given type at the specified position if found.
 const look = creep.room.lookForAtArea(LOOK_STRUCTURES,10,5,11,7);
 ```
 
-Get the list of objects with the given type at the specified room area.
+在指定房间区域查找指定类型的对象列表。
 
 {% api_method_params %}
 type : string
-One of the <code>LOOK_*</code> constants.
+<code>LOOK_*</code> 常量之一
 ===
 top : number
-The top Y boundary of the area.
+区域顶部边界的 Y 坐标。
 ===
 left : number
-The left X boundary of the area.
+区域左侧边界的 X 坐标。
 ===
 bottom : number
-The bottom Y boundary of the area.
+区域底部边界的 Y 坐标。
 ===
 right : number
-The right X boundary of the area.
+区域右侧边界的 X 坐标。
 ===
-asArray (optional) : boolean
-Set to true if you want to get the result as a plain array.
+asArray (可选) : boolean
+设为 true 来获得纯数组形式。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-If `asArray` is set to false or undefined, the method returns an object
-with all the objects of the given type in the specified area in the following format:
+如果 `asArray` 值为 false 或者未定义，则该方法以如下格式返回指定区域内的对象：
 
 ```javascript-content
 // 10,5,11,7
@@ -827,7 +823,7 @@ with all the objects of the given type in the specified area in the following fo
 }
 ```
 
-If `asArray` is set to true, the method returns an array in the following format:
+如果 `asArray` 值为 true，则该方法以如下格式返回指定区域内的对象数组：
 
 ```javascript-content
 [
