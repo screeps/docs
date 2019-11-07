@@ -1,13 +1,12 @@
 # PowerCreep  
 
 
-Power Creeps are immortal "heroes" that are tied to your account and can be respawned in any `PowerSpawn` after death.
-You can upgrade their abilities ("powers") up to your account Global Power Level (see [`Game.gpl`](#Game.gpl)).
+Power Creep 是和您账户绑定的不朽“英雄”单位。其死后可以在任何 `PowerSpawn` 重生。你可以升级它们的能力（“powers”），可升级的等级取决于您的 Global Power Level。(查看 [`Game.gpl`](#Game.gpl))。
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td><strong>寿命</strong></td>
+        <td><strong>存活时间</strong></td>
         <td>5,000</td>
     </tr>
     <tr>
@@ -15,13 +14,13 @@ You can upgrade their abilities ("powers") up to your account Global Power Level
         <td>1,000 每级</td>
     </tr>
     <tr>
-        <td><strong>Capacity</strong></td>
-        <td>100 per level</td>
+        <td><strong>容量</strong></td>
+        <td>100 每级</td>
     </tr>    
     </tbody>
 </table>
 
-[Full list of available powers](/power.html#Powers)
+[可用 power 的完整列表](/power.html#Powers)
 
 {% api_method PowerCreep.create 'name, className' 1 %}
 
@@ -29,17 +28,16 @@ You can upgrade their abilities ("powers") up to your account Global Power Level
 PowerCreep.create('PowerCreep1', POWER_CLASS.OPERATOR);
 ```
 
-A static method to create new Power Creep instance in your account. It will be added in an unspawned state, 
-use [`spawn`](#PowerCreep.spawn) method to spawn it in the world.
+向您账户中添加新的 Power Creep 实例。在添加之后默认为未孵化状态，使用 [`spawn`](#PowerCreep.spawn) 方法在游戏世界中生成它。
 
-You need one free Power Level in your account to perform this action.
+您的账户中拥有至少一个可用的 Power Level 才能执行该操作。
 
 {% api_method_params %}
 name : string
-The name of the new power creep.
+新 power creep 的名字。
 ===
 className : string
-The class of the new power creep, one of the `POWER_CLASS` constants.
+新 power creep 的类型，`POWER_CLASS` 常量之一。
 {% endapi_method_params %}
 
 
@@ -48,8 +46,8 @@ The class of the new power creep, one of the `POWER_CLASS` constants.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_ENOUGH_RESOURCES | You don't have free Power Levels in your account.
-ERR_NAME_EXISTS | A power creep with the specified name already exists.
+ERR_NOT_ENOUGH_RESOURCES | 您的账户中没有足够的 Power Level。
+ERR_NAME_EXISTS | 指定的 power creep 名称已被使用。
 {% endapi_return_codes %} 
 
 {% page inherited/RoomObject.md %}
@@ -57,30 +55,30 @@ ERR_NAME_EXISTS | A power creep with the specified name already exists.
 
 {% api_property carry object '{"deprecated": true}' %}
 
-An alias for [`Creep.store`](#Creep.store). 
+[`Creep.store`](#Creep.store) 的别名。
 
 
 {% api_property carryCapacity number '{"deprecated": true}' %}
 
-An alias for [`Creep.store.getCapacity()`](#Store.getCapacity).
+[`Creep.store.getCapacity()`](#Store.getCapacity) 的别名。
 
 {% api_property className string %}
-The power creep's class, one of the `POWER_CLASS` constants.
+该 power creep 的类型，`POWER_CLASS` 常量之一。
 
 {% api_property deleteTime number %}
-A timestamp when this creep is marked to be permanently deleted from the account, or undefined otherwise.
+该 creep 被从账户中永久删除的时间戳，否则为 undefined。
 
 {% api_property hits number %}
-The current amount of hit points of the creep.
+该 creep 当前的 hit 生命值。
 
 {% api_property hitsMax number %}
-The maximum amount of hit points of the creep.
+该 creep 当前的最大生命值。
 
 {% api_property id string %}
 一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 {% api_property level number %}
-The power creep's level.
+该 power creep 的等级。
 
 {% api_property memory any %}
 
@@ -88,23 +86,27 @@ The power creep's level.
 creep.memory.task = 'building';
 ```
 
-A shorthand to <code>Memory.powerCreeps[creep.name]</code>. You can use it for quick access the creep’s specific memory data object. <a href="/global-objects.html#Memory-object">Learn more about memory</a>
+<code>Memory.powerCreeps[creep.name]</code> 的简写。您可以使用它来快速访问该 creep 的特定内存数据对象。<a href="/global-objects.html#Memory-object">点此了解有关 memory 的更多信息</a>
 
 
 
 {% api_property my boolean %}
-Whether it is your creep or foe.
+您是否为该 creep 的所有者。
 
 
 
 {% api_property name string %}
-Power creep’s name. You can choose the name while creating a new power creep, and it cannot be changed later. This name is a hash key to access the creep via the <a href="#Game.powerCreeps">Game.powerCreeps</a> object.
+Power creep 的名字。您可以在创建一个新 power creep 时为其指定名称，一旦指定无法修改（在 creep 存活时无法修改）。此名称是 <a href="#Game.powerCreeps">Game.powerCreeps</a> 对象中指向该 creep 的哈希键。你可以使用它来快速访问到该 creep。
 
 
 
 {% api_property owner object %}
-An object with the creep’s owner info containing the following properties:
+一个代表其拥有者信息的对象，包含以下属性：
 
+{% api_method_params %}
+username : string
+拥有者姓名。
+{% endapi_method_params %}
 
 {% api_property store 'object' %}
 
@@ -114,30 +116,25 @@ if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
 }
 ```
 
-A [`Store`](#Store) object that contains cargo of this creep.
-
-{% api_method_params %}
-username : string
-拥有者姓名。
-{% endapi_method_params %}
+一个包含了该 creep 所携带资源的 [`Store`](#Store) 对象。
 
 {% api_property powers object %}
-Available powers, an object with power ID as a key, and the following properties:
+可用的 power，一个使用 power ID 作为键的对象，包含以下属性：
 
 {% api_method_params %}
 level : number
-Current level of the power.
+该 power 的等级。
 ===
 cooldown : number
-Cooldown ticks remaining, or undefined if the power creep is not spawned in the world.
+剩余的冷却时间，当 power creep 还没有出生时为 undefined。
 {% endapi_method_params %}
 
 
 {% api_property saying string %}
-The text message that the creep was saying at the last tick.
+该 creep 在最后一 tick 说过的话。
 
 {% api_property shard string %}
-The name of the shard where the power creep is spawned, or undefined.
+该 power creep 孵化到的 shard 名称，或者为 undefined。
 
 {% api_property spawnCooldownTime number %}
 ```javascript
@@ -145,12 +142,11 @@ if(!(Game.powerCreeps['PowerCreep1'].spawnCooldownTime > Date.now())) {
     Game.powerCreeps['PowerCreep1'].spawn(powerSpawn);
 }
 ```
-The timestamp when spawning or deleting this creep will become available. 
-Undefined if the power creep is spawned in the world.
+在生成或者删除 creep 时该时间戳可用。
+在该 power creep 已经出生后为 undefined。
 
 {% api_property ticksToLive number %}
-The remaining amount of game ticks after which the creep will die and become unspawned. Undefined if the creep
-is not spawned in the world. 
+在 creep 死亡并变为未孵化状态前的剩余存活 tick 时长。在 creep 未孵化时该属性为 undefined。
 
 
 
@@ -159,14 +155,14 @@ is not spawned in the world.
 ```javascript
 creep.move(LEFT);
 creep.cancelOrder('move');
-//The creep will not move in this game tick
+// 该 creep 本 tick 将不会移动。
 ```
 
-Cancel the order given during the current game tick.
+取消当前 tick 已经调用的操作。
 
 {% api_method_params %}
 methodName : string
-The name of a creep's method to be cancelled.
+要取消的 creep 方法名称。
 {% endapi_method_params %}
 
 
@@ -174,10 +170,10 @@ The name of a creep's method to be cancelled.
 
 如下错误码之一：
 {% api_return_codes %}
-OK | The operation has been cancelled successfully.
-ERR_NOT_OWNER | You are not the owner of the creep.
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_NOT_FOUND | The order with the specified name is not found.
+OK | 该操作已被成功取消。
+ERR_NOT_OWNER | 你不是该 creep 的所有者。
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_NOT_FOUND | 要取消的方法名称未找到。
 {% endapi_return_codes %}
 
 
@@ -187,12 +183,11 @@ ERR_NOT_FOUND | The order with the specified name is not found.
 Game.powerCreeps['PowerCreep1'].delete();
 ```
 
-Delete the power creep permanently from your account. It should NOT be spawned in the world. The creep is not deleted
-immediately, but a 24-hours delete timer is started instead (see [`deleteTime`](#PowerCreep.deleteTime)). You can cancel deletion by calling `delete(true)`.
+从您的账户中永久删除一个 power creep。在删除时 creep 应处于未孵化状态。该 creep 并不会被立刻删除，而是会启动一个 24 小时的删除倒计时 (详见 [`deleteTime`](#PowerCreep.deleteTime))。你可以通过调用 `delete(true)` 来取消删除。
 
 {% api_method_params %}
 cancel : boolean
-Set this to true to cancel previously scheduled deletion.
+将其设为 true 来取消之前的删除计划。
 {% endapi_method_params %} 
 
 ### 返回值
@@ -200,8 +195,8 @@ Set this to true to cancel previously scheduled deletion.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the creep.
-ERR_BUSY | The power creep is spawned in the world.
+ERR_NOT_OWNER | 你不是这个 creep 的所有者。
+ERR_BUSY | 该 power creep 仍然存活在这个世界上。
 {% endapi_return_codes %}
 
 
@@ -212,7 +207,7 @@ creep.drop(RESOURCE_ENERGY);
 ```
 
 ```javascript
-// drop all resources
+// 丢弃所有资源
 for(const resourceType in creep.carry) {
 	creep.drop(resourceType);
 }
@@ -224,8 +219,8 @@ Drop this resource on the ground.
 resourceType : string
 <code>RESOURCE_*</code>常量之一。
 ===
-amount (optional) : number
-The amount of resource units to be dropped. If omitted, all the available carried amount is used.
+amount (可选) : number
+要被丢弃的资源数量。如果为空，则所有该类型资源都会被丢弃。
 {% endapi_method_params %}
 
 
@@ -235,9 +230,9 @@ The amount of resource units to be dropped. If omitted, all the available carrie
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of energy.
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_INVALID_ARGS | resourceType 不是一个有效的 <code>RESOURCE_*</code> 常量。
+ERR_NOT_ENOUGH_RESOURCES | 该 creep 上携带的资源数量小于给定的 amount。
 {% endapi_return_codes %}
 
 
@@ -253,11 +248,11 @@ Game.powerCreeps['PowerCreep1'].usePower(PWR_GENERATE_OPS);
 powerCreep.enableRoom(powerCreep.room.controller);
 ```
 
-Enable powers usage in this room. The room controller should be at adjacent tile.
+在该房间启用 power。房间控制器应位于相邻的地块上。
 
 {% api_method_params %}
 controller : <a href="#StructureController">StructureController</a>
-The room controller.
+房间控制器。
 {% endapi_method_params %}
 
 
@@ -267,7 +262,7 @@ The room controller.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_INVALID_TARGET | The target is not a controller structure.
+ERR_INVALID_TARGET | 目标不是一个控制器建筑。
 ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
@@ -291,11 +286,11 @@ creep1.pull(creep2);
 creep2.move(creep1);
 ```
 
-Move the creep one square in the specified direction.  
+使 creep 朝指定方向移动一个地块。
 
 {% api_method_params %}
 direction : <a href="#Creep">Creep</a>|number
-A creep nearby, or one of the following constants:
+一个相邻的 creep 或者下列常量之一：
 					<ul>
 						<li><code>TOP</code></li>
 						<li><code>TOP_RIGHT</code></li>
@@ -316,10 +311,10 @@ A creep nearby, or one of the following constants:
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_TIRED | The fatigue indicator of the creep is non-zero.
-ERR_INVALID_ARGS | The provided direction is incorrect.
-ERR_NOT_IN_RANGE | The target creep is too far away
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_TIRED | 该 creep 的疲劳(fatigue)计数器不为零。
+ERR_INVALID_ARGS | 提供的方向不正确。
+ERR_NOT_IN_RANGE | 目标 creep 距离过远。
 {% endapi_return_codes %}
 
 
@@ -338,11 +333,11 @@ if(!creep.memory.path) {
 creep.moveByPath(creep.memory.path);
 ```
 
-Move the creep using the specified predefined path. 
+使用预先定义的路径进行移动。
 
 {% api_method_params %}
 path : array|string
-A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, or <a href="#PathFinder.PathFinder-search"><code>PathFinder.search</code></a> methods. Both array form and serialized string form are accepted.
+<a href="#Room.findPath"><code>Room.findPath</code></a>、<a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a> 或 <a href="#PathFinder.PathFinder-search"><code>PathFinder.search</code></a> 的返回值。数组和序列化的字符串都可以接受。
 {% endapi_method_params %}
 
 
@@ -352,10 +347,10 @@ A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_NOT_FOUND | The specified path doesn't match the creep's location.
-ERR_INVALID_ARGS | <code>path</code> is not a valid path array.
-ERR_TIRED | The fatigue indicator of the creep is non-zero.
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_NOT_FOUND | 指定的路径与该 creep 的位置不匹配。
+ERR_INVALID_ARGS | <code>path</code> 不是一个有效的路径数组。
+ERR_TIRED | 该 creep 的疲劳(fatigue)计数器不为零。
 {% endapi_return_codes %}
 
 
@@ -379,12 +374,12 @@ creep.moveTo(pos, {reusePath: 50});
 ```
 
 ```javascript
-// Execute moves by cached paths at first
+// 优先使用缓存路径进行移动
 for(const name in Game.creeps) {
     Game.creeps[name].moveTo(target, {noPathFinding: true});
 }
 
-// Perform pathfinding only if we have enough CPU
+// 仅当有足够 CPU 时才执行寻路
 if(Game.cpu.tickLimit - Game.cpu.getUsed() > 20) {
     for(const name in Game.creeps) {
         Game.creeps[name].moveTo(target);
@@ -392,40 +387,40 @@ if(Game.cpu.tickLimit - Game.cpu.getUsed() > 20) {
 }
 ```
 
-Find the optimal path to the target within the same room and move to it. A shorthand to consequent calls of <a href="#RoomPosition.findPathTo">pos.findPathTo()</a> and <a href="#Creep.move">move()</a> methods. If the target is in another room, then the corresponding exit will be used as a target. 
+在本房间内查询到目标的最佳路径并向目标移动。该方法是 <a href="#RoomPosition.findPathTo">pos.findPathTo( )</a> <a href="#Creep.move">move( )</a> 的调用简写。如果目标在其他房间，则相应的出口将被当做目标(在本房间中)。
 
 {% api_method_params %}
 x : number
-X position of the target in the same room.
+目标在 creep 所在房间中的 x 坐标。
 ===
 y : number
-Y position of the target in the same room.
+目标在 creep 所在房间中的 y 坐标。
 ===
 target : object
 可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。 The position doesn't have to be in the same room with the creep.
 ===
-opts (optional) : object
-An object containing additional options:
+opts (可选) : object
+包含可选项的对象：
 					<ul>
 						<li>
 							<div class="api-arg-title">reusePath</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">This option enables reusing the path found along multiple game ticks. It allows to save CPU time, but can result in a slightly slower creep reaction behavior. The path is stored into the creep's memory to the <code>_move</code> property. The <code>reusePath</code> value defines the amount of ticks which the path should be reused for. The default value is 5. Increase the amount to save more CPU, decrease to make the movement more consistent. Set to 0 if you want to disable path reusing.</div>
+							<div class="api-arg-desc">此选项将缓存前方多个 tick 将要移动的路径。该操作可以节省 cpu 时间，但是会导致 creep 的反应变慢。路径被缓存到 creep 内存中的 <code>_move</code> 属性里。<code>reusePath</code> 的值定义了要缓存前方多少 tick 的移动路径。默认值为 5。增加该值来节省更多的 CPU。减少该值来使移动更加连贯。设置为 0 来禁用路径重用。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">serializeMemory</div>
 							<div class="api-arg-type">boolean</div>
-							<div class="api-arg-desc">If <code>reusePath</code> is enabled and this option is set to true, the path will be stored in memory in the short serialized form using <a href="#Room.serializePath"><code>Room.serializePath</code></a>. The default value is true.</div>
+							<div class="api-arg-desc">如果 <code>reusePath</code> 启用并且该值设为 true，重用的路径将会使用 <a href="#Room.Room-serializePath"><code>Room.serializePath</code></a> 进行序列化并储存在内存中。默认值为 true。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">noPathFinding</div>
 							<div class="api-arg-type">boolean</div>
-							<div class="api-arg-desc">If this option is set to true, <code>moveTo</code> method will return <code>ERR_NOT_FOUND</code> if there is no memorized path to reuse. This can significantly save CPU time in some cases. The default value is false.</div>
+							<div class="api-arg-desc">如果该选择设为 true 并且内存中没有重用路径时，<code>moveTo</code> 将会返回 <code>ERR_NOT_FOUND</code>。在某些情况下，这回节省大量的 CPU 时间。默认值为 false。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">visualizePathStyle</div>
 							<div class="api-arg-type">object</div>
-							<div class="api-arg-desc">Draw a line along the creep’s path using <a href="#RoomVisual.poly"><code>RoomVisual.poly</code></a>. You can provide either an empty object or custom style parameters. The default style is equivalent to:
+							<div class="api-arg-desc">使用 <a href="#RoomVisual.poly"><code>RoomVisual.poly</code></a> 来在 creep 的移动路线上画一条线。你可以提供一个空对象或者自定义样式参数。默认的样式如下：
 								<pre class="language-javascript"><code>{
     fill: 'transparent',
     stroke: '#fff',
@@ -435,7 +430,7 @@ An object containing additional options:
 }</code></pre>
 							</div>
 						</li>
-						<li>Any options supported by <a href="#Room.findPath"><code>Room.findPath</code></a> method.</li>
+						<li>任何 <a href="#Room.findPath"><code>Room.findPath</code></a> 方法支持的可选项。</li>
 					</ul>
 
 {% endapi_method_params %}
@@ -447,11 +442,11 @@ An object containing additional options:
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_TIRED | The fatigue indicator of the creep is non-zero.
-ERR_INVALID_TARGET | The target provided is invalid.
-ERR_NO_PATH | No path to the target could be found.
-ERR_NOT_FOUND | The creep has no memorized path to reuse.
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_TIRED | 该 creep 的疲劳(fatigue)计数器不为零。
+ERR_INVALID_TARGET | 提供了无效目标。
+ERR_NO_PATH | 没有找到可以抵达目标的路径。
+ERR_NOT_FOUND | 该 creep 没有找到可重用的路径。
 {% endapi_return_codes %}
 
 
@@ -462,11 +457,11 @@ ERR_NOT_FOUND | The creep has no memorized path to reuse.
 Game.powerCreeps['PC1'].notifyWhenAttacked(true);
 ```
 
-Toggle auto notification when the creep is under attack. The notification will be sent to your account email. Turned on by default.
+当 creep 受到攻击时切换自动通知。通知将发送到您的帐户邮箱。默认情况下启用。
 
 {% api_method_params %}
 enabled : boolean
-Whether to enable notification or disable.
+是否启用通知。
 {% endapi_method_params %}
 
 
@@ -476,8 +471,8 @@ Whether to enable notification or disable.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_INVALID_ARGS | <code>enable</code> argument is not a boolean value.
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_INVALID_ARGS | <code>enable</code> 参数不是 boolean 值。
 {% endapi_return_codes %}
 
 
@@ -493,11 +488,11 @@ if(target) {
 
 ```
 
-Pick up an item (a dropped piece of energy). The target has to be at adjacent square to the creep or at the same square.
+捡起一个物品 (如捡起一些能量)。目标必须在紧邻 creep 的正方形区域中或者和 creep 在相同位置。
 
 {% api_method_params %}
 target : <a href="#Resource">Resource</a>
-The target object to be picked up.
+要捡起的目标对象。
 {% endapi_method_params %}
 
 
@@ -507,9 +502,9 @@ The target object to be picked up.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_INVALID_TARGET | The target is not a valid object to pick up.
-ERR_FULL | The creep cannot receive any more resource.
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_INVALID_TARGET | 目标不是一个有效的可拾取对象。
+ERR_FULL | 该 creep 已无法存储更多资源。
 ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
@@ -522,11 +517,11 @@ ERR_NOT_IN_RANGE | 目标太远了。
 Game.powerCreeps['PC1'].rename('PC1X');
 ```
 
-Rename the power creep. It must not be spawned in the world.
+重命名 power creep。该 creep 必须尚未出生。
 
 {% api_method_params %}
 name : string
-The new name of the power creep.
+power creep 的新名字。
 {% endapi_method_params %}
 
 
@@ -535,9 +530,9 @@ The new name of the power creep.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the creep.
-ERR_BUSY | The power creep is spawned in the world.
-ERR_NAME_EXISTS | A power creep with the specified name already exists.
+ERR_NOT_OWNER | 你不是该 creep 的所有者。
+ERR_BUSY | power creep 已经出生。
+ERR_NAME_EXISTS | 指定的名称已经被已存在的 power creep 使用。
 {% endapi_return_codes %}
 
 
@@ -550,11 +545,11 @@ Game.powerCreeps['PowerCreep1'].renew(powerBank);
 
 ```
 
-Instantly restore time to live to the maximum using a Power Spawn or a Power Bank nearby. It has to be at adjacent tile. 
+立刻使用一个 Power Spawn 或者附近的 Power Bank 恢复最大的存活时间。目标必须在相邻的地块上。
 
 {% api_method_params %}
 target : <a href="#StructurePowerBank">StructurePowerBank</a> | <a href="#StructurePowerSpawn">StructurePowerSpawn</a>
-The target structure.
+目标建筑。
 {% endapi_method_params %}
 
 
@@ -564,8 +559,8 @@ The target structure.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_INVALID_TARGET | The target is not a valid power bank object.
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_INVALID_TARGET | 目标不是一个有效的 power bank 对象。
 ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
 
@@ -584,14 +579,14 @@ else {
 }
 ```
 
-Display a visual speech balloon above the creep with the specified message. The message will be available for one tick. You can read the last message using the <code>saying</code> property. Any valid Unicode characters are allowed, including <a href="http://unicode.org/emoji/charts/emoji-style.txt" target="_blank">emoji</a>.
+在该 creep 上显示带有指定内容的可视对话气泡。此信息只会显示 1 tick。你可以通过 <code>saying</code> 属性获取说过的最后一条信息。允许使用任何有效的 Unicode 字符。包括 <a href="http://unicode.org/emoji/charts/emoji-style.txt" target="_blank">emoji</a>。
 
 {% api_method_params %}
 message : string
-The message to be displayed. Maximum length is 10 characters.
+要显示的信息，最长 10 字符。
 ===
 public (optional) : boolean
-Set to true to allow other players to see this message. Default is false.
+设置为 true 来让其他玩家也能看到该信息。默认为 false。
 {% endapi_method_params %}
 
 
@@ -601,7 +596,7 @@ Set to true to allow other players to see this message. Default is false.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
+ERR_BUSY | 该 power creep 还没有出生。
 {% endapi_return_codes %}
 
 
@@ -612,11 +607,11 @@ ERR_BUSY | The power creep is not spawned in the world.
 Game.powerCreeps['PowerCreep1'].spawn(Game.getObjectById('XXX'));
 ```
 
-Spawn this power creep in the specified Power Spawn.
+使用指定的 Power Spawn 孵化该 power creep。
 
 {% api_method_params %}
 powerSpawn : <a href="#StructurePowerSpawn">StructurePowerSpawn</a>
-Your Power Spawn structure.
+您的 Power Spawn 建筑。
 {% endapi_method_params %}
 
 
@@ -625,11 +620,11 @@ Your Power Spawn structure.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the creep or the spawn.
-ERR_BUSY | The power creep is already spawned in the world.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use the spawn.
-ERR_INVALID_TARGET | The specified object is not a Power Spawn.
-ERR_TIRED | The power creep cannot be spawned because of the cooldown.
+ERR_NOT_OWNER | 您不是该 creep 或者 spawn 的所有者。
+ERR_BUSY | 该 power creep 已经出生了。
+ERR_RCL_NOT_ENOUGH | 房间控制等级（RCL）不足以使用该 spawn。
+ERR_INVALID_TARGET | 指定的对象不是一个 Power Spawn。
+ERR_TIRED | 由于 power creep 仍在冷却中导致其无法生成。
 {% endapi_return_codes %}
 
 
@@ -638,8 +633,8 @@ ERR_TIRED | The power creep cannot be spawned because of the cooldown.
 
 
 
-Kill the power creep immediately. It will not be destroyed permanently, but will become unspawned,
-so that you can [`spawn`](#PowerCreep.spawn) it again.
+立刻杀死一个 power creep。这不会永久的删除它，而是将其转为未孵化状态，
+所以你可以重新 [`spawn`](#PowerCreep.spawn) 它。
 
 
 
@@ -649,7 +644,7 @@ so that you can [`spawn`](#PowerCreep.spawn) it again.
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
+ERR_BUSY | 该 power creep 还没有出生。
 {% endapi_return_codes %}
 
 
@@ -663,13 +658,13 @@ if(creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 ```
 
 ```javascript
-// transfer all resources
+// 转移所有资源
 for(const resourceType in creep.carry) {
 	creep.transfer(storage, resourceType);
 }
 ```
 
-Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
+将资源从该 creep 转移至其他对象。目标必须在紧邻 creep 的正方形区域中。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
@@ -679,7 +674,7 @@ resourceType : string
 <code>RESOURCE_*</code>常量之一。
 ===
 amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available carried amount is used.
+要转移的资源数量。如果省略，将转移携带的全部指定资源。
 {% endapi_method_params %}
 
 
@@ -689,12 +684,12 @@ The amount of resources to be transferred. If omitted, all the available carried
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个creep的拥有者。
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
-ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
-ERR_FULL | The target cannot receive any more resources.
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_NOT_ENOUGH_RESOURCES | 该 creep 没有携带足够的资源。
+ERR_INVALID_TARGET | 目标不是一个能存放指定资源的有效对象。
+ERR_FULL | 目标无法携带更多的资源。
 ERR_NOT_IN_RANGE | 目标太远了。
-ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
+ERR_INVALID_ARGS | resourceType 不是 <code>RESOURCE_*</code> 常量之一，或者 amount 数量错误。
 {% endapi_return_codes %}
 
 
@@ -704,13 +699,12 @@ ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> co
 ```javascript
 Game.powerCreeps['PowerCreep1'].upgrade(PWR_GENERATE_OPS);
 ```
-
-Upgrade the creep, adding a new power ability to it or increasing level of the existing power. 
-You need one free Power Level in your account to perform this action. 
+升级该 creep，给它添加一个新的 power 能力或者升级已存在的 power 能力。
+你账户中需要有一个空闲的 Power Level 才能执行该操作。
 
 {% api_method_params %}
 power : number
-The power ability to upgrade, one of the `PWR_*` constants.
+要升级的 power，`PWR_*` 常量之一。
 {% endapi_method_params %}
 
 ### 返回值
@@ -718,10 +712,10 @@ The power ability to upgrade, one of the `PWR_*` constants.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the creep.
-ERR_NOT_ENOUGH_RESOURCES | You account Power Level is not enough.
-ERR_FULL | The specified power cannot be upgraded on this creep's level, or the creep reached the maximum level.
-ERR_INVALID_ARGS | The specified power ID is not valid.
+ERR_NOT_OWNER | 你不是该 creep 的所有者。
+ERR_NOT_ENOUGH_RESOURCES | 您账户中的 Power Level 不足。
+ERR_FULL | 该 creep 的等级不允许升级指定的 power，或者 creep 已经到达了最大等级。
+ERR_INVALID_ARGS | 指定了无效的 power ID。
 {% endapi_return_codes %}
 
 
@@ -735,20 +729,20 @@ Game.powerCreeps['PowerCreep1'].usePower(PWR_GENERATE_OPS);
 Game.powerCreeps['PowerCreep1'].usePower(PWR_OPERATE_SPAWN, Game.spawns['Spawn1']);
 ```
 
-Apply one the creep's powers on the specified target. 
-You can only use powers in rooms either without a controller, or with a [power-enabled](#PowerCreep.enableRoom) controller.
-Only one power can be used during the same tick, each `usePower` call will override the previous one.
-If the target has the same effect of a lower or equal level, it is overridden. If the existing effect level is higher, an error is returned.
+在指定目标上附加该 creep 的 power。
+你只能在没有控制器或者 [power-enabled](#PowerCreep.enableRoom) 的控制器所在的房间中使用 power。
+同一 tick 中只能使用一种 power，每个 `usePower` 调用都将覆盖前一个。
+如果目标拥有较低或相同等级的效果，则将已存在的效果覆盖。如果已存在的效果等级更高，则返回一个错误码。
 
-[Full list of available powers](/power.html#Powers)   
+[可用 power 的完整列表](/power.html#Powers)   
 
 
 {% api_method_params %}
 power : number
-The power ability to use, one of the `PWR_*` constants.
+要使用的 power 能力，`PWR_*`常量之一。
 ===
 target : <a href="#RoomObject">RoomObject</a>
-A target object in the room. 
+房间中的指定目标。
 {% endapi_method_params %}
 
 ### 返回值
@@ -756,15 +750,15 @@ A target object in the room.
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the creep.
-ERR_BUSY | The creep is not spawned in the world.
-ERR_NO_BODYPART | The creep doesn't have the specified power ability.
-ERR_TIRED | The power ability is still on cooldown.
-ERR_NOT_ENOUGH_RESOURCES | The creep doesn't have enough resources to use the power.
-ERR_INVALID_TARGET | The specified target is not valid.
-ERR_NOT_IN_RANGE | The specified target is too far away.
-ERR_INVALID_ARGS | Using powers is not enabled on the Room Controller.
-ERR_FULL | The target has the same active effect of a higher level.  
+ERR_NOT_OWNER | 你不是该 creep 的所有者。
+ERR_BUSY | 该 creep 还没有出生。
+ERR_NO_BODYPART | 该 creep 没有指定的 power 能力。
+ERR_TIRED | 该 power 能力仍在冷却中。
+ERR_NOT_ENOUGH_RESOURCES | 该 creep 没有足够的资源来使用这个 power。
+ERR_INVALID_TARGET | 指定了无效的目标。
+ERR_NOT_IN_RANGE | 指定目标距离过远。
+ERR_INVALID_ARGS | 该房间控制器还没有启用 power。
+ERR_FULL | 目标拥有相同或更高等级的已激活效果。
 {% endapi_return_codes %}
 
 {% api_method withdraw 'target, resourceType, [amount]' A %}
@@ -775,13 +769,13 @@ if(creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 }
 ```
 
-Withdraw resources from a structure or tombstone. The target has to be at adjacent square to the creep. Multiple creeps can withdraw from the same object in the same tick. Your creeps can withdraw resources from hostile structures/tombstones as well, in case if there is no hostile rampart on top of it.
+从建筑(structure)或是墓碑(tombstone)中拿取资源。目标必须在紧邻 creep 的正方形区域中。多个 creep 可以在同一 tick 里从相同对象中拿取资源。你的 creep 同样也可以从敌对建筑/墓碑中拿取资源，如果它上面没有敌对的 rampart 的话。
 
-This method should not be used to transfer resources between creeps. To transfer between creeps, use the [`transfer`](#Creep.transfer) method on the original creep.
+此方法不应该被用来在 creep 之间转移资源。想要在 creep 之间转移，请对携带资源的 creep 执行 [`transfer`](#Creep.transfer) 方法。
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
-The target object.
+目标对象。
 ===
 resourceType : string
 <code>RESOURCE_*</code>常量之一。
@@ -796,13 +790,13 @@ amount (optional) : number
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of this creep, or there is a hostile rampart on top of the target.
-ERR_BUSY | The power creep is not spawned in the world.
-ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resources.
-ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
-ERR_FULL | The creep's carry is full.
+ERR_NOT_OWNER | 你不是此 creep 的所有者，或者目标位于敌方 rampart 之下。
+ERR_BUSY | 该 power creep 还没有出生。
+ERR_NOT_ENOUGH_RESOURCES | 目标中没有足够数量的资源。
+ERR_INVALID_TARGET | 目标不是一个能存储指定资源的对象。
+ERR_FULL | 此 creep 的存储已经满了。
 ERR_NOT_IN_RANGE | 目标太远了。
-ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
+ERR_INVALID_ARGS | resourceType 不是 <code>RESOURCE_*</code> 常量之一, 或者 amount 数量错误。
 {% endapi_return_codes %}
 
 
