@@ -702,7 +702,7 @@ if(Game.cpu.tickLimit - Game.cpu.getUsed() > 20) {
 }
 ```
 
-在本房间内查询到目标的最佳路径并向目标移动。该方法是 <a href="#RoomPosition.findPathTo">pos.findPathTo( )</a> <a href="#Creep.move">move( )</a> 的调用简写。如果目标在其他房间，则响应的出口将被当做目标(在本房间中)。需要 <code>MOVE</code> 身体部件。
+在本房间内查询到目标的最佳路径并向目标移动。该方法是 <a href="#RoomPosition.findPathTo">pos.findPathTo( )</a> <a href="#Creep.move">move( )</a> 的调用简写。如果目标在其他房间，则相应的出口将被当做目标(在本房间中)。需要 <code>MOVE</code> 身体部件。
 
 {% api_method_params %}
 x : number
@@ -714,7 +714,7 @@ y : number
 target : object
 可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。该位置不必和 creep 在同一房间。
 ===
-opts (optional) : object
+opts (可选) : object
 包含可选项的对象：
 					<ul>
 						<li>
