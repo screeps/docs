@@ -50,7 +50,7 @@
     from : "W0N0",
     to : "W10N10",
     description : "trade contract #1",
-	order: {		// optional
+	order: {		// 可选的
 		id : "55c34a6b5be41a0a6e80c68b",
 		type : "sell",
 		price : 2.95
@@ -114,7 +114,7 @@
 
 ```javascript
 const cost = Game.market.calcTransactionCost(1000, 'W0N0', 'W10N5');
-// -> 284 energy units
+// -> 284 单位能量
 ```
 
 估算 <a href="#StructureTerminal.send"><code>StructureTerminal.send</code></a> 和 <a href="#Game.market.deal"><code>Game.market.deal</code></a> 方法的能量交易成本。
@@ -206,7 +206,7 @@ Game.market.createOrder({
 });
 ```
 
-从您的终端创建一个市场订单。下单时将向您收取 <code>price\*amount\*0.05</code> credit 的费用。每个玩家最多可以拥有 300 个订单。你可以在任意时刻使用任意数量创建一个订单。之后会自动根据其可用资源量和 credit 来将其状态设置为活跃和非活跃。
+从您的终端创建一个市场订单。下单时将向您收取 <code>price\*amount\*0.05</code> credit 的费用。每个玩家最多可以拥有 300 个订单。您可以在任意时刻使用任意数量创建一个订单。之后会自动根据其可用资源量和 credit 来将其状态设置为活跃和非活跃。
 
 {% api_method_params %}
 params : object
@@ -225,7 +225,7 @@ params : object
     <li>
         <div class="api-arg-title">price</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">资源的单价(单位: credit)。可以包含小数。</div>
+        <div class="api-arg-desc">资源的单价（单位: credit）。可以包含小数。</div>
     </li>
     <li>
         <div class="api-arg-title">totalAmount</div>
@@ -233,9 +233,9 @@ params : object
         <div class="api-arg-desc">要交易的资源总量。</div>
     </li>
     <li>
-        <div class="api-arg-title">roomName (optional)</div>
+        <div class="api-arg-title">roomName (可选)</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">创建订单时要指定的房间。您必须在该房间中拥有属于您的终端(Terminal)。否则该订单将是暂时无效的。当 <code>resourceType</code> 参数的值为 <code>SUBSCRIPTION_TOKEN</code> 时可以忽略该项。</div>
+        <div class="api-arg-desc">创建订单时要指定的房间。您必须在该房间中拥有属于您的终端（Terminal）。否则该订单将是暂时无效的。当 <code>resourceType</code> 参数的值为 <code>SUBSCRIPTION_TOKEN</code> 时可以忽略该项。</div>
     </li>        
 </ul>
 {% endapi_method_params %}
@@ -279,13 +279,13 @@ for(let i=0; i<orders.length; i++) {
 
 {% api_method_params %}
 orderId : string
-The order ID as provided in <code>Game.market.getAllOrders</code>.
+来自 <code>Game.market.getAllOrders</code> 的订单 ID。
 ===
 amount : number
-The amount of resources to transfer.
+要转移的资源数量。
 ===
-yourRoomName (optional) : string
-The name of your room which has to contain an active Terminal with enough amount of energy. This argument is not used when the order resource type equals to <code>SUBSCRIPTION_TOKEN</code>.
+yourRoomName (可选) : string
+您的某个房间名称，该房间应该存在有包含足够能量的可用终端。当订单的资源类型为 <code>SUBSCRIPTION_TOKEN</code> 时无需填写该参数。
 {% endapi_method_params %}
 
 
