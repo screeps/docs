@@ -83,7 +83,7 @@ Spawn 的名字。您在创建新母巢项时选择名称，以后无法更改�
 
 
 
-如果母巢正在孵化一个新的 creep, 这个对象将包含一个 [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) 对象，否则为null。
+如果母巢正在孵化一个新的 creep, 这个对象将包含一个 [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) 对象，否则为 null。
 
 
 {% api_property store 'object' %}
@@ -121,7 +121,7 @@ body : array&lt;string&gt;
 * `CLAIM`
 									
 ===
-name (optional) : string
+name (可选) : string
 新 creep 的名字。它应该是唯一的 creep 名称, 所以 <code>Game.creeps</code> 对象不应该包含另一个同名的 creep (hash key)。如果没有定义，将生成一个随机名称。
 {% endapi_method_params %}
 
@@ -134,7 +134,7 @@ OK | 可以创建具有给定 body 和名称的 creep。
 ERR_NOT_OWNER | 你不是这个母巢的主人。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
 ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
-ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的creep。
+ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
 ERR_INVALID_ARGS | Body 没有被恰当地描述。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 {% endapi_return_codes %}
@@ -178,11 +178,11 @@ body : array&lt;string&gt;
 * `CLAIM`
 				
 ===
-name (optional) : string
+name (可选) : string
 新 creep 的名字。它应该是唯一的 creep 名称, 所以 <code>Game.creeps</code> 对象不应该包含另一个同名的 creep (hash key)。如果没有定义，将生成一个随机名称。
 
 ===
-memory (optional) : any
+memory (可选) : any
 一个新 creep 的 memory 。如果提供，它将立即存储到<code>Memory.creeps[name]</code>。
 {% endapi_method_params %}
 
@@ -194,7 +194,7 @@ memory (optional) : any
 ERR_NOT_OWNER | 你不是这个母巢的主人。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
 ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
-ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的creep。
+ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
 ERR_INVALID_ARGS | Body 没有被恰当地描述。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 {% endapi_return_codes %}
@@ -247,7 +247,7 @@ name : string
 新 creep 的名字。它应该是唯一的 creep 名称, 所以 <code>Game.creeps</code> 对象不应该包含另一个同名的 creep (hash key)。如果没有定义，将生成一个随机名称。
 
 ===
-opts (optional) : object
+opts (可选) : object
 为孵化进程提供附加选项的对象。
 <ul>
     <li>
@@ -263,7 +263,7 @@ opts (optional) : object
     <li>
         <div class="api-arg-title">dryRun</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">如果“dryRun”为 true，则操作将仅检查是否可以孵化creep。</div>
+        <div class="api-arg-desc">如果“dryRun”为 true，则操作将仅检查是否可以孵化 creep。</div>
     </li>
     <li>
             <div class="api-arg-title">directions</div>
@@ -292,7 +292,7 @@ OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个母巢的主人。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
 ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
-ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的creep。
+ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
 ERR_INVALID_ARGS | Body 没有被恰当地描述。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 {% endapi_return_codes %}
@@ -307,7 +307,7 @@ ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
-The target creep object.
+目标 creep 对象。
 {% endapi_method_params %}
 
 
@@ -318,7 +318,7 @@ The target creep object.
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 您不是此母巢或目标 creep 的所有者。
 ERR_INVALID_TARGET | 指定的目标不是一个 creep 对象。
-ERR_NOT_IN_RANGE | 目标creep太远了。
+ERR_NOT_IN_RANGE | 目标 creep 太远了。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 {% endapi_return_codes %}
 
@@ -352,12 +352,12 @@ target : <a href="#Creep">Creep</a>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | You are not the owner of the spawn, or the creep.
+ERR_NOT_OWNER | 你不是该 spawn 或者该 creep 的所有者。
 ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
-ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的creep。
-ERR_INVALID_TARGET | 指定的目标不是一个creep对象。
+ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
+ERR_INVALID_TARGET | 指定的目标不是一个 creep 对象。
 ERR_FULL | 目标计时器的时间已经满了。
-ERR_NOT_IN_RANGE | 目标creep太远了。
+ERR_NOT_IN_RANGE | 目标 creep 太远了。
 ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 {% endapi_return_codes %}
 

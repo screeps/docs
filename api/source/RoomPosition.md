@@ -1,8 +1,6 @@
 # RoomPosition
 
-An object representing the specified position in the room. Every `RoomObject` in the room
-contains `RoomPosition` as the `pos` property. The position object of a custom location
-can be obtained using the [`Room.getPositionAt`](#Room.getPositionAt) method or using the constructor.
+表示房间中指定位置的对象。房间中的每个 `RoomObject` 都通过其 `pos` 属性链接到对应的 `RoomPosition` 上。可以使用 [`Room.getPositionAt`](#Room.getPositionAt) 或者构造函数创建自定义地点的位置对象。
 
 {% api_method constructor 'x, y, roomName' 0 %}
 
@@ -11,17 +9,17 @@ const pos = new RoomPosition(10, 25, 'sim');
 
 ```
 
-You can create new <code>RoomPosition</code> object using its constructor.
+你可以使用其构造函数创建一个新的 <code>RoomPosition</code> 对象。
 
 {% api_method_params %}
 x : number
-X position in the room.
+房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+房间中的 Y 坐标。
 ===
 roomName : string
-The room name.
+房间名称。
 {% endapi_method_params %}
 
 
@@ -30,7 +28,7 @@ The room name.
 
 
 
-The name of the room.
+所处房间的名称。
 
 
 
@@ -38,7 +36,7 @@ The name of the room.
 
 
 
-X position in the room.
+所处房间的 X 坐标。
 
 
 
@@ -46,7 +44,7 @@ X position in the room.
 
 
 
-Y position in the room.
+所处房间的 Y 坐标。
 
 
 {% api_method createConstructionSite 'structureType, [name]' A %}
@@ -58,14 +56,14 @@ Game.flags['Flag1'].pos.createConstructionSite(STRUCTURE_ROAD);
 Game.flags['Flag1'].pos.createConstructionSite(STRUCTURE_SPAWN, 'MySpawn2');
 ```
 
-Create new <a href="#ConstructionSite">ConstructionSite</a> at the specified location.
+在指定位置创建新的 <a href="#ConstructionSite">ConstructionSite</a>。
 
 {% api_method_params %}
 structureType : string
-One of the <code>STRUCTURE_*</code> constants.
+<code>STRUCTURE_*</code> 常量之一。
 ===
-name (optional) : string
-The name of the structure, for structures that support it (currently only spawns).
+name (可选) : string
+建筑的名称，该建筑必须支持设置名字（当前仅有 spawn）。
 {% endapi_method_params %}
 
 
@@ -74,10 +72,10 @@ The name of the structure, for structures that support it (currently only spawns
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_INVALID_TARGET | The structure cannot be placed at the specified location.
-ERR_FULL | You have too many construction sites. The maximum number of construction sites per player is 100.
-ERR_INVALID_ARGS | The location is incorrect.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html">Learn more</a>
+ERR_INVALID_TARGET | 该建筑无法被放置在指定位置。
+ERR_FULL | 你已经放置了太多建筑工地。其上限为 100。
+ERR_INVALID_ARGS | 不正确的位置。
+ERR_RCL_NOT_ENOUGH | 房间控制器等级不足。<a href="/control.html">了解更多</a>
 {% endapi_return_codes %}
 
 
@@ -88,28 +86,28 @@ ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html"
 creep.pos.createFlag('Flag1');
 ```
 
-Create new <a href="#Flag">Flag</a> at the specified location.
+在指定位置创建一个新的 <a href="#Flag">Flag</a>。
 
 {% api_method_params %}
-name (optional) : string
-The name of a new flag. It should be unique, i.e. the <code>Game.flags</code> object should not contain another flag with the same name (hash key). If not defined, a random name will be generated.
+name (可选) : string
+新旗帜的名称。它应该是唯一的，即 <code>Game.flags</code> 不应该包含拥有相同名称(哈希键)的不同旗帜。如果未定义，则会生成随机名称。最长不得超过 60 字符。
 ===
-color (optional) : string
-The color of a new flag. Should be one of the <code>COLOR_*</code> constants. The default value is <code>COLOR_WHITE</code>.
+color (可选) : string
+新旗帜的颜色。应为 <code>COLOR_*</code> 常量之一。默认值为 <code>COLOR_WHITE</code>。
 ===
-secondaryColor (optional) : string
-The secondary color of a new flag. Should be one of the <code>COLOR_*</code> constants. The default value is equal to <code>color</code>.
+secondaryColor (可选) : string
+新旗帜的次要颜色。应为 <code>COLOR_*</code> 常量之一。默认值等于 <code>color</code> 属性值。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-The name of a new flag, or one of the following error codes:
+新旗帜的名称，或者下列错误码之一：
 <br>
 
 {% api_return_codes %}
-ERR_NAME_EXISTS | There is a flag with the same name already.
-ERR_INVALID_ARGS | The location or the color constant is incorrect.
+ERR_NAME_EXISTS | 该名称已被现有的旗帜使用。
+ERR_INVALID_ARGS | 位置或者颜色不正确。
 {% endapi_return_codes %}
 
 
@@ -149,32 +147,32 @@ const targets = [
 const closest = creep.pos.findClosestByPath(targets);
 ```
 
-Find an object with the shortest path from the given position. Uses <a href="http://en.wikipedia.org/wiki/Jump_point_search" target="_blank">Jump Point Search algorithm</a> and <a href="http://en.wikipedia.org/wiki/Dijkstra">Dijkstra's algorithm</a>.
+查找到该位置路径最短的对象。使用<a href="http://en.wikipedia.org/wiki/Jump_point_search" target="_blank">跳点搜索（Jump Point Search）算法</a>和 <a href="http://en.wikipedia.org/wiki/Dijkstra">Dijkstra's 算法</a>进行搜索。
 
 {% api_method_params %}
 type : number
-See <a href="#Room.find">Room.find</a>.
+详见 <a href="#Room.find">Room.find</a>。
 ===
 objects : array
-An array of room's objects or <a href="#RoomPosition">RoomPosition</a> objects that the search should be executed against.
+要执行搜索的房间对象数组或者 <a href="#RoomPosition">RoomPosition</a> 对象数组。
 ===
-opts (optional) : object
-An object containing pathfinding options (see <a href="#Room.findPath">Room.findPath</a>), or one of the following:
+opts (可选) : object
+一个对象，包含了寻路选项（详见 <a href="#Room.findPath">Room.findPath</a>），或下列属性：
 					<ul>
 						<li>
 							<div class="api-arg-title">filter</div>
 							<div class="api-arg-type">object, function, string</div>
-							<div class="api-arg-desc">Only the objects which pass the filter using the <a href="https://lodash.com/docs#filter">Lodash.filter</a> method will be used.</div>
+							<div class="api-arg-desc">只有通过筛选器的对象才会被使用，由 <a href="https://lodash.com/docs#filter">Lodash.filter</a> 执行筛选。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">algorithm</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">One of the following constants:
+							<div class="api-arg-desc">下列常量之一：
 								<ul>
-									<li><code>astar</code> is faster when there are relatively few possible targets;</li>
-									<li><code>dijkstra</code> is faster when there are a lot of possible targets or when the closest target is nearby.</li>
+									<li><code>astar</code> 当可能存在的目标相对较少时运行速度更快；</li>
+									<li><code>dijkstra</code> 当可能存在的目标较多或者附近就有最近的目标时，速度会更快。</li>
 								</ul>
-								The default value is determined automatically using heuristics.</div>
+								默认算法是使用启发法自行决定的。</div>
 						</li>
 					</ul>
 
@@ -183,7 +181,7 @@ An object containing pathfinding options (see <a href="#Room.findPath">Room.find
 
 ### 返回值
 
-The closest object if found, null otherwise.
+返回找到的最近对象，没找到则返回 null。
 
 {% api_method findClosestByRange 'type, [opts]|objects, [opts]' 2 %}
 
@@ -215,22 +213,22 @@ const targets = [
 const closest = creep.pos.findClosestByRange(targets);
 ```
 
-Find an object with the shortest linear distance from the given position.
+查找到该位置线性距离最短的对象。
 
 {% api_method_params %}
 type : number
 See <a href="#Room.find">Room.find</a>.
 ===
 objects : array
-An array of room's objects or <a href="#RoomPosition">RoomPosition</a> objects that the search should be executed against.
+要执行搜索的房间对象数组或者 <a href="#RoomPosition">RoomPosition</a> 对象数组。
 ===
-opts (optional) : object
-An object containing one of the following options:
+opts (可选) : object
+一个对象，包含下列选项：
 					<ul>
 						<li>
 							<div class="api-arg-title">filter</div>
 							<div class="api-arg-type">object, function, string</div>
-							<div class="api-arg-desc">Only the objects which pass the filter using the <a href="https://lodash.com/docs#filter">Lodash.filter</a> method will be used.</div>
+							<div class="api-arg-desc">只有通过筛选器的对象才会被使用，由 <a href="https://lodash.com/docs#filter">Lodash.filter</a> 执行筛选。</div>
 						</li>
 					</ul>
 
@@ -239,7 +237,7 @@ An object containing one of the following options:
 
 ### 返回值
 
-The closest object if found, null otherwise.
+返回找到的最近对象，没找到则返回 null。
 
 {% api_method findInRange 'type, range, [opts]|objects, range, [opts]' 2 %}
 
@@ -259,26 +257,26 @@ const targets = [
 const inRangeTargets = creep.pos.findInRange(targets, 3);
 ```
 
-Find all objects in the specified linear range.
+查找在指定线性范围中的所有对象。
 
 {% api_method_params %}
 type : number
-See <a href="#Room.find">Room.find</a>.
+详见 <a href="#Room.find">Room.find</a>。
 ===
 objects : array
-An array of room's objects or <a href="#RoomPosition">RoomPosition</a> objects that the search should be executed against.
+要执行搜索的房间对象数组或者 <a href="#RoomPosition">RoomPosition</a> 对象数组。
 ===
 range : number
-The range distance.
+范围距离（半径）。
 ===
 opts (optional) : object
-See <a href="#Room.find">Room.find</a>.
+详见 <a href="#Room.find">Room.find</a>。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-An array with the objects found.
+找到的对象数组。
 
 {% api_method findPathTo 'x, y, [opts]|target, [opts]' 3 %}
 
@@ -299,26 +297,26 @@ if( path.length ) {
 }
 ```
 
-Find an optimal path to the specified position using <a href="http://en.wikipedia.org/wiki/Jump_point_search" target="_blank">Jump Point Search algorithm</a>. This method is a shorthand for <a href="#Room.findPath">Room.findPath</a>. If the target is in another room, then the corresponding exit will be used as a target.
+使用 <a href="http://en.wikipedia.org/wiki/Jump_point_search" target="_blank">跳点搜索（Jump Point Search）算法</a>查找到指定位置的最佳路径。该方法是 <a href="#Room.findPath">Room.findPath</a> 的简写。如果目标在其他房间，则相应的出口将被作为目标。
 
 {% api_method_params %}
 x : number
-X position in the room.
+该房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+该房间中的 Y 坐标。
 ===
 target : object
 可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
 ===
-opts (optional) : object
-An object containing pathfinding options flags (see <a href="#Room.findPath">Room.findPath</a> for more details).
+opts (可选) : object
+一个对象，包含了寻路相关的选项标识 (查看 <a href="#Room.findPath">Room.findPath</a> 来获得更多信息)。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-An array with path steps in the following format:
+一个如下格式的路径步骤（path step）数组：
 ```javascript-content
 [
     { x: 10, y: 5, dx: 1,  dy: 0, direction: RIGHT },
@@ -336,14 +334,14 @@ const direction = creep.pos.getDirectionTo(target);
 creep.move(direction);
 ```
 
-Get linear direction to the specified position.
+获取到指定位置的直线方向。
 
 {% api_method_params %}
 x : number
-X position in the room.
+房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+房间中的 Y 坐标。
 ===
 target : object
 可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
@@ -352,7 +350,7 @@ target : object
 
 ### 返回值
 
-A number representing one of the direction constants.
+某一个方向常量的数字值。
 
 {% api_method getRangeTo 'x,y|target' 1 %}
 
@@ -363,14 +361,14 @@ if(range <= 3) {
 }
 ```
 
-Get linear range to the specified position.
+获取到指定位置的线性范围。
 
 {% api_method_params %}
 x : number
-X position in the room.
+房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+房间中的 Y 坐标。
 ===
 target : object
 可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
@@ -379,7 +377,7 @@ target : object
 
 ### 返回值
 
-A number of squares to the given position.
+到指定位置的地块数。
 
 {% api_method inRangeTo 'x, y, range|target, range' 1 %}
 
@@ -389,26 +387,26 @@ if(creep.pos.inRangeTo(target, 3)) {
 }
 ```
 
-Check whether this position is in the given range of another position.
+检查该位置是否在其他位置的指定范围内。
 
 {% api_method_params %}
 x : number
-X position in the same room.
+房间中的 X 坐标。
 ===
 y : number
-Y position in the same room.
+房间中的 Y 坐标。
 ===
 target : <a href="#RoomPosition">RoomPosition</a>
-The target position.
+目标位置
 ===
 range : number
-The range distance.
+范围距离（半径）。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-A boolean value.
+一个布尔值。
 
 {% api_method isEqualTo 'x,y|target' 1 %}
 
@@ -424,14 +422,14 @@ if(creep.pos.isEqualTo(Game.flags.Flag1)) {
 }
 ```
 
-Check whether this position is the same as the specified position.
+检查该位置是否和指定位置相同。
 
 {% api_method_params %}
 x : number
-X position in the room.
+房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+房间中的 Y 坐标。
 ===
 target : object
 可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
@@ -440,7 +438,7 @@ target : object
 
 ### 返回值
 
-A boolean value.
+一个布尔值。
 
 {% api_method isNearTo 'x,y|target' 1 %}
 
@@ -450,14 +448,14 @@ if(creep.pos.isNearTo(target)) {
 }
 ```
 
-Check whether this position is on the adjacent square to the specified position. The same as <code>inRangeTo(target, 1)</code>.
+检查该位置是否在紧邻指定位置的正方形区域内。类似于 <code>inRangeTo(target, 1)</code>。
 
 {% api_method_params %}
 x : number
-X position in the room.
+房间中的 X 坐标。
 ===
 y : number
-Y position in the room.
+房间中的 Y 坐标。
 ===
 target : object
 可以是 <a href="#RoomPosition">RoomPosition</a> 对象或者任何包含 <a href="#RoomPosition">RoomPosition</a> 属性的对象。
@@ -466,7 +464,7 @@ target : object
 
 ### 返回值
 
-A boolean value.
+一个布尔值。
 
 {% api_method look '' 2 %}
 
@@ -480,13 +478,13 @@ look.forEach(function(lookObject) {
 });
 ```
 
-Get the list of objects at the specified room position.
+获取位于该位置的对象列表。
 
 
 
 ### 返回值
 
-An array with objects at the specified position in the following format:
+如下格式的数组，元素为位于该位置的所有对象。
 
 ```javascript-content
 [
@@ -507,14 +505,14 @@ if(found.length && found[0].getActiveBodyparts(ATTACK) == 0) {
 }
 ```
 
-Get an object with the given type at the specified room position.
+获取该位置上给定类型的对象列表。
 
 {% api_method_params %}
 type : string
-One of the <code>LOOK_*</code> constants.
+<code>LOOK_*</code> 常量之一。
 {% endapi_method_params %}
 
 
 ### 返回值
 
-An array of objects of the given type at the specified position if found.
+在该位置上找到的指定类型的对象数组。
