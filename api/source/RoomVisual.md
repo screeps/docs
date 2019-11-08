@@ -2,21 +2,11 @@
 
 <img align="right" src="img/visual.png">
 
-Room visuals provide a way to show various visual debug info in game rooms. 
-You can use the `RoomVisual` object to draw simple shapes that are visible only to you. 
-Every existing `Room` object already contains the 
-[`visual`](#Room.visual) property, 
-but you also can create new `RoomVisual` objects for any room (even without visibility) 
-using the [constructor](#RoomVisual.constructor).
+房间视觉效果提供了在游戏房间中显示可视化调试信息的途径。你可以使用 `RoomVisual` 对象绘制一个仅对您可见的简单图形。每一个已存在的 `Room` 对象都包含有 [`visual`](#Room.visual) 属性，不过您也可以使用 [constructor](#RoomVisual.constructor) 给任何房间创建一个新的 `RoomVisual` 对象（即使没有视野）。
 
-Room visuals are not stored in the database, their only purpose is to display something in 
-your browser. All drawings will persist for one tick and will disappear if not updated. All 
-`RoomVisual` API calls have no added CPU cost (their cost is natural and mostly related to simple
- `JSON.serialize` calls). However, there is a usage limit: you cannot post more than 500 KB 
- of serialized data per one room (see [`getSize`](#RoomVisual.getSize) method).
+房间视觉效果并不会储存在数据库里，它们的目的仅仅是在您的浏览窗口里显示一些东西。所有绘制的图形只会保留 1 tick，如果后续没有更新的话就会消失。所有的 `RoomVisual` API 调用都不会产生 CPU 消耗（只会产生一些代码执行的自然成本，并且大多与简单的 `JSON.serialize` 调用有关）。然而，这里有一些使用限制：您最多只能为每个房间发布 500 KB 的序列化数据（详见 [`getSize`](#RoomVisual.getSize) 方法）。
 
-All draw coordinates are measured in game coordinates and centered to tile centers, i.e. (10,10) 
-will point to the center of the creep at `x:10; y:10` position. Fractional coordinates are allowed.
+所有的绘制坐标均等同于游戏坐标，并且以地块的中心为原点，即：(10, 10) 将指向位于 `x:10; y:10` 处 creep 的中心。允许使用小数坐标。
 
 
 
@@ -24,20 +14,20 @@ will point to the center of the creep at `x:10; y:10` position. Fractional coord
 
 ```javascript
 Game.rooms['W10N10'].visual.circle(10,20).line(0,0,10,20);
-// the same as:
+// 等同于：
 new RoomVisual('W10N10').circle(10,20).line(0,0,10,20);
 ```
 
 ```javascript
-// this text will be displayed in all rooms
+// 所有房间都会显示该文本：
 new RoomVisual().text('Some text', 1, 1, {align: 'left'}); 
 ```
 
-You can directly create new <code>RoomVisual</code> object in any room, even if it's invisible to your script.
+您可以直接为任何房间创建 <code>RoomVisual</code> 对象，即使您的脚本没有该房间的视野。
 
 {% api_method_params %}
-roomName (optional) : string
-The room name. If undefined, visuals will be posted to all rooms simultaneously.
+roomName (可选) : string
+房间的名称。如果未定义，则该效果将发布到所有房间。
 {% endapi_method_params %}
 
 
@@ -46,7 +36,7 @@ The room name. If undefined, visuals will be posted to all rooms simultaneously.
 
 
 
-The name of the room.
+房间的名称。
 
 
 
@@ -63,49 +53,49 @@ creep.room.visual.line(creep.pos, target.pos,
     {color: 'red', lineStyle: 'dashed'});
 ```
 
-Draw a line.
+绘制一条线。
 
 {% api_method_params %}
 x1 : number
-The start X coordinate.
+起始点的 X 坐标。
 ===
 y1 : number
-The start Y coordinate.
+起始点的 Y 坐标。
 ===
 x2 : number
-The finish X coordinate.
+结束点的 X 坐标。
 ===
 y2 : number
-The finish Y coordinate.
+结束点的 Y 坐标。
 ===
 pos1 : <a href="#RoomPosition">RoomPosition</a>
-The start position object.
+起始点位置对象。
 ===
 pos2 : <a href="#RoomPosition">RoomPosition</a>
-The finish position object.
+结束点位置对象。
 ===
-style (optional) : object
-An object with the following properties:
+style (可选) : object
+包含下列属性的对象：
 <ul>
     <li>
         <div class="api-arg-title">width</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Line width, default is 0.1.</div>
+        <div class="api-arg-desc">线条的宽度，默认值为 0.1。</div>
     </li>
     <li>
         <div class="api-arg-title">color</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Line color in any web format, default is <code>#ffffff</code> (white).</div>
+        <div class="api-arg-desc">线条颜色，允许使用任何 web 格式颜色，默认值为 <code>#ffffff</code> (白色)。</div>
     </li>
     <li>
         <div class="api-arg-title">opacity</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Opacity value, default is 0.5.</div>
+        <div class="api-arg-desc">透明度，默认值为 0.5。</div>
     </li>
     <li>
         <div class="api-arg-title">lineStyle</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Either <code>undefined</code> (solid line), <code>dashed</code>, or <code>dotted</code>. Default is undefined.</div>
+        <div class="api-arg-desc"><code>undefined</code> (实线)，<code>dashed</code> (虚线) 或者 <code>dotted</code> (点线) 之一。默认值为 undefined。</div>
     </li>
 </ul>
 				
@@ -114,9 +104,9 @@ An object with the following properties:
 
 ### 返回值
 
-The
+该
 <code>RoomVisual</code>
-object itself, so that you can chain calls.
+对象本身，您可以使用链式调用。
 
 {% api_method circle 'x, y, [style]|pos, [style]' 0 %}
 
@@ -129,50 +119,50 @@ creep.room.visual.circle(creep.pos,
     {fill: 'transparent', radius: 0.55, stroke: 'red'});
 ```
 
-Draw a circle.
+绘制一个圆。
 
 {% api_method_params %}
 x : number
-The X coordinate of the center.
+圆心的 X 坐标。
 ===
 y : number
-The Y coordinate of the center.
+圆心的 Y 坐标。
 ===
 pos : <a href="#RoomPosition">RoomPosition</a>
-The position object of the center.
+圆心的位置对象。
 ===
-style (optional) : object
-An object with the following properties:
+style (可选) : object
+包含下列属性的对象：
 <ul>
     <li>
         <div class="api-arg-title">radius</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Circle radius, default is 0.15.</div>
+        <div class="api-arg-desc">圆的半径，默认值为 0.15。</div>
     </li>
     <li>
         <div class="api-arg-title">fill</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Fill color in any web format, default is <code>#ffffff</code> (white).</div>
+        <div class="api-arg-desc">填充颜色，允许使用任何 web 格式颜色，默认值为 <code>#ffffff</code> (白色)。</div>
     </li>
     <li>
         <div class="api-arg-title">opacity</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Opacity value, default is 0.5.</div>
+        <div class="api-arg-desc">透明度，默认值为 0.5。</div>
     </li>
     <li>
         <div class="api-arg-title">stroke</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Stroke color in any web format, default is undefined (no stroke).</div>
+        <div class="api-arg-desc">轮廓颜色，允许使用任何 web 格式颜色，默认未定义（没有轮廓）。</div>
     </li>
     <li>
         <div class="api-arg-title">strokeWidth</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Stroke line width, default is 0.1.</div>
+        <div class="api-arg-desc">轮廓宽度，默认值为 0.1。</div>
     </li>
     <li>
         <div class="api-arg-title">lineStyle</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Either <code>undefined</code> (solid line), <code>dashed</code>, or <code>dotted</code>. Default is undefined.</div>
+        <div class="api-arg-desc"><code>undefined</code> (实线)，<code>dashed</code> (虚线) 或者 <code>dotted</code> (点线) 之一。默认值为 undefined。</div>
     </li>
 </ul>
 				
@@ -181,69 +171,69 @@ An object with the following properties:
 
 ### 返回值
 
-The
+该
 <code>RoomVisual</code>
-object itself, so that you can chain calls.
+对象本身，您可以使用链式调用。
 
 {% api_method rect 'x, y, width, height, [style]|topLeftPos, width, height, [style]' 0 %}
 
 ```javascript
-// 9x9 area from (2,2) to (10,10)
+// 从 (2,2) 到 (10,10) 的 9x9 区域
 new RoomVisual('W1N1').rect(1.5, 1.5, 9, 9); 
 ```
 
 ```javascript
-// a rectangle border on creep
+// creep 上的矩形边框
 creep.room.visual.rect(creep.pos.x - 0.6, creep.pos.y - 0.6, 
     1.2, 1.2,
     {fill: 'transparent', stroke: '#f00'});
 ```
 
-Draw a rectangle.
+绘制一个矩形。
 
 {% api_method_params %}
 x : number
-The X coordinate of the top-left corner.
+左上角的 X 坐标。
 ===
 y : number
-The Y coordinate of the top-left corner.
+左上角的 Y 坐标。
 ===
 topLeftPos : <a href="#RoomPosition">RoomPosition</a>
-The position object of the top-left corner.
+左上角的位置对象。
 ===
 width : number
-The width of the rectangle.
+矩形的宽度。
 ===
 height : number
-The height of the rectangle.
+矩形的高度。
 ===
-style (optional) : object
-An object with the following properties:
+style (可选) : object
+包含下列属性的对象：
 <ul>
     <li>
         <div class="api-arg-title">fill</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Fill color in any web format, default is <code>#ffffff</code> (white).</div>
+        <div class="api-arg-desc">填充颜色，允许使用任何 web 格式颜色，默认值为 <code>#ffffff</code> (白色)。</div>
     </li>
     <li>
         <div class="api-arg-title">opacity</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Opacity value, default is 0.5.</div>
+        <div class="api-arg-desc">透明度，默认值为 0.5。</div>
     </li>
     <li>
         <div class="api-arg-title">stroke</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Stroke color in any web format, default is undefined (no stroke).</div>
+        <div class="api-arg-desc">轮廓颜色，允许使用任何 web 格式颜色，默认未定义（没有轮廓）。</div>
     </li>
     <li>
         <div class="api-arg-title">strokeWidth</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Stroke line width, default is 0.1.</div>
+        <div class="api-arg-desc">轮廓宽度，默认值为 0.1。</div>
     </li>
     <li>
         <div class="api-arg-title">lineStyle</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Either <code>undefined</code> (solid line), <code>dashed</code>, or <code>dotted</code>. Default is undefined.</div>
+        <div class="api-arg-desc"><code>undefined</code> (实线)，<code>dashed</code> (虚线) 或者 <code>dotted</code> (点线) 之一。默认值为 undefined。</div>
     </li>
 </ul>
 				
@@ -252,9 +242,9 @@ An object with the following properties:
 
 ### 返回值
 
-The
+该
 <code>RoomVisual</code>
-object itself, so that you can chain calls.
+对象本身，您可以使用链式调用。
 
 {% api_method poly 'points, [style]' 0 %}
 
@@ -267,45 +257,45 @@ new RoomVisual('W1N1').poly(points, {fill: 'aqua'});
 ```
 
 ```javascript
-// visualize the path
+// 将路径可视化
 const path = Game.rooms['W1N1'].findPath(from, to);
 new RoomVisual('W1N1').poly(path, {stroke: '#fff', strokeWidth: .15,
 	opacity: .2, lineStyle: 'dashed'}); 
 ```
 
-Draw a polyline.
+绘制一条折线。
 
 {% api_method_params %}
 points : array
-An array of points. Every item should be either an array with 2 numbers (i.e. <code>[10,15]</code>), or a <a href="#RoomPosition"><code>RoomPosition</code></a> object.
+折点数组。每个元素都应是两个数字的数组（即 <code>[10,15]</code>），或者是一个 <a href="#RoomPosition"><code>RoomPosition</code></a> 对象。
 ===
-style (optional) : object
-An object with the following properties:
+style (可选) : object
+包含下列属性的对象：
 					<ul>
 						<li>
 							<div class="api-arg-title">fill</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Fill color in any web format, default is <code>undefined</code> (no fill).</div>
+							<div class="api-arg-desc">填充颜色，允许使用任何 web 格式颜色，默认值为 <code>undefined</code>（不填充）。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">opacity</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Opacity value, default is 0.5.</div>
+							<div class="api-arg-desc">透明度，默认值为 0.5。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">stroke</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Stroke color in any web format, default is <code>#ffffff</code> (white).</div>
+							<div class="api-arg-desc">线条颜色，允许使用任何 web 格式颜色，默认值为 <code>#ffffff</code> (白色)。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">strokeWidth</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Stroke line width, default is 0.1.</div>
+							<div class="api-arg-desc">线条宽度，默认值为 0.1。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">lineStyle</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Either <code>undefined</code> (solid line), <code>dashed</code>, or <code>dotted</code>. Default is undefined.</div>
+							<div class="api-arg-desc"><code>undefined</code> (实线)，<code>dashed</code> (虚线) 或者 <code>dotted</code> (点线) 之一。默认值为 undefined。</div>
 						</li>
 					</ul>
 				
@@ -314,9 +304,9 @@ An object with the following properties:
 
 ### 返回值
 
-The
+该
 <code>RoomVisual</code>
-object itself, so that you can chain calls.
+对象本身，您可以使用链式调用。
 
 {% api_method text 'text, x, y, [style]|text, pos, [style]' 0 %}
 
@@ -324,36 +314,36 @@ object itself, so that you can chain calls.
 new RoomVisual('W1N1').text("Target💥", 10, 15, {color: 'green', font: 0.8}); 
 ```
 
-Draw a text label. You can use any valid Unicode characters, including <a href="http://unicode.org/emoji/charts/emoji-style.txt" target="_blank">emoji</a>.
+绘制一个文本标签。你可以使用任何有效的 Unicode 字符，包括 <a href="http://unicode.org/emoji/charts/emoji-style.txt" target="_blank">emoji</a>。
 
 {% api_method_params %}
 text : string
-The text message.
+文本信息
 ===
 x : number
-The X coordinate of the label baseline point.
+文本基线（baseline）起始点的 X 坐标。
 ===
 y : number
-The Y coordinate of the label baseline point.
+文本基线起始点的 Y 坐标。
 ===
 pos : <a href="#RoomPosition">RoomPosition</a>
-The position object of the label baseline.
+文本基线起始点的位置对象。
 ===
-style (optional) : object
-An object with the following properties:
+style (可选) : object
+包含下列属性的对象：
 					<ul>
 						<li>
 							<div class="api-arg-title">color</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Font color in any web format, default is <code>#ffffff</code> (white).</div>
+							<div class="api-arg-desc">字体颜色，允许使用任何 web 格式颜色，默认值为 <code>#ffffff</code> (白色)。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">font</div>
 							<div class="api-arg-type">number, string</div>
-							<div class="api-arg-desc">Either a number or a string in one of the following forms:
+							<div class="api-arg-desc">数字或者字符串，应使用下列形式：
 								<ul>
-									<li><code>0.7</code> - relative size in game coordinates</li>
-									<li><code>20px</code> - absolute size in pixels</li>
+									<li><code>0.7</code> - 基于游戏坐标的相对大小</li>
+									<li><code>20px</code> - 基于像素的绝对大小</li>
 									<li><code>0.7 serif</code></li>
 									<li><code>bold italic 1.5 Times New Roman</code></li>
 								</ul>
@@ -362,32 +352,32 @@ An object with the following properties:
 						<li>
 							<div class="api-arg-title">stroke</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Stroke color in any web format, default is undefined (no stroke).</div>
+							<div class="api-arg-desc">轮廓颜色，允许使用任何 web 格式颜色，默认未定义（没有轮廓）。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">strokeWidth</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Stroke width, default is 0.15.</div>
+							<div class="api-arg-desc">轮廓宽度，默认值为 0.15。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">backgroundColor</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Background color in any web format, default is undefined (no background). When background is enabled, text vertical align is set to middle (default is baseline).</div>
+							<div class="api-arg-desc">背景颜色，允许使用任何 web 格式颜色，默认未定义（没有背景）。当启用背景时，文本的竖直对齐模式将设置为 middle（默认为 baseline）。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">backgroundPadding</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Background rectangle padding, default is 0.3.</div>
+							<div class="api-arg-desc">背景矩形的 padding，默认值为 0.3。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">align</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Text align, either <code>center</code>, <code>left</code>, or <code>right</code>. Default is <code>center</code>.</div>
+							<div class="api-arg-desc">文本对齐模式，<code>center</code>，<code>left</code> 或者 <code>right</code> 之一。默认值为 <code>center</code>。</div>
 						</li>
 						<li>
 							<div class="api-arg-title">opacity</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Opacity value, default is 1.0.</div>
+							<div class="api-arg-desc">透明度，默认值为 1.0。</div>
 						</li>
 					</ul>
 				
@@ -396,9 +386,9 @@ An object with the following properties:
 
 ### 返回值
 
-The
+该
 <code>RoomVisual</code>
-object itself, so that you can chain calls.
+对象本身，您可以使用链式调用。
 
 {% api_method clear '' 0 %}
 
@@ -406,28 +396,28 @@ object itself, so that you can chain calls.
 new RoomVisual('W1N1').clear();
 ```
 
-Remove all visuals from the room.
+移除该房间的所有视觉效果。
 
 
 
 ### 返回值
 
-The
+该
 <code>RoomVisual</code>
-object itself, so that you can chain calls.
+对象本身，您可以使用链式调用。
 
 {% api_method getSize '' 0 %}
 
 ```javascript
 if(creep.room.visual.getSize() >= 512000) {
-    // cannot add more visuals in this tick
+    // 本 tick 将无法添加更多的视觉效果
 }
 ```
 
-Get the stored size of all visuals added in the room in the current tick. It must not exceed 512,000 (500 KB).
+当前 tick 添加到该房间的视觉效果的存储大小。它不能超过 512,000（500 KB）。
 
 
 
 ### 返回值
 
-The size of the visuals in bytes.
+视觉效果的大小（单位：字节）。
