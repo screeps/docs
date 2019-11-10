@@ -274,7 +274,7 @@ One of the following string values:
 Returns the world size as a number of rooms between world corners. For example, for a world with rooms from W50N50 
 to E50S50 this method will return 102.
 
-{% api_method Game.map.isRoomAvailable 'roomName' 2 %}
+{% api_method Game.map.isRoomAvailable 'roomName' 2 '{"deprecated": "Please use [`Game.map.getRoomStatus`](#Game.map.getRoomStatus) instead."}'%}
 
 ```javascript
 if(Game.map.isRoomAvailable(room.name)) {
@@ -293,3 +293,29 @@ The room name.
 ### Return value
 
 A boolean value.
+
+{% api_method Game.map.getRoomStatus 'roomName' 2 %}
+
+```javascript
+if(Game.map.getRoomStatus(room.name).status == 'normal') {
+    nuker.launchNuke(room.getPositionAt(25,25));
+}
+```
+
+...
+
+{% api_method_params %}
+roomName : string
+The room name.
+{% endapi_method_params %}
+
+
+### Return value
+
+An object containing the following properties:
+
+property | type | description
+---|---
+`status` | string | One of the following string values: <ul><li><code>normal</code> &ndash; the room has no restrictions</li><li><code>closed</code> &ndash; the room is not available</li><li><code>novice</code> &ndash; the room is part of a novice area (see [Start Areas](/start-areas.html))</li><li><code>respawn</code> &ndash; the room is part of a respawn area (see [Start Areas](/start-areas.html))</li></ul>
+`timestamp` | number | Status expiration time <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">in milliseconds since UNIX epoch time</a>. This property is null if the status is permanent.  
+
