@@ -70,7 +70,7 @@ Game.rooms['W1N1'].terminal.send(RESOURCE_UTRIUM, 100, 'W2N3',
 
 {% api_method_params %}
 resourceType : string
-<code>RESOURCE_*</code>常量之一。
+<code>RESOURCE_*</code> 常量之一。
 ===
 amount : number
 发送资源数量。
@@ -78,7 +78,7 @@ amount : number
 destination : string
 目标房间名称。这个房间不需要对你可见。
 ===
-description (optional) : string
+description (可选) : string
 这个事务的备注。它只对收件人可见。最大长度100字符。
 {% endapi_method_params %}
 

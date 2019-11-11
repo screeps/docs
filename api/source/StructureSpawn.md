@@ -131,7 +131,7 @@ name (可选) : string
 如下错误码之一：
 {% api_return_codes %}
 OK | 可以创建具有给定 body 和名称的 creep。
-ERR_NOT_OWNER | 你不是这个母巢的主人。
+ERR_NOT_OWNER | 你不是该 spawn 的所有者。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
 ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
 ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
@@ -191,7 +191,7 @@ memory (可选) : any
 
 产生一个新的 creep 会遇到这些错误代码之一:
 {% api_return_codes %}
-ERR_NOT_OWNER | 你不是这个母巢的主人。
+ERR_NOT_OWNER | 你不是该 spawn 的所有者。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
 ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
 ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
@@ -289,7 +289,7 @@ opts (可选) : object
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个母巢的主人。
+ERR_NOT_OWNER | 你不是该 spawn 的所有者。
 ERR_NAME_EXISTS | 已经有一个叫这个名字的 creep 了。
 ERR_BUSY | 这个母巢已经在孵化另一个 creep 了。
 ERR_NOT_ENOUGH_ENERGY | 这个母巢和他的扩展包含的能量不足以孵化具有给定 body 的 creep。
@@ -367,15 +367,15 @@ ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 
 # StructureSpawn.Spawning
 
-当前正在孵化的 creep 的详细信息可以通过[`StructureSpawn.spawning`](#StructureSpawn.spawning)属性进行处理。
+当前正在孵化的 creep 的详细信息，可以通过[`StructureSpawn.spawning`](#StructureSpawn.spawning)属性进行访问。
 
 {% api_property directions 'array<number>' %}
 
-一个带有孵化指令的数组，参见 [`StructureSpawn.Spawning.setDirections`](#StructureSpawn.Spawning.setDirections).
+一个指示了孵化方向的数组，参见 [`StructureSpawn.Spawning.setDirections`](#StructureSpawn.Spawning.setDirections).
 
 {% api_property name 'string' %}
 
-新 creep 的名字
+新 creep 的名字。
 
 {% api_property needTime 'number' %}
 
@@ -387,7 +387,7 @@ ERR_RCL_NOT_ENOUGH | 您的房间控制器级别不足以使用此 spawn。
 
 {% api_property spawn '<a href="#StructureSpawn">StructureSpawn</a>' %}
 
-一个到 creep 的链接。
+一个到对应 spawn 的链接。
 
 
 {% api_method cancel '' A %}
@@ -403,7 +403,7 @@ Game.spawns['Spawn1'].spawning.cancel();
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个母巢的主人。
+ERR_NOT_OWNER | 你不是该 spawn 的所有者。
 {% endapi_return_codes %}
 
 {% api_method setDirections 'directions' A %}
@@ -434,6 +434,6 @@ directions : array&lt;number>
 如下错误码之一：
 {% api_return_codes %}
 OK | 这个操作已经成功纳入计划。
-ERR_NOT_OWNER | 你不是这个母巢的主人。
-ERR_INVALID_ARGS | Body 没有被恰当地描述。
+ERR_NOT_OWNER | 你不是该 spawn 的所有者。
+ERR_INVALID_ARGS | 无效的方向数组
 {% endapi_return_codes %}
