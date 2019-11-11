@@ -1,15 +1,12 @@
-{% api_property RoomObject:effects array %}
-附加的效果，一个对象数组包含如下属性：
+{% api_property effects array %}
+附加的效果，一个包含如下属性的对象数组：
 
 {% api_method_params %}
-power (可选) : number
-`power` 或 `effect` 属性存在时的超能效果ID。
+effect : number
+该附加效果的 ID。可以是自然效果 ID 或者 Power ID。
 ===
-effect (可选) : number
-`power` 或 `effect` 属性存在时的自然效果ID。
-===
-level (可选) : number
-效果的超能等级。
+level (可选) : number 
+该附加效果的 Power 等级。如果效果不是 Power 效果则不存在该属性。
 ===
 ticksRemaining : number
 多长时间之后会失去这个效果。

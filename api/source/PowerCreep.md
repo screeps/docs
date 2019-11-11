@@ -108,7 +108,7 @@ username : string
 拥有者姓名。
 {% endapi_method_params %}
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {

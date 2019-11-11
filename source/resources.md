@@ -747,3 +747,14 @@ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件
 </table>
 </div>
 </div>
+
+
+## Power
+
+{% note info %}
+**Where to get:** a [`StructurePowerBank`](/api/#StructurePowerBank) in "highway" rooms. <br>
+**How to get:** destroy the structure and loot the dropped resource. <br>
+**Needed for:** creating Power Creeps.
+{% endnote %}
+
+See this article for more info: [Power](power.html).

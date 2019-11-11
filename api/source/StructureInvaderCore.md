@@ -13,21 +13,28 @@
 <table class="table gameplay-info">
     <tbody>
     <tr>
+        <td><strong>生命值</strong></td>
+        <td>100,000</td>
+    </tr>
+    <tr>
         <td><strong>部署时间</strong></td>
         <td>5,000 ticks</td>
     </tr>
     <tr>
         <td><strong>活跃时间</strong></td>
-        <td>80,000 ticks</td>
+        <td>80,000 tick 以及 10% 的随机浮动</td>
     </tr>
     <tr>
-        <td><strong>生成小型核心</strong></td>
-        <td>每 2,000 ticks</td>
+        <td><strong>较小的核心生成间隔</strong></td>
+        <td>
+            <b>Stronghold level 1</b>: 4000 ticks<br>
+            <b>Stronghold level 2</b>: 3500 ticks<br>
+            <b>Stronghold level 3</b>: 3000 ticks<br>
+            <b>Stronghold level 4</b>: 2500 ticks<br>
+            <b>Stronghold level 5</b>: 2000 ticks<br>
+        </td>
     </tr>
-    <tr>
-        <td><strong>生命值</strong></td>
-        <td>100,000</td>
-    </tr>
+    
     
     </tbody>
 </table>

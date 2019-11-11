@@ -55,7 +55,7 @@ if(!factory.level) {
 工厂的等级，可以通过 `PWR_OPERATE_FACTORY` 超能来给一个新建的工厂设置等级。
 一旦被设置，等级将无法再次更改。
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 一个包含了该建筑中所存储的货物的 [`Store`](#Store) 对象。
 
