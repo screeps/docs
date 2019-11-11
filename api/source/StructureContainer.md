@@ -35,7 +35,7 @@
 
 {% page inherited/Structure.md %}
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 const containersWithEnergy = room.find(FIND_STRUCTURES, {

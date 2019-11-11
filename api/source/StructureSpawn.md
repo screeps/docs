@@ -86,7 +86,7 @@ Spawn 的名字。您在创建新母巢项时选择名称，以后无法更改�
 如果母巢正在孵化一个新的 creep, 这个对象将包含一个 [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) 对象，否则为 null。
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {

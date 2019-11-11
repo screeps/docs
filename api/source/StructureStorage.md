@@ -35,7 +35,7 @@
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 一个包含了该建筑中所存储的货物的 [`Store`](#Store) 对象。
 

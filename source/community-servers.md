@@ -10,7 +10,7 @@ We like such community activity, this is why we display public quality servers o
 
 If you want your server to be included to this list, send an email to [contact@screeps.com](mailto:contact@screeps.com). Your server has to comply with the following rules:
 
-* Server version 3.1.7 or higher.
+* Server version 4.0.0 or higher.
 
 * Server must have stable online during last 7 days. If it becomes inaccessible for a long time, we'll remove it from the list.
 

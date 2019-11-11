@@ -93,7 +93,7 @@
 下次发射前还需多少 tick 的冷却时间。
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {

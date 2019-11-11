@@ -184,7 +184,7 @@ creep 所说的最后一句话。
 
 该 creep 是否仍在孵化中。
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 ```javascript
 if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {

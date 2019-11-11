@@ -44,7 +44,7 @@ room.find(FIND_TOMBSTONES).forEach(tombstone => {
 一个唯一的对象标识。你可以使用<a href="#Game.getObjectById"><code>Game.getObjectById</code></a>方法获取对象实例。
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 一个表示该结构所存储资源的 [`Store`](#Store) 对象。
 

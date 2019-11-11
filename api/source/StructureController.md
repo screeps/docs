@@ -179,7 +179,7 @@ datetime : Date
 
 
 
-该控制器还有多少 tick 就将降级。当控制器升级或者降级时, 该计时器将被设置为总降级时间的 50%。可以使用 <code><a href="#Creep.upgradeController">Creep.upgradeController</a></code> 来增加该计时器的时间。控制器想要升级必须先保证该计时器满额。
+该控制器还有多少 tick 将要降级。当控制器升级或者降级时, 该计时器将被设置为总降级时间的 50%。可以使用 <code><a href="#Creep.upgradeController">Creep.upgradeController</a></code> 来增加该计时器的时间。控制器想要升级必须先保证该计时器满额。
 
 
 

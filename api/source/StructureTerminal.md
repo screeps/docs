@@ -50,7 +50,7 @@
 这个终端不能调用[`StructureTerminal.send`](#StructureTerminal.send)或[`Game.market.deal`](#Game.market.deal)的剩余tick。
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
 A [`Store`](#Store) object that contains cargo of this structure.
 

@@ -407,7 +407,7 @@ filter (optional) : object, function
 `price` | 当前的交易单价。
 
 
-{% api_method Game.market.getHistory 'resourceType' 1 %}
+{% api_method Game.market.getHistory '[resourceType]' 1 %}
 
 获取最近 14 天以来市场中指定资源的每日价格记录。
 

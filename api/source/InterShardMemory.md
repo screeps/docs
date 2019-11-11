@@ -2,7 +2,7 @@
 
 `InterShardMemory` 对象提供了在不同的 shard 之间通信的接口。你的脚本在不同的 shard 内是单独执行的，并且他们的 [`Memory`](#Memory) 对象对彼此隔离。为了在不同的 shard 之间传递信息，您需要使用 `InterShardMemory`。
 
-每个 shard 可以拥有能被其他 shard 访问的数据字符串。每个数据字符串只有其所属的 shard 才有写权限，
+每个 shard 可以拥有能被其他 shard 访问的数据字符串，最长 100 KB。每个数据字符串只有其所属的 shard 才有写权限，
 而其他的 shard 只有读权限。
 
 该数据和 `Memory` 完全不相关，它是一个独立的数据容器。     
