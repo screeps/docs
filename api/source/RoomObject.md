@@ -28,6 +28,6 @@ ticksRemaining : number
 
 
 
-Room对象的链接。如果对象是标志或工地并且放置在你不可见的房间中，则可能为undefined。
+Room对象的链接。如果对象是标志或工地并且放置在你不可见的房间中，则可能为 undefined。
 
 

@@ -47,15 +47,15 @@
     </tr>
     <tr>
         <td><strong>攻击效果</strong></td>
-        <td>从距离≤5的600点到距离≥20的150点</td>
+        <td>从距离 ≤5 的 600 点到距离 ≥20 的 150 点</td>
     </tr>
     <tr>
-        <td><strong>Heal effectiveness</strong></td>
-        <td>从距离≤5的400点到距离≥20的100点</td>
+        <td><strong>治疗效果</strong></td>
+        <td>从距离 ≤5 的 400 点到距离 ≥20 的 100 点</td>
     </tr>
     <tr>
-        <td><strong>Repair effectiveness</strong></td>
-        <td>从距离≤5的800点到距离≥20的200点</td>
+        <td><strong>维修效果</strong></td>
+        <td>从距离 ≤5 的 800 点到距离 ≥20 的 200 点</td>
     </tr>
     </tbody>
 </table>
@@ -65,13 +65,13 @@
 
 {% api_property energy 'number' '{"deprecated": true}' %}
                                                                 
-An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
+[`.store[RESOURCE_ENERGY]`](#StructureExtension.store) 的别名。
 
 
 
 {% api_property energyCapacity 'number' '{"deprecated": true}' %}
                                                                                                                 
-An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
+[`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity) 的别名。
 
 
 {% api_property store '<a href="#Store">Store</a>' %}
@@ -115,7 +115,7 @@ ERR_RCL_NOT_ENOUGH | 房间控制等级不足。
 
 
 
-远程治疗房间里的任意 creep 或 超能 creep。
+远程治疗房间里的任意 creep 或超能 creep。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>

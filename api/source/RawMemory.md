@@ -169,7 +169,7 @@ RawMemory.setPublicSegments([5,3]);
 RawMemory.setPublicSegments([]);
 ```
 
-将制定的分段设置为公开。将允许其他用户使用 [`setActiveForeignSegment`](#RawMemory.setActiveForeignSegment) 来访问它们。
+将指定的分段设置为公开。将允许其他用户使用 [`setActiveForeignSegment`](#RawMemory.setActiveForeignSegment) 来访问它们。
 
 {% api_method_params %}
 ids : array

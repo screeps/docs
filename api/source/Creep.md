@@ -521,7 +521,7 @@ if(target) {
 
 {% api_method_params %}
 target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>, <a href="#Deposit">Deposit</a>
-The object to be harvested.
+要采集的对象。
 {% endapi_method_params %}
 
 

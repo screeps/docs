@@ -54,7 +54,7 @@ if(Game.rooms['W1N1'].terminal.store.getUsedCapacity() == 0) {
     // terminal is empty
 }
 ```
-返回指定资源已使用的容量, 若为通用型存储时, `reource` 参数为 undefined 则返回总使用容量。
+返回指定资源已使用的容量, 若为通用型存储时, `reource` 参数不存在则返回总使用容量。
 
 {% api_method_params %}
 resource (可选) : string
