@@ -1,103 +1,104 @@
 ---
-title: Third Party Tools
+title: 第三方工具
 ---
 
-Screeps has a rich third party development community which have built a number of tools, libraries and web applications.
-If you have a tool not listed here, feel free to edit this article.
+Screeps 拥有一个活跃的第三方开发社区，该社区已经构建了许多的工具、库和 web 应用。如果您有一个工具想要在此处列出，请随时编辑本文。
 
-{% note warn Use Caution %}
+{% note warn 谨慎使用 %}
 
-*   Never give your password out to a third party.
-*   Many third party programs are built using unofficial APIs and may stop working at any time.
-*   All third party programs are run at your own risk- they are not reviewed by game devs and could cause unforeseen issues.
+*   切勿将您的密码泄露给第三方工具。
+*   任何第三方工具都是使用非官方 API 构建的，并且可能随时停止服务或更新。
+*   任何第三方工具的运行风险均由您自己承担 - 游戏开发者并不会对其进行审查，并且可能会导致无法预料的问题。
 {% endnote %}
 
-## Languages Support
+**译者注**：下述项目中有很多已经停止更新多年了，请在使用前注意其最后更新时间。
 
-You can set up an external transpiler to write your Screeps AI in another language.   
+## 语言支持
+
+您可以设置一个外部编译器以使用其他语言编写您的 Screep AI。
 
 ### TypeScript
 
-*   [screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
-*   [typed-screeps](https://github.com/screepers/typed-screeps) is a set of TypeScript declarations to cover the Screeps API.
+*   [screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter) 是想要使用 TypeScript 进行编程的玩家的起点。
+*   [typed-screeps](https://github.com/screepers/typed-screeps) 是涵盖了 Screeps API 的 TypeScript 声明。
 
 ### Python
 
-*   [screeps-starter-python](https://github.com/daboross/screeps-starter-python/) is a platform you can use to play Screeps in Python.
+*   [screeps-starter-python](https://github.com/daboross/screeps-starter-python/) 是一个用于在 Python 上运行 Screeps 代码的平台。
 
 ### Rust
 
-*   [screeps-starter-rust](https://github.com/daboross/screeps-starter-rust) is a alpha-status platform you can use to play Screeps in Rust.
+*   [screeps-starter-rust](https://github.com/daboross/screeps-starter-rust) 是一个内测阶段的平台，借助它您将可以使用 Rust 来编写 Screeps 代码。
 
 ### Kotlin
 
-* [screeps-kotlin](https://github.com/exaV/screeps-kotlin) is an example game script in Kotlin.
-* [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) is a starting point for players who want to program in Kotlin.
-* [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types) is a set of Kotlin declarations to cover the Screeps API.
+* [screeps-kotlin](https://github.com/exaV/screeps-kotlin) 是使用了 Kotlin 的游戏代码示例。
+* [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) 是想要使用 Kotlin 进行编程的玩家的起点。
+* [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types) 是涵盖了 Screeps API 的 Kotlin 声明。
 
-## API Clients
+## API 客户端
 
-The Screeps API is not official and may change at any time. These clients are maintained by the community and are used to generate many of the services and programs on this page.
+该 Screeps API 并不是官方的，并且随时可能更改。这些客户端由社区维护，并用于生成本文中介绍的许多服务和程序。
 
 *   [python](https://github.com/screepers/python-screeps)
 *   [node](https://github.com/screepers/node-screeps-api)
 
 
-## Apps
+## 应用
 
-*   [Screeps Monitor](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor) is an Android app that provides players with account and game statistics, as well as a full messaging client and a market history. (No longer available).
-
-
-## Backups
-
-*   [screeps-backup](https://github.com/screepers/screeps-backup) is a simple backup and restore utility for memory and segments.
+*   [Screeps Monitor](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor) 是一款 Android 应用，可为玩家提供帐户和游戏统计信息，以及完整的消息客户端和市场历史记录。（已失效）
 
 
-## Consoles
+## 备份
 
-*   [screeps_console](https://github.com/screepers/screeps_console) is an interactive stand alone console built with python. It supports common console keyboard shortcuts, has a number of built in commands, and has light and dark themes. There is a non-interactive version that is also included.
-
-
-## Profilers
-
-*   [gdborton's profiler](https://github.com/gdborton/screeps-profiler) is a function wrapper based profiler that is extremely useful in finding performance issues.
+*   [screeps-backup](https://github.com/screepers/screeps-backup) 是一个用于备份还原内存及分段的简单实用程序。
 
 
-## Programming Tools
+## 控制台
 
-*   [closure-compiler-externs](https://github.com/screepers/screeps-closure-compiler-externs) defines the Screeps API so that closure does not rewrite those calls.
-*   [ScreepsAutocomplete](https://github.com/Garethp/ScreepsAutocomplete) provides autocomplete data for the Screeps API.
-*   [screeps-server-mockup](https://github.com/Hiryus/screeps-server-mockup) private server package for unit tests.
+*   [screeps_console](https://github.com/screepers/screeps_console) 是使用 python 构建的独立交互式控制台。它支持常见的控制台键盘快捷键，具有许多内置命令，并且具有明暗主题。同时也包括一个非交互式版本。
 
 
-## Notifications
+## 分析器
 
-*   [Screeps Notify](https://github.com/screepers/screeps_notify) provides an in game interface which lets players send messages to out of game services. It has a built in SMS system and can also support sending messages to arbitrary http endpoints.
-
-
-## Statistics
-
-Screeps runs constantly, and as a player it's not possible to watch everything that occurs. There are also issues which may show up when watching long term trends but not during the times which players are watching. For these reasons it's not surprising that the most popular applications are those used to track statistics.
-
-*   [ScreepsPlus Grafana](https://screepspl.us/services/grafana) is a services provided by [ags131]() that works with Grafana. In order to avoid password sharing it uses an agent to run and collect statistics.
-*   [screeps-stats](https://github.com/screepers/screeps-stats) stores console data and statistics in elasticsearch, making it accessible in kibana. This system utilizes segments to reduce the in game demand that storing lots of data can cause. This is a self hosted service.
-*   [screeps-grafana](https://github.com/screepers/screeps-grafana) is the original stats program. It uses Grafana as it's front it. Like screeps-stats this is a self hosted option.
-*   [screeps-ConsoleStats](https://github.com/screepers/screeps-ConsoleStats) provides stats without requiring an external service.
+*   [gdborton's profiler](https://github.com/gdborton/screeps-profiler) 是基于函数包装的检查器，在发现性能问题时非常有用。
 
 
-## Uploaders
+## 编程工具
 
-Pushing code to the server can be done using these plugins to common programs.
+*   [closure-compiler-externs](https://github.com/screepers/screeps-closure-compiler-externs) 定义了 Screeps API，以便闭包不会重写这些调用。
+*   [ScreepsAutocomplete](https://github.com/Garethp/ScreepsAutocomplete) 提供 Screeps API 的自动补全。
+*   [screeps-server-mockup](https://github.com/Hiryus/screeps-server-mockup) 用于单元测试的私有服务器包。
 
-*   [grunt-screeps](https://github.com/screeps/grunt-screeps) is written and maintained by the Screeps team. It used to upload code to the screeps server using [Grunt](https://gruntjs.com/).
-*   [gulp-screeps](https://github.com/screepers/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
+
+## 通知
+
+*   [Screeps Notify](https://github.com/screepers/screeps_notify) 提供一套游戏内接口，使玩家可以将消息发送到游戏外的服务器。它内置有SMS系统，并且支持将消息发送到任意 http 端点。
 
 
-## Web Client Extensions
+## 统计
 
-A javascript plugin extension, such as [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) and [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/), are needed to run these plugins.
+Screeps 是不断运行的，作为玩家不可能看到每件事的发生。还有一些问题并不会在玩家进行游戏的时候出现，而是在观察长期趋势时才会暴露出来。这就是为什么 Screeps 中最流行的应用是用于跟踪统计信息的。
 
-*   [Alliance Overlay](https://raw.githubusercontent.com/LeagueOfAutomatedNations/loan-browser-ext/master/dist/alliance-overlay.user.js) adds information from the [League of Automated Nations](http://www.leagueofautomatednations.com/map) to the game map.
-*   [Room Claim Assistant](https://github.com/Esryok/screeps-browser-ext/raw/master/room-claim-assistant.user.js) colors extends the "Owner Control Level" to make room selection easier. It adds the mineral to the view, turns two source rooms green, claimed or reserved rooms red, and "signed" rooms by other players orange.
-*   [Visible Room Tracker](https://github.com/Esryok/screeps-browser-ext/blob/master/visible-room-tracker.user.js) automatically sets a memory location with your current visible room, allow you to do things such as turn on visualizations only when needed.
-*   [ScreepsSC](https://github.com/stybbe/Screeps-SC) is a Chrome extension which adds new features and makes more information available on the Screeps website. Some features include making market history more readable, adding a battle radar, letting users view other player's creep names, and enhancing the leaderboard.
+*   [ScreepsPlus Grafana](https://screepspl.us/services/grafana) 是 [ags131]() 使用 Grafana 编写的一个服务。它会通过代理来收集信息从而避免密码泄露。
+*   [screeps-stats](https://github.com/screepers/screeps-stats) 将控制台数据和统计信息存储在 elasticsearch 中，并使用 kibana 进行可视化。该系统利用内存分段来减少存储大量数据可能导致的游戏消耗。这是一项自托管服务。
+*   [screeps-grafana](https://github.com/screepers/screeps-grafana) 是一个老牌统计工具。它使用 Grafana 进行前端展示。和 screeps-stats 一样，它也是个自托管服务。
+*   [screeps-ConsoleStats](https://github.com/screepers/screeps-ConsoleStats) 提供了无需外部服务的统计信息。
+
+
+## 上传工具
+
+使用下列命令行程序将您的代码推送至服务器。
+
+*   [grunt-screeps](https://github.com/screeps/grunt-screeps) 由 Screeps 官方团队编写和维护。它使用 [Grunt](https://gruntjs.com/) 来将代码推送到 screeps 服务器。
+*   [gulp-screeps](https://github.com/screepers/gulp-screeps) 使用 [Gulp](http://gulpjs.com/) 将代码推送到 screeps 服务器。
+
+
+## Web 客户端拓展
+
+javascript 拓展插件，需要提前安装诸如 [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) 和 [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) 之类的基础插件。
+
+*   [Alliance Overlay](https://raw.githubusercontent.com/LeagueOfAutomatedNations/loan-browser-ext/master/dist/alliance-overlay.user.js) 将 [League of Automated Nations](http://www.leagueofautomatednations.com/map) 的相关信息显示在游戏地图上。
+*   [Room Claim Assistant](https://github.com/Esryok/screeps-browser-ext/raw/master/room-claim-assistant.user.js) 颜色拓展了 "Owner Control Level" 来使得房间的选择更加轻松。它将 mineral 添加到了视图中，将拥有两个 source 的房间标记为绿色，已占领或已预订的房间标记为红色，被其他玩家“签名”的房间将标记为橙色。
+*   [Visible Room Tracker](https://github.com/Esryok/screeps-browser-ext/blob/master/visible-room-tracker.user.js) 会自动设置您当前查看房间的 memory，使您能够完成诸如”仅在需要时打开可视化“之类的操作。
+*   [ScreepsSC](https://github.com/stybbe/Screeps-SC) 是一个 Chrome 扩展程序，它添加了新功能并在 Screeps 网站上提供了更多信息。 一些功能包括使市场历史更具可读性，添加战斗雷达，让用户查看其他玩家的 creep 名字以及优化排行榜。
