@@ -519,16 +519,6 @@ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件
 </div>
 
 
-## 超能
-
-{% note info %}
-**从哪里获取:** 高速公路房间中的 [`StructurePowerBank`](/api/#StructurePowerBank) 结构. <br>
-**怎么样获取:** 摧毁该结构并搜刮掉落的资源<br>
-**用来干什么:** 创造超能 creep。
-{% endnote %} 
-
-查看该文章来了解更多信息: [超能](power.html).
-
 ## 商品
 
 {% note info %}
@@ -749,12 +739,12 @@ lab 除了能跑反应，还可用其存着的化合物来强化 Creep 的部件
 </div>
 
 
-## Power
+## 超能
 
 {% note info %}
-**Where to get:** a [`StructurePowerBank`](/api/#StructurePowerBank) in "highway" rooms. <br>
-**How to get:** destroy the structure and loot the dropped resource. <br>
-**Needed for:** creating Power Creeps.
-{% endnote %}
+**从哪里获取:** "高速公路"房间中的 [`StructurePowerBank`](/api/#StructurePowerBank) 建筑. <br>
+**怎么样获取:** 摧毁该结构并搜刮掉落的资源<br>
+**用来干什么:** 创造超能 creep。
+{% endnote %} 
 
-See this article for more info: [Power](power.html).
+查看该文章来了解更多信息: [超能](power.html).
