@@ -1,36 +1,36 @@
 ---
-title: Authentication Tokens
+title: 验证令牌（Authentication Tokens）
 ---
 
-Screeps doesn't have a documented public Web API. However, if you want to use undocumented HTTP endpoints which our server uses to communicate with the client, that's fine. We've developed an **authentication tokens** system to make this process easier for you.
+Screeps 并没有一个文档化的公共 Web API。但是，如果您想使用这些没有文档的 HTTP 端点在我们的服务器和客户端之间进行通信的话，没有关系。我们开发了一个 **验证令牌**（Authentication Tokens）系统可以让您的工作更加轻松。
 
-The regular web browser client uses Google Invisible reCAPTCHA to validate some requests in the background, including the sign-in request. The Steam client uses an encrypted local Steam connection for similar purpose. If you're building some external tool that doesn't require human interaction, you can generate a persistent auth token to make requests without solving CAPTCHA. Such token is generated once and doesn't have expiration time. 
+常见的浏览器客户端一般使用 Google Invisible reCAPTCHA 来在后台验证某些请求，包括登录请求。而 Steam 客户端使用加密的本地 Steam 连接来完成类似的功能。如果您想要构建一些不需要人工干预的外部工具，则可以生成持久的身份验证令牌来发出请求，从而避免输入验证码。令牌一经生成即可永久使用。
 
-## Using Auth Tokens
+## 使用验证令牌
 
-You can generate an auth token in your [account settings](https://screeps.com/a/#!/account/auth-tokens):
+您可以通过 [账户设置](https://screeps.com/a/#!/account/auth-tokens) 来生成一个验证令牌：
 
 ![](img/auth_tokens.png) 
 
-A token with **full access** will have the same access scope as your usual authentication credentials. You can also limit the access scope to **selected endpoints**, **websockets events** and **memory segments**.
+一个 **完全权限** 的令牌的访问范围和您用身份验证凭据登录的访问范围相同。您也可以限制该令牌的访问范围，包括**指定的端点**，**websockets 事件**和**内存分段**。
 
-There are two identically valid ways to use this token:
+下面这两种令牌的使用方法都是有效的：
 
-* Set `X-Token` header in your request:
+* 在您的请求 header 中携带 `X-Token` 字段：
    ```
    X-Token: 3bdd1da7-3002-4aaa-be91-330562f54093
    ```     
    
-* Add `_token` query param to the URL:
+* 在 URL 的请求参数中携带 `_token` 字段：
    ```
    https://screeps.com/api/user/name?_token=3bdd1da7-3002-4aaa-be91-330562f54093
    ```
  
-## Rate Limiting
+## 访问次数限制
 
-Regular requests made by browser or Steam client are **NOT** rate limited.
+浏览器或者客户端发送的常规请求是**不会**受到该限制的影响。
 
-However, all requests authenticated by auth tokens are subject to rate limiting rules. When rate capacity is exceeded, you will get `429` HTTP code in response:
+但是，所有通过验证令牌认证的请求都会受到访问次数的限制。当超出规定的访问次数后，请求将会返回 `429` HTTP 状态码。
 
 ```
 HTTP/1.1 429 Too Many Requests
@@ -38,13 +38,13 @@ HTTP/1.1 429 Too Many Requests
 Rate limit exceeded, retry after 51243ms
 ```
 
-Three HTTP header are set for informational purposes which you can use to handle rate limiting on your side:
+HTTP 请求中包含下述三个 header 字段来提供频率限制的信息，您可以使用它们来规划请求次数：
 
-| Header Name | Description |
+| Header 字段名 | 介绍 |
 |-|-|
-| `X-RateLimit-Limit` | The maximum number of requests you're permitted to make per limit window. |
-| <nobr>`X-RateLimit-Remaining`</nobr> | The number of requests remaining in the current rate limit window. |
-| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |
+| `X-RateLimit-Limit` | 每个限制窗口允许的最大请求数。|
+| <nobr>`X-RateLimit-Remaining`</nobr> | 当前窗口中剩余的请求数。|
+| `X-RateLimit-Reset` | 当前窗口的请求次数重置时间，以 UTC 时间秒为单位 |
 
 ```
 X-RateLimit-Limit: 60
@@ -52,34 +52,34 @@ X-RateLimit-Remaining: 35
 X-RateLimit-Reset: 1514539728
 ```
 
-There are two levels of rate limiting: global and per-endpoint, shown in the table below:
+请求限制分为下面两个等级：全局限制和端点限制：
 
-| Endpoint | Rate |
+| 端点 | 频率 |
 |----------|------|
-| **Global**   | **120 / minute** |
-| GET /api/game/room-terrain | 360 / hour |
-| POST /api/game/map-stats | 60 / hour |
-| GET /api/user/code | 60 / hour |
-| POST /api/user/code | 240 / day
-| POST /api/user/set-active-branch | 240 / day |
-| GET /api/user/memory | 1440 / day |
-| POST /api/user/memory | 240 / day |
-| GET /api/user/memory-segment | 360 / hour |
-| POST /api/user/memory-segment | 60 / hour |
-| POST /api/user/console | 360 / hour | 
-| GET /api/game/market/orders-index | 60 / hour |
-| GET /api/game/market/orders | 60 / hour |
-| GET /api/game/market/my-orders | 60 / hour |
-| GET /api/game/market/stats | 60 / hour |
-| GET /api/game/user/money-history | 60 / hour |
+| **全局**   | **120 / 分钟** |
+| GET /api/game/room-terrain | 360 / 小时 |
+| POST /api/game/map-stats | 60 / 小时 |
+| GET /api/user/code | 60 / 小时 |
+| POST /api/user/code | 240 / 天
+| POST /api/user/set-active-branch | 240 / 天 |
+| GET /api/user/memory | 1440 / 天 |
+| POST /api/user/memory | 240 / 天 |
+| GET /api/user/memory-segment | 360 / 小时 |
+| POST /api/user/memory-segment | 60 / 小时 |
+| POST /api/user/console | 360 / 小时 | 
+| GET /api/game/market/orders-index | 60 / 小时 |
+| GET /api/game/market/orders | 60 / 小时 |
+| GET /api/game/market/my-orders | 60 / 小时 |
+| GET /api/game/market/stats | 60 / 小时 |
+| GET /api/game/user/money-history | 60 / 小时 |
 
-### Turning rate limiting off
+### 解除限速
 
-If you develop a third-party tool that requires human interaction, you can integrate a special flow to turn off rate limiting on a specific token. In order to do so, you must provide the user with a link `https://screeps.com/a/#!/account/auth-tokens/noratelimit?token=XXX`, which they should navigate to. When the user clicks the "Proceed" button on the page, the token will be granted with a 2-hour period with no rate limits.
+如果您开发的第三方工具需要进行人工干预，那么您可以通过集成一个特殊流程来暂时关闭特定令牌的请求频率限制。为此，您必须为用户提供一个链接 `https://screeps.com/a/#!/account/auth-tokens/noratelimit?token=XXX`，并且引导用户导航到该链接。在用户点击该页面中的 ”Proceed“ 按钮后，该令牌将被授予两个小时的无限速率访问时间。
 
 ![](img/token-noratelimit.png) 
 
-If your tool is web-based, you can embed this page in an `<iframe>` and listen to a `screepsTokenSuccess` message:
+如果您的工具是基于 web 开发的，那么您可以将该页面通过 `<iframe>` 嵌入进来并且监听 `screepsTokenSuccess` 事件信息：
 
 ```javascript
 window.addEventListener('message', (event) => {
@@ -89,6 +89,6 @@ window.addEventListener('message', (event) => {
 }, false);
 ```
 
-Please note that this page uses Google Invisible reCAPTCHA, so that it cannot be used automatically.
+请注意，该页面使用 Google Invisible reCAPTCHA 进行验证，所以无法通过其他手段自动完成。
 
-You can query info on a specific token (including its unlimited period timer) using the endpoint `https://screeps.com/api/auth/query-token?token=XXX`.
+您可以使用端点 `https://screeps.com/api/auth/query-token?token=XXX` 来查询指定令牌的信息（包含其不受限访问时长）。
