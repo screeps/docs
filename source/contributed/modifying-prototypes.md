@@ -1,81 +1,81 @@
 ---
-title: Modifying object prototypes
+title: 修改对象原型
 contributed:
     name: Helam
     link: https://screeps.com/a/#!/profile/Helam
     date: 2017-05-14
 ---
 
-This article will discuss object prototypes and several ways that they can be used/modified to make your life a little easier in Screeps!
+本文将讨论对象原型以及可以使用/修改的几种原型，阅读本文来使您的 Screeps 生活更加轻松！
 
-## What are prototypes?
-[Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes) are what allow for [inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance) in Javascript and can be used in many powerful ways.
+## 什么是原型?
+原型[（Prototypes）](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)允许在 Javascript 中进行继承[（inheritance）](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)，并且拥有许多强大的使用方法。
 
-Every object in Javascript has a link to another object called a **prototype** object from which it inherits properties and methods. Being another object itself, the prototype object may also have a link to another prototype object, creating a [prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain). Alternatively, a prototype may also be `null`.
+Javascript 中的每个对象都有到另一个对象的链接，该对象称为**原型**对象，它从该对象继承属性和方法。而作为另一个对象，原型对象可能还具有到另一个原型对象的链接，从而构成了一个[原型链](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)。或者，原型也可以是 null。
 
-If you had created a creep named "John", then `Game.creeps.John` would have a link to the [`Creep`](http://docs.screeps.com/api/#Creep) prototype. The [`Creep`](http://docs.screeps.com/api/#Creep) prototype has many useful properties and methods defined that you are familiar with such as [`.name`](http://docs.screeps.com/api/#Creep.name), [`.moveTo()`](http://docs.screeps.com/api/#Creep.moveTo), and [`.harvest()`](http://docs.screeps.com/api/#Creep.harvest). All of these properties and methods are accessible to all of your creeps only because they are defined on the [`Creep`](http://docs.screeps.com/api/#Creep) prototype. All of your creep objects have a link to this prototype and therefore inherit from it. This is how all in game objects have their properties and methods defined. See more prototypes like [`Room`](http://docs.screeps.com/api/#Room), [`Source`](http://docs.screeps.com/api/#Source), and [`Structure`](http://docs.screeps.com/api/#Structure).
+如果您创建了一个名为 “John” 的 creep，那么 `Game.creeps.John` 将有一个指向 [`Creep`](http://docs.screeps.com/api/#Creep) 原型的链接。该 [`Creep`](http://docs.screeps.com/api/#Creep) 原型具有许多有用的属性和定义好的方法，例如你所熟悉的 [`.name`](http://docs.screeps.com/api/#Creep.name)，[`.moveTo()`](http://docs.screeps.com/api/#Creep.moveTo) 和 [`.harvest()`](http://docs.screeps.com/api/#Creep.harvest)。由于您的 creep 都是基于 [`Creep`](http://docs.screeps.com/api/#Creep) 对象的，所以这些方法在您的 creep 上都可以访问到。您所有的 creep 对象都有此原型的链接，所以可以继承该原型上的属性。这也是其他所有游戏对象中定义方法和属性的方式。查看更多原型例如：[`Room`](http://docs.screeps.com/api/#Room)，[`Source`](http://docs.screeps.com/api/#Source)，和 [`Structure`](http://docs.screeps.com/api/#Structure)。
 
-## Adding methods to a prototype 
-The ability to add methods to a prototype is extremely useful, especially in Screeps. You can define a method once and it will be available to all of your creeps!
+## 在原型上添加方法
+向原型添加方法的功能非常有用，尤其是在 Screeps 中。 您只需定义一次方法，就可以在所有的 creep 上使用它！
 
-When working with prototype methods it is important to understand that [functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) are/can be stored in variables and object properties just like numbers, objects, arrays, strings, and booleans. Creep methods like [`.attack()`](http://docs.screeps.com/api/#Creep.attack) or [`.move()`](http://docs.screeps.com/api/#Creep.move) are functions stored as properties of the [`Creep`](http://docs.screeps.com/api/#Creep) prototype.
+在你开始使用原型方式时，最重要的是要了解 [functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) 已经，或者说可以被存放在一个变量或者对象的属性里，就像是数字、对象、数组、字符串和布尔值一样。[`.attack()`](http://docs.screeps.com/api/#Creep.attack) 或者 [`.move()`](http://docs.screeps.com/api/#Creep.move) 这样的 Creep 方法都被存放在了 [`Creep`](http://docs.screeps.com/api/#Creep) 原型的属性上。
 
-Because these functions are properties of an object just like any other, you can add new ones:
+因为这些方法都是一个对象上的属性，就和其他类型的值一样，所以你可以这样添加一个新的方法：
 ```javascript
 Creep.prototype.sayHello = function() { 
-    // In prototype functions, 'this' usually has the value of the object calling 
-    // the function. In this case that is whatever creep you are 
-    // calling '.sayHello()' on.
+    // 在原型方法中，"this" 通常代指该原型对象本身
+    // 无论你在哪个 creep 上调用 '.sayHello()' 都可以执行这段代码
     this.say("Hello!"); 
 };
 ```
-After this code you could do something like `creep.sayHello();` on any of your creeps and they will greet you!
+在这段代码之后你可以在任何你的 creep 上调用 `creep.sayHello();` 之类的方法，然后它们就会向你打招呼！
 
-You can also overwrite existing prototype methods:
+你甚至可以重写已经存在的原型方法：
 ```javascript
 Creep.prototype.suicide = function() {
     this.say("NO WAY!");
 };
 ```
-The above code overwrites the normal [`creep.suicide()`](http://docs.screeps.com/api/#Creep.suicide) function so that instead of suiciding, the creep will voice its disagreement with the command.
+上面的代码重写了正常的 [`creep.suicide()`](http://docs.screeps.com/api/#Creep.suicide) 方法，所以这段代码将会替代自杀操作，在你调用这个方法之后，creep 会生气的拒绝你的命令。
 
-### Storing the original method
-When you overwrite a prototype method you lose access to the original function. In Screeps losing access to a vital function such as [`.move()`](http://docs.screeps.com/api/#Creep.move) could be detrimental. Losing access to vital functions can be avoided by storing the original function in a different property before overwriting it so that it can be used later if needed.
+### 保存原始方法
+当你重写了一个原型方法后，你将无法访问原始方法。在 Screeps 中，无法访问像 [`.move()`](http://docs.screeps.com/api/#Creep.move) 之类的重要方法可能会导致很严重的后果。所以在覆盖原始方法之前，你最好把它存储在其他属性中，这样可以避免无法访问重要的功能，以便以后可以在需要时使用它。
 
-Before, when we overwrote the [`.suicide()`](http://docs.screeps.com/api/#Creep.suicide) function, we failed to store the original. This left us unable to really suicide a creep if needed. Lets overwrite [`.suicide()`](http://docs.screeps.com/api/#Creep.suicide) again but this time we'll do it a little differently.
+在上面的例子里，我们在重写 [`.suicide()`](http://docs.screeps.com/api/#Creep.suicide) 方法时并没有保存其原始方法，所以在需要时的时候我们就没办法真正的执行自杀了。接下来我们再次重写 [`.suicide()`](http://docs.screeps.com/api/#Creep.suicide) 方法，不过这次我们添加一点新东西。
 
-We will store the original function in a new property called `._suicide`. Placing an underscore before a property name is a Javascript naming convention intended to denote that the property is [private](https://developer.mozilla.org/en-US/Add-ons/SDK/Guides/Contributor_s_Guide/Private_Properties).
+我们将把原始方法存储在名为 `._suicide` 的新属性中。在属性名称前加下划线是一种 Javascript 命名约定，旨在表示该属性是[私有](https://developer.mozilla.org/en-US/Add-ons/SDK/Guides/Contributor_s_Guide/Private_Properties)的。
 ```javascript
-// Make sure we haven't already stored the original
+// 先确定我们还没把原始方法保存下来
 if (!Creep.prototype._suicide) {
 
-	// Store the original method
+	// 保存原始方法
 	Creep.prototype._suicide = Creep.prototype.suicide;
 
-	// Create our new function
+	// 创建一个新属性
 	Creep.prototype.suicide = function() {
 
-		// Add custom functionality
+		// 添加自定义功能
 		console.log(`May ${this.name} rest in peace.`);
 
-		// Call and return the original method
+		// 调用并返回原始方法
 		return this._suicide();
 	}
 
 }
 ```
-After running the above code, calling `creep.suicide()` on one of your creeps will cause a comforting message to appear in the console as well as the creep actually committing suicide.
+运行上述代码后，在你的 creep 上调用该方法将会在控制台中显示这个 creep 实际自杀返回值和一条令人欣慰的信息。
 
-There are a number of important things to remember that are demonstrated in the above code:
-- To ensure idempotence (executing the code multiple times has the same effect as executing it once), only store the original and place your new function if the original has not already been stored.
-- Always remember to store the original method.
-- When possible, always return the value returned by the original function in order to keep the new function as similar as possible to the original. Other code, both your own code and internal game code, may rely on the return values from the function you are modifying.
+上面的代码演示了很多重要的地方：
+- 为了保证幂等性（无论执行多少次，返回值都是相同的），仅在原始方法没有保存时才进行保存并创建你的新方法。
+- 永远记得保存你的原始方法。
+- 如果可能的话，请始终返回原始方法的返回值，以使新方法尽可能与原始方法相似。其他代码，包括您自己的代码和游戏内部代码，都可能依赖于您正在修改的函数的返回值。
 
-### Working with arbitrary arguments list
-The previous example was a simple one because [`Creep.prototype.suicide`](http://docs.screeps.com/api/#Creep.suicide) does not take any parameters. It is very important to handle arguments correctly when overwriting prototype methods. 
+### 使用任意参数列表
+前面的示例很简单，因为 [`Creep.prototype.suicide`](http://docs.screeps.com/api/#Creep.suicide) 没有任何的参数。但是在覆盖原型方法时，正确处理参数非常重要。
 
-[`Creep.prototype.moveTo`](http://docs.screeps.com/api/#Creep.moveTo) is a good example of a method that requires careful handling of arguments when overwriting because it has two possible signatures: `(x, y, [opts])` OR `(target, [opts])`. The following examples will overwrite [`.moveTo()`](http://docs.screeps.com/api/#Creep.moveTo) so that it will record the amount of CPU used for movement for each creep. Each of the three examples will show a different way of handling arguments:
-1. Use your own arguments:
+[`Creep.prototype.moveTo`](http://docs.screeps.com/api/#Creep.moveTo) 方法是一个很好的例子，在覆盖该方法时需要仔细的处理参数，因为它具有两种可能的参数列表：`(x, y, [opts])` 或者 `(target, [opts])`。下面的示例将覆盖 [`.moveTo()`](http://docs.screeps.com/api/#Creep.moveTo) 来记录每个 creep 移动所消耗的 CPU。接下来的三个示例会展示不同的参数处理方式：
+
+1. 使用你自己的参数类别:
 ```javascript
 if (!Creep.prototype._moveTo) {
 	Creep.prototype._moveTo = Creep.prototype.moveTo;
@@ -83,7 +83,7 @@ if (!Creep.prototype._moveTo) {
 	    console.log(`My moveTo with my own arguments!`);
 	    
 	    let startCpu = Game.cpu.getUsed();
-	    // Call original function and store the return value
+	    // 调用原始方法并保存返回值
 	    let returnValue = this._moveTo(myArg1, myArg2, myArg3);
 	    let endCpu = Game.cpu.getUsed();
 	    
@@ -93,11 +93,11 @@ if (!Creep.prototype._moveTo) {
 	    
 	    this.memory.moveToCPU += used;
 	    
-	    return returnValue; // return original value
+	    return returnValue; // 返回原方法返回值
 	};
 }
 ```
-2. Use the [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object available in every function:
+2. 使用每个函数中都有的 [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) 对象：
 ```javascript
 if (!Creep.prototype._moveTo) {
 	Creep.prototype._moveTo = Creep.prototype.moveTo;
@@ -105,7 +105,7 @@ if (!Creep.prototype._moveTo) {
 	    console.log(`My moveTo using the arguments object!`);
 	    
 	    let startCpu = Game.cpu.getUsed();
-	    // There is a short description of Function.apply() later
+	    // 稍后会对 Function.apply() 方法进行简单描述
 	    let returnValue = this._moveTo.apply(this, arguments);
 	    let endCpu = Game.cpu.getUsed();
 	    
@@ -119,7 +119,7 @@ if (!Creep.prototype._moveTo) {
 	};
 }
 ```
-3. Use ["rest parameters"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters):
+3. 使用 ["rest parameters"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters):
 ```javascript
 if (!Creep.prototype._moveTo) {
 	Creep.prototype._moveTo = Creep.prototype.moveTo;
@@ -142,35 +142,35 @@ if (!Creep.prototype._moveTo) {
 ```
 
 #### [Function.apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
-`Function.apply(thisArg, argumentsArray)` calls a function with the specified `this` value and passes each element of the arguments array as an argument to the function.
-Example:
+`Function.apply(thisArg, argumentsArray)` 调用具有指定 `this` 值的函数，并将参数数组的每个元素作为该函数的参数传递。
+例如：
 ```javascript
 let name = "Helam";
 console.log("Hello my name is: ", name);
 ```
-Will do the same thing as:
+执行的结果和下面代码相同：
 ```javascript
 let name = "Helam";
 let myArguments = ["Hello my name is: ", name];
 console.log.apply(console, myArguments);
 ```
-Also see [Function.call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+另请参加 [Function.call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)。
 
-### Other examples
+### 其他例子
 
-#### [Spawn.createCreep](http://docs.screeps.com/api/#StructureSpawn.createCreep) - Automatic naming
-When you have a large amount of creeps, using the default automatic naming can consume a large amount of CPU. Naming them yourself can be one way to reduce your CPU usage.
+#### [Spawn.createCreep](http://docs.screeps.com/api/#StructureSpawn.createCreep) - 自动命名
+当您有大量 creep 时，使用默认的自动命名可能会消耗大量 CPU。 自己命名它们不失为节省 CPU 的一种方法。
 ```javascript
-// Make sure the method has not already been overwritten
+// 检查该方法是否已经被重写
 if (!StructureSpawn.prototype._createCreep) {
     StructureSpawn.prototype._createCreep = StructureSpawn.prototype.createCreep;
     
-    // The original signature: createCreep(body, [name], [memory])
-    // Make a new version with the signature createCreep(body, [memory])
+    // 原始参数列表：createCreep(body, [name], [memory])
+    // 构造新的参数列表 createCreep(body, [memory])
     StructureSpawn.prototype.createCreep = function(body, memory = {}) { 
         if (!Memory.myCreepNameCounter) Memory.myCreepNameCounter = 0;
         
-        // Now we need to generate a name and make sure it hasnt been taken
+        // 现在我们需要生成一个没有使用的名字
         let name;
         let canCreate;
         do {
@@ -178,15 +178,15 @@ if (!StructureSpawn.prototype._createCreep) {
             canCreate = this.canCreateCreep(body, name);
         } while (canCreate === ERR_NAME_EXISTS);
         
-        // Now we call the original function passing in our generated name and 
-        // returning the value
+        // 现在我们调用原始方法并传入我们生成的名称，然后
+        // 返回原始返回值
         return this._createCreep(body, name, memory);
     };
 }
 ```
 
-#### [StructureObserver.observeRoom](http://docs.screeps.com/api/#StructureObserver) - prevent overriding calls
-Each subsequent call to [`.observeRoom`](http://docs.screeps.com/api/#StructureObserver.observeRoom) on the same observer in the same tick will override the previous one, and only the last one will actually execute, even though all of them may have returned `OK`. This is an example of how to modify that behavior so that subsequent calls return `ERR_BUSY` instead of overriding previous ones.
+#### [StructureObserver.observeRoom](http://docs.screeps.com/api/#StructureObserver) - 防止调用覆盖
+在同一 tick 中如果对单个 observer 调用多次 [`.observeRoom`](http://docs.screeps.com/api/#StructureObserver.observeRoom) 的话，后面的调用将会覆盖之前的调用，而且哪怕只有最后一个调用会被真正执行，所有的调用也都会返回 `OK`。下面的例子将会介绍如何修改其行为，使得后续调用返回 `ERR_BUSY` 而不是覆盖先前的调用。
 ```javascript
 if (!StructureObserver.prototype._observeRoom) {
     StructureObserver.prototype._observeRoom = StructureObserver.prototype.observeRoom;
@@ -201,41 +201,39 @@ if (!StructureObserver.prototype._observeRoom) {
 }
 ```
 
-## Adding properties to a prototype
-Just like with prototype functions, there are also non-function prototype properties like [`.name`](http://docs.screeps.com/api/#Creep.name) from the [`Creep`](http://docs.screeps.com/api/#Creep) prototype or [`hits`](http://docs.screeps.com/api/#Structure.hits) from the [`Structure`](http://docs.screeps.com/api/#Structure) prototype. Theses properties are inherited from the prototypes to the game objects, allowing you to access them. You are not limited to the properties provided by the game's [API](http://docs.screeps.com/api/), you can create your own!!!
+## 在原型上添加属性
+就像原型方法一样，原型对象上还有很多并不是方法的属性，例如从 [`Creep`](http://docs.screeps.com/api/#Creep) 原型上继承的 [`.name`](http://docs.screeps.com/api/#Creep.name) 或者从 [`Structure`](http://docs.screeps.com/api/#Structure) 原型上继承的 [`hits`](http://docs.screeps.com/api/#Structure.hits) 属性。这些属性从原型继承到游戏对象，所以你可以访问它们。而且并不是只能使用游戏 API 提供的属性，你还可以创建自己的属性！！！
 
-There are many possibilities when creating custom properties, here we will outline only a few. Properties are added using [`Object.defineProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) and [`Object.defineProperties`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties).
+有很多方法来创建自定义的属性，这里我们仅介绍其中的几种：使用 [`Object.defineProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 和 [`Object.defineProperties`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties) 来添加属性。
 
-We will create a custom property on the [`Room`](http://docs.screeps.com/api/#Room) prototype called `sources` that will contain an array of the energy sources in the room. We will do this 4 different ways to illustrate different features or possibilities when creating your own properties in Screeps.
+我们将在 [`Room`](http://docs.screeps.com/api/#Room) 原型上创建一个属性 `sources`，该属性包含房间中的能量矿数组。在 Screeps 有 4 种不同的方法来创建自己的属性，我们会分别说明其中的不同。
 
-### Basic property with getter only and no caching
-Note that [`Object.defineProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) takes 3 parameters:
-1. The object to which you are adding a property, commonly a prototype object. `Room.prototype` in these examples.
-2. The name of the property you are adding. `'sources'` in these examples but it could be anything like `'foo'` or `'myProp'`.
-3. An object containing options that define how the property behaves. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) for a list of all possible options.
+### 只有 getter 访问器并且无缓存的基础属性
+注意：[`Object.defineProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 需要下面三个参数：
+1. 要添加属性的对象，通常是原型对象。在该例子里为 `Room.prototype`。
+2. 要添加的属性名。在该例子里为 `sources`，但其实你可以起任何名字比如 `'foo'` 或者 `'myProp'`。
+3. 一个对象，其中包含用于定义属性行为的选项。详情请参见 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)。
 ```javascript
 Object.defineProperty(Room.prototype, 'sources', {
-    // This is the getter function, when you type room.sources it will have 
-    // the value returned by this function
+    // 这个是 getter 访问器，当你输入 room.sources 时
+    // 它的值就是该方法返回的
     get: function() {
-        // Since we are defining the property on the Room prototype, 'this' in 
-        // the line below is whatever room object we are getting the .sources from
+        // 由于我们是在 Room 原型上定义的属性，
+        // 因此下面一行中的 'this' 是我们要从中获取 .sources 的任何 room 对象。
         return this.find(FIND_SOURCES);
     },
-    // This makes it so the property doesn't show up when enumerating the properties 
-    // of the creep. If you arent sure, put false.
+    // 这样可以使 creep 在枚举属性时不显示该属性
+    // 如果你不太了解或者不太确定，将其设置为 false。
     enumerable: false,
-    // This makes the characteristics of the property modifiable and also makes 
-    // the property deletable. if you arent sure, put true.
+    // 这使属性的特性可以被修改，也可以删除该属性。
+    // 如果你不太了解或者不太确定，将其设置为 true。
     configurable: true
 });
 ```
-This option is the most basic and is basically just a shortcut that replaces `room.find(FIND_SOURCES)` with `room.sources`, perhaps saving you some keystrokes but not much else. See the rest of the examples for better options.
+这种写法是最最基本的写法了，其实只是将 `room.find(FIND_SOURCES)` 替换成了 `room.sources`，这可能会让你节省一些打字的时间，但是没什么其他的好处了，请继续阅读下面的示例来了解更好的写法。
 
-### Local object caching
-In the following code `this._sources` will have no value the first time the getter function is called, so it will find the value and store it so that the next time you access the property it will return the stored value.
-Values stored this way do not last between ticks, see the memory caching option to see how to remedy this.
-Note that we are using `._sources` with an `_` to store the value and not just plain `.sources`. This is because trying to access `.sources` will call the getter function again and cause an infinite loop!
+### 对象内部缓存
+在下面的代码中第一次调用 `this._sources` 时，getter 方法发现没有值，所以它将找到该值并将其保存下来，以便下次访问该属性时直接返回已存储的值。以这种方式存储的值在只能在当前 tick 访问，下个 tick 就会消失，下面的 Memory 缓存法会解决该问题。请注意，我们使用带有 `_` 的 `._sources` 来存储值，而不是直接访问 `.sources`。这是因为尝试访问 `.sources` 将再次调用其 getter 访问器，然后就导致了无限循环！
 ```javascript
 Object.defineProperty(Room.prototype, 'sources', {
     get: function() {
@@ -249,8 +247,8 @@ Object.defineProperty(Room.prototype, 'sources', {
 });
 ```
 
-### Adding a setter
-This version adds a setter function. If you want to be able to assign your custom property a value then you must add a setter, otherwise you will get an error when assigning a value. In this particular case you would not set room.sources to anything because the getter value does the setting for you but we will show how to do the setter anyway.
+### 添加 setter 访问器
+这个示例添加了 setter 方法。如果你想修改自定义属性的值的话，就必须添加一个 setter，否则在赋值时就会出现错误。在本文的需求中不需要给 room.sources 赋值，因为 getter 访问器已经处理好了这一切，但是我们将展示如何使用 setter。
 ```javascript
 Object.defineProperty(Room.prototype, 'sources', {
     get: function() {
@@ -260,8 +258,8 @@ Object.defineProperty(Room.prototype, 'sources', {
         return this._sources;
     },
     set: function(newValue) {
-        // We set the stored private variable so the next time the getter is called 
-        // it returns this new value
+        // 我们可以自行设置私有变量的值，来使下次调用 getter 访问器时可以
+        // 返回新的值
         this._sources = newValue;
     },
     enumerable: false,
@@ -269,32 +267,32 @@ Object.defineProperty(Room.prototype, 'sources', {
 });
 ```
 
-### Memory caching
-In this version we will add memory caching so that the stored value will last between ticks. While useful in this particular example, memory caching may not always be appropriate. Remember that the more objects you store in memory, the more CPU must be spent parsing it!
+### Memory 缓存
+在这个版本中，我们将添加内存缓存来使得我们的值可以在 tick 之间持久保存。尽管在这个例子里很有用，但内存缓存并不总是适合任何情况。请记住，存储在内存中的对象越多，解析它所花费的 CPU 就越多！
 
-Because the sources in a room do not change, adding memory caching in this example allows you to store the sources for the room once and never have to call `room.find(FIND_SOURCES)` again unless the memory value gets deleted.
+由于房间中的 source 并不会改变，这个例子中添加的缓存可以使得你只需要调用一次 `room.find(FIND_SOURCES)` 就可以永远使用其结果，除非内存中的值被删除了。
 
 ```javascript
 Object.defineProperty(Room.prototype, 'sources', {
     get: function() {
-    		// If we dont have the value stored locally
+    		// 如果 room 对象内部没有保存该值
         if (!this._sources) {
-        		// If we dont have the value stored in memory
+        		// 如果房间内存中没有保存该值
             if (!this.memory.sourceIds) {
-            		// Find the sources and store their id's in memory, 
-            		// NOT the full objects
+            		// 查找 source 并将它们的 id 保存到内存里，
+            		// **不要** 保存整个 source 对象
                 this.memory.sourceIds = this.find(FIND_SOURCES)
                                         .map(source => source.id);
             }
-            // Get the source objects from the id's in memory and store them locally
+            // 从内存中获取它们的 id 并找到对应的 source 对象，然后保存在 room 对象内部
             this._sources = this.memory.sourceIds.map(id => Game.getObjectById(id));
         }
-        // return the locally stored value
+        // 返回内部保存的 source 对象
         return this._sources;
     },
     set: function(newValue) {
-        // when storing in memory you will want to change the setter
-        // to set the memory value as well as the local value
+        // 当数据保存在内存中时，你会希望在修改 room 上的 source 时
+        // 也会自动修改内存中保存的 id 数据
         this.memory.sources = newValue.map(source => source.id);
         this._sources = newValue;
     },
@@ -302,13 +300,13 @@ Object.defineProperty(Room.prototype, 'sources', {
     configurable: true
 });
 ```
-It is critical in situations like this that you only store the id's of the objects in memory, and use [`Game.getObjectById(id)`](http://docs.screeps.com/api/#Game.getObjectById) to get the fresh objects every tick. Storing the full objects in memory not only causes much higher memory usage and therefore CPU usage, but also can cause bugs related to stale information in old objects. See [Storing game objects in memory](http://docs.screeps.com/global-objects.html#Storing-game-objects-in-memory).
+在这个例子中，非常重要的一点是，你只能将对象的 ID 存储在内存中，并使用 [`Game.getObjectById(id)`](http://docs.screeps.com/api/#Game.getObjectById) 在每 tick 时获取最新的对象。将完整对象存储在内存中不仅会导致更高的内存使用率，进而导致 CPU 使用率增加，而且旧对象中的过时信息还有可能导致更多错误出现。请参阅[在内存中保存游戏对象](http://docs.screeps.com/global-objects.html#Storing-game-objects-in-memory)。
 
 
-### Other examples
+### 其他例子
 
-#### Creep.prototype.isFull - are your carry parts full?
-A simple example of adding a property to your creeps. Can be used like `if (creep.isFull)`. This is a good example of when memory caching would not be useful, because the amount of resources in carry parts can change between ticks and would invalidate the memory value.
+#### Creep.prototype.isFull - 你的 CARRY 装满了么？
+一个向 creep 添加属性的简单示例。可以这样用：`if (creep.isFull)`。这是一个说明在内存缓存不可用时应该怎么做的好例子，因为 CARRY 部件的资源携带量可能会随着 tick 的流逝发生变化，这会使得在内存里保存值变得毫无意义。
 ```javascript
 Object.defineProperty(Creep.prototype, 'isFull', {
     get: function() {
@@ -322,8 +320,8 @@ Object.defineProperty(Creep.prototype, 'isFull', {
 });
 ```
 
-#### Source.memory - (Adding memory to things)
-A little more advanced, adds a `.memory` property to all sources. This can easily be modified to add a `.memory` property to any prototype you desire.
+#### Source.memory - (给其他对象添加内存)
+让我们更进一步，向所有的 source 添加 `.memory` 属性。而且对下面例子进行简单的修改就可以向你所需的任何原型添加 `.memory` 属性。
 ```javascript
 Object.defineProperty(Source.prototype, 'memory', {
     configurable: true,
@@ -349,8 +347,8 @@ Object.defineProperty(Source.prototype, 'memory', {
 });
 ```
 
-#### Source.freeSpaceCount - How many creeps can you fit near that source?
-This example builds on the previous example and uses your new `source.memory` property to cache a `.freeSpaceCount` property on your sources that returns a number telling you how many spots are around the source that are not natural walls.
+#### Source.freeSpaceCount - 该 source 边上有多少空位可供 creep 开采？
+这个例子建立在上个例子的基础上，使用新的 `source.memory` 属性来在 source 上缓存 `.freeSpaceCount` 属性，该属性返回一个数字，告诉你在 source 周围有多少个不是墙的空位。
 ```javascript
 Object.defineProperty(Source.prototype, 'freeSpaceCount', {
     get: function () {
