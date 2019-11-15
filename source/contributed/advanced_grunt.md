@@ -1,28 +1,28 @@
-title: Advanced Grunt Usage
+title: 高级 Grunt 用法
 contributed: 
     name: tedivm
     link: https://github.com/tedivm
     date: 2017-05-01
 ---
 
-Uploading your code with grunt is just the beginning. This guide covers numerous enhancements that can be added to your scripts to really get the most out of grunt and make your development easier.
+使用 grunt 上传代码仅仅是开始。本指南涵盖了许多可以添加到脚本中的增强功能，它们可使您将自己的精力用在正确的地方上，并使您的开发更加轻松。
 
 
-## Assumptions
+## 假设条件
 
-This article makes a few assumptions-
+本文做出了如下假设
 
-* Code is stored in the `src` directory.
-* You've read the [Getting Started](http://gruntjs.com/getting-started) guide.
-* Specifically, you understand how tasks are stored using grunt.initConfig.
-
-
-## Secure Credentials
-
-As your Gruntfile gets more complex you are going to want to save it in source control, but at the same time saving credentials in repositories is generally considered a horrible idea. Moving the credentials to a separate file will allow you to commit your Gruntfile without your credentials.
+* 代码存放在 `src` 文件夹中。
+* 您已经读过了 [Getting Started](http://gruntjs.com/getting-started) 指南。
+* 具体来说就是，您已经了解了如何使用 grunt.initConfig 安排工作。
 
 
-First create the file `.screeps.json` to save your credentials.
+## 安全凭据
+
+随着您的 Gruntfile 变得越来越复杂，您将需要将其保存在源代码管理中，但与此同时，将账号密码等凭据保存在存储库中通常被认为是一个糟糕的想法。将凭证移动到单独的文件中可以使您提交不包含凭证的 Gruntfile。
+
+
+首先创建 `.screeps.json` 文件来保存您的凭据。
 
     {
       "email": "<YOUR EMAIL HERE>",
@@ -31,7 +31,7 @@ First create the file `.screeps.json` to save your credentials.
       "ptr": false
     }
 
-Now modify `Gruntfile.js` to use the new file.
+现在修改 `Gruntfile.js` 来使用新文件。
 
     module.exports = function(grunt) {
         var config = require('./.screeps.json')
@@ -51,18 +51,18 @@ Now modify `Gruntfile.js` to use the new file.
         });
     }
 
-Finally, open your `.gitignore` (create it if it doesn't exist already) and add `.screeps.json`
+最后，打开您的 `.gitignore`（不存在请创建）然后添加 `.screeps.json`
 
 ```
 /.screeps.json
 ```
 
 
-## Override Options with CLI Flags
+## 使用 CLI 参数覆盖配置
 
-Changing the options that Grunt is using should not require a change in code and can be done using command line flags.
+更改 Grunt 使用的配置不应该需要更改代码，我们可以通过命令行参数来完成该功能。
 
-Now update `Gruntfile.js` so it utilizes the `.screeps.json` file created above and the `grunt.option` function.
+现在更新 `Gruntfile.js` 来使用上面创建的 `.screeps.json` 以及 `grunt.option` 功能。
 
     module.exports = function(grunt) {
 
@@ -89,23 +89,25 @@ Now update `Gruntfile.js` so it utilizes the `.screeps.json` file created above 
         });
     }
 
-Now you can override any of the commands on the fly. Any new option can be added to `.screeps.json`.
+现在你可以随时通过命令行参数来覆盖任何配置，您也可以向 `.screeps.json` 中添加任何新的配置项。
 
     grunt screeps --ptr=true --branch=development
 
 
-## Using Folders
+## 使用文件夹
 
-A common frustration amongst new players is that folders are not available by default. This can be changed using Grunt.
+**译者注**：如果你是 TypeScript 玩家的话，下面的方法可能无法直接使用。
 
-To get started install the [grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy) and [grunt-contrib-clean](https://www.npmjs.com/package/grunt-contrib-clean) plugins.
+一个困扰新玩家的常见问题是，默认情况下不能使用文件夹来存储文件。不过我们可以使用 Grunt 解决该问题。
+
+首先请安装 [grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy) and [grunt-contrib-clean](https://www.npmjs.com/package/grunt-contrib-clean) 插件。
 
     npm install grunt-contrib-clean --save-dev
     npm install grunt-contrib-copy --save-dev
 
-In this case the "copy" plugin is going to be used to move code from the `src` directory to `dist`. The plugin as an option to rename files, so a function to convert directory delimiters (slashes) to underscores is used to flatten the file structure. Once run the results will look like this-
+在我们的解决方法中，”copy“ 插件将会把代码从 `src` 文件夹移动到 `dist` 里。该插件拥有一个配置项可以用来重命名文件，所以我们可以通过一个将目录分隔符(斜杠)转换为下划线的函数来”展开“文件结构。运行后，将产生如下效果：
 
-| Before                     | After                       | Require                         |
+| 之前                       | 之后                       | 要求（代码里要提前这么写好）            |
 |----------------------------|:----------------------------|---------------------------------|
 | src/main.js                | dist/main.js                | require('main');                |
 | src/lib/creeptalk.js       | dist/lib_creeptalk.js       | require('lib_creeptalk');       |
@@ -113,9 +115,9 @@ In this case the "copy" plugin is going to be used to move code from the `src` d
 | src/prototypes/creeps.js   | dist/prototypes_creeps.js   | require('prototypes_creeps');   |
 | src/prototypes/spawns.js   | dist/prototypes_spawns.js   | require('prototypes_spawns');   |
 
-The copy plugin does not clear any data before it is run, so the `clean` plugin is used to make sure the `dist` folder is empty before files are moved into it.
+copy 插件在运行之前不会清理任何数据，所以 `clean` 插件可以保证在 `dist` 在移入文件之前是空的文件夹。
 
-Finally we use `grunt.registerTask()` to combine these three seperate tasks into one, which we will make the default.
+最后我们使用 `grunt.registerTask()` 将这三个任务组合在一起，这里我们将其设置为默认任务。
 
     module.exports = function(grunt) {
 
@@ -142,14 +144,14 @@ Finally we use `grunt.registerTask()` to combine these three seperate tasks into
                 }
             },
 
-            // Remove all files from the dist folder.
+            // 移除 dist 文件夹中的所有文件。
             clean: {
               'dist': ['dist']
             },
 
-            // Copy all source files into the dist folder, flattening the folder structure by converting path delimiters to underscores
+            // 将所有源文件复制到 dist 文件夹中并展平文件夹结构
             copy: {
-              // Pushes the game code to the dist folder so it can be modified before being send to the screeps server.
+              // 将游戏代码推送到dist文件夹，以便在将其发送到 screeps 服务器之前可以对其进行修改。
               screeps: {
                 files: [{
                   expand: true,
@@ -158,7 +160,7 @@ Finally we use `grunt.registerTask()` to combine these three seperate tasks into
                   dest: 'dist/',
                   filter: 'isFile',
                   rename: function (dest, src) {
-                    // Change the path name utilize underscores for folders
+                    // 通过将文件夹分隔符替换成下划线来重命名文件
                     return dest + src.replace(/\//g,'_');
                   }
                 }],
@@ -169,23 +171,23 @@ Finally we use `grunt.registerTask()` to combine these three seperate tasks into
         grunt.registerTask('default',  ['clean', 'copy:screeps', 'screeps']);
     }
 
-Now with a single command your code will be copied from its `src` directory, flattened, and then pushed to the screeps server.
+现在，只需要一条简单的命令，就可以将您的代码从 `src` 文件夹中复制出来，展平，并推送到 screeps 服务器。
 
     grunt
 
 
-## Automatic Versioning
+## 自动版本控制
 
-Install the [file-append](https://www.npmjs.com/package/grunt-file-append) plugin.
+首先安装 [file-append](https://www.npmjs.com/package/grunt-file-append) 插件。
 
     npm install grunt-file-append --save-dev
 
 
-In your source code create an empty file named `version.js`. Grunt is going to use this file to add the global variable `SCRIPT_VERSION` with the timestamp as its value. Then populate a variable with the current date and create a new `file_append` task.
+在您的源代码中创建一个名为 `version.js` 的空文件。Grunt 将使用该文件创建一个值为时间戳的全局变量 `SCRIPT_VERSION`。然后使用当前的时间填充该变量并创建一个新的 `file_append` 任务。
 
     module.exports = function(grunt) {
 
-        // parameters
+        // 准备
 
         grunt.loadNpmTasks('grunt-screeps')
         grunt.loadNpmTasks('grunt-contrib-clean')
@@ -194,19 +196,19 @@ In your source code create an empty file named `version.js`. Grunt is going to u
 
         var currentdate = new Date();
 
-        // Output the current date and branch.
+        // 输入当前时间和分支
         grunt.log.subhead('Task Start: ' + currentdate.toLocaleString())
         grunt.log.writeln('Branch: ' + branch)
 
 
         grunt.initConfig({
 
-            // Truncated for space.
+            // 此处省略
             screeps: {},
             clean: {},
             copy: {},
 
-            // Add version variable using current timestamp.
+            // 使用当前时间戳添加版本变量
             file_append: {
               versioning: {
                 files: [
@@ -223,7 +225,7 @@ In your source code create an empty file named `version.js`. Grunt is going to u
         grunt.registerTask('default',  ['clean', 'copy:screeps', 'file_append:versioning', 'screeps']);
     }
 
-Now by adding `require('version')` the variable `SCRIPT_VERSION` will be available. Comparing this to a version string saved in memory allows players to see when new scripts are updated.
+现在添加 `require('version')` 来启用 `SCRIPT_VERSION`。将其与保存在内存中的版本字符串进行比较，就可以让玩家看到代码是何时更新的了。
 
     require('version')
     if(!Memory.SCRIPT_VERSION || Memory.SCRIPT_VERSION != SCRIPT_VERSION) {
@@ -233,24 +235,24 @@ Now by adding `require('version')` the variable `SCRIPT_VERSION` will be availab
 
 
 
-## Private Server 
+## 私有服务器
 
-There are two ways to upload code to your private server account using Grunt.
+有两种使用 Grunt 上传代码到您的私有服务器帐户的方法。
 
-### Via Steam Client
+### 通过 Steam 客户端
 
-The Steam client is used to upload code from your local folder. In this case Grunt can be used to copy the files from the `dist` folder to the local folder used by steam to upload the data.
+Steam 客户端可以从您的本地文件夹上传代码。在这种情况下，可以使用 Grunt 将文件从 `dist` 文件夹复制到 Steam 用来上传数据的本地文件夹来完成提交代码的功能。
 
-Unfortunately the `copy` plugin can cause some issues with the steam client, so in this case the [rsync](https://www.npmjs.com/package/grunt-rsync) plugin should be used.
+不幸的是，该 `copy` 插件可能会导致 Steam 客户端出现一些问题，所以在这种情况下，应使用 [rsync](https://www.npmjs.com/package/grunt-rsync) 插件。
 
     npm install grunt-rsync --save-dev
 
 
-  Now add a parameter for `private_directory` to your settings and grunt files and configure `rsync`. To make it cross compatible with the main server a seprate `private` task is created using `grunt.registerTask`.
+  现在添加参数 `private_directory` 到您的凭据文件和 grunt 文件并配置 `rsync`。为了保证提交到主服务器任务的交叉兼容性，我们将使用 `grunt.registerTask` 创建一个新的 `private` 任务。
 
     module.exports = function(grunt) {
 
-        // parameters
+        // 参数
         var private_directory = grunt.option('private_directory') || config.private_directory;
 
         grunt.loadNpmTasks('grunt-screeps')
@@ -262,13 +264,13 @@ Unfortunately the `copy` plugin can cause some issues with the steam client, so 
 
         grunt.initConfig({
 
-            // Truncated for space.
+            // 此处省略
             screeps: {},
             clean: {},
             copy: {},
 
-            // Copy files to the folder the client uses to sink to the private server.
-            // Use rsync so the client only uploads the changed files.
+            // 将文件复制到客户端用于提交到私有服务器的文件夹。
+            // 使用 rsync，以便客户端仅上传被更改的文件。
             rsync: {
                 options: {
                     args: ["--verbose", "--checksum"],
@@ -290,15 +292,14 @@ Unfortunately the `copy` plugin can cause some issues with the steam client, so 
         grunt.registerTask('private',  ['clean', 'copy:screeps', 'file_append:versioning', 'rsync:private']);
     }
 
-Now code can be pushed to your private server.
+现在，代码就可以被简单的推送到您的私有服务器了。
 
     grunt private
 
-### Using Server Mod 
+### 使用服务器 Mod
 
 
-You need to install some authentication mod like 
-[screepsmod-auth](https://github.com/ScreepsMods/screepsmod-auth) at your private server in order for this method to work.
+您需要在私有服务器上安装一些身份验证模块，例如 [screepsmod-auth](https://github.com/ScreepsMods/screepsmod-auth)，之后才能使用该方法提交代码。
 
 ```javascript
 module.exports = function(grunt) {
@@ -326,17 +327,17 @@ module.exports = function(grunt) {
 }
 ```
 
-## Beautify
+## 代码美化
 
-Keeping code pretty is a common task with Grunt and can be accomplished with the [jsbeautifier](https://www.npmjs.com/package/grunt-jsbeautifier) plugin.
+使代码格式保持优雅是 Grunt 的一项常见任务，可以通过 [jsbeautifier](https://www.npmjs.com/package/grunt-jsbeautifier) 插件来完成。
 
     npm install grunt-jsbeautifier --save-dev
 
-Now add two new tasks for Grunt- one to cleanup the code and one to verify code standards as the start of a test suite (this task can be expanded later). The task is configured to look for `.jsbeautifyrc` for [style rules](https://github.com/beautify-web/js-beautify#options).
+现在，为 Grunt 添加两个新任务 - 一个用于清理代码，另一个用于验证代码标准，我们将把这些任务作为测试套件的开始（此任务可以在以后扩展）。该任务配置为在 `.jsbeautifyrc` 查找[样式规则](https://github.com/beautify-web/js-beautify#options)。
 
     module.exports = function(grunt) {
 
-        // parameters
+        // 参数
         var private_directory = grunt.option('private_directory') || config.private_directory;
 
         grunt.loadNpmTasks('grunt-screeps')
@@ -348,12 +349,12 @@ Now add two new tasks for Grunt- one to cleanup the code and one to verify code 
 
         grunt.initConfig({
 
-            // Truncated for space.
+            // 此处省略
             screeps: {},
             clean: {},
             copy: {},
 
-            // Apply code styling
+            // 应用代码样式
             jsbeautifier: {
               modify: {
                 src: ["src/**/*.js"],
@@ -379,22 +380,22 @@ Now add two new tasks for Grunt- one to cleanup the code and one to verify code 
         grunt.registerTask('pretty',   ['jsbeautifier:modify']);
     }
 
-Now code can be altered in place to match rules
+现在可以在将代码按规则进行格式化
 
     grunt pretty
 
-or simply tested.
+或者执行简单的测试
 
     grunt test
 
 
-## Add Stats
+## 添加统计
 
-Sometimes it gets boring watching your script upload. The plugin [time-grunt](https://www.npmjs.com/package/time-grunt) provides a breakdown of how much time is spent on each task.
+有时看着代码上传会很无聊。[time-grunt](https://www.npmjs.com/package/time-grunt) 插件提供了每个任务花费多少时间的细分统计。
 
     npm install time-grunt --save-dev
 
-Now as the very first line in the grunt function load the special plugin and pass the grunt object to it.
+现在，作为 grunt 函数的第一行，加载该插件并将 grunt 对象传递给它。
 
     module.exports = function(grunt) {
       require('time-grunt')(grunt);
@@ -402,17 +403,17 @@ Now as the very first line in the grunt function load the special plugin and pas
     }
 
 
-## Full Example
+## 完整的例子
 
-Putting it all together gives a powerful but simple to use tool for managing your Screeps deployment.
+将所有这些插件组合在一起可以即可提供一个功能强大但易于使用的工具来管理 Screeps 的部署。
 
     module.exports = function (grunt) {
       require('time-grunt')(grunt);
 
-      // Pull defaults (including username and password) from .screeps.json
+      // 从 .screeps.json 拉取默认配置（包括用户名和密码）
       var config = require('./.screeps.json')
 
-      // Allow grunt options to override default configuration
+      // 允许 grunt 配置项覆盖默认配置
       var branch = grunt.option('branch') || config.branch;
       var email = grunt.option('email') || config.email;
       var password = grunt.option('password') || config.password;
@@ -424,7 +425,7 @@ Putting it all together gives a powerful but simple to use tool for managing you
       grunt.log.subhead('Task Start: ' + currentdate.toLocaleString())
       grunt.log.writeln('Branch: ' + branch)
 
-      // Load needed tasks
+      // 加载需要的任务
       grunt.loadNpmTasks('grunt-screeps')
       grunt.loadNpmTasks('grunt-contrib-clean')
       grunt.loadNpmTasks('grunt-contrib-copy')
@@ -434,8 +435,8 @@ Putting it all together gives a powerful but simple to use tool for managing you
 
       grunt.initConfig({
 
-        // Push all files in the dist folder to screeps. What is in the dist folder
-        // and gets sent will depend on the tasks used.
+        // 将 dist 文件夹中的所有文件推送到 screeps。 dist 文件夹中的内容
+        // 以及要发送的内容取决于所使用的任务。
         screeps: {
           options: {
             email: email,
@@ -448,12 +449,10 @@ Putting it all together gives a powerful but simple to use tool for managing you
           }
         },
 
-
-        // Copy all source files into the dist folder, flattening the folder
-        // structure by converting path delimiters to underscores
+        // 将所有源文件复制到 dist 文件夹
+        // 通过将路径分隔符转换为下划线来展平文件夹结构
         copy: {
-          // Pushes the game code to the dist folder so it can be modified before
-          // being send to the screeps server.
+          // 将游戏代码推送到dist文件夹，以便在将其发送到 screeps 服务器之前可以对其进行修改。
           screeps: {
             files: [{
               expand: true,
@@ -462,7 +461,7 @@ Putting it all together gives a powerful but simple to use tool for managing you
               dest: 'dist/',
               filter: 'isFile',
               rename: function (dest, src) {
-                // Change the path name utilize underscores for folders
+                // 通过将文件夹分隔符替换成下划线来重命名文件
                 return dest + src.replace(/\//g,'_');
               }
             }],
@@ -470,8 +469,8 @@ Putting it all together gives a powerful but simple to use tool for managing you
         },
 
 
-        // Copy files to the folder the client uses to sink to the private server.
-        // Use rsync so the client only uploads the changed files.
+        // 将文件复制到客户端用于提交到私有服务器的文件夹。
+        // 使用 rsync，以便客户端仅上传被更改的文件。
         rsync: {
             options: {
                 args: ["--verbose", "--checksum"],
@@ -487,7 +486,7 @@ Putting it all together gives a powerful but simple to use tool for managing you
         },
 
 
-        // Add version variable using current timestamp.
+        // 使用当前时间戳添加版本变量
         file_append: {
           versioning: {
             files: [
@@ -500,13 +499,13 @@ Putting it all together gives a powerful but simple to use tool for managing you
         },
 
 
-        // Remove all files from the dist folder.
+        // 移除 dist 文件夹中的所有文件。
         clean: {
           'dist': ['dist']
         },
 
 
-        // Apply code styling
+        // 应用代码样式
         jsbeautifier: {
           modify: {
             src: ["src/**/*.js"],
@@ -525,7 +524,7 @@ Putting it all together gives a powerful but simple to use tool for managing you
 
       })
 
-      // Combine the above into a default task
+      // 将它们组合为一个默认任务。
       grunt.registerTask('default',  ['clean', 'copy:screeps',  'file_append:versioning', 'screeps']);
       grunt.registerTask('private',  ['clean', 'copy:screeps',  'file_append:versioning', 'rsync:private']);
       grunt.registerTask('test',     ['jsbeautifier:verify']);
