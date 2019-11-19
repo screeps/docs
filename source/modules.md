@@ -39,7 +39,7 @@ WebAssembly 是个二进制编译的代码格式。其可以快速高效的运�
 省略此步如果您想上传的文件已经是 `.wasm` 格式。
 {% endnote %}
 
-安装 [Emsripten SDK]((https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html#sdk-installation-instructions))。
+安装 [Emsripten SDK]((https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html#sdk-installation-instructions)。
 
 编写你的 C 函数并保存为 `addTwo.c`
 

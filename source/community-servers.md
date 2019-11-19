@@ -8,10 +8,10 @@ Screeps 并不仅仅是指由官方维护的开放式 MMO 游戏世界。我们�
 
 ![](img/community-servers.png)
 
-如果您想将自己的服务器添加到此列表中，请发送邮件至 [contact@screeps.com](mailto:contact@screeps.com)。您的服务器必须遵守以下规则：
+如果您想将自己的服务器添加到此列表中，请发送邮件至 [contact@screeps.com](mailto:contact@screeps.com)。您的服务器必须遵守以下规定：
 
 * 服务端版本为 4.0.0 或更高。
 
 * 服务器最近 7 天必须保证稳定的连接访问。如果长时间无法访问该服务器，我们将把服务器从该列表中移除。
 
-* 使用 [`config.backend.welcomeText`](https://github.com/screeps/launcher/blob/master/init_dist/example-mods/welcome-text.js) 通知玩家您的服务器包含哪些特定功能：您进行的自定义，安装了哪些 mod 等。
+* 使用 [`config.backend.welcomeText`](https://github.com/screeps/launcher/blob/master/init_dist/example-mods/welcome-text.js) 告知玩家您的服务器包含哪些特定功能：您进行的自定义设置，安装了哪些 mod 等。

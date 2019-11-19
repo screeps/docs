@@ -1,6 +1,8 @@
 title: 服务条款
 ---
 
+**注**：为了保证信息的准确性和可靠性，该章节内容不予翻译。
+
 Any and all uses of the game Screeps (hereinafter referred to as the "Game") are governed by the following Terms of Service between you, the user, and IP Chivchalov (hereinafter referred to as the "Screeps Team"). You hereby acknowledge that you have read and understand all the terms and conditions in this agreement and agree to be bound by them.
 
 **SOFTWARE**
