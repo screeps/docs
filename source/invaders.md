@@ -78,7 +78,7 @@ Here is an example of a level 5 stronghold loot:
 
 ![](img/stronghold_loot5.png) ![](img/stronghold_loot1.png) ![](img/stronghold_loot2.png) ![](img/stronghold_loot3.png) ![](img/stronghold_loot4.png)
 
-An active NPC Stronghold not only spawns invader creeps in the sector but also spawns lesser cores in rooms nearby every few thousands of ticks.
+An active NPC Stronghold not only spawns invader creeps in the sector but also spawns lesser cores in neutral (even reserved) rooms of the sector every few thousands of ticks.
 Such cores will not have any structures or creeps, but will reserve the controller so that you cannot harvest energy in this room without destroying the core first. 
 
 ![](img/invader-core-expand.gif)

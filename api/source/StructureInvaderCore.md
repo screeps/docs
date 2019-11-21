@@ -9,7 +9,7 @@ An Invader Core has two lifetime stages: deploy stage and active stage. When it 
 public ramparts around it, and doesn't perform any actions. While in this stage it's invulnerable to attacks (has `EFFECT_INVULNERABILITY` enabled). When the `ticksToDeploy` timer is over, it spawns structures around it and starts
 spawning creeps, becomes vulnerable, and receives `EFFECT_COLLAPSE_TIMER` which will remove the stronghold when this timer is over.  
 
-An active Invader Core spawns level-0 Invader Cores in neighbor rooms. These lesser Invader Cores are spawned
+An active Invader Core spawns level-0 Invader Cores in neutral neighbor rooms inside the sector. These lesser Invader Cores are spawned
 near the room controller and don't perform any activity except reserving/attacking the controller. One Invader Core can spawn up to 10 lesser Cores
 during its lifetime. 
 
