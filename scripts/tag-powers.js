@@ -93,7 +93,7 @@ function powerDescription(powerName) {
         return `Regenerate ${effectMetric()} mineral units in a deposit every ${powerInfo.period} ticks.`;
 
       case "DISRUPT_TERMINAL":
-        return `Block withdrawing resources from the terminal.`;
+        return `Block withdrawing or using resources from the terminal.`;
 
       case "FORTIFY":
         return `Make a wall or rampart tile invulnerable to all creep attacks and powers.`;
