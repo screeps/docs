@@ -80,8 +80,8 @@ title: 超能
 
 ### Commander
 
-Under development.
+尚在开发。
 
 ### Executor 
 
-Under development. 
+尚在开发。

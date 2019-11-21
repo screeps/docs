@@ -51,61 +51,61 @@ function powerDescription(powerName) {
     switch (powerName) {
 
       case "GENERATE_OPS":
-        return `Generate ${effectPlain()} ops resource units.`;
+        return `生成 ${effectPlain()} 点 ops 资源。`;
 
       case "OPERATE_SPAWN":
-        return `Reduce spawn time by ${effectPercent()}.`;
+        return `减少 ${effectPercent()} 的孵化时间。`;
 
       case "OPERATE_TOWER":
-        return `Increase damage, repair and heal amount by ${effectPercent()}.`;
+        return `提升 ${effectPercent()} 的攻击、修理或治疗效果。`;
 
       case "OPERATE_STORAGE":
-        return `Increase capacity by ${effectMetric()} units.`;
+        return `提升 ${effectMetric()} 单位的存储容量。`;
 
       case "OPERATE_LAB":
-        return `Increase reaction amount by ${effectMetric()} units.`;
+        return `增加 ${effectMetric()} 单位的反应产物。`;
 
       case "OPERATE_EXTENSION":
-        return `Instantly fill ${effect100()}% of all extensions in the room using energy from the target structure (container, storage, or terminal).`;
+        return `使用目标建筑（container、storage 或者 terminal）中的能量，立刻填充房间中 ${effect100()}% 的 extension。`;
 
       case "OPERATE_OBSERVER":
-        return `Grant unlimited range.`;
+        return `给予无限视野范围。`;
 
       case "OPERATE_TERMINAL":
-        return `Decrease transfer energy cost and cooldown by ${effectPercent()}.`;
+        return `将资源转移的能量消耗和冷却时间降低 ${effectPercent()}。`;
 
       case "DISRUPT_SPAWN":
-        return `Pause spawning process.`;
+        return `暂停孵化进程。`;
 
       case "DISRUPT_TOWER":
-        return `Reduce effectiveness by  ${effectPercent()}.`;
+        return `削弱 ${effectPercent()} 的效果。`;
 
       case "DISRUPT_SOURCE":
-        return `Pause energy regeneration.`;
+        return `暂停 Source 的能量再生。`;
 
       case "SHIELD":
-        return `Create a temporary non-repairable rampart structure on the same square with ${effectMetric()} hits. Cannot be used on top of another rampart. Consumes ${powerInfo.energy} energy resource units.`;
+        return `在其所在地块上创建一个拥有 ${effectMetric()} 点生命值、无法修复的临时 rampart。如果该地块已有 rampart 则无法使用。消耗 ${powerInfo.energy} 点能量。`;
 
       case "REGEN_SOURCE":
-        return `Regenerate ${effectMetric()} energy units in a source every ${powerInfo.period} ticks.`;
+        return `使 Source 每 ${powerInfo.period} tick 重新生成 ${effectMetric()} 点能量。`;
 
       case "REGEN_MINERAL":
-        return `Regenerate ${effectMetric()} mineral units in a deposit every ${powerInfo.period} ticks.`;
+        return `使矿藏每 ${powerInfo.period} tick 增加 ${effectMetric()} 点矿物。`;
 
       case "DISRUPT_TERMINAL":
-        return `Block withdrawing resources from the terminal.`;
+        return `阻止从 terminal 中取出资源。`;
 
       case "FORTIFY":
-        return `Make a wall or rampart tile invulnerable to all creep attacks and powers.`;
+        return `使得一个 wall 或者 rampart 免疫所以来自 creep 的伤害和 power 的效果。`;
 
       case "OPERATE_POWER":
-        return `Increase power processing speed of a Power Spawn by ${effectMetric()} units per tick.`;
+        return `将 Power Spawn 的 power 处理速度提升  ${effectMetric()} 单位每秒。`;
 
       case "OPERATE_CONTROLLER":
-        return `Increase max limit of energy that can be used for upgrading a Level 8 Controller each tick by ${effectMetric()} energy units.`;
+        return `将一个 8 级 Controller 的每 tick 升级能量上限提高 ${effectMetric()} 单位。`;
 
       case "OPERATE_FACTORY":
-        return `Set the level of the factory to the level of the power. This action is permanent, it cannot be undone, and another power level cannot be applied. Apply the same power again to renew its effect.`;
+        return `将 factory 的等级设置为该 power 的等级。该操作无法撤销，并且一旦设置无法修改为其他等级。持续时间结束后再次使用相同的 power 即可恢复效果。`;
     }
   }
 
@@ -114,21 +114,21 @@ function powerDescription(powerName) {
       return '';
     }
     if(powerInfo.duration.length) {
-      return 'Effect duration '+powerInfo.duration.join('/')+' ticks.';
+      return '效果持续 '+powerInfo.duration.join('/')+' tick。';
     }
-    return 'Effect duration '+powerInfo.duration+' ticks.';
+    return '效果持续 '+powerInfo.duration+' tick。';
   }
 
   function cooldown() {
     if(powerInfo.cooldown === 0) {
-      return 'No cooldown';
+      return '无冷却。';
     }
-    return 'Cooldown '+powerInfo.cooldown+' ticks.';
+    return '冷却 '+powerInfo.cooldown+' tick。';
   }
 
   function range() {
     if(powerInfo.range) {
-      return 'Range '+powerInfo.range+' squares.';
+      return '范围 '+powerInfo.range+' 格以内。';
     }
     return '';
   }
@@ -138,16 +138,16 @@ function powerDescription(powerName) {
       return '';
     }
     if(powerInfo.ops.length) {
-      return 'Consumes '+powerInfo.ops.join('/')+' ops resource units.';
+      return '消耗 '+powerInfo.ops.join('/')+' 点 ops 资源。';
     }
-    return 'Consumes '+powerInfo.ops+' ops resource units.';
+    return '消耗 '+powerInfo.ops+' 点 ops 资源。';
   }
 
   function level() {
-    return 'Required creep level: '+powerInfo.level.join('/')+'.';
+    return 'creep 等级要求: '+powerInfo.level.join('/')+'.';
   }
 
-  return `${description()} ${duration()} ${cooldown()} ${range()} ${ops()} ${level()}`;
+  return `${description()}${duration()}${cooldown()}${range()}${ops()}${level()}`;
 
 }
 
