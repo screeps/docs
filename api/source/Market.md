@@ -335,18 +335,18 @@ ERR_INVALID_ARGS | The arguments provided are invalid.
 
 
 ```javascript
-Game.market.getAllOrders();
+Game.market.getAllOrders(); // slow
 ```
 
 ```javascript
-Game.market.getAllOrders({type: ORDER_SELL, resourceType: RESOURCE_GHODIUM});
+Game.market.getAllOrders({type: ORDER_SELL, resourceType: RESOURCE_GHODIUM}); // fast
 ```
 
 ```javascript
 const targetRoom = "W1N1";
 Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 	order.type == ORDER_SELL &&
-    Game.market.calcTransactionCost(1000, targetRoom, order.roomName) < 500);
+    Game.market.calcTransactionCost(1000, targetRoom, order.roomName) < 500); // slow
 ```
 
 ```javascript
@@ -382,7 +382,7 @@ Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 }]
 ```
 
-Get other players' orders currently active on the market.
+Get other players' orders currently active on the market. This method supports internal indexing by `resourceType`.
 
 {% api_method_params %}
 filter (optional) : object, function
