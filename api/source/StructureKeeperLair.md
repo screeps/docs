@@ -2,7 +2,7 @@
 
 <img src="img/keeperLair.png" alt="" align="right" />
 
-非玩家建筑。孵化 NPC 资源守护者(Source Keeper)来守卫某些房间中的能量 source 和 mineral。该建筑无法被摧毁。
+非玩家建筑。孵化 NPC 资源守护者（Source Keeper）来守卫某些房间中的能量 source 和 mineral。该建筑无法被摧毁。
 
 <table class="table gameplay-info">
     <tbody>
