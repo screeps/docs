@@ -73,7 +73,7 @@ Screeps 拥有一个活跃的第三方开发社区，该社区已经构建了许
 
 ## 通知
 
-*   [Screeps Notify](https://github.com/screepers/screeps_notify) 提供一套游戏内接口，使玩家可以将消息发送到游戏外的服务器。它内置有SMS系统，并且支持将消息发送到任意 http 端点。
+*   [Screeps Notify](https://github.com/screepers/screeps_notify) 提供一套游戏内接口，使玩家可以将消息发送到游戏外的服务器。它内置有SMS系统，并且支持将消息发送到任意 http 接口。
 
 
 ## 统计
