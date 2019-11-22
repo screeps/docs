@@ -9,7 +9,7 @@ Screeps 的世界危机重重，本文主要介绍保卫自己的领土不受入
 
 ![](img/safe_mode.png)
 
-安全模式持续 **20,000 个游戏 tick**（大约20小时，实际取决于每个游戏 tick 的具体时间）。如果 room controller 存有额外的激活次数也可以通过 [`StructureController.activateSafeMode`](/api/#StructureController.activateSafeMode) 手动激活:
+安全模式持续 **20,000 个游戏 tick**（大约20小时，实际取决于每个游戏 tick 的具体时长）。如果 room controller 存有额外的激活次数也可以通过 [`StructureController.activateSafeMode`](/api/#StructureController.activateSafeMode) 手动激活:
 
     Game.rooms.W1N1.controller.activateSafeMode()
 
@@ -37,7 +37,7 @@ Screeps 的世界危机重重，本文主要介绍保卫自己的领土不受入
 
 和普通的墙一样，城墙的初始耐久也是 1 点，最大的耐久值由控制器等级决定。在之前的文章[控制](/control.html)中介绍过。
 
-城墙和普通墙不一样的地方在于：每过若干个游戏 tick 耐久值就会掉一点，所以需要分配工人来保持确保你所有的城墙保持警惕，并且没有磨损。
+城墙和普通墙不一样的地方在于：每过若干个游戏 tick 耐久值就会掉一点，所以需要分配工人来让你所有的城墙都保持坚挺，并且没有磨损。
 
 ## 主动防御：塔（Towers）
 
@@ -46,10 +46,10 @@ Screeps 的世界危机重重，本文主要介绍保卫自己的领土不受入
 
 ![](img/defense3.png)
 
-在控制器等级 3 级以后就可以建造**塔**来进行主动防御。和墙与城墙不同，塔的防御是主动的。通过消耗能量，塔可以[`攻击`](/api/#StructureTower.attack)敌人[`治疗`](/api/#StructureTower.heal)友军以及 [`修复`](/api/#StructureTower.repair)建筑。
+在控制器等级 3 级以后就可以建造**塔**（Tower）来进行主动防御。和墙与城墙不同，塔的防御是主动的。通过消耗能量，塔可以[攻击(`attack`)](/api/#StructureTower.attack)敌人、[治疗(`heal`)](/api/#StructureTower.heal)友军以及[修复(`repair`)](/api/#StructureTower.repair)建筑。
 
 {% note info %}
-塔的攻击距离覆盖整个房间，但是会随着与目标的距离而衰减。因此，应该始终将塔布置在接近它们潜在目标的位置。
+塔的攻击距离覆盖整个房间，但是效果会随着与目标的距离而衰减。因此，应该始终将塔布置在接近它们潜在目标的位置。
 {% endnote %}
 
 塔的任何动作将消耗 **10 单位能量**，所以你需要指派 Creep 监控塔的能量补给情况，并提供它们所需的补充。
