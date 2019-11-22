@@ -1,7 +1,7 @@
 title: NPC 入侵者 
 ---
 
-每个被开采的房间都有一个内置的计数器，终值大约为**100,000单位的能量**（再加上一些随机因素）。当计数器达到终值，在房间的任意一个出入口会生产一个系统控制的 creep，其目标是猎杀你的 creep。它大部分时间不会理睬你的建筑物，一旦某个建筑物挡了它的道，它就会试图摧毁该建筑物。这些 creep 可以使用[`attack`](/api/#Creep.attack), [`rangedAttack`](/api/#Creep.rangedAttack), 和 [`dismantle`](/api/#Creep.dismantle)，但是不会跨房间游走。
+每个被开采的房间都有一个内置的计数器，终值大约为**100,000单位的能量**（再加上一些随机因素）。当计数器达到终值，在房间的任意一个出入口会生产一个系统控制的 creep，其目标是猎杀你的 creep。它大部分时间不会理睬你的建筑物，一旦某个建筑物挡了它的道，它就会试图摧毁该建筑物。这些 creep 可以使用[攻击(`attack`)](/api/#Creep.attack), [远程攻击(`rangedAttack`)](/api/#Creep.rangedAttack), 和 [拆毁(`dismantle`)](/api/#Creep.dismantle)，但是不会跨房间游走。
 
 ![](img/invader.png)
 
