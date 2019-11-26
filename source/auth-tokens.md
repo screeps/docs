@@ -2,7 +2,7 @@
 title: 验证令牌（Authentication Tokens）
 ---
 
-Screeps 并没有一个文档化的公共 Web API。但是，如果您想使用这些没有文档的 HTTP 端点在我们的服务器和客户端之间进行通信的话，没有关系。我们开发了一个 **验证令牌**（Authentication Tokens）系统可以让您的工作更加轻松。
+Screeps 并没有一个文档化的公共 Web API。但是，如果您想使用这些没有文档的 HTTP 接口在我们的服务器和客户端之间进行通信的话，没有关系。我们开发了一个 **验证令牌**（Authentication Tokens）系统可以让您的工作更加轻松。
 
 常见的浏览器客户端一般使用 Google Invisible reCAPTCHA 来在后台验证某些请求，包括登录请求。而 Steam 客户端使用加密的本地 Steam 连接来完成类似的功能。如果您想要构建一些不需要人工干预的外部工具，则可以生成持久的身份验证令牌来发出请求，从而避免输入验证码。令牌一经生成即可永久使用。
 
@@ -12,7 +12,7 @@ Screeps 并没有一个文档化的公共 Web API。但是，如果您想使用�
 
 ![](img/auth_tokens.png) 
 
-一个 **完全权限** 的令牌的访问范围和您用身份验证凭据登录的访问范围相同。您也可以限制该令牌的访问范围，包括**指定的端点**，**websockets 事件**和**内存分段**。
+一个 **完全权限** 的令牌的访问范围和您用身份验证凭据登录的访问范围相同。您也可以限制该令牌的访问范围，包括**指定的接口**，**websockets 事件**和**内存分段**。
 
 下面这两种令牌的使用方法都是有效的：
 
@@ -52,9 +52,9 @@ X-RateLimit-Remaining: 35
 X-RateLimit-Reset: 1514539728
 ```
 
-请求限制分为下面两个等级：全局限制和端点限制：
+请求限制分为下面两个等级：全局限制和接口限制：
 
-| 端点 | 频率 |
+| 接口 | 频率 |
 |----------|------|
 | **全局**   | **120 / 分钟** |
 | GET /api/game/room-terrain | 360 / 小时 |
@@ -91,4 +91,4 @@ window.addEventListener('message', (event) => {
 
 请注意，该页面使用 Google Invisible reCAPTCHA 进行验证，所以无法通过其他手段自动完成。
 
-您可以使用端点 `https://screeps.com/api/auth/query-token?token=XXX` 来查询指定令牌的信息（包含其不受限访问时长）。
+您可以使用接口 `https://screeps.com/api/auth/query-token?token=XXX` 来查询指定令牌的信息（包含其不受限访问时长）。
