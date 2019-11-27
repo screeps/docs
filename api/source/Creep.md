@@ -9,63 +9,63 @@ creep 是你的单位, creep 可以移动、采集能量、建造建筑、攻击
     <tbody>
     <tr>
         <th style="width: 20%;">身体部件</th>
-        <th style="width: 10%;">生产成本</th>
+        <th style="width: 10%;">孵化成本</th>
         <th>每个部件效果</th>
     </tr>
     <tr>
         <td><code style="background: #333; color: #a9b7c6;">MOVE</code></td>
         <td>50</td>
-        <td>每tick减少2点疲惫值</td>
+        <td>每 tick 减少 2 点疲惫值</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #ffe56d;">WORK</code></td>
         <td>100</td>
         <td>
-            <p>每tick从能量源采集2单位能量。</p>
-            <p>每tick从矿区采集1单位矿物。</p>
-            <p>每tick增加工地建设进度5点，花费5单位能量。</p>
-            <p>每tick增加建筑100耐久度，花费1单位能量。</p>
-            <p>每tick拆减建筑50点耐久，并返还0.25单位能量。</p>
-            <p>每tick提高控制器升级进度1点，花费1单位能量。</p>
+            <p>每 tick 从能量源采集 2 单位能量。</p>
+            <p>每 tick 从矿区采集 1 单位矿物。</p>
+            <p>每 tick 增加工地建设进度 5 点，花费 5 单位能量。</p>
+            <p>每 tick 增加建筑 100 耐久度，花费 1 单位能量。</p>
+            <p>每 tick 拆减建筑 50 点耐久，并返还 0.25 单位能量。</p>
+            <p>每 tick 提高控制器升级进度 1 点，花费 1 单位能量。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #777;">CARRY</code></td>
         <td>50</td>
-        <td>携带最多50单位资源。</td>
+        <td>携带最多 50 单位资源。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #f93842;">ATTACK</code></td>
         <td>80</td>
-        <td>对相邻的creep或建筑造成30点伤害。</td>
+        <td>对相邻的 creep 或建筑造成 30 点伤害。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code></td>
         <td>150</td>
         <td>
-            <p>单个目标时，每tick对creep或建筑造成10点伤害，范围为3格。</p>
-            <p>多个目标时，每tick对范围内所有creep与建筑造成1-4-10点伤害，具体伤害取决于距离，范围为3格。</p>
+            <p>单个目标时，每 tick 对 creep 或建筑造成 10 点伤害，范围为 3 格。</p>
+            <p>多个目标时，每 tick 对范围内所有 creep 与建筑造成 1-4-10 点伤害，具体伤害取决于距离，范围为 3 格。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #65fd62;">HEAL</code></td>
         <td>250</td>
-        <td>治疗对象可为自己或其它creep。自愈或治疗相邻creep时每tick恢复12点耐久，一定距离内远程治疗每tick恢复4点耐久。</td>
+        <td>治疗对象可为自己或其它 creep。自愈或治疗相邻 creep 时每 tick 恢复 12 点耐久，一定距离内远程治疗每 tick 恢复 4 点耐久。</td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #b99cfb;">CLAIM</code></td>
         <td>600</td>
         <td>
             <p>占领一个中立房间的控制器。</p>
-            <p>每部件每tick使己方对中立房间控制器的预定时间增加1tick，或使其他玩家的预定时间减少1tick。</p>
-            <p>每部件每tick使其他玩家控制器降级计数器加速300ticks。</p>
-            <p>注：拥有该部件的creep寿命只有600ticks，且无法被renew。</p>
+            <p>每部件每 tick 使己方对中立房间控制器的预定时间增加 1 tick，或使其他玩家的预定时间减少 1 tick。</p>
+            <p>每部件每 tick 使其他玩家控制器降级计数器加速 300 tick。</p>
+            <p>注：拥有该部件的 creep 寿命只有 600 tick，且无法被 renew。</p>
         </td>
     </tr>
     <tr>
         <td><code style="background: #333; color: #fff;">TOUGH</code></td>
         <td>10</td>
-        <td>无附加效果，唯一作用是增加creep的最大耐久值。可被强化以承受更多伤害。</td>
+        <td>无附加效果，唯一作用是增加 creep 的最大耐久值。可被强化以承受更多伤害。</td>
     </tr>
     </tbody>
 </table>
@@ -215,7 +215,7 @@ if(target) {
 
 ```
 
-使用近战攻击其他 creep、超能(power) creep 或建筑。需要 <code>ATTACK</code> 身体部件。如果目标在 rampart 中，则优先攻击 rampart。目标必须在紧邻 creep 的正方形区域中，如果目标是一个带有 <code>ATTACK</code> 身体的 creep 并且没有自己没有在 rampart 中，则该目标会自动进行反击。
+使用近战攻击其他 creep、超能(power) creep 或建筑。需要 <code>ATTACK</code> 身体部件。如果目标在 rampart 中，则优先攻击 rampart。目标必须与 creep 相邻，如果目标是一个带有 <code>ATTACK</code> 身体的 creep 并且没有自己没有在 rampart 中，则该目标会自动进行反击。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
@@ -248,7 +248,7 @@ if(creep.room.controller && !creep.room.controller.my) {
 
 ```
 
-攻击时，每个 <code>CLAIM</code> 身体部件都能使得房间控制器的降级计时器降低 300 tick，或者将预定计时器降低 1 tick。如果受到攻击的控制器已经有所属者，则接下来的 1000 tick 将无法升级(upgrade)或再次进行攻击。目标必须在紧邻 creep 的正方形区域中。
+攻击时，每个 <code>CLAIM</code> 身体部件都能使得房间控制器的降级计时器降低 300 tick，或者将预定计时器降低 1 tick。如果受到攻击的控制器已经有所属者，则接下来的 1000 tick 将无法升级(upgrade)或再次进行攻击。目标必须与 creep 相邻。
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
@@ -283,7 +283,7 @@ if(target) {
 
 ```
 
-使用自己携带的能量来在目标工地上建造一个建筑。需要 <code>WORK</code> 和 <code>CARRY</code> 身体部件。目标必须在以 creep 为中心的 3 格正方形区域中。
+使用自己携带的能量来在目标工地上建造一个建筑。需要 <code>WORK</code> 和 <code>CARRY</code> 身体部件。目标必须位于以 creep 为中心的 7*7 正方形区域内。
 
 {% api_method_params %}
 target : <a href="#ConstructionSite">ConstructionSite</a>
@@ -343,7 +343,7 @@ if(creep.room.controller) {
 
 ```
 
-占领一个中立的房间。需要 <code>CLAIM</code> 身体部件。目标必须在紧邻 creep 的正方形区域中。你需要有对应的全局控制等级(Global Control Level)才能占领新的房间。如果你没有足够的 GCL。请考虑 <a href="#reserveController">预定(reserving)</a> 该房间。<a href="/control.html#Global-Control-Level">点击了解更多</a>
+占领一个中立的房间。需要 <code>CLAIM</code> 身体部件。目标必须与 creep 相邻。你需要有对应的全局控制等级(Global Control Level)才能占领新的房间。如果你没有足够的 GCL。请考虑 <a href="#reserveController">预定(reserving)</a> 该房间。<a href="/control.html#Global-Control-Level">点击了解更多</a>
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
@@ -380,7 +380,9 @@ if(target) {
 
 ```
 
-拆除任意可以建造的建筑(即时是敌人的)并且返回 50% 其修理所花的能量。需要 <code>WORK</code> 身体部件。如果 creep 有空余的 <code>CARRY</code> 身体部件，则能量会直接转移进去；否则能量将掉落在地上。目标必须在紧邻 creep 的正方形区域中。
+拆解任意可以建造的建筑(即时是敌人的)并且返回 50% 其修理所花的能量。需要 <code>WORK</code> 身体部件。如果 creep 有空余的 <code>CARRY</code> 身体部件，则会直接将能量转移进去；否则能量将掉落在地上。目标必须与 creep 相邻。
+
+**译者注**：拆解效率和 `WORK` 部件的数量正相关。
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
@@ -448,7 +450,7 @@ if(creep.generateSafeMode(creep.room.controller) == ERR_NOT_IN_RANGE) {
 
 ```
 
-向房间控制器添加一个新的安全模式激活次数。房间控制器必须在紧邻 creep 的正方形区域中并且 creep 带有 1000 ghodium 资源。
+向房间控制器添加一个新的安全模式激活次数。creep必须与房间控制器相邻并且带有 1000 ghodium 资源。
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
@@ -463,7 +465,7 @@ target : <a href="#StructureController">StructureController</a>
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个 creep 的拥有者。
 ERR_BUSY | 这个 creep 依然在孵化中。
-ERR_NOT_ENOUGH_RESOURCES | 这个creep没有足够的ghodium。
+ERR_NOT_ENOUGH_RESOURCES | 这个 creep 没有足够的 ghodium。
 ERR_INVALID_TARGET | 目标不是一个有效的控制中心对象。
 ERR_NOT_IN_RANGE | 目标太远了。
 {% endapi_return_codes %}
@@ -517,7 +519,7 @@ if(target) {
 
 ```
 
-从 source 中采集能量或者从 mineral 或 deposit 中采集资源。需要 <code>WORK</code> 身体部件。如果 creep 有空余的 <code>CARRY</code> 身体，则采集到的资源会自动转移进去；否则将会掉落在地上。目标必须在紧邻 creep 的正方形区域中。
+从 source 中采集能量或者从 mineral 或 deposit 中采集资源。需要 <code>WORK</code> 身体部件。如果 creep 有空余的 <code>CARRY</code> 身体，则会自动将采集到的资源转移进去；否则将会掉落在地上。目标必须与 creep 相邻。
 
 {% api_method_params %}
 target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>, <a href="#Deposit">Deposit</a>
@@ -558,7 +560,7 @@ if(target) {
 
 ```
 
-治疗自己或者其他 creep。这将恢复目标 creep 受损身体部件的功能，并恢复已损失的生命值(hits)。需要 <code>HEAL</code> 身体部件。目标必须在紧邻 creep 的正方形区域中。
+治疗自己或者其他 creep。这将恢复目标 creep 受损身体部件的功能，并恢复已损失的生命值(hits)。需要 <code>HEAL</code> 身体部件。目标必须与 creep 相邻。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
@@ -625,7 +627,7 @@ direction : <a href="#Creep">Creep</a>|number
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个 creep 的拥有者。
 ERR_BUSY | 这个 creep 依然在孵化中。
-ERR_TIRED | 该 creep 的疲劳(fatigue)计数器不为零。
+ERR_TIRED | 该 creep 的疲劳（fatigue）计数器不为零。
 ERR_NO_BODYPART | 该 creep 没有 <code>MOVE</code> 身体部件。
 ERR_INVALID_ARGS | 提供的方向不正确。
 ERR_NOT_IN_RANGE | 目标 creep 距离过远。
@@ -664,7 +666,7 @@ ERR_NOT_OWNER | 你不是这个 creep 的拥有者。
 ERR_BUSY | 这个 creep 依然在孵化中。
 ERR_NOT_FOUND | 指定的路径与该 creep 的位置不匹配。
 ERR_INVALID_ARGS | <code>path</code> 不是一个有效的路径数组。
-ERR_TIRED | 该 creep 的疲劳(fatigue)计数器不为零。
+ERR_TIRED | 该 creep 的疲劳（fatigue）计数器不为零。
 ERR_NO_BODYPART | 该 creep 没有 <code>MOVE</code> 身体部件。
 {% endapi_return_codes %}
 
@@ -758,7 +760,7 @@ opts (可选) : object
 OK | 这个操作已经成功纳入计划。
 ERR_NOT_OWNER | 你不是这个 creep 的拥有者。
 ERR_BUSY | 这个 creep 依然在孵化中。
-ERR_TIRED | 该 creep 的疲劳(fatigue)计数器不为零。
+ERR_TIRED | 该 creep 的疲劳（fatigue）计数器不为零。
 ERR_NO_BODYPART | 该 creep 没有 <code>MOVE</code> 身体部件。
 ERR_INVALID_TARGET | 提供了无效目标。
 ERR_NO_PATH | 没有找到可以抵达目标的路径。
@@ -810,7 +812,7 @@ if(target) {
 
 ```
 
-捡起一个物品 (如捡起一些能量)。需要 <code>CARRY</code> 身体部件。目标必须在紧邻 creep 的正方形区域中或者和 creep 在相同位置。
+捡起一个物品 (如捡起一些能量)。需要 <code>CARRY</code> 身体部件。目标必须与 creep 相邻或者和 creep 在相同位置。
 
 {% api_method_params %}
 target : <a href="#Resource">Resource</a>
@@ -862,7 +864,7 @@ if(target) {
 }
 ```
 
-帮助其他 creep 跟随该 creep。目标 creep 移动产生的疲劳值将由该 creep 承担。需要 <code>MOVE</code> 身体部件。目标必须在紧邻 creep 的正方形区域中。该 creep 必须<a href="#Creep.move">移动</a>到其他地方，目标 creep 也必须朝该 creep 移动。
+帮助其他 creep 跟随该 creep。目标 creep 移动产生的疲劳值将由该 creep 承担。需要 <code>MOVE</code> 身体部件。目标必须与 creep 相邻。该 creep 必须<a href="#Creep.move">移动</a>到其他地方，目标 creep 也必须朝该 creep 移动。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
@@ -893,7 +895,7 @@ if(targets.length > 0) {
 
 ```
 
-远程攻击其他 creep 或者建筑。需要 <code>RANGED_ATTACK</code> 身体部件。如果目标在 rampart 中，则 rampart 将被优先攻击。目标必须在以 creep 为中心的 3 格正方形区域中。
+远程攻击其他 creep 或者建筑。需要 <code>RANGED_ATTACK</code> 身体部件。如果目标在 rampart 中，则 rampart 将被优先攻击。目标必须位于以 creep 为中心的 7*7 正方形区域内。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
@@ -934,7 +936,7 @@ if(target) {
 }
 ```
 
-远程治疗其他 creep。这将恢复目标 creep 受损身体部件的功能，并恢复已损失的生命值(hits)。需要 <code>HEAL</code> 身体部件。目标必须在以 creep 为中心的 3 格正方形区域中。
+远程治疗其他 creep。这将恢复目标 creep 受损身体部件的功能，并恢复已损失的生命值(hits)。需要 <code>HEAL</code> 身体部件。目标必须位于以 creep 为中心的 7*7 正方形区域内。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
@@ -997,7 +999,7 @@ if(targets.length > 0) {
 }
 ```
 
-使用携带的能量修复受损建筑。需要 <code>WORK</code> 和 <code>CARRY</code> 身体部件。目标必须在以 creep 为中心的 3 格正方形区域中。
+使用携带的能量修复受损建筑。需要 <code>WORK</code> 和 <code>CARRY</code> 身体部件。目标必须位于以 creep 为中心的 7*7 正方形区域内。
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
@@ -1031,7 +1033,7 @@ if(creep.room.controller) {
 
 ```
 
-暂时阻止其他玩家占领该房间控制器并且将 source 的能量上限恢复至正常容量。每 tick 执行该命令都可以让控制器的不可占领时间增加，增加的 tick 等同于 <code>CLAIM</code> 身体部件的数量。最大的预定时间为 5,000 tick。目标必须在紧邻 creep 的正方形区域中。
+暂时阻止其他玩家占领该房间控制器并且将 source 的能量上限恢复至正常容量。每 tick 执行该命令都可以让控制器的不可占领时间增加，增加的 tick 等同于 <code>CLAIM</code> 身体部件的数量。最大的预定时间为 5,000 tick。目标必须与 creep 相邻。
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
@@ -1099,7 +1101,7 @@ if(creep.room.controller) {
 
 ```
 
-用对所有玩家可见的任意文本对控制器进行签名。该文本将显示在世界地图的房间 UI 中。并可通过 api 进行访问。你可以签名无主甚至敌对玩家的控制器。目标必须在紧邻 creep 的正方形区域中。传递一个空字符串来移除签名。
+用对所有玩家可见的任意文本对控制器进行签名。该文本将显示在世界地图的房间 UI 中。并可通过 api 进行访问。你可以签名无主甚至敌对玩家的控制器。目标必须与 creep 相邻。传递一个空字符串来移除签名。
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
@@ -1156,7 +1158,7 @@ for(const resourceType in creep.carry) {
 }
 ```
 
-将资源从该 creep 转移至其他对象。目标必须在紧邻 creep 的正方形区域中。
+将资源从该 creep 转移至其他对象。目标必须与 creep 相邻。
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
@@ -1197,7 +1199,7 @@ if(creep.room.controller) {
 
 ```
 
-使用携带的能量将您的控制器升级到新的等级。升级控制器将同时提高你的全局控制等级(Global Control Level)。需要 <code>WORK</code> 和 <code>CARRY</code> 身体部件。目标必须在以 creep 为中心的 3 格正方形区域中。
+使用携带的能量将您的控制器升级到新的等级。升级控制器将同时提高你的全局控制等级(Global Control Level)。需要 <code>WORK</code> 和 <code>CARRY</code> 身体部件。目标必须位于以 creep 为中心的 7*7 正方形区域内。
 
 一个完全升级的 8 级控制器每 tick 最多接受 15 能量的升级，无论 creep 的能力有没有超过。该值限制了当前 tick 所有 creep 执行 <code>upgradeController</code> 积累的总能量值。可以使用 <a href="/resources.html">ghodium 化合物强化</a> 来提高此上限。
 
@@ -1232,7 +1234,7 @@ if(creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 }
 ```
 
-从建筑(structure)或是墓碑(tombstone)中拿取资源。目标必须在紧邻 creep 的正方形区域中。多个 creep 可以在同一 tick 里从相同对象中拿取资源。你的 creep 同样也可以从敌对建筑/墓碑中拿取资源，如果它上面没有敌对的 rampart 的话。
+从建筑(structure)或是墓碑(tombstone)中拿取资源。目标必须与 creep 相邻。多个 creep 可以在同一 tick 里从相同对象中拿取资源。你的 creep 同样也可以从敌对建筑/墓碑中拿取资源，如果它上面没有敌对的 rampart 的话。
 
 此方法不应该被用来在 creep 之间转移资源。想要在 creep 之间转移，请对携带资源的 creep 执行 [`transfer`](#Creep.transfer) 方法。
 
