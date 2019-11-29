@@ -147,6 +147,7 @@ OK | The operation has been scheduled successfully.
 ERR_INVALID_TARGET | The structure cannot be placed at the specified location.
 ERR_FULL | You have too many construction sites. The maximum number of construction sites per player is 100.
 ERR_INVALID_ARGS | The location is incorrect.
+ERR_NOT_OWNER | The room is claimed or reserved by a hostile player.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html">Learn more</a>
 {% endapi_return_codes %}
 
