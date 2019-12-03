@@ -43,7 +43,7 @@
 
 {% api_method_params %}
 roomName : string
-The name of the target room.
+目标房间名。
 {% endapi_method_params %}
 
 
