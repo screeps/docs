@@ -26,7 +26,7 @@ if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
 }
 ```
 
-Returns capacity of this store for the specified resource, or total capacity if `resource` is undefined. 
+Returns capacity of this store for the specified resource. For a general purpose store, it returns total capacity if `resource` is undefined.
 
 {% api_method_params %}
 resource (optional) : string
@@ -36,7 +36,7 @@ The type of the resource.
 
 ### Return value
 
-Returns capacity number, or `null` in case of a not valid `resource` for this store type.
+Returns capacity number, or `null` in case of an invalid `resource` for this store type.
 
 {% api_method getFreeCapacity '[resource]' 0 %}
 
@@ -45,7 +45,19 @@ if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
     creep.transfer(structure, RESOURCE_ENERGY);
 }
 ```
-A shorthand for `getCapacity(resource) - getUsedCapacity(resource)`.
+Returns free capacity for the store. For a limited store, it returns the capacity available for the specified resource if `resource` is defined and valid for this store. 
+
+{% api_method_params %}
+resource (optional) : string
+The type of the resource.
+{% endapi_method_params %}
+
+
+### Return value
+
+Returns available capacity number, or `null` in case of an invalid `resource` for this store type.
+
+
 
 {% api_method getUsedCapacity '[resource]' 0 %}
 
@@ -55,7 +67,7 @@ if(Game.rooms['W1N1'].terminal.store.getUsedCapacity() == 0) {
 }
 ```
 
-Returns the capacity used by the specified resource, or total used capacity for general purpose stores if `resource` is undefined. 
+Returns the capacity used by the specified resource. For a general purpose store, it returns total used capacity if `resource` is undefined. 
 
 {% api_method_params %}
 resource (optional) : string
