@@ -60,7 +60,7 @@ new RoomVisual('W1N1').line(10,15, 20,20);
 
 ```javascript
 creep.room.visual.line(creep.pos, target.pos,
-    {color: 'red', style: 'dashed'});
+    {color: 'red', lineStyle: 'dashed'});
 ```
 
 Draw a line.
@@ -185,7 +185,7 @@ The
 <code>RoomVisual</code>
 object itself, so that you can chain calls.
 
-{% api_method rect 'x, y, width, hheight, [style]|topLeftPos, width, height, [style]' 0 %}
+{% api_method rect 'x, y, width, height, [style]|topLeftPos, width, height, [style]' 0 %}
 
 ```javascript
 // 9x9 area from (2,2) to (10,10)

@@ -50,29 +50,14 @@ Terminals are used in the [Market system](/market.html).
 The remaining amount of ticks while this terminal cannot be used to make [`StructureTerminal.send`](#StructureTerminal.send) or [`Game.market.deal`](#Game.market.deal) calls.
 
 
-{% api_property store 'object' %}
+{% api_property store '<a href="#Store">Store</a>' %}
 
-```javascript
-if( !(RESOURCE_UTRIUM in Game.rooms['W1N1'].terminal.store) ) {
-    // need more utrium!
-}
-```
-
-```javascript
-const total = _.sum(Game.rooms['W1N1'].terminal.store);
-```
-
-An object with the storage contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. <code>RESOURCE_ENERGY</code> is always defined and equals to 0 when empty, other resources are undefined when empty. You can use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents.
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
-
-{% api_property storeCapacity 'number' %}
-
-
-
-The total amount of resources the storage can contain.
-
-
+{% api_property storeCapacity 'number' '{"deprecated": true}' %}
+                                                                              
+An alias for [`.store.getCapacity()`](#Store.getCapacity).
 
 {% api_method send 'resourceType, amount, destination, [description]' A %}
 
@@ -88,7 +73,7 @@ resourceType : string
 One of the <code>RESOURCE_*</code> constants.
 ===
 amount : number
-The amount of resources to be sent. The minimum amount is 100.
+The amount of resources to be sent.
 ===
 destination : string
 The name of the target room. You don't have to gain visibility in this room.
@@ -108,42 +93,4 @@ ERR_NOT_ENOUGH_RESOURCES | The structure does not have the required amount of re
 ERR_INVALID_ARGS | The arguments provided are incorrect.
 ERR_TIRED | The terminal is still cooling down. 
 {% endapi_return_codes %}
-
-
-
-{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-```javascript
-Game.rooms['W1N1'].terminal.transfer(creep, RESOURCE_ENERGY);
-```
-
-Transfer resource from this terminal to a creep. The target has to be at adjacent square. You can transfer resources to your creeps from hostile structures as well.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The target object.
-===
-resourceType : string
-One of the <code>RESOURCE_*</code> constants.
-===
-amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The structure does not have the given amount of energy.
-ERR_INVALID_TARGET | The target is not a valid object which can contain energy.
-ERR_FULL | The target cannot receive any more energy.
-ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The energy amount is incorrect.
-ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this structure.
-ERR_TIRED | The terminal is still cooling down.
-{% endapi_return_codes %}
-
 

@@ -64,30 +64,37 @@ the room. However, its effectiveness linearly depends on the distance. Each act
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in this structure.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
+{% api_property store '<a href="#Store">Store</a>' %}
 
-{% api_property energyCapacity 'number' %}
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-The total amount of energy this structure can contain.
-
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method attack 'target' A %}
 
 
 
-Remotely attack any creep in the room.
+Remotely attack any creep, power creep or structure in the room.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target creep.
 {% endapi_method_params %}
 
@@ -109,10 +116,10 @@ ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 
 
 
-Remotely heal any creep in the room.
+Remotely heal any creep or power creep in the room.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep.
 {% endapi_method_params %}
 
@@ -152,34 +159,4 @@ ERR_NOT_ENOUGH_ENERGY | The tower does not have enough energy.
 ERR_INVALID_TARGET | The target is not a valid repairable object.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
-
-
- 
-{% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-
-
-Transfer energy from the structure to a creep. The target has to be at adjacent square.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The creep object which energy should be transferred to.
-===
-amount (optional) : number
-The amount of energy to be transferred. If omitted, all the remaining amount of energy will be used.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The structure contains less energy than the given amount.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_FULL | The target creep can not carry the given amount of energy.
-ERR_NOT_IN_RANGE | The target creep is too far away.
-{% endapi_return_codes %}
-
 

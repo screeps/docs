@@ -44,35 +44,38 @@ Learn more about power from [this article](/power.html).
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in this structure.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
-{% api_property energyCapacity 'number' %}
+{% api_property power 'number' '{"deprecated": true}' %}
+                                                               
+An alias for [`.store[RESOURCE_POWER]`](#StructureExtension.store).
 
 
 
-The total amount of energy this structure can contain.
+{% api_property powerCapacity 'number' '{"deprecated": true}' %}
+                                                                                                               
+An alias for [`.store.getCapacity(RESOURCE_POWER)`](#Store.getCapacity).
+
+{% api_property store '<a href="#Store">Store</a>' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-{% api_property power 'number' %}
-
-
-
-The amount of power containing in this structure.
-
-
-
-{% api_property powerCapacity 'number' %}
-
-
-
-The total amount of power this structure can contain.
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method processPower '' A %}
@@ -93,30 +96,3 @@ ERR_NOT_ENOUGH_RESOURCES | The structure does not have enough energy or power re
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
 
-
-{% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
-
-
-
-Transfer the energy from this structure to a creep. You can transfer resources to your creeps from hostile structures as well.
-
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The creep object which energy should be transferred to.
-===
-amount (optional) : number
-The amount of energy to be transferred. If omitted, all the remaining amount of energy will be used.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | This structure less energy than the given amount.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_FULL | The target creep can not carry the given amount of energy.
-ERR_NOT_IN_RANGE | The target creep is too far away.
-{% endapi_return_codes %}
