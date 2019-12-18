@@ -1,7 +1,7 @@
 # Mineral
 
 A mineral deposit. Can be harvested by creeps with a `WORK` body part using the extractor structure. 
-Learn more about minerals from [this article](/minerals.html).
+Learn more about minerals from [this article](/resources.html).
 
 <table class="table gameplay-info">
     <tbody>
@@ -26,7 +26,7 @@ Learn more about minerals from [this article](/minerals.html).
 
 
 
-The density of this mineral deposit, one of the <code>DENSITY_*</code> constants.
+The density that this mineral deposit will be refilled to once <code>ticksToRegeneration</code> reaches 0. This is one of the <code>DENSITY_*</code> constants.
 
 
 

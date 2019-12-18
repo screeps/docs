@@ -7,7 +7,7 @@ Gameplay:
   Defense: /defense.html
   Respawning: /respawn.html
   Start Areas: /start-areas.html
-  Minerals: /minerals.html
+  Resources: /resources.html
   Market: /market.html
   NPC Invaders: /invaders.html
   Power: /power.html
@@ -27,6 +27,7 @@ Other:
   Public Test Realm (PTR): /ptr.html
   Third Party Tools: /third-party.html
   Auth Tokens: /auth-tokens.html
+  Community Servers: /community-servers.html
   Terms of Service: /tos.html
   Privacy Policy: /privacy-policy.html
 
@@ -41,3 +42,4 @@ Contributed Articles:
   Advanced Grunt Usage: /contributed/advanced_grunt.html
   Modifying Prototypes: /contributed/modifying-prototypes.html
   Caching Overview: /contributed/caching-overview.html
+  Private Server MongoDB: /contributed/ps_ubuntu.html

@@ -63,19 +63,26 @@ The amount of game ticks the link has to wait until the next transfer is possibl
 
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in the link.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
+
+{% api_property store '<a href="#Store">Store</a>' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
 
-
-{% api_property energyCapacity 'number' %}
-
-
-
-The total amount of energy the link can contain.
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 
@@ -113,6 +120,7 @@ ERR_FULL | The target cannot receive any more energy.
 ERR_INVALID_ARGS | The energy amount is incorrect.
 ERR_TIRED | The link is still cooling down.
 ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this link.
+ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
 

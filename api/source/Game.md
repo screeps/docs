@@ -72,6 +72,22 @@ progressTotal : number
 The progress required to reach the next level.
 {% endapi_method_params %}
 
+{% api_property Game.gpl 'object' %}
+
+Your Global Power Level, an object with the following properties :
+
+{% api_method_params %}
+level : number
+The current level.
+===
+progress : number
+The current progress to the next level.
+===
+progressTotal : number
+The progress required to reach the next level.
+{% endapi_method_params %}
+
+
 
 {% api_property Game.map object %}
 
@@ -86,6 +102,16 @@ A global object representing world map. See the [documentation](#Game-map) below
 
 
 A global object representing the in-game market. See the [documentation](#Game-market) below.
+
+
+{% api_property Game.powerCreeps 'object&lt;string, <a href="#PowerCreep">PowerCreep</a>&gt;' %}
+
+```javascript
+Game.powerCreeps['PC1'].moveTo(flag);
+```
+
+A hash containing all your power creeps with their names as hash keys. Even power creeps 
+not spawned in the world can be accessed here. 
 
 
 
@@ -147,6 +173,38 @@ console.log(Game.time);
 System game tick counter. It is automatically incremented on every tick. <a href="/game-loop.html">Learn more</a>
 
 
+{% api_method Game.cpu.getHeapStatistics '' 1 %}
+
+```javascript
+let heap = Game.cpu.getHeapStatistics();
+console.log(`Used ${heap.total_heap_size} / ${heap.heap_size_limit}`);
+```
+
+*This method is only available when **Virtual machine** is set to **Isolated** in your [account runtime settings](https://screeps.com/a/#!/account/runtime).* 
+
+Use this method to get heap statistics for your virtual machine. The return value is almost identical to the Node.js function [`v8.getHeapStatistics()`](https://nodejs.org/dist/latest-v8.x/docs/api/v8.html#v8_v8_getheapstatistics). This function returns one additional property: `externally_allocated_size` which is the total amount of currently allocated memory which is not included in the v8 heap but counts against this isolate's memory limit. `ArrayBuffer` instances over a certain size are externally allocated and will be counted here.
+
+
+
+### Return value
+
+Returns an objects with heap statistics in the following format:
+
+```javascript-content
+{
+  "total_heap_size": 29085696,
+  "total_heap_size_executable": 3670016,
+  "total_physical_size": 26447928,
+  "total_available_size": 319649520,
+  "used_heap_size": 17493824,
+  "heap_size_limit": 343932928,
+  "malloced_memory": 8192,
+  "peak_malloced_memory": 1060096,
+  "does_zap_garbage": 0,
+  "externally_allocated_size": 38430000
+}
+```
+
 
 {% api_method Game.cpu.getUsed '' 1 %}
 
@@ -175,6 +233,17 @@ Get amount of CPU time used from the beginning of the current game tick. Alway
 ### Return value
 
 Returns currently used CPU time as a float number.
+
+
+{% api_method Game.cpu.halt '' 1 %}
+
+```javascript
+Game.cpu.halt();
+```
+
+*This method is only available when **Virtual machine** is set to **Isolated** in your [account runtime settings](https://screeps.com/a/#!/account/runtime).*
+
+Reset your runtime environment and wipe all data in heap memory.
 
 {% api_method Game.cpu.setShardLimits 'limits' 1 %}
 

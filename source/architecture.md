@@ -28,7 +28,7 @@ A larger picture of stages processing flow could look like this:
 
 A task queue is created for each stage. The tasks of the first stage are scripts of all active players, while the second stage deals with game world rooms. The queue is stored as a Redis List, each task being processed separately by a separate machine.
 
-A tick begins with forming a list of all active players which are put into queue for processing their game scripts. All run-time servers receive tasks from the queue, request the DB data the player needs, and launch computation of his or her game script, collecting commands for various game objects. After the queue is up, the second stage commences. All active commands are put into queue, and run-time servers start processing commands for objects in each room.
+A tick begins with forming a list of all active players which are put into queue for processing their game scripts. All run-time servers receive tasks from the queue, request the DB data the player needs, and launch computation of their game script, collecting commands for various game objects. After the queue is up, the second stage commences. All active commands are put into queue, and run-time servers start processing commands for objects in each room.
 
 Though different rooms on the processing stage and different players on the calculation stage are handled separately in parallel, the number of parallel processes strictly corresponds to the CPU cores number. One room and one player are processed synchronously by one core which rules out various race conditions.
 

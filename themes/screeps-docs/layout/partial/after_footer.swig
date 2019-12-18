@@ -1,9 +1,11 @@
 <!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <!-- build:js build/js/main.js -->
 {{ js('js/lang_select') }}
 {{ js('js/scrollingelement') }}
 {{ js('js/toc') }}
 {{ js('js/mobile_nav') }}
+{{ js('js/custom') }}
 <!-- endbuild -->
 <script src="https://cdn.jsdelivr.net/retinajs/1.3.0/retina.min.js" async></script>
 {% if page.layout === 'plugins' %}

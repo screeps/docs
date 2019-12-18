@@ -18,12 +18,22 @@ You can set up an external transpiler to write your Screeps AI in another langua
 
 ### TypeScript
 
-*   [typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
-*   [Typescript-Declarations](https://github.com/screepers/Screeps-Typescript-Declarations) is a set of TypeScript declarations to cover the Screeps API.
+*   [screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter) is a starting point for players who want to program in TypeScript.
+*   [typed-screeps](https://github.com/screepers/typed-screeps) is a set of TypeScript declarations to cover the Screeps API.
 
 ### Python
 
 *   [screeps-starter-python](https://github.com/daboross/screeps-starter-python/) is a platform you can use to play Screeps in Python.
+
+### Rust
+
+*   [screeps-starter-rust](https://github.com/daboross/screeps-starter-rust) is a alpha-status platform you can use to play Screeps in Rust.
+
+### Kotlin
+
+* [screeps-kotlin](https://github.com/exaV/screeps-kotlin) is an example game script in Kotlin.
+* [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) is a starting point for players who want to program in Kotlin.
+* [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types) is a set of Kotlin declarations to cover the Screeps API.
 
 ## API Clients
 
@@ -31,6 +41,11 @@ The Screeps API is not official and may change at any time. These clients are ma
 
 *   [python](https://github.com/screepers/python-screeps)
 *   [node](https://github.com/screepers/node-screeps-api)
+
+
+## Apps
+
+*   [Screeps Monitor](https://play.google.com/store/apps/details?id=com.danielscholte.screepsmonitor) is an Android app that provides players with account and game statistics, as well as a full messaging client and a market history. (No longer available).
 
 
 ## Backups
@@ -52,6 +67,7 @@ The Screeps API is not official and may change at any time. These clients are ma
 
 *   [closure-compiler-externs](https://github.com/screepers/screeps-closure-compiler-externs) defines the Screeps API so that closure does not rewrite those calls.
 *   [ScreepsAutocomplete](https://github.com/Garethp/ScreepsAutocomplete) provides autocomplete data for the Screeps API.
+*   [screeps-server-mockup](https://github.com/Hiryus/screeps-server-mockup) private server package for unit tests.
 
 
 ## Notifications
@@ -74,7 +90,7 @@ Screeps runs constantly, and as a player it's not possible to watch everything t
 Pushing code to the server can be done using these plugins to common programs.
 
 *   [grunt-screeps](https://github.com/screeps/grunt-screeps) is written and maintained by the Screeps team. It used to upload code to the screeps server using [Grunt](https://gruntjs.com/).
-*   [gulp-screeps](https://github.com/pcmulder/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
+*   [gulp-screeps](https://github.com/screepers/gulp-screeps) is used to upload code to the screeps server using [Gulp](http://gulpjs.com/).
 
 
 ## Web Client Extensions

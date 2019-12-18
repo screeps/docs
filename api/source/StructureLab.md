@@ -2,8 +2,8 @@
 
 <img src="img/lab.png" alt="" align="right" />
 
-Produces mineral compounds from base minerals and boosts creeps. 
-Learn more about minerals from [this article](/minerals.html).
+Produces mineral compounds from base minerals, boosts and unboosts creeps. 
+Learn more about minerals from [this article](/resources.html).
 
 <table class="table gameplay-info">
     <tbody>
@@ -44,7 +44,7 @@ Learn more about minerals from [this article](/minerals.html).
     </tr>
     <tr>
         <td><strong>Reaction cooldown</strong></td>
-        <td>10 ticks</td>
+        <td>Depends on the reaction (see [this article](/resources.html))</td>
     </tr>
     <tr>
         <td><strong>Distance to input labs</strong></td>
@@ -63,31 +63,25 @@ Learn more about minerals from [this article](/minerals.html).
 
 
 
-The amount of game ticks the lab has to wait until the next reaction is possible.
+The amount of game ticks the lab has to wait until the next reaction or unboost operation is possible.
 
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in the lab. Energy is used for boosting creeps.
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
-{% api_property energyCapacity 'number' %}
-
-
-
-The total amount of energy the lab can contain.
-
-
-
-{% api_property mineralAmount 'number' %}
-
-
-
-The amount of mineral resources containing in the lab.
+{% api_property mineralAmount 'number' '{"deprecated": true}' %}
+                                                                       
+An alias for [`lab.store[lab.mineralType]`](#StructureExtension.store).
 
 
 
@@ -99,12 +93,21 @@ The type of minerals containing in the lab. Labs can contain only one mineral ty
 
 
 
-{% api_property mineralCapacity 'number' %}
+{% api_property mineralCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                 
+An alias for [`lab.store.getCapacity(lab.mineralType || yourMineral)`](#Store.getCapacity).
 
 
+{% api_property store '<a href="#Store">Store</a>' %}
 
-The total amount of minerals the lab can contain.
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
 
+
+A [`Store`](#Store) object that contains cargo of this structure.
 
 
 {% api_method boostCreep 'creep, [bodyPartsCount]' A %}
@@ -132,6 +135,7 @@ ERR_NOT_FOUND | The mineral containing in the lab cannot boost any of the creep'
 ERR_NOT_ENOUGH_RESOURCES | The lab does not have enough energy or minerals.
 ERR_INVALID_TARGET | The targets is not valid creep object.
 ERR_NOT_IN_RANGE | The targets are too far away.
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
 
 
@@ -163,24 +167,18 @@ ERR_FULL | The target cannot receive any more energy.
 ERR_NOT_IN_RANGE | The targets are too far away.
 ERR_INVALID_ARGS | The reaction cannot be run using this resources.
 ERR_TIRED | The lab is still cooling down.
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
 
 
+{% api_method unboostCreep 'creep' A %}
 
-{% api_method transfer 'target, resourceType, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
 
-
-Transfer resource from this structure to a creep. The target has to be at adjacent square. You can transfer resources to your creeps from hostile structures as well.
+Immediately remove boosts from the creep and drop 50% of the mineral compounds used to boost it onto the ground regardless of the creep's remaining time to live. The creep has to be at adjacent square to the lab. Unboosting requires cooldown time equal to the total sum of the reactions needed to produce all the compounds applied to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The target object.
-===
-resourceType : string
-One of the <code>RESOURCE_*</code> constants.
-===
-amount (optional) : number
-The amount of resources to be transferred. If omitted, all the available amount is used.
+creep : <a href="#Creep">Creep</a>
+The target creep.
 {% endapi_method_params %}
 
 
@@ -189,12 +187,10 @@ The amount of resources to be transferred. If omitted, all the available amount 
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_NOT_OWNER | You are not the owner of the target creep, or there is a hostile rampart on top of the structure.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
+ERR_NOT_OWNER | You are not the owner of this lab, or the target creep.
 ERR_INVALID_TARGET | The target is not a valid Creep object.
-ERR_FULL | The target cannot receive any more energy.
+ERR_TIRED | The lab is still cooling down.
 ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The amount or resource type is incorrect.
+ERR_NOT_FOUND | The target has no boosted parts.
+ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient to use this structure.
 {% endapi_return_codes %}
-
-

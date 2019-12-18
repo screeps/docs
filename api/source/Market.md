@@ -105,7 +105,9 @@ An array of the last 100 outgoing transactions from your terminals with the foll
 ```
 
 An object with your active and inactive buy/sell orders on the market.
-
+See
+<a href="#getAllOrders"><code>getAllOrders</code></a>
+for properties explanation.
 
 
 {% api_method Game.market.calcTransactionCost 'amount, roomName1, roomName2' 0 %}
@@ -192,30 +194,50 @@ ERR_INVALID_ARGS | The arguments provided are invalid.
 {% endapi_return_codes %}
 
 
-
-{% api_method Game.market.createOrder 'type, resourceType, price, totalAmount, [roomName]' A %}
+{% api_method Game.market.createOrder 'params' A %}
 
 ```javascript
-Game.market.createOrder(ORDER_SELL, RESOURCE_GHODIUM, 9.95, 10000, "W1N1");
+Game.market.createOrder({
+    type: ORDER_SELL,
+    resourceType: RESOURCE_GHODIUM,
+    price: 9.95,
+    totalAmount: 10000,
+    roomName: "W1N1"   
+});
 ```
 
-Create a market order in your terminal. You will be charged <code>price\*amount\*0.05</code> credits when the order is placed. The maximum orders count is 50 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
+Create a market order in your terminal. You will be charged <code>price\*amount\*0.05</code> credits when the order is placed. The maximum orders count is 300 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
 
 {% api_method_params %}
-type : string
-The order type, either <code>ORDER_SELL</code> or <code>ORDER_BUY</code>.
-===
-resourceType : string
-Either one of the <code>RESOURCE_*</code> constants or <code>SUBSCRIPTION_TOKEN</code>. If your Terminal doesn't have the specified resource, the order will be temporary inactive.
-===
-price : number
-The price for one resource unit in credits. Can be a decimal number.
-===
-totalAmount : number
-The amount of resources to be traded in total.
-===
-roomName (optional) : string
-The room where your order will be created. You must have your own Terminal structure in this room, otherwise the created order will be temporary inactive. This argument is not used when <code>resourceType</code> equals to <code>SUBSCRIPTION_TOKEN</code>.
+params : object
+An object with the following params:
+<ul>
+    <li>
+        <div class="api-arg-title">type</div>
+        <div class="api-arg-type">string</div>
+        <div class="api-arg-desc">The order type, either <code>ORDER_SELL</code> or <code>ORDER\_BUY</code>.</div>
+    </li>
+    <li>
+        <div class="api-arg-title">resourceType</div>
+        <div class="api-arg-type">string</div>
+        <div class="api-arg-desc">Either one of the <code>RESOURCE_*</code> constants or <code>SUBSCRIPTION_TOKEN</code>. If your Terminal doesn't have the specified resource, the order will be temporary inactive.</div>
+    </li>
+    <li>
+        <div class="api-arg-title">price</div>
+        <div class="api-arg-type">number</div>
+        <div class="api-arg-desc">The price for one resource unit in credits. Can be a decimal number.</div>
+    </li>
+    <li>
+        <div class="api-arg-title">totalAmount</div>
+        <div class="api-arg-type">number</div>
+        <div class="api-arg-desc">The amount of resources to be traded in total.</div>
+    </li>
+    <li>
+        <div class="api-arg-title">roomName (optional)</div>
+        <div class="api-arg-type">string</div>
+        <div class="api-arg-desc">The room where your order will be created. You must have your own Terminal structure in this room, otherwise the created order will be temporary inactive. This argument is not used when <code>resourceType</code> equals to <code>SUBSCRIPTION_TOKEN</code>.</div>
+    </li>        
+</ul>
 {% endapi_method_params %}
 
 
@@ -287,7 +309,7 @@ ERR_TIRED | The target terminal is still cooling down.
 Game.market.extendOrder('57bec1bf77f4d17c4c011960', 10000);
 ```
 
-Add more capacity to an existing order. It will affect <code>remainingAmount</code> and <code>totalAmount</code> properties. You will be charged <code>price*addAmount*0.05</code> credits.
+Add more capacity to an existing order. It will affect <code>remainingAmount</code> and <code>totalAmount</code> properties. You will be charged <code>price\*addAmount\*0.05</code> credits.
 
 {% api_method_params %}
 orderId : string
@@ -333,25 +355,26 @@ Game.market.getAllOrders(order => order.resourceType == RESOURCE_GHODIUM &&
 [{
 	id : "55c34a6b5be41a0a6e80c68b",
 	created : 13131117,
-	type : "sell"
+	type : "sell",
 	resourceType : "OH",
 	roomName : "W1N1",
 	amount : 15821,
 	remainingAmount : 30000,
 	price : 2.95
 }, {
-	id : "55c34a6b52411a0a6e80693a",
-	created : 13134122,
-	type : "buy"
-	resourceType : "energy",
-	roomName : "W1N1",
-	amount : 94000,
-	remainingAmount : 94000,
-	price : 0.45
+    createdTimestamp: 1543253147522,
+    type: "sell",
+    amount: 1000,
+    remainingAmount: 1000,
+    resourceType: "O",
+    price: 1,
+    roomName: "E2S7",
+    created: 12010056,
+    id: "5bfc2c9bd719fb605037c06d"
 }, {
 	id : "55c34a6b5be41a0a6e80c123",
-	created : 13105123,
-	type : "sell"
+	createdTimestamp: 1543253155580,
+	type : "sell",
 	resourceType : "token",
 	amount : 3,
 	remainingAmount : 10,
@@ -374,7 +397,8 @@ An orders array in the following form:
 property | description
 ---|---
 `id` | The unique order ID.
-`created` | The order creation time in game ticks.
+`created` | The order creation time in game ticks. This property is absent for orders of the inter-shard market.
+`createdTimestamp` | The order creation time <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">in milliseconds since UNIX epoch time</a>. This property is absent for old orders.
 `type` | Either <code>ORDER_SELL</code> or <code>ORDER_BUY</code>.
 `resourceType` | Either one of the <code>RESOURCE_*</code> constants or <code>SUBSCRIPTION_TOKEN</code>.
 `roomName` | The room where this order is placed.
@@ -382,6 +406,30 @@ property | description
 `remainingAmount` | How many resources are left to trade via this order. 
 `price` | The current price per unit.
 
+
+{% api_method Game.market.getHistory '[resourceType]' 1 %}
+
+Get daily price history of the specified resource on the market for the last 14 days. 
+
+{% api_method_params %}
+resourceType (optional) : string
+One of the `RESOURCE_*` constants. If undefined, returns history data for all resources.
+{% endapi_method_params %}
+
+
+### Return value
+
+Returns an array of objects with the following format:
+```json-content
+[{
+    "resourceType": "L",
+    "date": "2019-06-24",
+    "transactions": 4,
+    "volume": 400,
+    "avgPrice": 3.63,
+    "stddevPrice": 0.27
+}]    
+``` 
 
 
 {% api_method Game.market.getOrderById 'id' 1 %}

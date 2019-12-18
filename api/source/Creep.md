@@ -21,7 +21,7 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         <td>100</td>
         <td>
             <p>Harvests 2 energy units from a source per tick.</p>
-            <p>Harvests 1 mineral unit from a deposit per tick.</p>
+            <p>Harvests 1 resource unit from a mineral or a deposit per tick.</p>
             <p>Builds a structure for 5 energy units per tick.</p>
             <p>Repairs a structure for 100 hits per tick consuming 1 energy unit per tick.</p>
             <p>Dismantles a structure for 50 hits per tick returning 0.25 energy unit per tick.</p>
@@ -57,8 +57,9 @@ Creeps are your units. Creeps can move, harvest energy, construct structures, at
         <td>
             <p>Claims a neutral room controller.</p>
             <p>Reserves a neutral room controller for 1 tick per body part.</p>
-            <p>Attacks a hostile room controller downgrade or reservation timer with 1 tick per 5 body parts.</p>
-            <p>A creep with this body part will have a reduced life time of 500 ticks and cannot be renewed.</p>
+            <p>Attacks a hostile room controller downgrading its timer by 300 ticks per body parts.</p>
+            <p>Attacks a neutral room controller reservation timer by 1 tick per body parts.</p>
+            <p>A creep with this body part will have a reduced life time of 600 ticks and cannot be renewed.</p>
         </td>
     </tr>
     <tr>
@@ -80,7 +81,7 @@ An array describing the creep’s body. Each element contains the following prop
 
 {% api_method_params %}
 boost : string | undefined
-If the body part is boosted, this property specifies the mineral type which is used for boosting. One of the <code>RESOURCE_*</code> constants. <a href="/minerals.html">Learn more</a>
+If the body part is boosted, this property specifies the mineral type which is used for boosting. One of the <code>RESOURCE_*</code> constants. <a href="/resources.html">Learn more</a>
 ===
 type : string
 One of the body part types constants.
@@ -90,22 +91,14 @@ The remaining amount of hit points of this body part.
 {% endapi_method_params %}
 
 
-{% api_property carry object %}
+{% api_property carry object '{"deprecated": true}' %}
 
-```javascript
-const total = _.sum(creep.carry);
-```
-
-An object with the creep's cargo contents. Each object key is one of the <code>RESOURCE_*</code> constants, values are resources amounts. Use <a href="https://github.com/lodash/lodash/blob/3.10.1/doc/README.md#_sumcollection-iteratee-thisarg"><code>lodash.sum</code></a> to get the total amount of contents:
+An alias for [`Creep.store`](#Creep.store). 
 
 
+{% api_property carryCapacity number '{"deprecated": true}' %}
 
-{% api_property carryCapacity number %}
-
-
-
-The total amount of resources the creep can carry.
-
+An alias for [`Creep.store.getCapacity()`](#Store.getCapacity).
 
 
 {% api_property fatigue number %}
@@ -192,6 +185,15 @@ The text message that the creep was saying at the last tick.
 
 Whether this creep is still being spawned.
 
+{% api_property store '<a href="#Store">Store</a>' %}
+
+```javascript
+if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
+    goHarvest(creep);
+}
+```
+
+A [`Store`](#Store) object that contains cargo of this creep.
 
 
 {% api_property ticksToLive number %}
@@ -214,10 +216,10 @@ if(target) {
 
 ```
 
-Attack another creep or structure in a short-ranged attack. Requires the <code>ATTACK</code> body part. If the target is inside a rampart, then the rampart is attacked instead. The target has to be at adjacent square to the creep. If the target is a creep with <code>ATTACK</code> body parts and is not inside a rampart, it will automatically hit back at the attacker.
+Attack another creep, power creep, or structure in a short-ranged attack. Requires the <code>ATTACK</code> body part. If the target is inside a rampart, then the rampart is attacked instead. The target has to be at adjacent square to the creep. If the target is a creep with <code>ATTACK</code> body parts and is not inside a rampart, it will automatically hit back at the attacker.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object to be attacked.
 {% endapi_method_params %}
 
@@ -247,10 +249,10 @@ if(creep.room.controller && !creep.room.controller.my) {
 
 ```
 
-Decreases the controller's downgrade or reservation timer for 300 ticks per every <code>CLAIM</code> body part. The controller under attack cannot be upgraded or attacked again for the next 1,000 ticks. The target has to be at adjacent square to the creep.
+Decreases the controller's downgrade timer by 300 ticks per every <code>CLAIM</code> body part, or reservation timer by 1 tick per every <code>CLAIM</code> body part. If the controller under attack is owned, it cannot be upgraded or attacked again for the next 1,000 ticks. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>
+target : <a href="#StructureController">StructureController</a>
 The target controller object.
 {% endapi_method_params %}
 
@@ -301,7 +303,6 @@ ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
 ERR_INVALID_TARGET | The target is not a valid construction site object or the structure cannot be built here (probably because of a creep at the same square).
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
-ERR_RCL_NOT_ENOUGH | Room Controller Level insufficient. <a href="/control.html#Room-Controller-Level">Learn more</a>
 {% endapi_return_codes %}
 
 
@@ -380,7 +381,7 @@ if(target) {
 
 ```
 
-Dismantles any (even hostile) structure returning 50% of the energy spent on its repair. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the energy is put into it; otherwise it is dropped on the ground. The target has to be at adjacent square to the creep.
+Dismantles any structure that can be constructed (even hostile) returning 50% of the energy spent on its repair. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the energy is put into it; otherwise it is dropped on the ground. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
 target : <a href="#Structure">Structure</a>
@@ -395,7 +396,7 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
-ERR_INVALID_TARGET | The target is not a valid creep object.
+ERR_INVALID_TARGET | The target is not a valid structure object.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
@@ -433,7 +434,8 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
-ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of energy.
+ERR_INVALID_ARGS | The resourceType is not a valid <code>RESOURCE_*</code> constants.
+ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources.
 {% endapi_return_codes %}
 
 
@@ -516,10 +518,10 @@ if(target) {
 
 ```
 
-Harvest energy from the source or minerals from the mineral deposit. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the harvested resource is put into it; otherwise it is dropped on the ground. The target has to be at an adjacent square to the creep.
+Harvest energy from the source or resources from minerals and deposits. Requires the <code>WORK</code> body part. If the creep has an empty <code>CARRY</code> body part, the harvested resource is put into it; otherwise it is dropped on the ground. The target has to be at an adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>
+target : <a href="#Source">Source</a>, <a href="#Mineral">Mineral</a>, <a href="#Deposit">Deposit</a>
 The object to be harvested.
 {% endapi_method_params %}
 
@@ -531,10 +533,11 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep, or the room controller is owned or reserved by another player.
 ERR_BUSY | The creep is still being spawned.
-ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/minerals.html">Learn more</a>
-ERR_NOT_ENOUGH_RESOURCES | The target source does not contain any harvestable energy.
-ERR_INVALID_TARGET | The target is not a valid source object.
+ERR_NOT_FOUND | Extractor not found. You must build an extractor structure to harvest minerals. <a href="/resources.html">Learn more</a>
+ERR_NOT_ENOUGH_RESOURCES | The target does not contain any harvestable energy or mineral.
+ERR_INVALID_TARGET | The target is not a valid source or mineral object.
 ERR_NOT_IN_RANGE | The target is too far away.
+ERR_TIRED | The extractor or the deposit is still cooling down.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
 
@@ -559,7 +562,7 @@ if(target) {
 Heal self or another creep. It will restore the target creep’s damaged body parts function and increase the hits counter. Requires the <code>HEAL</code> body part. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep object.
 {% endapi_method_params %}
 
@@ -591,11 +594,17 @@ if(path.length > 0) {
 }
 ```
 
-Move the creep one square in the specified direction. Requires the <code>MOVE</code> body part.
+```javascript
+creep1.move(TOP);
+creep1.pull(creep2);
+creep2.move(creep1);
+```
+
+Move the creep one square in the specified direction. Requires the <code>MOVE</code> body part, or another creep nearby <a href="#Creep.pull">pulling</a> the creep. In case if you call <code>move</code> on a creep nearby, the <code>ERR_TIRED</code> and the <code>ERR_NO_BODYPART</code> checks will be bypassed; otherwise, the <code>ERR_NOT_IN_RANGE</code> check will be bypassed. 
 
 {% api_method_params %}
-direction : number
-One of the following constants:
+direction : <a href="#Creep">Creep</a>|number
+A creep nearby, or one of the following constants:
 					<ul>
 						<li><code>TOP</code></li>
 						<li><code>TOP_RIGHT</code></li>
@@ -620,6 +629,7 @@ ERR_BUSY | The creep is still being spawned.
 ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_ARGS | The provided direction is incorrect.
+ERR_NOT_IN_RANGE | The target creep is too far away
 {% endapi_return_codes %}
 
 
@@ -753,6 +763,7 @@ ERR_TIRED | The fatigue indicator of the creep is non-zero.
 ERR_NO_BODYPART | There are no MOVE body parts in this creep’s body.
 ERR_INVALID_TARGET | The target provided is invalid.
 ERR_NO_PATH | No path to the target could be found.
+ERR_NOT_FOUND | The creep has no memorized path to reuse.
 {% endapi_return_codes %}
 
 
@@ -816,7 +827,58 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep.
 ERR_BUSY | The creep is still being spawned.
 ERR_INVALID_TARGET | The target is not a valid object to pick up.
-ERR_FULL | The creep cannot receive any more energy.
+ERR_FULL | The creep cannot receive any more resource.
+ERR_NOT_IN_RANGE | The target is too far away.
+{% endapi_return_codes %}
+
+
+
+{% api_method pull 'target' 0 %}
+
+```javascript
+creep1.move(TOP);
+creep1.pull(creep2);
+creep2.move(creep1);
+```
+
+```javascript
+const target = creep.pos.findClosestByRange(FIND_MY_CREEPS, {
+    filter: function(object) {
+        return (object.getActiveBodyparts(MOVE) == 0) && 
+            object.memory.destinationId &&
+            !object.pos.isNearTo(Game.getObjectById(object.memory.destinationId));
+    }
+});
+if(target) {
+    if(creep.pull(target) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(target);
+    } else {
+        target.move(creep);
+        if(creep.pos.isNearTo(Game.getObjectById(target.memory.destinationId))) {
+            creep.move(creep.pos.getDirectionTo(target));
+        } else {
+            creep.moveTo(Game.getObjectById(target.memory.destinationId));
+        }
+    }
+}
+```
+
+Help another creep to follow this creep. The fatigue generated for the target's move will be added to the creep instead of the target. Requires the <code>MOVE</code> body part. The target has to be at adjacent square to the creep. The creep must <a href="#Creep.move">move</a> elsewhere, and the target must <a href="#Creep.move">move</a> towards the creep.
+
+{% api_method_params %}
+target : <a href="#Creep">Creep</a>
+The target creep.
+{% endapi_method_params %}
+
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_BUSY | The creep is still being spawned.
+ERR_INVALID_TARGET | The target provided is invalid.
 ERR_NOT_IN_RANGE | The target is too far away.
 {% endapi_return_codes %}
 
@@ -835,7 +897,7 @@ if(targets.length > 0) {
 A ranged attack against another creep or structure. Requires the <code>RANGED_ATTACK</code> body part. If the target is inside a rampart, the rampart is attacked instead. The target has to be within 3 squares range of the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object to be attacked.
 {% endapi_method_params %}
 
@@ -876,7 +938,7 @@ if(target) {
 Heal another creep at a distance. It will restore the target creep’s damaged body parts function and increase the hits counter. Requires the <code>HEAL</code> body part. The target has to be within 3 squares range of the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
 The target creep object.
 {% endapi_method_params %}
 
@@ -1098,7 +1160,7 @@ for(const resourceType in creep.carry) {
 Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object.
 ===
 resourceType : string
@@ -1120,7 +1182,7 @@ ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The target cannot receive any more resources.
 ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The resources amount is incorrect.
+ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}
 
 
@@ -1138,7 +1200,7 @@ if(creep.room.controller) {
 
 Upgrade your controller to the next level using carried energy. Upgrading controllers raises your Global Control Level in parallel. Requires <code>WORK</code> and <code>CARRY</code> body parts. The target has to be within 3 squares range of the creep. 
 
-A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/minerals.html">ghodium mineral boost</a>.
+A fully upgraded level 8 controller can't be upgraded over 15 energy units per tick regardless of creeps abilities. The cumulative effect of all the creeps performing <code>upgradeController</code> in the current tick is taken into account. This limit can be increased by using <a href="/resources.html">ghodium mineral boost</a>.
 
 Upgrading the controller raises its `ticksToDowngrade` timer by 100. The timer must be full in order for controller to be levelled up.
 
@@ -1156,7 +1218,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this creep or the target controller.
 ERR_BUSY | The creep is still being spawned.
 ERR_NOT_ENOUGH_RESOURCES | The creep does not have any carried energy.
-ERR_INVALID_TARGET | The target is not a valid controller object.
+ERR_INVALID_TARGET | The target is not a valid controller object, or the controller upgrading is blocked.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_NO_BODYPART | There are no <code>WORK</code> body parts in this creep’s body.
 {% endapi_return_codes %}
@@ -1171,10 +1233,12 @@ if(creep.withdraw(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 }
 ```
 
-Withdraw resources from a structure. The target has to be at adjacent square to the creep. Multiple creeps can withdraw from the same structure in the same tick. Your creeps can withdraw resources from hostile structures as well, in case if there is no hostile rampart on top of it.
+Withdraw resources from a structure or tombstone. The target has to be at adjacent square to the creep. Multiple creeps can withdraw from the same object in the same tick. Your creeps can withdraw resources from hostile structures/tombstones as well, in case if there is no hostile rampart on top of it.
+
+This method should not be used to transfer resources between creeps. To transfer between creeps, use the [`transfer`](#Creep.transfer) method on the original creep.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>
+target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>, <a href="#Ruin">Ruin</a>
 The target object.
 ===
 resourceType : string
@@ -1196,5 +1260,5 @@ ERR_NOT_ENOUGH_RESOURCES | The target does not have the given amount of resource
 ERR_INVALID_TARGET | The target is not a valid object which can contain the specified resource.
 ERR_FULL | The creep's carry is full.
 ERR_NOT_IN_RANGE | The target is too far away.
-ERR_INVALID_ARGS | The resource amount or type is incorrect.
+ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}

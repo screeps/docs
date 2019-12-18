@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.8"
+    "version": "3.2.2"
   },
   "dependencies": {
+    "@screeps/common": "^2.12.1",
     "cheerio": "^0.20.0",
     "concat-files": "^0.1.1",
     "hexo": "^3.2.2",
@@ -16,7 +17,7 @@
     "hexo-optimize": "^2.4.6",
     "hexo-renderer-jade": "^0.3.0",
     "hexo-renderer-marked": "screeps/hexo-renderer-marked",
-    "hexo-renderer-scss": "^1.0.2",
+    "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
     "image-min": "^0.3.2",
@@ -42,7 +43,7 @@
   "scripts": {
     "clean": "hexo clean",
     "server": "browser-sync start --server public --files \"public/**.*\"",
-    "generate": "hexo generate",
+    "generate": "hexo clean && hexo generate",
     "generate-watch": "hexo generate --watch",
     "hexo-server": "hexo server"
   }

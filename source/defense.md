@@ -1,25 +1,25 @@
 title: Defending your room
 ---
 
-The world of Screeps is not the safest place on earth. This article explains what means do you have in order to protect yourself from invasions.
+The world of Screeps is not the safest place on earth. This article explains the means you have at your disposal to protect yourself from invasions.
 
 ## Safe mode
 
-When you just start out in the game, you have **Safe Mode** turned on in your room. It means that no other creep will be able to use any harmful methods in this room (but you’ll still be able to defend against strangers).
+When you start out in the game, you have **Safe Mode** turned on in your room. It means that no other creep will be able to use any methods in this room that can affect your creeps of objects (but you’ll still be able to defend against strangers). See more about that in the description of [`StructureController`](/api/#StructureController)
 
 ![](img/safe_mode.png)
 
-Safe mode lasts for **20,000 game ticks** (approx. 15 hours depending on the tick duration). However, if the room controller has extra available activations, you can turn on safe mode again using the method [`StructureController.activateSafeMode`](/api/#StructureController.activateSafeMode):
+Safe mode lasts for **20,000 game ticks** (approx. 20 hours depending on the tick duration). However, if the room controller has extra available activations, you can turn on safe mode again using the method [`StructureController.activateSafeMode`](/api/#StructureController.activateSafeMode):
 
     Game.rooms.W1N1.controller.activateSafeMode()
 
-A controller obtains one activation with each new level. Besides, you can add more activations to your controller with the help of the ghodium resource using the method [`Creep.generateSafeMode`](/api/#Creep.generateSafeMode).
+A controller obtains one activation with each new level. Later, you can add more activations to your controller with the help of the ghodium resource using the method [`Creep.generateSafeMode`](/api/#Creep.generateSafeMode).
 
-Safe mode is a last resort defense tactics, when everything else has failed. Besides, safe mode can be active only in one room at the same time. For more robust defense you should use walls, ramparts, towers, and creep defenders.
+Safe mode is a defense tactic of last resort, when everything else has failed. Besides, safe mode can be active only in one room per shard at the same time. For more robust defense you should use walls, ramparts, towers, and creep defenders.
 
 ## Passive defense: walls
 
-The most easy and trivial way to defend your room is to build the same **walls** as in the initial grace period. There is a difference though: while the initial walls were right on doorways blocking outside creeps, your new walls may be built not closer than 2 squares to the room edges, and hostile creeps will still be able to enter the room and destroy your fortifications. This is why it's crucial not to just build, but also **fortify** your walls in such a way that it takes your opponents much time to destroy them.
+The most easy and trivial way to defend your room is to build the same **walls** that you may have noticed surrounding a novice zone during the initial grace period. There is a difference though: while the initial walls were right on doorways blocking outside creeps, your new walls may be built not closer than 2 squares to the room edges, and hostile creeps will still be able to enter the room and destroy your fortifications. This is why it's crucial not to just build, but also **fortify** your walls in such a way that it takes your opponents much time to destroy them.
 
 ![](img/defense1.png)
 
@@ -29,21 +29,21 @@ After a wall is built, its square has only **1 hit point**. So if you want the w
 
 However, walls have a considerable disadvantage: they block not only hostile creeps, but your own ones too. Building walls at exits will prevent your own expansion from your room.
 
-This is why you have another passive defense means – **ramparts**. They behave like walls for hostile creeps by blocking their movements, while your creeps can freely pass through them. Furthermore, a creep on a rampart square is completely invulnerable for any kind of attack until the rampart is destroyed. Being protected, it can still attack opponents.
+This is why you have another passive defense means – **ramparts**. They behave like walls for hostile creeps by blocking their movements, while your creeps can freely pass through them. Furthermore, a creep on a rampart square is completely invulnerable to any kind of attack until the rampart is destroyed. Being protected, it can still attack opponents.
 
 ![](img/defense2.png)
 
 In the same way as walls, ramparts are built with **1 hit point** initially and need to be fortified to a needed level by workers afterwards. The maximum amount of rampart hits depends on the **Room Controller level**. See more about that in the article [Control](/control.html).
 
-A rampart has another peculiarity: its superior defense abilities must be constantly maintained on a proper level. Every several ticks, a rampart loses its hit points, so you should assign a worker to make sure that all your ramparts stand alert and don't wear off.
+A rampart has another peculiarity: its superior defense abilities must be constantly maintained at a proper level. Every few ticks, a rampart loses a few hit points, so you should assign a worker to make sure that all your ramparts stand alert and don't wear off.
 
 ## Active defense: towers
 
-While a well-designed passive defenses may withstand attacks for many days (for example, while you are offline and out of the game), they will inevitably fall sometime. This is why it's utterly important not to rely on fortifications alone but install defense systems to repel opponents when needed.
+While well-designed passive defenses may withstand attacks for many days (for example, while you are offline and out of the game), they will inevitably fall sometime. This is why it's utterly important not to rely on fortifications alone but install defense systems to repel opponents when needed.
 
 ![](img/defense3.png)
 
-You сan use **towers** for active defense which are available to build starting from the room level 3. Unlike walls and ramparts, this defense means is active because using it requires energy and direct calling of the attack function. It can [`attack`](/api/#Creep.attack) and [`heal`](/api/#Creep.heal) creeps as well as [`repair`](/api/#Creep.repair) structures (for example broken walls and ramparts).
+You сan use **towers** for active defense which are available to build starting from room level 3. Unlike walls and ramparts, this defense means is active because using it requires you to spend energy by calling a tower's attack function. It can [`attack`](/api/#StructureTower.attack) and [`heal`](/api/#StructureTower.heal) creeps as well as [`repair`](/api/#StructureTower.repair) structures (for example broken walls and ramparts).
 
 {% note info %}
 The tower range covers the whole room, but the effect weakens with the distance to the target. Always place towers as close to their potential targets as possible.

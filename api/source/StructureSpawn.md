@@ -50,19 +50,15 @@ recover even if all your creeps died.
 {% page inherited/OwnedStructure.md %}
 
 
-{% api_property energy 'number' %}
+{% api_property energy 'number' '{"deprecated": true}' %}
+                                                                
+An alias for [`.store[RESOURCE_ENERGY]`](#StructureExtension.store).
 
 
 
-The amount of energy containing in the spawn.
-
-
-
-{% api_property energyCapacity 'number' %}
-
-
-
-The total amount of energy the spawn can contain
+{% api_property energyCapacity 'number' '{"deprecated": true}' %}
+                                                                                                                
+An alias for [`.store.getCapacity(RESOURCE_ENERGY)`](#Store.getCapacity).
 
 
 
@@ -84,23 +80,23 @@ Spawn’s name. You choose the name upon creating a new spawn, and it cannot be 
 
 
 
-{% api_property spawning 'object, null' %}
+{% api_property spawning '<a href="#StructureSpawn-Spawning">StructureSpawn.Spawning</a>' %}
 
 
 
-If the spawn is in process of spawning a new creep, this object will contain the new creep’s information, or null otherwise.
+If the spawn is in process of spawning a new creep, this object will contain a [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) object, or null otherwise.
 
-{% api_method_params %}
-name : string
-The name of a new creep.
-===
-needTime : number
-Time needed in total to complete the spawning.
-===
-remainingTime : number
-Remaining time to go.
-{% endapi_method_params %}
 
+{% api_property store '<a href="#Store">Store</a>' %}
+
+```javascript
+if(structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+    creep.transfer(structure, RESOURCE_ENERGY);
+}
+```
+
+
+A [`Store`](#Store) object that contains cargo of this structure.
 
 {% api_method canCreateCreep 'body, [name]' 1 '{"deprecated": "Please use [`StructureSpawn.spawnCreep`](#StructureSpawn.spawnCreep) with `dryRun` flag instead."}' %}
 
@@ -269,6 +265,21 @@ An object with additional options for the spawning process.
         <div class="api-arg-type">boolean</div>
         <div class="api-arg-desc">If `dryRun` is true, the operation will only check if it is possible to create a creep.</div>
     </li>
+    <li>
+            <div class="api-arg-title">directions</div>
+            <div class="api-arg-type">array<number></div>
+            <div class="api-arg-desc">Set desired directions where the creep should move when spawned. An array with the direction constants:
+                                          <ul>
+                                              <li><code>TOP</code></li>
+                                              <li><code>TOP_RIGHT</code></li>
+                                              <li><code>RIGHT</code></li>
+                                              <li><code>BOTTOM_RIGHT</code></li>
+                                              <li><code>BOTTOM</code></li>
+                                              <li><code>BOTTOM_LEFT</code></li>
+                                              <li><code>LEFT</code></li>
+                                              <li><code>TOP_LEFT</code></li>
+                                          </ul></div>
+        </li>
 </ul>
 {% endapi_method_params %}
 
@@ -292,7 +303,7 @@ ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spaw
 
 
 
-Kill the creep and drop up to 100% of resources spent on its spawning and boosting depending on remaining life time. The target should be at adjacent square.
+Kill the creep and drop up to 100% of resources spent on its spawning and boosting depending on remaining life time. The target should be at adjacent square. Energy return is limited to 125 units per body part.
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
@@ -308,6 +319,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this spawn or the target creep.
 ERR_INVALID_TARGET | The specified target object is not a creep.
 ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
 
@@ -349,24 +361,45 @@ ERR_NOT_ENOUGH_ENERGY | The spawn does not have enough energy.
 ERR_INVALID_TARGET | The specified target object is not a creep.
 ERR_FULL | The target creep's time to live timer is full.
 ERR_NOT_IN_RANGE | The target creep is too far away.
+ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
 {% endapi_return_codes %}
 
 
 
-{% api_method transferEnergy 'target, [amount]' A '{"deprecated": "Please use [`Creep.withdraw`](#Creep.withdraw) instead."}' %}
 
 
+# StructureSpawn.Spawning
 
-Transfer the energy from the spawn to a creep.
+Details of the creep being spawned currently that can be addressed by the [`StructureSpawn.spawning`](#StructureSpawn.spawning) property.
 
-{% api_method_params %}
-target : <a href="#Creep">Creep</a>
-The creep object which energy should be transferred to.
-===
-amount (optional) : number
-The amount of energy to be transferred. If omitted, all the remaining amount of energy will be used.
-{% endapi_method_params %}
+{% api_property directions 'array<number>' %}
 
+An array with the spawn directions, see [`StructureSpawn.Spawning.setDirections`](#StructureSpawn.Spawning.setDirections).
+
+{% api_property name 'string' %}
+
+The name of a new creep.
+
+{% api_property needTime 'number' %}
+
+Time needed in total to complete the spawning.
+
+{% api_property remainingTime 'number ' %}
+
+Remaining time to go.
+
+{% api_property spawn '<a href="#StructureSpawn">StructureSpawn</a>' %}
+
+A link to the spawn.
+
+
+{% api_method cancel '' A %}
+
+```javascript
+Game.spawns['Spawn1'].spawning.cancel();
+```
+
+Cancel spawning immediately. Energy spent on spawning is not returned. 
 
 ### Return value
 
@@ -374,10 +407,36 @@ One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of this spawn.
-ERR_NOT_ENOUGH_ENERGY | The spawn contains less energy than the given amount.
-ERR_INVALID_TARGET | The specified target object is not a creep.
-ERR_FULL | The target creep can not carry the given amount of energy.
-ERR_NOT_IN_RANGE | The target creep is too far away.
 {% endapi_return_codes %}
 
+{% api_method setDirections 'directions' A %}
 
+```javascript
+Game.spawns['Spawn1'].spawning.setDirections([RIGHT, TOP_RIGHT]);
+```
+
+Set desired directions where the creep should move when spawned.
+
+{% api_method_params %}
+directions : array&lt;number>
+An array with the direction constants:
+    <ul>
+        <li><code>TOP</code></li>
+        <li><code>TOP_RIGHT</code></li>
+        <li><code>RIGHT</code></li>
+        <li><code>BOTTOM_RIGHT</code></li>
+        <li><code>BOTTOM</code></li>
+        <li><code>BOTTOM_LEFT</code></li>
+        <li><code>LEFT</code></li>
+        <li><code>TOP_LEFT</code></li>
+    </ul>
+{% endapi_method_params %}
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this spawn.
+ERR_INVALID_ARGS | The directions is array is invalid.
+{% endapi_return_codes %}

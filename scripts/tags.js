@@ -25,3 +25,7 @@ hexo.extend.tag.register('twitter_feed', function() {
 <a class="twitter-timeline" data-height="600" href="https://twitter.com/ScreepsGame">Tweets by ScreepsGame</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </section>`;
 });
+
+hexo.extend.tag.register('resource', function(args) {
+  return `<img src="//static.screeps.com/upload/mineral-icons/${args[0].replace(/ /g,'_').toLowerCase()}.png">${args[0]}`;
+});
