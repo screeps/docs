@@ -447,7 +447,7 @@ _.forEach(Game.rooms, room => {
     let eventLog = room.getEventLog();
     let attackEvents = _.filter(eventLog, {event: EVENT_ATTACK});
     attackEvents.forEach(event => {
-        let target = Game.getObjectById(event.targetId);
+        let target = Game.getObjectById(event.data.targetId);
         if(target && target.my) {
             console.log(event);
         }
