@@ -302,7 +302,7 @@ if(Game.map.getRoomStatus(room.name).status == 'normal') {
 }
 ```
 
-...
+Gets availablity status of the room with the specified name. Learn more about starting areas from [this article](/start-areas.html).
 
 {% api_method_params %}
 roomName : string
@@ -316,6 +316,6 @@ An object containing the following properties:
 
 property | type | description
 ---|---
-`status` | string | One of the following string values: <ul><li><code>normal</code> &ndash; the room has no restrictions</li><li><code>closed</code> &ndash; the room is not available</li><li><code>novice</code> &ndash; the room is part of a novice area (see [Start Areas](/start-areas.html))</li><li><code>respawn</code> &ndash; the room is part of a respawn area (see [Start Areas](/start-areas.html))</li></ul>
+`status` | string | One of the following string values: <ul><li><code>normal</code> &ndash; the room has no restrictions</li><li><code>closed</code> &ndash; the room is not available</li><li><code>novice</code> &ndash; the room is part of a novice area</li><li><code>respawn</code> &ndash; the room is part of a respawn area</li></ul>
 `timestamp` | number | Status expiration time <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">in milliseconds since UNIX epoch time</a>. This property is null if the status is permanent.  
 
