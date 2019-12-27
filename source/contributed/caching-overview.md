@@ -58,9 +58,8 @@ These two examples have a drawback in that they are only run or defined when the
 
 There are some severe limits to this.
 
-*   Each worker has it's own `global` state, and code will bounce between at least four nodes at a time. This means data placed in global one tick will only have a 25% chance of appear next (although it can be added again until it's on all four nodes, bringing the change up to 100%) and that deleted data could easily show up again in the next tick.
 *   The `global` object gets reset fairly regular, meaning all of the data will regularly disappear. The `global` object can not be considered persistent storage.
-*   Although the `global` object is reset often it is only reset on a consistent schedule. Data placed in it may last longer than expected.
+*   Placing large amounts of data into the `global` cache may cause garbage collector to be invoked more frequently and consume more CPU. 
 
 These limitions make the `global` object ideal for certain types of caching, such as when the result of a function is always going to be the same or if it doesn't matter when "stale" data is used. For cases where results may change and data gets invalidated meta data- such as a TTL or version identifier- will have to be stored alongside the results to facilitate that.
 
@@ -78,4 +77,4 @@ From a performance standpoint the fact that the `require` and `global` caches cl
 *   Objects are more expensive to parse than strings. Converting items like [RoomPositions](/api/#RoomPosition) to a flat string before caching and then converting back as needed can have a surprisingly large impact.
 *   For extremely large objects with repetitive data- such as [CostMatrixes](/api/#PathFinder-CostMatrix)- compression can save a lot of space. Players going this route should look into [lzstring](http://pieroxy.net/blog/pages/lz-string/index.html), and should also make sure they utilize the `global` cache to minimize the amount of times the same costmatrix has to be decompressed.
 *   Traditionally speaking most caching systems put the TTL in the `set` function, but for Screeps it may make more sense to put it in the `get` function. This way the TTL can be adjusted based on need- for example a TTL on a cached costmatrix can be set to Infinity for rooms without visibility and then shortened again when it is so that the data is always available, even if it is a bit stale.
-*    Do not forget to add something to clear stale cache entries out or you may find your Memory slowly expanding over time.
+*   Do not forget to add something to clear stale cache entries out or you may find your Memory slowly expanding over time.
