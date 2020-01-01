@@ -10,23 +10,32 @@
     $("#nav-button").removeClass('open');
   };
 
-  var makeToc = function() {
-    global.toc = $("#toc").tocify({
-      selectors: 'h1, h2',
-      extendPage: false,
-      theme: 'none',
-      smoothScroll: false,
-      showEffectSpeed: 0,
-      hideEffectSpeed: 180,
-      ignoreSelector: '.toc-ignore',
-      highlightOffset: 60,
-      scrollTo: -1,
-      scrollHistory: true,
-      hashGenerator: function (text, element) {
-        return element.prop('id');
-      }
-    }).data('toc-tocify');
+  let $tocifyFocus;
+  let $tocifySubheader;
 
+  $(document).on('click', '.tocify-item', function() {
+    if ($tocifyFocus) {
+      $tocifyFocus.removeClass('tocify-focus');
+    }
+
+    $tocifyFocus = $(this);
+    $tocifyFocus.addClass('tocify-focus');
+
+    const _$tocifySubheader = $tocifyFocus.siblings('.tocify-subheader');
+
+    if (!_$tocifySubheader.size()) {
+      return;
+    }
+
+    if ($tocifySubheader) {
+      $tocifySubheader.hide();
+    }
+
+    $tocifySubheader = _$tocifySubheader;
+    $tocifySubheader.show();
+  });
+
+  var makeToc = function() {
     $("#nav-button").click(function() {
       $(".tocify-wrapper").toggleClass('open');
       $("#nav-button").toggleClass('open');
@@ -38,17 +47,8 @@
     $('#toc-loading').remove();
   };
 
-  // Hack to make already open sections to start opened,
-  // instead of displaying an ugly animation
-  function animate() {
-    setTimeout(function() {
-      toc.setOption('showEffectSpeed', 180);
-    }, 50);
-  }
-
   $(function() {
     makeToc();
-    animate();
     setupLanguages($('body').data('languages'));
     $('.content').imagesLoaded( function() {
       global.toc.calculateHeights();

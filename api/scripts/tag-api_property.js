@@ -14,7 +14,7 @@ hexo.extend.tag.register('api_property', function (args) {
     }
 
     var id = util.slugize(name.trim());
-    var result = `<h2 id="${id}" class="api-property api-property--property ${inherited ? 'api-property--inherited' : ''} ${opts.deprecated ? 'api-property--deprecated' : ''}">${inherited}<span class="api-property__name">${name}</span><span class="api-property__type">${args[1]}</span></h2>`;
+    var result = `<h2 id="${id}--h2" class="api-property api-property--property ${inherited ? 'api-property--inherited' : ''} ${opts.deprecated ? 'api-property--deprecated' : ''}">${inherited}<span class="api-property__name">${name}</span><span class="api-property__type">${args[1]}</span></h2>`;
     if (opts.deprecated) {
         var text = 'This property is deprecated and will be removed soon.';
         if (opts.deprecated !== true) {

@@ -39,64 +39,24 @@ html(lang='en')
                     | Back to docs
                     img(src="img/link-external.svg")
             #toc
-                #toc-loading Loading...
+                ul.tocify-header
+                    li.tocify-item.divider(style='pointer-events: none;') Global Objects
+                each name in config.GlobalObjects
+                    != tocify(page.pages[name])
+                ul.tocify-header
+                    li.tocify-item.divider(style='pointer-events: none;') Prototypes
+                each name in config.Prototypes
+                    != tocify(page.pages[name])
 
         .page-wrapper
             .dark-box
             .content.api-content
-                h1.divider Global Objects
-                != page.pages['Game.md']
-                != page.pages['InterShardMemory.md']
-                != page.pages['Map.md']
-                != page.pages['Market.md']
-                != page.pages['Memory.md']
-                != page.pages['PathFinder.md']
-                != page.pages['RawMemory.md']
-                != page.pages['constants.md']
+                //- h1.divider Global Objects
+                each name in config.GlobalObjects
+                    != page.pages[name]
                 h1.divider Prototypes
-                != page.pages['ConstructionSite.md']
-                != page.pages['Creep.md']
-                != page.pages['Deposit.md']
-                != page.pages['Flag.md']
-                != page.pages['Mineral.md']
-                != page.pages['Nuke.md']
-                != page.pages['OwnedStructure.md']
-                != page.pages['PathFinder.CostMatrix.md']
-                != page.pages['PowerCreep.md']
-                != page.pages['Resource.md']
-                != page.pages['Room.md']
-                != page.pages['Room.Terrain.md']
-                != page.pages['RoomObject.md']
-                != page.pages['RoomPosition.md']
-                != page.pages['RoomVisual.md']
-                != page.pages['Ruin.md']
-                != page.pages['Source.md']
-                != page.pages['Store.md']
-                != page.pages['Structure.md']
-                != page.pages['StructureContainer.md']
-                != page.pages['StructureController.md']
-                != page.pages['StructureExtension.md']
-                != page.pages['StructureExtractor.md']
-                != page.pages['StructureFactory.md']
-                != page.pages['StructureInvaderCore.md']
-                != page.pages['StructureKeeperLair.md']
-                != page.pages['StructureLab.md']
-                != page.pages['StructureLink.md']
-                != page.pages['StructureNuker.md']
-                != page.pages['StructureObserver.md']
-                != page.pages['StructurePowerBank.md']
-                != page.pages['StructurePowerSpawn.md']
-                != page.pages['StructurePortal.md']
-                != page.pages['StructureRampart.md']
-                != page.pages['StructureRoad.md']
-                != page.pages['StructureSpawn.md']
-                != page.pages['StructureStorage.md']
-                != page.pages['StructureTerminal.md']
-                != page.pages['StructureTower.md']
-                != page.pages['StructureWall.md']
-                != page.pages['Tombstone.md']
-
+                each name in config.Prototypes
+                    != page.pages[name]
 
             .dark-box
-
-
+            div

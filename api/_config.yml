@@ -71,3 +71,56 @@ api_generator:
 marked:
   breaks: false
   smartypants: false
+
+GlobalObjects:
+  - Game.md
+  - InterShardMemory.md
+  - Map.md
+  - Market.md
+  - Memory.md
+  - PathFinder.md
+  - RawMemory.md
+  - constants.md
+
+Prototypes:
+  - ConstructionSite.md
+  - Creep.md
+  - Deposit.md
+  - Flag.md
+  - Mineral.md
+  - Nuke.md
+  - OwnedStructure.md
+  - PathFinder.CostMatrix.md
+  - PowerCreep.md
+  - Resource.md
+  - Room.md
+  - Room.Terrain.md
+  - RoomObject.md
+  - RoomPosition.md
+  - RoomVisual.md
+  - Ruin.md
+  - Source.md
+  - Store.md
+  - Structure.md
+  - StructureContainer.md
+  - StructureController.md
+  - StructureExtension.md
+  - StructureExtractor.md
+  - StructureFactory.md
+  - StructureInvaderCore.md
+  - StructureKeeperLair.md
+  - StructureLab.md
+  - StructureLink.md
+  - StructureNuker.md
+  - StructureObserver.md
+  - StructurePowerBank.md
+  - StructurePowerSpawn.md
+  - StructurePortal.md
+  - StructureRampart.md
+  - StructureRoad.md
+  - StructureSpawn.md
+  - StructureStorage.md
+  - StructureTerminal.md
+  - StructureTower.md
+  - StructureWall.md
+  - Tombstone.md
