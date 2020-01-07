@@ -45,7 +45,6 @@ Imgine you are using generic worker creeps with bodys of equal WORK / CARRY / MO
 
 ### Container Mining
 Container Mining is a very efficient way to harvest sources. The idea works as follows:
-
 * A dedicated Miner creep is used to harvest the source.
 * The Miner will not move away from the source during its lifetime.
 * A [`container`](http://docs.screeps.com/api/#StructureContainer) is placed next to the source. The Miner will stand on top of the container. All energy the Miner harvests (and his carry parts cannot hold) will be dropped in the container automatically.
@@ -63,18 +62,22 @@ There are various ways to increase the efficiency of your miner / carrier pair. 
 
 
 ### Local Mining
-* Local mining is mining in a room you control.
+Local mining is mining in a room you control.
 * Sources in your rooms will hold 2000 Energy.
-* Once you can build Links, you might want to consider substituting your carriers with links.
-* When using links, your miner will need to store harvested energy in the link.
-* You might not need the container any more.
+* Once you can build Links at RCL 5, you might want to consider substituting your carriers with links.
+    * When using links, your miner will need to store harvested energy in the link.
+    * You might not need the container any more.
 
 
 ### Remote Mining
-This miner & carrier setup can also be used to harvest sources in neighboring unclaimed rooms. 
+Remote mining is harvest sources in neighboring unclaimed rooms. 
 * Harvesting additional remote sources will drasticly increase the amount of energy harvested by your bot.
+* Mining in remote rooms will be different to local mining.
+    * You can not use your Towers to protect your creeps.
+    * You can not build Links to substitude your carriers.
+    * The distance your carriers will need to travel is considerably longer.
+* You will need to set up a guard system for remote mining of neighboring rooms. In regular intervals NPC invaders will spawn. If ignored, a lot of energy will be lost replacing your miners / carriers. You will need to regularly check those rooms for invaders and send a guard if you found one.
 * This is an area of the game with a lot of optimizing and automation potential and I will only provide a few pointers for you to consider:
     * Roads need to be built and maintained.
     * If you reserve the remote room, the sources will hold more energy. But be careful: CLAIM bodyparts are expensive. The farther away the remote controller is, the more energy you will pay for the claimer. It is usually worth it though.
-    * You will need to set up a guard system for remote mining of neighboring rooms. In regular intervals NPC invaders will spawn. If ignored, a lot of energy will be lost replacing your miners / carriers. You will need to regularly check those rooms for invaders and send a guard if you found one.
     * Miners and carriers will make up the major part of your creep population. It is worthwhile to think about CPU efficiency for those roles in particular. Miners and carriers could, for example, store the IDs of objects they interact with regularly, to avoid the need to find them every tick.
