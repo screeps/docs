@@ -13,17 +13,17 @@ Your goal, especially in the early stages of the game, is to generate a as many 
 Control point generation is basically energy management, because energy is directly converted into control points by upgrading the controller.
 
 The goal of this guide is to enable you to:
-* Harvest as much energy as possible
-* Doing so with as few creep parts as possible
+* Harvest as much energy as possible.
+* Doing so with as few creep parts as possible.
 
-After a genreal introduction to energy harvesting, I will provide a few key features you might want to implement.
+After a general introduction to energy harvesting, I will provide a few key features you might want to implement.
 These features will dramatically increase the energy amount harvested by your bot or focus on improving creep efficiency.
 
 
 ### Division of labor
 A key concept for increasing creep efficiency is division of labor: splitting a complex task into smaller tasks distributed to multiple specialized creeps.
 
-Imgine you are using generic worker creeps with bodys of equal WORK / CARRY / MOVE parts.
+Imagine you are using generic worker creeps with bodies of equal WORK / CARRY / MOVE parts.
 * A creep mining a source is using it's WORK body parts every time it harvests the source, but it is not using it's CARRY or MOVE parts at all. 
     When this worker creep filled all it's CARRY parts with energy and is traveling to the storage to store that energy, it will not use it's very expensive WORK parts at all.
 * The far more efficient setup is to split these two tasks to dedicated creeps. One harvesting energy (it will have little or no CARRY / MOVE body parts) and one creep carrying the harvested energy to the storage (with little or no WORK body parts).
@@ -44,7 +44,7 @@ Imgine you are using generic worker creeps with bodys of equal WORK / CARRY / MO
 
 
 ### Container Mining
-Container mining is a very efficient way to harvest sources using devision of labor. The idea works as follows:
+Container mining is a very efficient way to harvest sources using division of labor. The idea works as follows:
 * A dedicated Miner creep is used to harvest the source.
 * The Miner will not move away from the source during its lifetime.
 * A [`container`](http://docs.screeps.com/api/#StructureContainer) is placed next to the source. The Miner will stand on top of the container. All energy the Miner harvests (and his carry parts can not hold) will be dropped in the container automatically.
@@ -56,8 +56,8 @@ Container mining is a very efficient way to harvest sources using devision of la
 ### Container Mining efficiency
 There are various ways to increase the efficiency of your miner & carrier pair. Here is a small list of ideas for you to consider:
 * The number of CARRY parts a carrier uses, can be adjusted to the distance from the storage to the source.
-* The number of WORK parts the miner uses, can be adjustet to the amount of energy the source holds.
-* You could use the pull feature to create miners withour any MOVE parts at all.
+* The number of WORK parts the miner uses, can be adjusted to the amount of energy the source holds.
+* You could use the pull feature to create miners without any MOVE parts at all.
 * The miner could have extra WORK parts to repair its container itself.
 * Miners and carriers will make up the major part of your creep population. It is worthwhile to think about CPU efficiency for those roles in particular. Miners and carriers could, for example, store the IDs of objects they interact with in memory. This way, you avoid the need to find these objects every tick.
 
@@ -72,11 +72,11 @@ Local mining is harvesting energy in a room you control.
 
 ### Remote Mining
 Remote mining is harvesting energy in neighboring unclaimed rooms.
-* Harvesting additional remote sources will drasticly increase the amount of energy harvested by your bot.
+* Harvesting additional remote sources will drastically increase the amount of energy harvested by your bot.
 * Mining in remote rooms will be different to local mining:
-* You can not build Links to substitude your carriers.
+* You can not build Links to substitute your carriers.
 * The distance your carriers will need to travel is considerably longer.
     * Roads should to be built and maintained to save some MOVE parts.
-* If you reserve the remote room, the sources will hold more energy. But be careful: CLAIM bodyparts are expensive. The farther away the remote controller is, the more energy you will need for the claimers. It is usually worth it though.
+* If you reserve the remote room, the sources will hold more energy. But be careful: CLAIM body parts are expensive. The farther away the remote controller is, the more energy you will need for the claimers. It is usually worth it though.
 * You can not use your Towers to protect your creeps from Invaders.
     * You will need to set up a guard system for remote mining of neighboring rooms. In regular intervals NPC invaders will spawn. If ignored, a lot of energy will be lost replacing your miners & carriers. You will need to regularly check those rooms for invaders and send a guard if you found any.
