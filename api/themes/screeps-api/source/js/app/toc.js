@@ -10,23 +10,112 @@
     $("#nav-button").removeClass('open');
   };
 
-  var makeToc = function() {
-    global.toc = $("#toc").tocify({
-      selectors: 'h1, h2',
-      extendPage: false,
-      theme: 'none',
-      smoothScroll: false,
-      showEffectSpeed: 0,
-      hideEffectSpeed: 180,
-      ignoreSelector: '.toc-ignore',
-      highlightOffset: 60,
-      scrollTo: -1,
-      scrollHistory: true,
-      hashGenerator: function (text, element) {
-        return element.prop('id');
-      }
-    }).data('toc-tocify');
+  $(document).on('click', '.tocify-item', onFocus);
+  window.addEventListener('scroll', onScroll);
 
+  let ignoreScroll;
+  let $tocifyFocus;
+  let $tocifySubheader;
+
+  function onFocus() {
+    ignoreScroll = true;
+
+    if ($tocifyFocus) {
+      $tocifyFocus.removeClass('tocify-focus');
+    }
+
+    $tocifyFocus = $(this);
+    $tocifyFocus.addClass('tocify-focus');
+
+    let _$tocifySubheader = $(this.parentElement);
+    if (this.parentElement.classList.contains('tocify-subheader')) {
+      if (_$tocifySubheader !== $tocifySubheader) {
+        if ($tocifySubheader) {
+          $tocifySubheader.hide();
+        }
+    
+        $tocifySubheader = _$tocifySubheader;
+        $tocifySubheader.show();
+
+        console.log('here');
+
+        return;
+      }
+    }
+
+    _$tocifySubheader = $tocifyFocus.siblings('.tocify-subheader');
+
+    if (!_$tocifySubheader.size()) {
+      return;
+    }
+
+    if ($tocifySubheader) {
+      $tocifySubheader.hide();
+    }
+
+    $tocifySubheader = _$tocifySubheader;
+    $tocifySubheader.show();
+  }
+
+  function onScroll(){
+    if (ignoreScroll) {
+      ignoreScroll = false;
+      return;
+    }
+
+    var scrollTop = $(document).scrollTop();
+
+    const items = $('.tocify-item a').toArray();
+
+    for (var i in items) {
+      var linkRef = items[i];
+
+      var elementId = linkRef.getAttribute('href').substr(1);
+      var elementRef = document.getElementById(elementId);
+      var $elementRef = $(elementRef);
+
+      var elementTop = $elementRef.position().top;
+
+      var nextElementRef;
+      var $nextElementRef;
+
+      for (var j = 0; j < 1000; j++) {
+        if (!elementRef.nextElementSibling) {
+          break;
+        }
+
+        if (elementRef.nextElementSibling.tagName.toLowerCase() === 'h1' ||
+            elementRef.nextElementSibling.tagName.toLowerCase() === 'h2'
+        ) {
+          nextElementRef = elementRef.nextElementSibling;
+          $nextElementRef = $(nextElementRef);
+
+          break;
+        }
+
+        elementRef = elementRef.nextElementSibling;
+      }
+
+      if (!nextElementRef) {
+        break;
+      }
+
+      var elementBottom = $nextElementRef.position().top;
+
+      if (elementTop <= scrollTop && elementBottom > scrollTop) {
+        onFocus.apply(linkRef.parentElement);
+
+        history.replaceState(undefined, undefined, `#${ elementId }`);
+        break;
+      }
+    }
+  }
+
+  $(function() {
+    onScroll();
+  });
+
+  var makeToc = function() {
     $("#nav-button").click(function() {
       $(".tocify-wrapper").toggleClass('open');
       $("#nav-button").toggleClass('open');
@@ -38,17 +127,8 @@
     $('#toc-loading').remove();
   };
 
-  // Hack to make already open sections to start opened,
-  // instead of displaying an ugly animation
-  function animate() {
-    setTimeout(function() {
-      toc.setOption('showEffectSpeed', 180);
-    }, 50);
-  }
-
   $(function() {
     makeToc();
-    animate();
     setupLanguages($('body').data('languages'));
     $('.content').imagesLoaded( function() {
       global.toc.calculateHeights();

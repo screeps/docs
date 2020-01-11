@@ -5,7 +5,7 @@ hexo.extend.tag.register('api_method', function(args) {
     args[2] = args[1];
     args[1] = '';
   }
-  var id = util.slugize(args[0].trim());
+
   var signatures = args[1].split('|').map(i => `(${i})`).join('<br>');
   var inherited = '';
   var cpuDescription = {
@@ -15,9 +15,11 @@ hexo.extend.tag.register('api_method', function(args) {
     3: 'This method has high CPU cost.',
     A: 'This method is an action that changes game state. It has additional 0.2 CPU cost added to its natural cost in case if OK code is returned.',
   };
-  var m = args[0].match(/^(.*?):(.*)$/);
+  
+  var name = args[0];
+  var m = name.match(/^(.*?):(.*)$/);
   if(m) {
-    args[0] = m[2];
+    name = m[2];
     inherited = `<div class="api-property__inherited">Inherited from <a href="#${m[1]}">${m[1]}</a></div>`;
   }
   var opts = {};
@@ -25,7 +27,23 @@ hexo.extend.tag.register('api_method', function(args) {
     opts = JSON.parse(args[3]);
   }
 
-  var result = `<h2 id="${id}" class="api-property ${args[0] == 'constructor' ? '' : 'api-property--method'} ${inherited ? 'api-property--inherited' : ''} ${opts.deprecated ? 'api-property--deprecated' : ''}">${inherited}<span class="api-property__name">${args[0]}</span><span class="api-property__args">${signatures}</span>
+  const matches = /^<h1\sid=\"([^"]*)"/ig .exec(this.content);
+  let headerId = matches ? matches[1] : null;
+  var id = util.slugize(name.trim(), {
+      separator: '.'
+  });
+
+  if (this.headerId) {
+      headerId = this.headerId;
+  }
+
+  if (headerId) {
+    headerId = headerId.replace('-', '.');
+    id = id.replace(`${ headerId }.`, '');
+    id = `${ headerId }.${ id }`;
+  }
+
+  var result = `<h2 id="${id}" class="api-property ${name == 'constructor' ? '' : 'api-property--method'} ${inherited ? 'api-property--inherited' : ''} ${opts.deprecated ? 'api-property--deprecated' : ''}">${inherited}<span class="api-property__name">${name}</span><span class="api-property__args">${signatures}</span>
         <div class="api-property__cpu api-property__cpu--${args[2]}" title="${cpuDescription[args[2]]}"></div>
         </h2>`;
   if(opts.deprecated) {
