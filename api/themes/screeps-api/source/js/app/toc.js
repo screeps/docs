@@ -111,10 +111,6 @@
     }
   }
 
-  $(function() {
-    onScroll();
-  });
-
   var makeToc = function() {
     $("#nav-button").click(function() {
       $(".tocify-wrapper").toggleClass('open');
