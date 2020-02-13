@@ -1,0 +1,35 @@
+# Javascript Node CircleCI 2.0 configuration file
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:10-alpine3.11
+    working_directory: ~/build
+    steps:
+      - run:
+          name: Install dependencies
+          command: apk add docker-cli git python2 g++ make openssh-client
+      - checkout
+      - run:
+          name: Build
+          command: |
+            npm ci && npm run generate && cd api && npm ci && npm run generate
+      - setup_remote_docker:
+      - run:
+          name: Build and push images
+          command: |
+            docker login -u _json_key -p "$GCRIO_KEY" https://gcr.io
+            docker build -t gcr.io/screeps-test/docs:$CIRCLE_BUILD_NUM -f ~/build/Dockerfile ~/build
+            docker push gcr.io/screeps-test/docs:$CIRCLE_BUILD_NUM
+      - run:
+          name: Tag commits
+          command: |
+            git tag build-$CIRCLE_BUILD_NUM && git push origin --tags
+
+workflows:
+  version: 2
+  production:
+    jobs:
+      - build:
+          context: production
