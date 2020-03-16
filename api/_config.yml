@@ -76,6 +76,7 @@ GlobalObjects:
   - Game.md
   - InterShardMemory.md
   - Map.md
+  - MapVisual.md
   - Market.md
   - Memory.md
   - PathFinder.md
