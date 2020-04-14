@@ -780,7 +780,7 @@ Withdraw resources from a structure or tombstone. The target has to be at adjace
 This method should not be used to transfer resources between creeps. To transfer between creeps, use the [`transfer`](#Creep.transfer) method on the original creep.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
+target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>, <a href="#Ruin">Ruin</a>
 The target object.
 ===
 resourceType : string
