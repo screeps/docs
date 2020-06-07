@@ -21,7 +21,7 @@ Possible part types of a creep body:
 *   <code style="background: #333; color: #f93842;">ATTACK</code> – ability of short-range attack.
 *   <code style="background: #333; color: #5d80b2;">RANGED_ATTACK</code> – ability of ranged attack.
 *   <code style="background: #333; color: #65fd62;">HEAL</code> – ability to heal others.
-*   <code style="background: #333; color: #b99cfb;">CLAIM</code> - ability to claim territory control.
+*   <code style="background: #333; color: #b99cfb;">CLAIM</code> – ability to claim territory control.
 *   <code style="background: #333; color: #fff;">TOUGH</code> – "empty" part with the sole purpose of defense.
 
 The effectiveness of an ability depends on the amount of parts of a corresponding type. For example, a worker creep with 3 parts of the `WORK` type will work 3 times as effectively as a creep with only 1 `WORK `part. The same applies to all the other types and actions.
