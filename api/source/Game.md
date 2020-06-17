@@ -30,6 +30,13 @@ An amount of unused CPU accumulated in your <a href="/cpu-limit.html#Bucket">buc
 shardLimits : object<br>&lt;string,number&gt;
 An object with limits for each shard with shard names as keys. You can use [`setShardLimits`](#Game.setShardLimits)
 method to re-assign them.
+===
+unlocked : boolean 
+Whether full CPU is currently unlocked for your account.
+===
+unlockedTime : number 
+The time <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">in milliseconds since UNIX epoch time</a> until full CPU is unlocked for your account. This property is not defined when full CPU is not unlocked for your account or it's unlocked with a subscription.
+
 {% endapi_method_params %}
 
 
@@ -119,7 +126,7 @@ not spawned in the world can be accessed here.
 
 
 
-An object with your global resources that are bound to the account, like subscription tokens. Each object key is a resource constant, values are resources amounts.
+An object with your global resources that are bound to the account, like pixels or cpu unlocks. Each object key is a resource constant, values are resources amounts.
 
 
 
@@ -267,6 +274,21 @@ One of the following codes:
 OK | The operation has been scheduled successfully.
 ERR_BUSY | 12-hours cooldown period is not over yet.
 ERR_INVALID_ARGS | The argument is not a valid shard limits object.
+{% endapi_return_codes %}
+
+
+{% api_method Game.cpu.unlock '' 1 %}
+
+Unlock full CPU for your account for additional 24 hours. This method will consume 1 CPU unlock bound to your account (See [`Game.resources`](#Game.resources)).
+If full CPU is not currently unlocked for your account, it may take some time (up to 5 minutes) before unlock is applied to your account.
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_BUSY | Your CPU is unlocked with a subscription.
+ERR_NOT_ENOUGH_RESOURCES | Your account does not have enough `cpuUnlock` resource.
 {% endapi_return_codes %}
 
 
