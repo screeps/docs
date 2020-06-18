@@ -652,7 +652,7 @@ Move the creep using the specified predefined path. Requires the <code>MOVE</cod
 
 {% api_method_params %}
 path : array|string
-A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, or <a href="#PathFinder.PathFinder-search"><code>PathFinder.search</code></a> methods. Both array form and serialized string form are accepted.
+A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, or <a href="#PathFinder.search"><code>PathFinder.search</code></a> methods. Both array form and serialized string form are accepted.
 {% endapi_method_params %}
 
 

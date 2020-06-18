@@ -14,7 +14,7 @@ The Public Test Realm is a stand-alone game server with its own world data, play
 
 <p>[Changelogs](https://screeps.com/forum/category/8/)</p>
 
-<p>[API Reference](http://ptr-docs.screeps.com/api/)</p> 
+<p>[API Reference](http://docs-ptr.screeps.com/api/)</p> 
 </div>
 
 ---
