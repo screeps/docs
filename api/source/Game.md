@@ -297,6 +297,22 @@ ERR_BUSY | Your CPU is unlocked with a subscription.
 ERR_NOT_ENOUGH_RESOURCES | Your account does not have enough `cpuUnlock` resource.
 {% endapi_return_codes %}
 
+{% api_method Game.cpu.generatePixel '' 3 %}
+
+```javascript
+if(Game.cpu.bucket > 9000) {
+    Game.cpu.generatePixel();
+}
+```
+
+Generate 1 pixel resource unit for 5000 CPU from your bucket.
+
+
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_ENOUGH_RESOURCES | Your bucket does not have enough CPU.
+{% endapi_return_codes %}
+
 
 {% api_method Game.getObjectById 'id' 1 %}
 
