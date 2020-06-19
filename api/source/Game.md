@@ -293,7 +293,7 @@ If full CPU is not currently unlocked for your account, it may take some time (u
 One of the following codes:
 {% api_return_codes %}
 OK | The operation has been scheduled successfully.
-ERR_BUSY | Your CPU is unlocked with a subscription.
+ERR_FULL | Your CPU is unlocked with a subscription.
 ERR_NOT_ENOUGH_RESOURCES | Your account does not have enough `cpuUnlock` resource.
 {% endapi_return_codes %}
 
