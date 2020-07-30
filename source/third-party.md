@@ -29,15 +29,15 @@ You can set up an external transpiler to write your Screeps AI in another langua
 
 *   [screeps-starter-rust](https://github.com/daboross/screeps-starter-rust) is a alpha-status platform you can use to play Screeps in Rust.
 
-### Haskell
-
-*   [screeps-haskell-starter](https://github.com/retho/screeps-haskell-starter) is a alpha-status platform you can use to play Screeps in Haskell.
-
 ### Kotlin
 
 * [screeps-kotlin](https://github.com/exaV/screeps-kotlin) is an example game script in Kotlin.
 * [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) is a starting point for players who want to program in Kotlin.
 * [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types) is a set of Kotlin declarations to cover the Screeps API.
+
+### Haskell
+
+*   [screeps-haskell-starter](https://github.com/retho/screeps-haskell-starter) is a alpha-status platform you can use to play Screeps in Haskell.
 
 ## API Clients
 
