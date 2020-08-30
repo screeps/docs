@@ -17,11 +17,11 @@ Game.map.visual.line(creep.pos, target.pos,
 Draw a line.
 
 {% api_method_params %}
-pos1 : object
-The start position. Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+pos1 : <a href="#RoomPosition">RoomPosition</a>
+The start position object.
 ===
-pos2 : object
-The finish position. Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+pos2 : <a href="#RoomPosition">RoomPosition</a>
+The finish position object.
 ===
 style (optional) : object
 An object with the following properties:
@@ -34,7 +34,7 @@ An object with the following properties:
     <li>
         <div class="api-arg-title">color</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Line color in any web format, default is <code>#ffffff</code> (white).</div>
+        <div class="api-arg-desc">Line color in the following format: <code>#ffffff</code> (hex triplet). Default is #ffffff.</div>
     </li>
     <li>
         <div class="api-arg-title">opacity</div>
@@ -70,8 +70,8 @@ creep.room.visual.circle(nuker.pos,
 Draw a circle.
 
 {% api_method_params %}
-pos : object
-The position object of the center. Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+pos : <a href="#RoomPosition">RoomPosition</a>
+The position object of the center.
 ===
 style (optional) : object
 An object with the following properties:
@@ -79,12 +79,12 @@ An object with the following properties:
     <li>
         <div class="api-arg-title">radius</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Circle radius, default is 25.</div>
+        <div class="api-arg-desc">Circle radius, default is 10.</div>
     </li>
     <li>
         <div class="api-arg-title">fill</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Fill color in any web format, default is <code>#ffffff</code> (white).</div>
+        <div class="api-arg-desc">Fill color in the following format: <code>#ffffff</code> (hex triplet). Default is #ffffff.</div>
     </li>
     <li>
         <div class="api-arg-title">opacity</div>
@@ -94,12 +94,12 @@ An object with the following properties:
     <li>
         <div class="api-arg-title">stroke</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Stroke color in any web format, default is undefined (no stroke).</div>
+        <div class="api-arg-desc">Stroke color in the following format: <code>#ffffff</code> (hex triplet). Default is undefined (no stroke).</div>
     </li>
     <li>
         <div class="api-arg-title">strokeWidth</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Stroke line width, default is 0.1.</div>
+        <div class="api-arg-desc">Stroke line width, default is 0.5.</div>
     </li>
     <li>
         <div class="api-arg-title">lineStyle</div>
@@ -133,8 +133,8 @@ Game.map.visual.rect(new RoomPosition(tower.pos.x - 5, tower.pos.y - 5, tower.po
 Draw a rectangle.
 
 {% api_method_params %}
-topLeftPos : object
-The position object of the top-left corner. Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+topLeftPos : <a href="#RoomPosition">RoomPosition</a>
+The position object of the top-left corner.
 ===
 width : number
 The width of the rectangle.
@@ -148,7 +148,7 @@ An object with the following properties:
     <li>
         <div class="api-arg-title">fill</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Fill color in any web format, default is <code>#ffffff</code> (white).</div>
+        <div class="api-arg-desc">Fill color in the following format: <code>#ffffff</code> (hex triplet). Default is #ffffff.</div>
     </li>
     <li>
         <div class="api-arg-title">opacity</div>
@@ -158,12 +158,12 @@ An object with the following properties:
     <li>
         <div class="api-arg-title">stroke</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Stroke color in any web format, default is undefined (no stroke).</div>
+        <div class="api-arg-desc">Stroke color in the following format: <code>#ffffff</code> (hex triplet). Default is undefined (no stroke).</div>
     </li>
     <li>
         <div class="api-arg-title">strokeWidth</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">Stroke line width, default is 0.1.</div>
+        <div class="api-arg-desc">Stroke line width, default is 0.5.</div>
     </li>
     <li>
         <div class="api-arg-title">lineStyle</div>
@@ -201,7 +201,7 @@ Draw a polyline.
 
 {% api_method_params %}
 points : array
-An array of points. Every item should be either a <a href="#RoomPosition"><code>RoomPosition</code></a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+An array of points. Every item should be a <a href="#RoomPosition"><code>RoomPosition</code></a> object.
 ===
 style (optional) : object
 An object with the following properties:
@@ -209,7 +209,7 @@ An object with the following properties:
 						<li>
 							<div class="api-arg-title">fill</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Fill color in any web format, default is <code>undefined</code> (no fill).</div>
+							<div class="api-arg-desc">Fill color in the following format: <code>#ffffff</code> (hex triplet). Default is <code>undefined</code> (no fill).</div>
 						</li>
 						<li>
 							<div class="api-arg-title">opacity</div>
@@ -219,12 +219,12 @@ An object with the following properties:
 						<li>
 							<div class="api-arg-title">stroke</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Stroke color in any web format, default is <code>#ffffff</code> (white).</div>
+							<div class="api-arg-desc">Stroke color in the following format: <code>#ffffff</code> (hex triplet). Default is #ffffff.</div>
 						</li>
 						<li>
 							<div class="api-arg-title">strokeWidth</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Stroke line width, default is 0.1.</div>
+							<div class="api-arg-desc">Stroke line width, default is 0.5.</div>
 						</li>
 						<li>
 							<div class="api-arg-title">lineStyle</div>
@@ -244,7 +244,7 @@ The <code>MapVisual</code> object itself, so that you can chain calls.
 {% api_method text 'text, pos, [style]' 0 %}
 
 ```javascript
-Game.map.visual.text("Target💥", new RoomPosition(11,14,'E2S7'), {color: 'green', font: 0.8}); 
+Game.map.visual.text("Target💥", new RoomPosition(11,14,'E2S7'), {color: '0x00FF00', fontSize: 10}); 
 ```
 
 Draw a text label. You can use any valid Unicode characters, including <a href="http://unicode.org/emoji/charts/emoji-style.txt" target="_blank">emoji</a>.
@@ -253,8 +253,8 @@ Draw a text label. You can use any valid Unicode characters, including <a href="
 text : string
 The text message.
 ===
-pos : object
-The position object of the label baseline. Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
+pos : <a href="#RoomPosition">RoomPosition</a>
+The position object of the label baseline.
 ===
 style (optional) : object
 An object with the following properties:
@@ -262,17 +262,17 @@ An object with the following properties:
 						<li>
 							<div class="api-arg-title">color</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Font color in any web format, default is <code>#ffffff</code> (white).</div>
+							<div class="api-arg-desc">Font color in the following format: <code>#ffffff</code> (hex triplet). Default is #ffffff.</div>
 						</li>
 						<li>
 							<div class="api-arg-title">fontFamily</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">The font family</div>
+							<div class="api-arg-desc">The font family, default is <code>sans-serif</code></div>
 						</li>
 						<li>
 							<div class="api-arg-title">fontSize</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">The font size in game coordinates</div>
+							<div class="api-arg-desc">The font size in game coordinates, default is 10</div>
 						</li>
 						<li>
 							<div class="api-arg-title">fontStyle</div>
@@ -287,7 +287,7 @@ An object with the following properties:
 						<li>
 							<div class="api-arg-title">stroke</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Stroke color in any web format, default is undefined (no stroke).</div>
+							<div class="api-arg-desc">Stroke color in the following format: <code>#ffffff</code> (hex triplet). Default is undefined (no stroke).</div>
 						</li>
 						<li>
 							<div class="api-arg-title">strokeWidth</div>
@@ -297,12 +297,12 @@ An object with the following properties:
 						<li>
 							<div class="api-arg-title">backgroundColor</div>
 							<div class="api-arg-type">string</div>
-							<div class="api-arg-desc">Background color in any web format, default is undefined (no background). When background is enabled, text vertical align is set to middle (default is baseline).</div>
+							<div class="api-arg-desc">Background color in the following format: <code>#ffffff</code> (hex triplet). Default is undefined (no background). When background is enabled, text vertical align is set to middle (default is baseline).</div>
 						</li>
 						<li>
 							<div class="api-arg-title">backgroundPadding</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Background rectangle padding, default is 0.3.</div>
+							<div class="api-arg-desc">Background rectangle padding, default is 2.</div>
 						</li>
 						<li>
 							<div class="api-arg-title">align</div>
@@ -312,7 +312,7 @@ An object with the following properties:
 						<li>
 							<div class="api-arg-title">opacity</div>
 							<div class="api-arg-type">number</div>
-							<div class="api-arg-desc">Opacity value, default is 1.0.</div>
+							<div class="api-arg-desc">Opacity value, default is 0.5.</div>
 						</li>
 					</ul>
 				
