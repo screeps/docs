@@ -265,16 +265,24 @@ An object with the following properties:
 							<div class="api-arg-desc">Font color in any web format, default is <code>#ffffff</code> (white).</div>
 						</li>
 						<li>
-							<div class="api-arg-title">font</div>
-							<div class="api-arg-type">number, string</div>
-							<div class="api-arg-desc">Either a number or a string in one of the following forms:
-								<ul>
-									<li><code>0.7</code> - relative size in game coordinates</li>
-									<li><code>20px</code> - absolute size in pixels</li>
-									<li><code>0.7 serif</code></li>
-									<li><code>bold italic 1.5 Times New Roman</code></li>
-								</ul>
-							</div>
+							<div class="api-arg-title">fontFamily</div>
+							<div class="api-arg-type">string</div>
+							<div class="api-arg-desc">The font family</div>
+						</li>
+						<li>
+							<div class="api-arg-title">fontSize</div>
+							<div class="api-arg-type">number</div>
+							<div class="api-arg-desc">The font size in game coordinates</div>
+						</li>
+						<li>
+							<div class="api-arg-title">fontStyle</div>
+							<div class="api-arg-type">string</div>
+							<div class="api-arg-desc">The font style ('normal', 'italic' or 'oblique')</div>
+						</li>
+						<li>
+							<div class="api-arg-title">fontVariant</div>
+							<div class="api-arg-type">string</div>
+							<div class="api-arg-desc">The font variant ('normal' or 'small-caps')</div>
 						</li>
 						<li>
 							<div class="api-arg-title">stroke</div>
