@@ -11,7 +11,7 @@ All draw coordinates are measured in global game coordinates ([`RoomPosition`](#
 
 ```javascript
 Game.map.visual.line(creep.pos, target.pos,
-    {color: 'red', lineStyle: 'dashed'});
+    {color: '#ff0000', lineStyle: 'dashed'});
 ```
 
 Draw a line.
@@ -63,8 +63,7 @@ Game.map.visual.circle(new RoomPosition(25,25,'E2S7'));
 ```
 
 ```javascript
-creep.room.visual.circle(nuker.pos,
-    {fill: 'transparent', radius: NUKE_RANGE*50, stroke: 'red'});
+Game.map.visual.circle(nuker.pos, {fill: 'transparent', radius: NUKE_RANGE*50, stroke: '#ff0000'});
 ```
 
 Draw a circle.
@@ -119,15 +118,10 @@ The <code>MapVisual</code> object itself, so that you can chain calls.
 {% api_method rect 'topLeftPos, width, height, [style]' 0 %}
 
 ```javascript
-// 9x9 area from (2,2) to (10,10)
-Game.map.visual.rect(new RoomPosition(2,2,'E2S7'), 9, 9); 
-```
-
-```javascript
 // the max efficiency area of the tower
 Game.map.visual.rect(new RoomPosition(tower.pos.x - 5, tower.pos.y - 5, tower.pos.roomName), 
     11, 11,
-    {fill: 'transparent', stroke: '#f00'});
+    {fill: 'transparent', stroke: '#ff0000'});
 ```
 
 Draw a rectangle.
@@ -184,7 +178,7 @@ The <code>MapVisual</code> object itself, so that you can chain calls.
 
 ```javascript
 const points = [];
-points.push(creep1);
+points.push(creep1.pos);
 points.push(Game.rooms.E2S7.storage.pos);
 points.push(new RoomPosition(20,21,'W1N1'));
 Game.map.visual.poly(points, {fill: 'aqua'}); 
@@ -192,9 +186,8 @@ Game.map.visual.poly(points, {fill: 'aqua'});
 
 ```javascript
 // visualize the path
-const path = PathFinder.search(from, to).path;
-Game.map.visual.poly(path, {stroke: '#fff', strokeWidth: .15,
-	opacity: .2, lineStyle: 'dashed'}); 
+const path = PathFinder.search(creep.pos, creep.room.storage.pos).path;
+Game.map.visual.poly(path, {stroke: '#ffffff', strokeWidth: .8, opacity: .2, lineStyle: 'dashed'});
 ```
 
 Draw a polyline.
@@ -244,7 +237,7 @@ The <code>MapVisual</code> object itself, so that you can chain calls.
 {% api_method text 'text, pos, [style]' 0 %}
 
 ```javascript
-Game.map.visual.text("Target💥", new RoomPosition(11,14,'E2S7'), {color: '0x00FF00', fontSize: 10}); 
+Game.map.visual.text("Target💥", new RoomPosition(11,14,'E2S7'), {color: '#FF0000', fontSize: 10}); 
 ```
 
 Draw a text label. You can use any valid Unicode characters, including <a href="http://unicode.org/emoji/charts/emoji-style.txt" target="_blank">emoji</a>.
