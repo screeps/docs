@@ -220,7 +220,7 @@ An object with the following params:
     <li>
         <div class="api-arg-title">resourceType</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Either one of the <code>RESOURCE_*</code> constants or <code>SUBSCRIPTION_TOKEN</code>. If your Terminal doesn't have the specified resource, the order will be temporary inactive.</div>
+        <div class="api-arg-desc">Either one of the <code>RESOURCE_*</code> constants, <code>CPU_UNLOCK</code>,<code>PIXEL</code> or <code>ACCESS_KEY</code>. If your Terminal doesn't have the specified resource, the order will be temporary inactive.</div>
     </li>
     <li>
         <div class="api-arg-title">price</div>
@@ -235,7 +235,7 @@ An object with the following params:
     <li>
         <div class="api-arg-title">roomName (optional)</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">The room where your order will be created. You must have your own Terminal structure in this room, otherwise the created order will be temporary inactive. This argument is not used when <code>resourceType</code> equals to <code>SUBSCRIPTION_TOKEN</code>.</div>
+        <div class="api-arg-desc">The room where your order will be created. You must have your own Terminal structure in this room, otherwise the created order will be temporary inactive. This argument is not used when <code>resourceType</code> is equals <code>CPU_UNLOCK</code>,<code>PIXEL</code> or <code>ACCESS_KEY</code>.</div>
     </li>        
 </ul>
 {% endapi_method_params %}
