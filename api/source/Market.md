@@ -206,7 +206,7 @@ Game.market.createOrder({
 });
 ```
 
-Create a market order in your terminal. You will be charged <code>price\*amount\*0.05</code> credits when the order is placed. The maximum orders count is 300 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
+Create a market order in your terminal. You will be charged a fee of <code>price\*amount\*0.05</code> credits when the order is placed. The order will remain active for 30 days, after which any remaining market fee will be returned to you. The maximum orders count is 300 per player. You can create an order at any time with any amount, it will be automatically activated and deactivated depending on the resource/credits availability.
 
 {% api_method_params %}
 params : object
