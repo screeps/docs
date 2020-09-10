@@ -347,3 +347,35 @@ Get the stored size of all visuals added on the map in the current tick. It must
 ### Return value
 
 The size of the visuals in bytes.
+
+{% api_method export '' 0 %}
+
+```javascript
+Memory.MapVisualData = Game.map.visual.export();
+```
+
+Returns a compact representation of all visuals added on the map in the current tick.
+
+
+
+### Return value
+
+A string with visuals data. There's not much you can do with the string besides store them for later.
+
+{% api_method import 'val' 0 %}
+
+```javascript
+Game.map.visual.import(Memory.MapVisualData);
+```
+
+Add previously exported (with <a href="#Game.map-visual.export">Game.map.visual.export</a>) maps visuals to the map visuals data of the current tick. 
+
+{% api_method_params %}
+val : string
+The string returned from Game.map.visual.export.
+
+{% endapi_method_params %}
+
+### Return value
+
+The <code>MapVisual</code> object itself, so that you can chain calls.
