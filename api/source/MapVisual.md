@@ -368,7 +368,7 @@ A string with visuals data. There's not much you can do with the string besides 
 Game.map.visual.import(Memory.MapVisualData);
 ```
 
-Add previously exported (with <a href="#Game.map-visual.export">Game.map.visual.export</a>) maps visuals to the map visuals data of the current tick. 
+Add previously exported (with <a href="#Game.map-visual.export">Game.map.visual.export</a>) map visuals to the map visual data of the current tick. 
 
 {% api_method_params %}
 val : string
