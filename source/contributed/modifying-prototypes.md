@@ -158,29 +158,29 @@ Also see [Function.call](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 ### Other examples
 
-#### [Spawn.createCreep](http://docs.screeps.com/api/#StructureSpawn.createCreep) - Automatic naming
-When you have a large amount of creeps, using the default automatic naming can consume a large amount of CPU. Naming them yourself can be one way to reduce your CPU usage.
+#### [Spawn.spawnCreep](http://docs.screeps.com/api/#StructureSpawn.spawnCreep) - Automatic naming
+When you have a large amount of creeps, setting the name of the creeps manualy can be cumbersome and make messy code. Naming them automaticly can be one way to clean up your code.
 ```javascript
 // Make sure the method has not already been overwritten
-if (!StructureSpawn.prototype._createCreep) {
-    StructureSpawn.prototype._createCreep = StructureSpawn.prototype.createCreep;
+if (!StructureSpawn.prototype._spawnCreep) {
+    StructureSpawn.prototype._spawnCreep = StructureSpawn.prototype.spawnCreep;
     
-    // The original signature: createCreep(body, [name], [memory])
-    // Make a new version with the signature createCreep(body, [memory])
-    StructureSpawn.prototype.createCreep = function(body, memory = {}) { 
+    // The original signature: spawnCreep(body, name, opts)
+    // Make a new version with the signature createCreep(body, opts)
+    StructureSpawn.prototype.spawnCreep = function(body, opts = {}) { 
         if (!Memory.myCreepNameCounter) Memory.myCreepNameCounter = 0;
         
         // Now we need to generate a name and make sure it hasnt been taken
         let name;
-        let canCreate;
+        let dryRun;
         do {
             name = `c${Memory.creepNameCounter++}`;
-            canCreate = this.canCreateCreep(body, name);
-        } while (canCreate === ERR_NAME_EXISTS);
+            dryRun = this._spawnCreep(body, name, { ...opts, dryRun: true });
+        } while (dryRun !== ERR_NAME_EXISTS);
         
         // Now we call the original function passing in our generated name and 
         // returning the value
-        return this._createCreep(body, name, memory);
+        return this._spawnCreep(body, name, opts);
     };
 }
 ```
