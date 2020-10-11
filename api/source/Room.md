@@ -265,7 +265,8 @@ constant|type|description
 `FIND_HOSTILE_CONSTRUCTION_SITES` | ConstructionSite | Only construction sites not owned by you.
 `FIND_MINERALS` | Mineral | All mineral deposits.
 `FIND_NUKES` | Nuke | All launched nukes.
-`FIND_TOMBSTONES` | Tombstone | All tombstones
+`FIND_TOMBSTONES` | Tombstone | All tombstones.
+`FIND_RUINS` | Ruin | All ruins
 
 {% api_method findExitTo 'room' 3 %}
 
