@@ -18,7 +18,7 @@ Read articles written by other players, or contribute your own
 Join the game community in our Slack chat network 
 {% endindex_block %}
 
-{% index_block "Chinese version" "https://screeps-cn.github.io/" %}
+{% index_block "Chinese version（中文）" "https://screeps-cn.github.io/" %}
 The unofficial Chinese version of this documentation translated and maintained by the community 
 {% endindex_block %}  
 
