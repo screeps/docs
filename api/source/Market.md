@@ -220,7 +220,7 @@ An object with the following params:
     <li>
         <div class="api-arg-title">resourceType</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">Either one of the <code>RESOURCE_*</code> constants or <code>SUBSCRIPTION_TOKEN</code>. If your Terminal doesn't have the specified resource, the order will be temporary inactive.</div>
+        <div class="api-arg-desc">Either one of the <code>RESOURCE_*</code> constants or one of account-bound resources (See <code>INTERSHARD_RESOURCES</code> constant). If your Terminal doesn't have the specified resource, the order will be temporary inactive.</div>
     </li>
     <li>
         <div class="api-arg-title">price</div>
@@ -235,7 +235,7 @@ An object with the following params:
     <li>
         <div class="api-arg-title">roomName (optional)</div>
         <div class="api-arg-type">string</div>
-        <div class="api-arg-desc">The room where your order will be created. You must have your own Terminal structure in this room, otherwise the created order will be temporary inactive. This argument is not used when <code>resourceType</code> equals to <code>SUBSCRIPTION_TOKEN</code>.</div>
+        <div class="api-arg-desc">The room where your order will be created. You must have your own Terminal structure in this room, otherwise the created order will be temporary inactive. This argument is not used when <code>resourceType</code> is one of account-bound resources (See <code>INTERSHARD_RESOURCES</code> constant).</div>
     </li>        
 </ul>
 {% endapi_method_params %}
@@ -285,7 +285,7 @@ amount : number
 The amount of resources to transfer.
 ===
 yourRoomName (optional) : string
-The name of your room which has to contain an active Terminal with enough amount of energy. This argument is not used when the order resource type equals to <code>SUBSCRIPTION_TOKEN</code>.
+The name of your room which has to contain an active Terminal with enough amount of energy. This argument is not used when the order resource type is one of account-bound resources (See <code>INTERSHARD_RESOURCES</code> constant).
 {% endapi_method_params %}
 
 
@@ -400,7 +400,7 @@ property | description
 `created` | The order creation time in game ticks. This property is absent for orders of the inter-shard market.
 `createdTimestamp` | The order creation time <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">in milliseconds since UNIX epoch time</a>. This property is absent for old orders.
 `type` | Either <code>ORDER_SELL</code> or <code>ORDER_BUY</code>.
-`resourceType` | Either one of the <code>RESOURCE_*</code> constants or <code>SUBSCRIPTION_TOKEN</code>.
+`resourceType` | Either one of the <code>RESOURCE_*</code> constants or one of account-bound resources (See <code>INTERSHARD_RESOURCES</code> constant).
 `roomName` | The room where this order is placed.
 `amount` | Currently available amount to trade.
 `remainingAmount` | How many resources are left to trade via this order. 
