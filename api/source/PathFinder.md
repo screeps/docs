@@ -144,15 +144,15 @@ property | description
 {% api_method PathFinder.use 'isEnabled' 0 '{"deprecated": true}' %} 
 
 ```javascript
-PathFinder.use(true);
+PathFinder.use(false);
 Game.creeps.John.moveTo(Game.spawns['Spawn1']);
 ```
 
-Specify whether to use this new experimental pathfinder in game objects methods. This method should be invoked every tick. It affects the following methods behavior: <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, <a href="#RoomPosition.findClosestByPath"><code>RoomPosition.findClosestByPath</code></a>, <a href="#Creep.moveTo"><code>Creep.moveTo</code></a>.
+`PathFinder` is enabled by default. This method can be used to disable `PathFinder` and use an older, slower algorithm (although doing so is not recommended). This method should be invoked every tick when used. It affects the following methods behavior: <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, <a href="#RoomPosition.findClosestByPath"><code>RoomPosition.findClosestByPath</code></a>, <a href="#Creep.moveTo"><code>Creep.moveTo</code></a>.
 
 {% api_method_params %}
 isEnabled : boolean
-Whether to activate the new pathfinder or deactivate. The default is `true`.
+Whether to activate or deactivate the pathfinder. The default is `true`.
 {% endapi_method_params %}
 
 

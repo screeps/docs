@@ -313,7 +313,6 @@ creep.move(path[0].direction);
 ```
 
 ```javascript
-PathFinder.use(true);
 const path = creep.room.findPath(creep.pos, targetPos, {
     costCallback: function(roomName, costMatrix) {
 	    if(roomName == 'W1N5') {
@@ -366,22 +365,22 @@ An object containing additonal pathfinding flags:
     <li>
         <div class="api-arg-title">ignoreRoads</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">Ignore road structures. Enabling this option can speed up the search. The default value is false. This is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">Ignore road structures. Enabling this option can speed up the search. The default value is false. This option is ignored if <a href="#PathFinder"><code>PathFinder</code></a> has been disabled.</div>
     </li>
     <li>
         <div class="api-arg-title">costCallback</div>
         <div class="api-arg-type">function(string, CostMatrix)</div>
-        <div class="api-arg-desc">You can use this callback to modify a <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a> for any room during the search. The callback accepts two arguments, <code>roomName</code> and <code>costMatrix</code>. Use the <code>costMatrix</code> instance to make changes to the positions costs. If you return a new matrix from this callback, it will be used instead of the built-in cached one. This option is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">You can use this callback to modify a <a href="#PathFinder-CostMatrix"><code>CostMatrix</code></a> for any room during the search. The callback accepts two arguments, <code>roomName</code> and <code>costMatrix</code>. Use the <code>costMatrix</code> instance to make changes to the positions costs. If you return a new matrix from this callback, it will be used instead of the built-in cached one. This option is ignored if <a href="#PathFinder"><code>PathFinder</code></a> has been disabled.</div>
     </li>
     <li>
         <div class="api-arg-title">ignore</div>
         <div class="api-arg-type">array</div>
-        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as walkable tiles during the search. This option cannot be used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
+        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as walkable tiles during the search. This option is ignored when <a href="#PathFinder"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
     </li>
     <li>
         <div class="api-arg-title">avoid</div>
         <div class="api-arg-type">array</div>
-        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as obstacles during the search. This option cannot be used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
+        <div class="api-arg-desc">An array of the room's objects or <a href="#RoomPosition">RoomPosition</a> objects which should be treated as obstacles during the search. This option is ignored when <a href="#PathFinder"><code>PathFinder</code></a> is enabled (use <code>costCallback</code> option instead).</div>
     </li>
     <li>
         <div class="api-arg-title">maxOps</div>
@@ -401,7 +400,7 @@ An object containing additonal pathfinding flags:
     <li>
         <div class="api-arg-title">maxRooms</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16. This is only used when the new <a href="#PathFinder"><code>PathFinder</code></a> is enabled.</div>
+        <div class="api-arg-desc">The maximum allowed rooms to search. The default (and maximum) is 16. This option is ignored if <a href="#PathFinder"><code>PathFinder</code></a> has been disabled.</div>
     </li>
     <li>
         <div class="api-arg-title">range</div>
