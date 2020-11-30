@@ -4,7 +4,7 @@ title: Committing scripts using external tools
 Screeps has a handy embedded code editor for writing game scripts. However, in some cases (for example, you want to use a language other than JavaScript or integrate with your IDE) you will have to commit game scripts to your Screeps account from outside.
  
 {% note info %}
-If you signed up using GitHub, you have to set your Screeps password in the [account settings](https://screeps.com/a/#!/account) in order to use external synchronization.
+You have to create an auth token in the [account settings](https://screeps.com/a/#!/account/auth-tokens) in order to use external synchronization.
 {% endnote %}
 
 ## Using Grunt task
@@ -23,9 +23,9 @@ Configure your Gruntfile.js:
             screeps: {
                 options: {
                     email: '<your e-mail>',
-                    password: '<your password>',
+                    token: '<your auth token>',
                     branch: 'default',
-                    ptr: false
+                    //server: 'season'
                 },
                 dist: {
                     src: ['dist/*.js']
