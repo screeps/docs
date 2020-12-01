@@ -31,6 +31,8 @@ html(lang='en')
                     | api
                     if is_ptr()
                         | &nbsp;[ptr]
+                    if is_season()
+                        | &nbsp;[season]
             .search
                 input.search#input-search(type="text" placeholder="Search")
             ul.search-results
