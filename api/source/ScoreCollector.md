@@ -2,7 +2,7 @@
 
 Accepts score resource and enrolls it into your account. Use <a href="#Creep.transfer">Creep.transfer</a> to put scores into the collector.
  
-Note: The capacity of each collector is limited. The used limit is replenished over time.
+Note: The capacity of each collector is limited. When your creep transfers some amount of score resource into the collector, its capacity decreases correspondingly. The limit recovers by 20 units per tick.
 
 {% page inherited/RoomObject.md %}
 
