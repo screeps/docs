@@ -300,12 +300,12 @@ ERR_NOT_ENOUGH_RESOURCES | Your account does not have enough `cpuUnlock` resourc
 {% api_method Game.cpu.generatePixel '' 3 %}
 
 ```javascript
-if(Game.cpu.bucket > 9000) {
+if(Game.cpu.bucket == 10000) {
     Game.cpu.generatePixel();
 }
 ```
 
-Generate 1 pixel resource unit for 5000 CPU from your bucket.
+Generate 1 pixel resource unit for 10000 CPU from your bucket.
 
 
 {% api_return_codes %}
