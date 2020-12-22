@@ -329,6 +329,7 @@ ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spaw
 
 
 Increase the remaining time to live of the target creep. The target should be at adjacent square. 
+The target should not have CLAIM body parts.
 The spawn should not be busy with the spawning process. Each execution increases the creep's timer 
 by amount of ticks according to this formula: 
 
@@ -358,7 +359,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of the spawn, or the creep.
 ERR_BUSY | The spawn is spawning another creep.
 ERR_NOT_ENOUGH_ENERGY | The spawn does not have enough energy.
-ERR_INVALID_TARGET | The specified target object is not a creep.
+ERR_INVALID_TARGET | The specified target object is not a creep, or the creep has CLAIM body part.
 ERR_FULL | The target creep's time to live timer is full.
 ERR_NOT_IN_RANGE | The target creep is too far away.
 ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.
