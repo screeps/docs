@@ -3,7 +3,7 @@ title: How does CPU limit work
 
 The Screeps game engine exists in two variants: browser-based (**Simulation** **mode**) and server-based (**online mode**). When you play in the Simulation mode, your scripts are executed by means of your browser only. The game API in the Simulation is the same as that on the server, but the server does not take part in game calculations.
 
-On the other hand, in the online mode calculations of your scripts do not affect your browser in any way and done on the servers only. In order to maintain them, we offer the subscription that allows you to use CPU time of the game servers.
+On the other hand, in the online mode calculations of your scripts do not affect your browser in any way and done on the servers only. In order to maintain them, we offer CPU time that allows you to use CPU resources of the game servers.
 
 As described in the article [Understanding game loop, time and ticks](/game-loop.html), the game process is divided into game iterations, or **ticks**. During each tick, the game engine calculates each player's scripts concurrently. Then all the planned activities are executed. The duration of one game tick is not fixed - a tick ends when all scripts of all players have been executed to the end.
 

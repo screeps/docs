@@ -38,11 +38,3 @@ This story results in the following balance shift between the players involved:
 ## NPC Terminals
 
 All the “highway crossroads” between sectors (i.e. in the rooms W0N0, W10N0, W10N10, etc.) contain neutral NPC Terminals. You can trade with these terminals the same way as with real players using the market interface or the object [`Game.market`](/api/#Game.market). The orders in NPC terminals have limited resources amounts and get replenished according to a set of rules. Although they don’t boast the most competitive prices, they allow you to convert your resource surplus into credits, and vice versa.
-
-## Subscription Tokens
-
-There are important objects to trade in Screeps: **Subscription Tokens**. Upon its activation, such a token allows its user to get 60 CPU subscription days in Screeps. A subscription token does not exist as an object in the game world, it belongs to an account and is subject to direct trade between players for credits through the same market orders system but without designating trading terminals.
-
-You can buy a subscription token the same way as a regular CPU subscription. It is placed into your account, and you can sell it as a virtual item to another player.
-
-Hence, those players who want to share their resources with others can play Screeps as a free-to-play game! Subscription tokens trading is also possible via the [Steam Community Market](http://steamcommunity.com/market/listings/464350/Subscription%20Token) allowing to trade purchased tokens for real currency using your Steam Wallet.
