@@ -123,7 +123,7 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 									
 ===
 name (optional) : string
-The name of a new creep. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
+The name of a new creep. The name length limit is 100 characters. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
 {% endapi_method_params %}
 
 
@@ -181,7 +181,7 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 				
 ===
 name (optional) : string
-The name of a new creep. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
+The name of a new creep. The name length limit is 100 characters. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
 ===
 memory (optional) : any
 The memory of a new creep. If provided, it will be immediately stored into <code>Memory.creeps[name]</code>.
@@ -245,7 +245,7 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 				
 ===
 name : string
-The name of a new creep. It must be a unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key).
+The name of a new creep. The name length limit is 100 characters. It must be a unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key).
 ===
 opts (optional) : object
 An object with additional options for the spawning process.
@@ -329,6 +329,7 @@ ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spaw
 
 
 Increase the remaining time to live of the target creep. The target should be at adjacent square. 
+The target should not have CLAIM body parts.
 The spawn should not be busy with the spawning process. Each execution increases the creep's timer 
 by amount of ticks according to this formula: 
 
@@ -358,7 +359,7 @@ OK | The operation has been scheduled successfully.
 ERR_NOT_OWNER | You are not the owner of the spawn, or the creep.
 ERR_BUSY | The spawn is spawning another creep.
 ERR_NOT_ENOUGH_ENERGY | The spawn does not have enough energy.
-ERR_INVALID_TARGET | The specified target object is not a creep.
+ERR_INVALID_TARGET | The specified target object is not a creep, or the creep has CLAIM body part.
 ERR_FULL | The target creep's time to live timer is full.
 ERR_NOT_IN_RANGE | The target creep is too far away.
 ERR_RCL_NOT_ENOUGH | Your Room Controller level is insufficient to use this spawn.

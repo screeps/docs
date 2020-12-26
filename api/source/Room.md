@@ -135,7 +135,7 @@ structureType : string
 One of the <code>STRUCTURE_*</code> constants.
 ===
 name (optional) : string
-The name of the structure, for structures that support it (currently only spawns).
+The name of the structure, for structures that support it (currently only spawns). The name length limit is 100 characters.
 {% endapi_method_params %}
 
 
@@ -172,7 +172,7 @@ pos : object
 Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containing <a href="#RoomPosition">RoomPosition</a>.
 ===
 name (optional) : string
-The name of a new flag. It should be unique, i.e. the <code>Game.flags</code> object should not contain another flag with the same name (hash key). If not defined, a random name will be generated. The maximum length is 60 characters.
+The name of a new flag. The name length limit is 100 characters. It should be unique, i.e. the <code>Game.flags</code> object should not contain another flag with the same name (hash key). If not defined, a random name will be generated. The maximum length is 60 characters.
 ===
 color (optional) : string
 The color of a new flag. Should be one of the <code>COLOR_*</code> constants. The default value is <code>COLOR_WHITE</code>.
@@ -187,7 +187,7 @@ The secondary color of a new flag. Should be one of the <code>COLOR_*</code> con
 The name of a new flag, or one of the following error codes:
 {% api_return_codes %}
 ERR_NAME_EXISTS | There is a flag with the same name already.
-ERR_INVALID_ARGS | The location or the color constant is incorrect.
+ERR_INVALID_ARGS | The location or the name or the color constant is incorrect.
 ERR_FULL | You have too many flags. The maximum number of flags per player is 10000.
 {% endapi_return_codes %}
 
