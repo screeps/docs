@@ -123,7 +123,7 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 									
 ===
 name (optional) : string
-The name of a new creep. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
+The name of a new creep. The name length limit is 100 characters. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
 {% endapi_method_params %}
 
 
@@ -181,7 +181,7 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 				
 ===
 name (optional) : string
-The name of a new creep. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
+The name of a new creep. The name length limit is 100 characters. It should be unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key). If not defined, a random name will be generated.
 ===
 memory (optional) : any
 The memory of a new creep. If provided, it will be immediately stored into <code>Memory.creeps[name]</code>.
@@ -245,7 +245,7 @@ An array describing the new creep’s body. Should contain 1 to 50 elements with
 				
 ===
 name : string
-The name of a new creep. It must be a unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key).
+The name of a new creep. The name length limit is 100 characters. It must be a unique creep name, i.e. the <code>Game.creeps</code> object should not contain another creep with the same name (hash key).
 ===
 opts (optional) : object
 An object with additional options for the spawning process.
