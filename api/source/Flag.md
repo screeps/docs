@@ -22,7 +22,7 @@ A shorthand to <code>Memory.flags[flag.name]</code>. You can use it for quick ac
 
  
 
-Flag’s name. You can choose the name while creating a new flag, and it cannot be changed later. This name is a hash key to access the flag via the <a href="#Game.flags">Game.flags</a> object. The maximum name length is 60 charactes.
+Flag’s name. You can choose the name while creating a new flag, and it cannot be changed later. This name is a hash key to access the flag via the <a href="#Game.flags">Game.flags</a> object. The maximum name length is 100 charactes.
 
 
 
