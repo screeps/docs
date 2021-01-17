@@ -214,7 +214,7 @@ creep.drop(RESOURCE_ENERGY);
 
 ```javascript
 // drop all resources
-for(const resourceType in creep.carry) {
+for(const resourceType in creep.store) {
 	creep.drop(resourceType);
 }
 ```
@@ -665,7 +665,7 @@ if(creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 
 ```javascript
 // transfer all resources
-for(const resourceType in creep.carry) {
+for(const resourceType in creep.store) {
 	creep.transfer(storage, resourceType);
 }
 ```
