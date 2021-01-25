@@ -10,7 +10,7 @@ public ramparts around it, and doesn't perform any actions. While in this stage 
 spawning creeps, becomes vulnerable, and receives `EFFECT_COLLAPSE_TIMER` which will remove the stronghold when this timer is over.  
 
 An active Invader Core spawns level-0 Invader Cores in neutral neighbor rooms inside the sector. These lesser Invader Cores are spawned
-near the room controller and don't perform any activity except reserving/attacking the controller. One Invader Core can spawn up to 10 lesser Cores
+near the room controller and don't perform any activity except reserving/attacking the controller. One Invader Core can spawn up to 42 lesser Cores
 during its lifetime. 
 
 <table class="table gameplay-info">
@@ -25,7 +25,7 @@ during its lifetime.
     </tr>
     <tr>
         <td><strong>Active time</strong></td>
-        <td>80,000 ticks with 10% random variation</td>
+        <td>75,000 ticks with 10% random variation</td>
     </tr>
     <tr>
         <td><strong>Lesser cores spawn interval</strong></td>
@@ -52,3 +52,7 @@ The level of the stronghold. The amount and quality of the loot depends on the l
 {% api_property ticksToDeploy 'number' %}
                                                                                                                 
 Shows the timer for a ot yet deployed stronghold, undefined otherwise. 
+
+{% api_property spawning '<a href="#StructureSpawn-Spawning">StructureSpawn.Spawning</a>' %}
+
+If the core is in process of spawning a new creep, this object will contain a [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) object, or null otherwise.
