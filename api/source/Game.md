@@ -122,34 +122,11 @@ not spawned in the world can be accessed here.
 
 
 
-{% api_property Game.resources 'object' %}
-
-
-
-An object with your global resources that are bound to the account, like pixels or cpu unlocks. Each object key is a resource constant, values are resources amounts.
-
-
-
 {% api_property Game.rooms 'object&lt;string, <a href="#Room">Room</a>&gt;' %}
 
 
 
 A hash containing all the rooms available to you with room names as hash keys. A room is visible if you have a creep or an owned structure in it.
-
-{% api_property Game.shard 'object' %}
-
-An object describing the world shard where your script is currently being executed in.
-
-{% api_method_params %}
-name : string
-The name of the shard.
-===
-type : string
-Currently always equals to `normal`.
-===
-ptr : boolean
-Whether this shard belongs to the [PTR](/ptr.html).
-{% endapi_method_params %}
 
 {% api_property Game.spawns 'object&lt;string, <a href="#StructureSpawn">StructureSpawn</a>&gt;' %}
 
@@ -251,68 +228,6 @@ Game.cpu.halt();
 *This method is only available when **Virtual machine** is set to **Isolated** in your [account runtime settings](https://screeps.com/a/#!/account/runtime).*
 
 Reset your runtime environment and wipe all data in heap memory.
-
-{% api_method Game.cpu.setShardLimits 'limits' 1 %}
-
-```javascript
-Game.cpu.setShardLimits({shard0: 20, shard1: 10});
-```
-
-Allocate CPU limits to different shards. Total amount of CPU should remain equal to 
- [`Game.cpu.shardLimits`](#Game.cpu). This method can be used only once per 12 hours.
-
-{% api_method_params %}
-limits : object&lt;string, number&gt;
-An object with CPU values for each shard in the same format as `Game.cpu.shardLimits`.
-{% endapi_method_params %}
-
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_BUSY | 12-hours cooldown period is not over yet.
-ERR_INVALID_ARGS | The argument is not a valid shard limits object.
-{% endapi_return_codes %}
-
-
-{% api_method Game.cpu.unlock '' 1 %}
-
-```javascript
-if(Game.cpu.unlockedTime && ((Game.cpu.unlockedTime - Date.now()) < 1000*60*60*24)) {
-    Game.cpu.unlock();
-}
-```
-
-Unlock full CPU for your account for additional 24 hours. This method will consume 1 CPU unlock bound to your account (See [`Game.resources`](#Game.resources)).
-If full CPU is not currently unlocked for your account, it may take some time (up to 5 minutes) before unlock is applied to your account.
-
-### Return value
-
-One of the following codes:
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_FULL | Your CPU is unlocked with a subscription.
-ERR_NOT_ENOUGH_RESOURCES | Your account does not have enough `cpuUnlock` resource.
-{% endapi_return_codes %}
-
-{% api_method Game.cpu.generatePixel '' 3 %}
-
-```javascript
-if(Game.cpu.bucket == 10000) {
-    Game.cpu.generatePixel();
-}
-```
-
-Generate 1 pixel resource unit for 10000 CPU from your bucket.
-
-
-{% api_return_codes %}
-OK | The operation has been scheduled successfully.
-ERR_NOT_ENOUGH_RESOURCES | Your bucket does not have enough CPU.
-{% endapi_return_codes %}
-
 
 {% api_method Game.getObjectById 'id' 1 %}
 
