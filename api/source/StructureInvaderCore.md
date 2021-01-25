@@ -52,3 +52,7 @@ The level of the stronghold. The amount and quality of the loot depends on the l
 {% api_property ticksToDeploy 'number' %}
                                                                                                                 
 Shows the timer for a ot yet deployed stronghold, undefined otherwise. 
+
+{% api_property spawning '<a href="#StructureSpawn-Spawning">StructureSpawn.Spawning</a>' %}
+
+If the core is in process of spawning a new creep, this object will contain a [`StructureSpawn.Spawning`](#StructureSpawn-Spawning) object, or null otherwise.
