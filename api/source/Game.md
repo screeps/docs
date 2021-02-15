@@ -157,6 +157,28 @@ console.log(Game.time);
 System game tick counter. It is automatically incremented on every tick. <a href="/game-loop.html">Learn more</a>
 
 
+{% api_property Game.score 'number' %}
+
+```javascript
+console.log(JSON.stringify(Game.symbols));
+/* {
+    symbol_beth: 150,
+    symbol_gimmel: 100,
+    symbol_daleth: 500,
+    symbol_he: 250
+} */
+console.log(Game.score); // 1850 = 1*500 + 2*250 + 3*150 + 4*100
+```
+
+Your score in the current season that defines your rank on the leaderboard. The score is calculated by the following rules.
+
+Counts of symbols enrolled into your account (see <a href="Game.symbols">Game.symbols</a>) are sorted in descending order, multiplied by their positions (1-based), and summed (see example).
+
+
+{% api_property Game.symbols 'object' %}
+
+An object with symbols enrolled into your account with <a href="#SymbolDecoder">SymbolDecoder</a> objects. Each object key is one of the <code>RESOURCE_*</code> constants from <code>SYMBOLS</code>, values are symbols counts.
+
 {% api_method Game.cpu.getHeapStatistics '' 1 %}
 
 ```javascript
