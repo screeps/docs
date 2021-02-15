@@ -172,7 +172,7 @@ console.log(Game.score); // 1850 = 1*500 + 2*250 + 3*150 + 4*100
 
 Your score in the current season that defines your rank on the leaderboard. The score is calculated by the following rules.
 
-Counts of symbols enrolled into your account (see <a href="Game.symbols">Game.symbols</a>) are sorted in descending order, multiplied by their positions (1-based), and summed (see example).
+Counts of symbols enrolled into your account (see <a href="#Game.symbols">Game.symbols</a>) are sorted in descending order, multiplied by their positions (1-based), and summed (see example).
 
 
 {% api_property Game.symbols 'object' %}
