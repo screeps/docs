@@ -6,15 +6,45 @@ All the following constant names are available in the global scope:
 
 ```javascript-content
 Object.assign(exports, {
-    RESOURCE_SCORE: 'score',
-    FIND_SCORE_CONTAINERS: 10011,
-    FIND_SCORE_COLLECTORS: 10012,
-    WALLS_RADIUS: 5,
-    SCORE_CONTAINER_SPAWN_CHANCE: 0.01,
-    SCORE_CONTAINER_SPAWN_INTERVAL: 500, // obsolete
-    SCORE_CONTAINER_SPAWN_INTERVAL_TICKS: 250,
-    SCORE_COLLECTOR_SINK: 20,
-    SCORE_COLLECTOR_MAX_CAPACITY: 20000
+    RESOURCE_SYMBOL_ALEPH: 'symbol_aleph',
+    RESOURCE_SYMBOL_BETH: 'symbol_beth',
+    RESOURCE_SYMBOL_GIMMEL: 'symbol_gimmel',
+    RESOURCE_SYMBOL_DALETH: 'symbol_daleth',
+    RESOURCE_SYMBOL_HE: 'symbol_he',
+    RESOURCE_SYMBOL_WAW: 'symbol_waw',
+    RESOURCE_SYMBOL_ZAYIN: 'symbol_zayin',
+    RESOURCE_SYMBOL_HETH: 'symbol_heth',
+    RESOURCE_SYMBOL_TETH: 'symbol_teth',
+    RESOURCE_SYMBOL_YODH: 'symbol_yodh',
+    RESOURCE_SYMBOL_KAPH: 'symbol_kaph',
+    RESOURCE_SYMBOL_LAMEDH: 'symbol_lamedh',
+    RESOURCE_SYMBOL_MEM: 'symbol_mem',
+    RESOURCE_SYMBOL_NUN: 'symbol_nun',
+    RESOURCE_SYMBOL_SAMEKH: 'symbol_samekh',
+    RESOURCE_SYMBOL_AYIN: 'symbol_ayin',
+    RESOURCE_SYMBOL_PE: 'symbol_pe',
+    RESOURCE_SYMBOL_TSADE: 'symbol_tsade',
+    RESOURCE_SYMBOL_QOPH: 'symbol_qoph',
+    RESOURCE_SYMBOL_RES: 'symbol_res',
+    RESOURCE_SYMBOL_SIN: 'symbol_sim',
+    RESOURCE_SYMBOL_TAW: 'symbol_taw',
+    
+    SYMBOLS: [
+         "symbol_aleph","symbol_beth","symbol_gimmel","symbol_daleth","symbol_he",
+         "symbol_waw","symbol_zayin","symbol_heth","symbol_teth","symbol_yodh",
+         "symbol_kaph","symbol_lamedh","symbol_mem","symbol_nun","symbol_samekh",
+         "symbol_ayin","symbol_pe","symbol_tsade","symbol_qoph","symbol_res",
+         "symbol_sim","symbol_taw"]
+    
+    FIND_SYMBOL_CONTAINERS: 10021,
+    LOOK_SYMBOL_CONTAINERS: 'symbolContainer'
+    SYMBOL_CONTAINER_SPAWN_CHANCE: 0.01,
+    SYMBOL_CONTAINER_SPAWN_INTERVAL_TICKS: 250, //ticks
+
+    FIND_SYMBOL_DECODERS: 10022,
+    LOOK_SYMBOL_DECODERS: 'symbolDecoder',
+    
+    CONTROLLER_LEVEL_SCORE_MULTIPLIERS: [0, 1, 1, 1, 3, 9, 81, 243]
 };
 ```
 ## Common constants
