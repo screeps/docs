@@ -44,7 +44,7 @@ Object.assign(exports, {
     FIND_SYMBOL_DECODERS: 10022,
     LOOK_SYMBOL_DECODERS: 'symbolDecoder',
     
-    CONTROLLER_LEVEL_SCORE_MULTIPLIERS: [0, 1, 1, 1, 3, 9, 81, 243]
+    CONTROLLER_LEVEL_SCORE_MULTIPLIERS: [0, 1, 1, 1, 3, 9, 27, 81, 243]
 };
 ```
 ## Common constants
