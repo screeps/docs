@@ -3,7 +3,7 @@ title: Organizing scripts using modules
 
 For your convenience, you may divide your scripts into modules with the help of Node.js-like syntax – the `require` function and the `module.exports` object. For example, you can create a module called 'scout' with the following content:
 
-    module.exports = {
+    module.exports.scout = {
         run(creep) {
             creep.moveTo(...);
         }
