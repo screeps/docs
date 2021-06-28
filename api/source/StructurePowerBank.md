@@ -3,18 +3,13 @@
 <img src="img/powerBank.png" alt="" align="right" />
 
 Non-player structure. Contains power resource which can be obtained by destroying the structure.
-Hits the attacker creep back on each attack. Learn more about power
-from [this article](/power.html).
+Learn more about power from [this article](/power.html).
 
 <table class="table gameplay-info">
     <tbody>
     <tr>
         <td><strong>Hits</strong></td>
         <td>2,000,000</td>
-    </tr>
-    <tr>
-        <td><strong>Return damage</strong></td>
-        <td>50%</td>
     </tr>
     <tr>
         <td><strong>Capacity</strong></td>

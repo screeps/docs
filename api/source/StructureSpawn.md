@@ -10,21 +10,6 @@ recover even if all your creeps died.
 <table class="table gameplay-info">
     <tbody>
     <tr>
-        <td colspan="2"><strong>Controller level</strong></td>
-    </tr>
-    <tr>
-        <td>1-6</td>
-        <td>1 spawn</td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>2 spawns</td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>3 spawns</td>
-    </tr>
-    <tr>
         <td><strong>Cost</strong></td>
         <td>15,000</td>
     </tr>

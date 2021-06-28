@@ -59,22 +59,22 @@ A newly-seized Controller allows you to build one spawn in the room. In order fo
 <tr>
 <td>5</td>
 <td>1,215,000</td>
-<td>Roads, 5 Containers, 1 Spawn, 30 Extensions (50 capacity), Ramparts (10M max hits), Walls, 2 Towers, Storage, 2 Links</td>
+<td>Roads, 5 Containers, 1 Spawn, 30 Extensions (50 capacity), Ramparts (10M max hits), Walls, 2 Towers, Storage, 2 Links, Power Spawn</td>
 </tr>
 <tr>
 <td>6</td>
 <td>3,645,000</td>
-<td>Roads, 5 Containers, 1 Spawn, 40 Extensions (50 capacity), Ramparts (30M max hits), Walls, 2 Towers, Storage, 3 Links, Extractor, 3 Labs, Terminal</td>
+<td>Roads, 5 Containers, 1 Spawn, 40 Extensions (50 capacity), Ramparts (30M max hits), Walls, 2 Towers, Storage, 3 Links, Power Spawn, Extractor, 3 Labs, Terminal</td>
 </tr>
 <tr>
 <td>7</td>
 <td>10,935,000</td>
-<td>Roads, 5 Containers, 2 Spawns, 50 Extensions (100 capacity), Ramparts (100M max hits), Walls, 3 Towers, Storage, 4 Links, Extractor, 6 Labs, Terminal, Factory</td>
+<td>Roads, 5 Containers, 1 Spawn, 50 Extensions (100 capacity), Ramparts (100M max hits), Walls, 3 Towers, Storage, 4 Links, Power Spawn, Extractor, 6 Labs, Terminal, Factory</td>
 </tr>
 <tr>
 <td>8</td>
 <td>—</td>
-<td>Roads, 5 Containers, 3 Spawns, 60 Extensions (200 capacity), Ramparts (300M max hits), Walls, 6 Towers, Storage, 6 Links, Extractor, 10 Labs, Terminal, Factory, Observer, Power Spawn, Nuker</td>
+<td>Roads, 5 Containers, 1 Spawn, 60 Extensions (200 capacity), Ramparts (300M max hits), Walls, 6 Towers, Storage, 6 Links, Power Spawn, Extractor, 10 Labs, Terminal, Factory, Observer, Nuker</td>
 </tr>
 </tbody>
 </table>
