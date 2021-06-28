@@ -6,7 +6,15 @@ All the following constant names are available in the global scope:
 
 ```javascript-content
 Object.assign(exports, {
-    
+    POWER_BANK_HIT_BACK: 0,
+    POWER_SPAWN_ENERGY_RATIO: 10,
+    CONTROLLER_STRUCTURES: {
+        spawn:  {0: 0, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1},
+        powerSpawn: {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 1, 6: 1, 7: 1, 8: 1}
+    },
+    CONSTRUCTION_COST: {
+        powerSpawn: 10000
+    }
 };
 ```
 ## Common constants
