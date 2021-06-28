@@ -11,16 +11,16 @@ Learn more about power from [this article](/power.html).
         <td colspan="2"><strong>Controller level</strong></td>
     </tr>
     <tr>
-        <td>1-7</td>
+        <td>1-4</td>
         <td>—</td>
     </tr>
     <tr>
-        <td>8</td>
+        <td>5-8</td>
         <td>1 power spawn</td>
     </tr>
     <tr>
         <td><strong>Cost</strong></td>
-        <td>100,000</td>
+        <td>10,000</td>
     </tr>
     <tr>
         <td><strong>Hits</strong></td>
@@ -32,7 +32,7 @@ Learn more about power from [this article](/power.html).
     </tr>
     <tr>
         <td><strong>Processing cost</strong></td>
-        <td>50 energy units per 1 power unit</td>
+        <td>10 energy units per 1 power unit</td>
     </tr>
     <tr>
         <td><strong>Processing speed</strong></td>
