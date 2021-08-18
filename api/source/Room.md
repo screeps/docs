@@ -251,6 +251,9 @@ constant|type|description
 `FIND_CREEPS` | Creep | All creeps.
 `FIND_MY_CREEPS` | Creep | Only creeps owned by you.
 `FIND_HOSTILE_CREEPS` | Creep | Only creeps not owned by you.
+`FIND_POWER_CREEPS` | PowerCreep | All power creeps.
+`FIND_MY_POWER_CREEPS` | PowerCreep | Only power creeps owned by you.
+`FIND_HOSTILE_POWER_CREEPS` | PowerCreep | Only power creeps not owned by you.
 `FIND_SOURCES_ACTIVE` | Source | Only sources that have energy.
 `FIND_SOURCES` | Source | All sources.
 `FIND_DROPPED_RESOURCES` | Resource | All dropped resources.
