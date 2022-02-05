@@ -1,7 +1,7 @@
 title: Privacy Policy
 ---
 
-IP Chivchalov (hereinafter referred to as "We") through its online game Screeps collects personal and non-personal information about you that you provide in your account in order to provide and improve its services, but never hands this information to any third parties. We maintain all reasonable safeguards to protect the security, integrity and privacy of the personal information we collect.
+Screeps, LLC (hereinafter referred to as "We") through its online game Screeps collects personal and non-personal information about you that you provide in your account in order to provide and improve its services, but never hands this information to any third parties. We maintain all reasonable safeguards to protect the security, integrity and privacy of the personal information we collect.
 
 While the security of your information is very important to us, and we take all reasonable precautions against possible breaches of our websites, no website or Internet transmission is completely secure. So, we cannot guarantee that unauthorized access, hacking, data loss, or other breaches will never occur. We urge you to take steps to keep your personal information safe by memorizing your password or keeping it in a safe place.
 

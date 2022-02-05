@@ -41,6 +41,6 @@ The Screeps may modify these Terms of Service upon notification on this Website.
 
 **COPYRIGHT AND GOVERNING LAW**
 
-The Game is protected by the copyright laws of the Russian Federation, international treaties and conventions, and other laws. All copyrights, trademark rights, and all other intellectual rights related to the Game belong to IP Chivchalov. You acknowledge and agree that you have no interest, monetary or otherwise, in any feature or content contained in the Game.
+The Game is protected by the copyright laws of the Russian Federation, international treaties and conventions, and other laws. All copyrights, trademark rights, and all other intellectual rights related to the Game belong to Screeps, LLC. You acknowledge and agree that you have no interest, monetary or otherwise, in any feature or content contained in the Game.
 
 All disputes that cannot be settled according these Terms of Service shall be governed by the laws of the Russian Federation.
