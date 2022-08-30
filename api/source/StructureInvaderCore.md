@@ -51,7 +51,7 @@ The level of the stronghold. The amount and quality of the loot depends on the l
 
 {% api_property ticksToDeploy 'number' %}
                                                                                                                 
-Shows the timer for a ot yet deployed stronghold, undefined otherwise. 
+Shows the timer for a not yet deployed stronghold, undefined otherwise. 
 
 {% api_property spawning '<a href="#StructureSpawn-Spawning">StructureSpawn.Spawning</a>' %}
 
