@@ -37,4 +37,4 @@ When a Novice or Respawn Area is being planned in an inner sector, all free room
 
 ![chrome_2017-03-08_13-01-20.png](img/chrome_2017-03-08_13-01-20.png)
 
-You can use game constants `SYSTEM_USERNAME`, `SIGN_NOVICE_AREA`, and `SIGN_RESPAWN_AREA` to programmatically check the signs in the rooms that are important to you and reserve them if such a message detected.
+You can use game constants `SYSTEM_USERNAME` and `SIGN_PLANNED_AREA` to programmatically check the signs in the rooms that are important to you and reserve them if such a message detected.
