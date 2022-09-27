@@ -35,6 +35,10 @@ You can set up an external transpiler to write your Screeps AI in another langua
 * [screeps-kotlin-starter](https://github.com/exaV/screeps-kotlin-starter) is a starting point for players who want to program in Kotlin.
 * [screeps-kotlin-types](https://github.com/exaV/screeps-kotlin-types) is a set of Kotlin declarations to cover the Screeps API.
 
+### Haskell
+
+*   [screeps-haskell-starter](https://github.com/retho/screeps-haskell-starter) is a alpha-status platform you can use to play Screeps in Haskell.
+
 ## API Clients
 
 The Screeps API is not official and may change at any time. These clients are maintained by the community and are used to generate many of the services and programs on this page.
