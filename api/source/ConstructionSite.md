@@ -11,11 +11,11 @@ Following restrictions apply when trying to place new construction sites:
 - Nothing can be built on border tiles.
 - If an exit is near, only roads and containers can be constructed.
 - Only roads can be built on terrain walls.
-- Generally, you can only build one structure per tile.\
-  *Exception*: Roads and ramparts can be stacked on top of everything.
-- You can't build in a room with a hostile controller - a reservation also counts.
-- The room controller level (RCL) must be enough to build the structure - see `CONTROLLER_STRUCTURES`.\
-  *Note*: If building in a neutral room, the RCL for that room is `0` - allowing only roads and containers to be built.
+- Generally, you can only build one structure per tile.  
+  _Exception_: Roads and ramparts can be stacked on top of everything.
+- You can't build in a room with a hostile controller — a reserved controller also counts.
+- The room controller level (RCL) must be enough to build the structure (see `CONTROLLER_STRUCTURES`).  
+  _Note_: If building in a neutral room, the RCL for that room is `0`, allowing only roads and containers to be built.
 - There is an upper limit `MAX_CONSTRUCTION_SITES` for the number of construction sites per player at any given moment.
 
 {% page inherited/RoomObject.md %} 
