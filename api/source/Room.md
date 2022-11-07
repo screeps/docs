@@ -522,7 +522,10 @@ The `data` property is different for each event type according to the following 
             <ul>
                 <li>`targetId` - the target object ID</li>
                 <li>`amount` - the amount of build progress gained</li>
-                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+                <li>`structureType` - one of the `STRUCTURE_*` constants</li>
+                <li>`x, y` - the coordinates of the target object/li>
+                <li>`y` - one of the `STRUCTURE_*` constants.</li>
+                <li>`incomplete` - true if the building is not finished, false if due to this creep's action the building has been finished</li></ul>
         </td>
     </tr>
     <tr>
