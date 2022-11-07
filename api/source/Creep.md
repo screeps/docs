@@ -779,7 +779,7 @@ else {
 }
 ```
 
-Toggle auto notification when the creep is under attack. The notification will be sent to your account email. Turned on by default.
+Toggle auto notification when the creep is under attack. The notification will be sent to your account email. Turned on by default. The constant CPU cost only applies to this function when changing the notification state even when the function returns `OK`.
 
 {% api_method_params %}
 enabled : boolean
