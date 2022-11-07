@@ -117,11 +117,6 @@ if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
 
 A [`Store`](#Store) object that contains cargo of this creep.
 
-{% api_method_params %}
-username : string
-The name of the owner user.
-{% endapi_method_params %}
-
 {% api_property powers object %}
 Available powers, an object with power ID as a key, and the following properties:
 
