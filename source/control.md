@@ -91,6 +91,6 @@ You can attack another player's controller downgrade timer by applying [`attackC
 
 Upgrading GCL requires pumping energy into your Controllers – GCL grows in parallel with the level of your Controllers. Any contribution to any of your Controllers affects your GCL, even if the Controller is fully upgraded to the level 8.
 
-Having upgraded your GCL once, you will never lose it. Even after complete fail in the game and loss of all your rooms, your GCL is stored in your account forever. It allows you to respawn at a new place and quickly regain your former glory.
+Having upgraded your GCL once, you will never lose it. Even after complete failure in the game and loss of all your rooms, your GCL is stored in your account forever. It allows you to respawn at a new place and quickly regain your former glory.
 
-If some day in the future you plan to claim a room that requires a higher GCL than you have, you can still [reserve](/api/#Creep.reserveController) its Controller. Also, reserving a Controller in a neutral room restores energy sources to their full capacity.
+If some day in the future you plans to claim a room that requires a higher GCL than you have, you can still [reserve](/api/#Creep.reserveController) its Controller. Also, reserving a Controller in a neutral room restores energy sources to their full capacity.
