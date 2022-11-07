@@ -193,7 +193,7 @@ After=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/home/screeps/world
-ExecStart=/home/screeps/world/node_modules/screeps/bin/screeps.js start
+ExecStart=/bin/usr/npx screeps start
 User=screeps
 Group=screeps
 
