@@ -102,16 +102,30 @@ To get started install the [grunt-contrib-copy](https://www.npmjs.com/package/gr
 
     npm install grunt-contrib-clean --save-dev
     npm install grunt-contrib-copy --save-dev
+    npm install grunt-text-replace --save-dev
 
-In this case the "copy" plugin is going to be used to move code from the `src` directory to `dist`. The plugin as an option to rename files, so a function to convert directory delimiters (slashes) to underscores is used to flatten the file structure. Once run the results will look like this-
+In this case the "copy" plugin is going to be used to move code from the `src` directory to `dist`, thie "replace" plugin is go to be used to replace '/' to '_' which in the require string. The plugin as an option to rename files and modify require string, so a function to convert directory delimiters (slashes) to underscores is used to flatten the file structure. Once run the results will look like this-
 
-| Before                     | After                       | Require                         |
-|----------------------------|:----------------------------|---------------------------------|
-| src/main.js                | dist/main.js                | require('main');                |
-| src/lib/creeptalk.js       | dist/lib_creeptalk.js       | require('lib_creeptalk');       |
-| src/lib/creeptalk/emoji.js | dist/lib_creeptalk_emoji.js | require('lib_creeptalk_emoji'); |
-| src/prototypes/creeps.js   | dist/prototypes_creeps.js   | require('prototypes_creeps');   |
-| src/prototypes/spawns.js   | dist/prototypes_spawns.js   | require('prototypes_spawns');   |
+* File
+
+| Before                     | After                       |
+|----------------------------|:----------------------------|
+| src/main.js                | dist/main.js                |
+| src/lib/creeptalk.js       | dist/lib_creeptalk.js       |
+| src/lib/creeptalk/emoji.js | dist/lib_creeptalk_emoji.js |
+| src/prototypes/creeps.js   | dist/prototypes_creeps.js   |
+| src/prototypes/spawns.js   | dist/prototypes_spawns.js   |
+
+* Require
+
+| Before                          | After                           |
+|---------------------------------|:--------------------------------|
+| require(main.js)                | require('main');                |
+| require(lib/creeptalk)          | require('lib_creeptalk');       |
+| require(lib/creeptalk/emoji)    | require('lib_creeptalk_emoji'); |
+| require(prototypes/creeps)      | require('prototypes_creeps');   |
+| require(prototypes/spawns)      | require('prototypes_spawns');   |
+
 
 The copy plugin does not clear any data before it is run, so the `clean` plugin is used to make sure the `dist` folder is empty before files are moved into it.
 
@@ -164,12 +178,25 @@ Finally we use `grunt.registerTask()` to combine these three seperate tasks into
                 }],
               }
             },
+            replace:{
+              requireReplace:{
+                src: ['dist/*.js'],
+                overwrite: true,
+                replacements:[{
+                  from: /require.*/g,
+                  to: function (requireString) {
+                    requireString = requireString.replace(/\//g,'_')
+                    return requireString;
+                  }
+                }]
+              }
+            }
         })
 
-        grunt.registerTask('default',  ['clean', 'copy:screeps', 'screeps']);
+        grunt.registerTask('default',  ['clean', 'copy:screeps', 'replace', 'screeps']);
     }
 
-Now with a single command your code will be copied from its `src` directory, flattened, and then pushed to the screeps server.
+Now with a single command your code will be copied from its `src` directory, flattened,replace require string , and then pushed to the screeps server.
 
     grunt
 
