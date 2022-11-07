@@ -41,18 +41,8 @@ sudo apt install -y nodejs
 
 ### Install Mongo
 
-The version of MongoDB in the Ubuntu repositories is remarkably old. MongoDB maintains an apt repository with updated versions, so the first step will be configuring that.
-
 ```shell
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
-sudo apt update
-```
-
-Now we can install MongoDB.
-
-```shell
-sudo apt-get install -y mongodb-org
+sudo apt-get install -y mongodb
 ```
 
 By default MongoDB is not running or set to start on boot, so lets go ahead fix that.
@@ -78,6 +68,11 @@ sudo apt install redis-server
 
 That's it! The redis server is remarkably simple and the apt package takes care of making sure it stays running.
 
+### Install dos2unix
+
+This handy little tool is needed a little further down the installation. Let's make sure we have it. 
+```sudo apt install dos2unix
+```
 
 ## Screeps Server
 
@@ -121,7 +116,12 @@ There are a few mods we'll be installing to enable the new backend and make the 
 * [screepsmod-admin-utils](https://github.com/ScreepsMods/screepsmod-admin-utils) adds some useful functions to the screeps cli.
 * [screepsmod-features](https://github.com/ScreepsMods/screepsmod-features) exposes a list of features supported by the server.
 
-We can install all of these at once with a simple command (still running as the user `screeps`).
+We can install all of these at once with a simple command (still running as the user `screeps`). However, there are some Windows <=> Unix issues with the files in the ~\world directory. Make sure all files are Unix formatted. 
+
+```find . -type f -print0 | xargs -0 dos2unix
+```
+
+With that out of the way, install the remainder of the mods. 
 
 ```shell
 npm install screepsmod-mongo screepsmod-auth screepsmod-tickrate screepsmod-admin-utils screepsmod-features
@@ -135,8 +135,7 @@ Then just confirm that the `mods.json` file looks like this-
     "node_modules/screepsmod-mongo/index.js",
     "node_modules/screepsmod-auth/index.js",
     "node_modules/screepsmod-tickrate/index.js",
-    "node_modules/screepsmod-admin-utils/index.js",
-    "node_modules/screepsmod-features/index.js"
+    "node_modules/screepsmod-admin-utils/index.js"
   ],
   "bots": {
     "simplebot": "node_modules/@screeps/simplebot/src"
@@ -193,7 +192,7 @@ After=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/home/screeps/world
-ExecStart=/home/screeps/world/node_modules/screeps/bin/screeps.js start
+ExecStart=/usr/bin/npx screeps start
 User=screeps
 Group=screeps
 
