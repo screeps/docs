@@ -90,6 +90,7 @@ Prototypes:
   - OwnedStructure.md
   - PathFinder.CostMatrix.md
   - PowerCreep.md
+  - Reactor.md
   - Resource.md
   - Room.md
   - Room.Terrain.md
