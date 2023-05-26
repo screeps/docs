@@ -366,6 +366,34 @@ ERR_NO_BODYPART | There are no <code>CLAIM</code> body parts in this creep’s b
 ERR_GCL_NOT_ENOUGH | Your Global Control Level is not enough.
 {% endapi_return_codes %}
 
+{% api_method claimReactor 'target' A %}
+
+```javascript
+const reactors = creep.room.find(FIND_REACTORS);
+if(creep.claimReactor(reactors[0]) == ERR_NOT_IN_RANGE) {
+    creep.moveTo(reactors[0]);
+}
+
+```
+
+Claims a reactor under your control. Requires the <code>CLAIM</code> body part. The target has to be at adjacent square to the creep.
+
+{% api_method_params %}
+target : <a href="#Reactor">Reactor</a>
+The target reactor object.
+{% endapi_method_params %}
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+OK | The operation has been scheduled successfully.
+ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_BUSY | The creep is still being spawned.
+ERR_INVALID_TARGET | The target is not a valid reactor object.
+ERR_NOT_IN_RANGE | The target is too far away.
+ERR_NO_BODYPART | There are no <code>CLAIM</code> body parts in this creep’s body.
+{% endapi_return_codes %}
 
 
 {% api_method dismantle 'target' A %}
