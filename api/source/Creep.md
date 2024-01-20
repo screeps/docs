@@ -440,7 +440,7 @@ ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources
 
 
 
-{% api_method generateSafeMode 'controller' A %}
+{% api_method generateSafeMode 'target' A %}
 
 ```javascript
 if(creep.generateSafeMode(creep.room.controller) == ERR_NOT_IN_RANGE) {
@@ -452,7 +452,7 @@ if(creep.generateSafeMode(creep.room.controller) == ERR_NOT_IN_RANGE) {
 Add one more available safe mode activation to a room controller. The creep has to be at adjacent square to the target room controller and have 1000 ghodium resource.
 
 {% api_method_params %}
-controller : <a href="#StructureController">StructureController</a>
+target : <a href="#StructureController">StructureController</a>
 The target room controller.
 {% endapi_method_params %}
 
