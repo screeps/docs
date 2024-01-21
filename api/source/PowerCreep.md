@@ -58,12 +58,12 @@ ERR_NAME_EXISTS | A power creep with the specified name already exists.
 
 {% api_property carry object '{"deprecated": true}' %}
 
-An alias for [`Creep.store`](#Creep.store). 
+An alias for [`PowerCreep.store`](#PowerCreep.store). 
 
 
 {% api_property carryCapacity number '{"deprecated": true}' %}
 
-An alias for [`Creep.store.getCapacity()`](#Store.getCapacity).
+An alias for [`PowerCreep.store.getCapacity()`](#Store.getCapacity).
 
 {% api_property className string %}
 The power creep's class, one of the `POWER_CLASS` constants.
