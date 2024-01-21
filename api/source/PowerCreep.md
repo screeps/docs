@@ -748,7 +748,7 @@ If the target has the same effect of a lower or equal level, it is overridden. I
 power : number
 The power ability to use, one of the `PWR_*` constants.
 ===
-target : <a href="#RoomObject">RoomObject</a>
+target (optional) : <a href="#RoomObject">RoomObject</a>
 A target object in the room. 
 {% endapi_method_params %}
 
