@@ -463,7 +463,7 @@ _.forEach(Game.rooms, room => {
 Returns an array of events happened on the previous tick in this room.  
 
 {% api_method_params %}
-raw : boolean
+raw (optional) : boolean
 If this parameter is false or undefined, the method returns an object parsed using `JSON.parse` which incurs some CPU cost on the first access (the return value is cached on subsequent calls). If `raw` is truthy, then raw JSON in string format is returned.
 {% endapi_method_params %}
 
