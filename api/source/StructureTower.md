@@ -95,7 +95,7 @@ Remotely attack any creep, power creep or structure in the room.
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
-The target creep.
+The target object.
 {% endapi_method_params %}
 
 
@@ -120,7 +120,7 @@ Remotely heal any creep or power creep in the room.
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>
-The target creep.
+The target object.
 {% endapi_method_params %}
 
 
