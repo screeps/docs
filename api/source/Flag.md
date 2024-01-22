@@ -57,10 +57,10 @@ Game.flags.Flag1.setColor(COLOR_GREEN, COLOR_WHITE);
 Set new color of the flag.
 
 {% api_method_params %}
-color : string
+color : number
 Primary color of the flag. One of the <code>COLOR_*</code> constants.
 ===
-secondaryColor (optional) : string
+secondaryColor (optional) : number
 Secondary color of the flag. One of the <code>COLOR_*</code> constants.
 {% endapi_method_params %}
 
