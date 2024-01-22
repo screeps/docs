@@ -174,7 +174,7 @@ Can be a <a href="#RoomPosition">RoomPosition</a> object or any object containin
 name (optional) : string
 The name of a new flag. It should be unique, i.e. the <code>Game.flags</code> object should not contain another flag with the same name (hash key). If not defined, a random name will be generated. The maximum length is 100 characters.
 ===
-color (optional) : string
+color (optional) : number
 The color of a new flag. Should be one of the <code>COLOR_*</code> constants. The default value is <code>COLOR_WHITE</code>.
 ===
 secondaryColor (optional) : string
