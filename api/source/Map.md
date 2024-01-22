@@ -58,7 +58,7 @@ toRoom : string, <a href="#Room">Room</a>
 Finish room name or room object.
 ===
 opts (optional) : object
-An object with the pathfinding options. See <code><a href="#findRoute">findRoute</a></code>.
+An object with the pathfinding options. See <code><a href="#Game.map.findRoute">findRoute</a></code>.
 {% endapi_method_params %}
 
 
