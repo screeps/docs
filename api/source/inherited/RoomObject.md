@@ -1,4 +1,4 @@
-{% api_property effects array %}
+{% api_property RoomObject:effects array %}
 Applied effects, an array of objects with the following properties:
 
 {% api_method_params %}

@@ -58,12 +58,12 @@ ERR_NAME_EXISTS | A power creep with the specified name already exists.
 
 {% api_property carry object '{"deprecated": true}' %}
 
-An alias for [`Creep.store`](#Creep.store). 
+An alias for [`PowerCreep.store`](#PowerCreep.store). 
 
 
 {% api_property carryCapacity number '{"deprecated": true}' %}
 
-An alias for [`Creep.store.getCapacity()`](#Store.getCapacity).
+An alias for [`PowerCreep.store.getCapacity()`](#Store.getCapacity).
 
 {% api_property className string %}
 The power creep's class, one of the `POWER_CLASS` constants.
@@ -116,11 +116,6 @@ if(creep.store[RESOURCE_ENERGY] < creep.store.getCapacity()) {
 ```
 
 A [`Store`](#Store) object that contains cargo of this creep.
-
-{% api_method_params %}
-username : string
-The name of the owner user.
-{% endapi_method_params %}
 
 {% api_property powers object %}
 Available powers, an object with power ID as a key, and the following properties:
@@ -673,7 +668,7 @@ for(const resourceType in creep.carry) {
 Transfer resource from the creep to another object. The target has to be at adjacent square to the creep.
 
 {% api_method_params %}
-target : <a href="#Creep">Creep</a>, <a href="#Structure">Structure</a>
+target : <a href="#Creep">Creep</a>, <a href="#PowerCreep">PowerCreep</a>, <a href="#Structure">Structure</a>
 The target object.
 ===
 resourceType : string
@@ -748,7 +743,7 @@ If the target has the same effect of a lower or equal level, it is overridden. I
 power : number
 The power ability to use, one of the `PWR_*` constants.
 ===
-target : <a href="#RoomObject">RoomObject</a>
+target (optional) : <a href="#RoomObject">RoomObject</a>
 A target object in the room. 
 {% endapi_method_params %}
 
@@ -781,7 +776,7 @@ Withdraw resources from a structure or tombstone. The target has to be at adjace
 This method should not be used to transfer resources between creeps. To transfer between creeps, use the [`transfer`](#Creep.transfer) method on the original creep.
 
 {% api_method_params %}
-target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>
+target : <a href="#Structure">Structure</a>, <a href="#Tombstone">Tombstone</a>, <a href="#Ruin">Ruin</a>
 The target object.
 ===
 resourceType : string

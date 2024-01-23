@@ -440,7 +440,7 @@ ERR_NOT_ENOUGH_RESOURCES | The creep does not have the given amount of resources
 
 
 
-{% api_method generateSafeMode 'controller' A %}
+{% api_method generateSafeMode 'target' A %}
 
 ```javascript
 if(creep.generateSafeMode(creep.room.controller) == ERR_NOT_IN_RANGE) {
