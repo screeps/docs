@@ -34,13 +34,3 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ steps.tag-generator.outputs.IMAGE_TAG }}
-      - name: Create tag
-        uses: actions/github-script@v5
-        with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/build-${{ steps.tag-generator.outputs.IMAGE_TAG }}',
-              sha: context.sha
-            })
