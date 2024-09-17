@@ -25,7 +25,7 @@ As the system tends to be very CPU intensive it is recommended that you avoid "b
 The following steps will need some common build and development tools, which we'll install here.
 
 ```shell
-sudo apt install -y build-essential tcl git
+sudo apt install -y build-essential tcl git curl
 ```
 
 
@@ -193,13 +193,19 @@ After=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/home/screeps/world
-ExecStart=/home/screeps/world/node_modules/screeps/bin/screeps.js start
+ExecStart=/usr/bin/npx screeps start
 User=screeps
 Group=screeps
 
 [Install]
 WantedBy=multi-user.target
 ```
+
+Check and correct the npx path in line `ExecStart=/usr/bin/npx screeps start` with the value returned by the command- 
+
+```shell
+which npx
+``` 
 
 This tells the system that the Screeps server will require networking, should run as the `screeps` user and group, what directory to start it in, and the startup command itself.
 
