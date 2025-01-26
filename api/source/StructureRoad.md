@@ -4,6 +4,8 @@
 
 Decreases movement cost to 1. Using roads allows creating creeps with less `MOVE` body parts. You can also build roads on top of natural terrain walls which are otherwise impassable.
 
+This structure is unowned, so it won't be returned in a `room.find(FIND_MY_STRUCTURES)` call.
+
 <table class="table gameplay-info">
     <tbody>
     <tr>
