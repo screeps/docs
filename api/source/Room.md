@@ -561,7 +561,6 @@ The `data` property is different for each event type according to the following 
                 <li>`targetId` - the target object ID</li>
                 <li>`amount` - the amount of hits repaired</li> 
                 <li>`energySpent` - the energy amount spent on the operation</li></ul>
-            </ul>
         </td>
     </tr>        
     <tr>
@@ -579,7 +578,6 @@ The `data` property is different for each event type according to the following 
             <ul>
                 <li>`amount` - the amount of control points gained</li> 
                 <li>`energySpent` - the energy amount spent on the operation</li></ul>
-            </ul>
         </td>
     </tr>    
     <tr>
@@ -589,7 +587,6 @@ The `data` property is different for each event type according to the following 
             <ul>
                 <li>`room` - the name of the target room</li> 
                 <li>`x`, `y` - the coordinates in another room where the creep has appeared</li></ul>
-            </ul>
         </td>
     </tr>           
     <tr>
