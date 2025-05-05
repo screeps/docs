@@ -603,6 +603,16 @@ The `data` property is different for each event type according to the following 
             </ul>
         </td>
     </tr>
+    <tr>
+        <td>`EVENT_POWER`</td>
+        <td>
+            Apply one the creep's powers on the specified target.
+            <ul>
+                <li>`targetId` - the target object ID</li>
+                <li>`power` - the power ability to use, one of the PWR_* constants</li>
+            </ul>
+        </td>
+    </tr>
 </table>
 
 {% api_method getPositionAt 'x, y' 1 %}
