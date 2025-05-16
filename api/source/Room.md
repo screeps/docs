@@ -501,7 +501,8 @@ The `data` property is different for each event type according to the following 
                         <li>`EVENT_ATTACK_TYPE_HIT_BACK` - a creep hit back on another creep's [attack](#Creep.attack)</li>
                         <li>`EVENT_ATTACK_TYPE_NUKE` - a nuke landed</li>
                     </ul>
-                </li></ul>
+                </li>
+            </ul>
         </td>
     </tr>
     <tr>
@@ -526,7 +527,7 @@ The `data` property is different for each event type according to the following 
                 <li>`x` - the X position</li>
                 <li>`y` - the Y position</li>
                 <li>`incomplete` - status of build progress</li>
-	    </ul>
+	        </ul>
         </td>
     </tr>
     <tr>
@@ -535,7 +536,8 @@ The `data` property is different for each event type according to the following 
             A creep performed [`harvest`](#Creep.harvest) in the room.
             <ul>
                 <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of resource harvested</li></ul>
+                <li>`amount` - the amount of resource harvested</li>
+            </ul>
         </td>
     </tr>
     <tr>
@@ -550,7 +552,8 @@ The `data` property is different for each event type according to the following 
                         <li>`EVENT_HEAL_TYPE_MELEE` - a creep healed with [heal](#Creep.heal)</li>
                         <li>`EVENT_HEAL_TYPE_RANGED` - a creep healed with [rangedHeal](#Creep.rangedHeal), or a tower healed with [heal](#StructureTower.heal)</li>
                     </ul>
-                </li></ul>
+                </li>
+            </ul>
         </td>
     </tr>
     <tr>
@@ -560,7 +563,8 @@ The `data` property is different for each event type according to the following 
             <ul>
                 <li>`targetId` - the target object ID</li>
                 <li>`amount` - the amount of hits repaired</li> 
-                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+                <li>`energySpent` - the energy amount spent on the operation</li>
+            </ul>
         </td>
     </tr>        
     <tr>
@@ -568,7 +572,8 @@ The `data` property is different for each event type according to the following 
         <td>
             A creep performed [`reserveController`](#Creep.reserveController) in the room.
             <ul>
-                <li>`amount` - the amount of reservation time gained</li></ul>
+                <li>`amount` - the amount of reservation time gained</li>
+            </ul>
         </td>
     </tr> 
     <tr>
@@ -577,7 +582,8 @@ The `data` property is different for each event type according to the following 
             A creep performed [`upgradeController`](#Creep.upgradeController) in the room.
             <ul>
                 <li>`amount` - the amount of control points gained</li> 
-                <li>`energySpent` - the energy amount spent on the operation</li></ul>
+                <li>`energySpent` - the energy amount spent on the operation</li>
+            </ul>
         </td>
     </tr>    
     <tr>
@@ -586,7 +592,8 @@ The `data` property is different for each event type according to the following 
             A creep moved to another room.
             <ul>
                 <li>`room` - the name of the target room</li> 
-                <li>`x`, `y` - the coordinates in another room where the creep has appeared</li></ul>
+                <li>`x`, `y` - the coordinates in another room where the creep has appeared</li>
+            </ul>
         </td>
     </tr>           
     <tr>
