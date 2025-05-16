@@ -524,8 +524,8 @@ The `data` property is different for each event type according to the following 
                 <li>`targetId` - the target object ID</li>
                 <li>`amount` - the amount of build progress gained</li>
                 <li>`structureType` - one of the STRUCTURE_* constants</li>
-                <li>`x` - the X position</li>
-                <li>`y` - the Y position</li>
+                <li>`x` - the X position of the target construction site</li>
+                <li>`y` - the Y position of the target construction site</li>
                 <li>`incomplete` - status of build progress</li>
 	        </ul>
         </td>
