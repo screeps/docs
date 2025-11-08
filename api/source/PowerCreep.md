@@ -451,6 +451,24 @@ ERR_NOT_FOUND | The creep has no memorized path to reuse.
 {% endapi_return_codes %}
 
 
+{% api_method notifiesWhenAttacked A %}
+
+```javascript
+if(powerCreep.notifiesWhenAttacked()) {
+	// Creep has attack notifications enabled
+}
+```
+
+Returns the attack notification's state for the power creep. Turned on by default.
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+boolean | The state of the notification.
+ERR_NOT_OWNER | You are not the owner of this creep.
+ERR_BUSY | The creep is still being spawned.
+{% endapi_return_codes %}
 
 {% api_method notifyWhenAttacked 'enabled' A %}
 
