@@ -14,7 +14,7 @@ A score object that appears randomly in rooms during Season 10. Move a creep ont
     </tr>
     <tr>
         <td><strong>Decay</strong></td>
-        <td>Up to 5000 ticks after spawn</td>
+        <td>100–5000 ticks after spawn</td>
     </tr>
     <tr>
         <td><strong>Collection</strong></td>
