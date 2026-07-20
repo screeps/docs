@@ -77,13 +77,6 @@ hexo.extend.helper.register('header_menu', function(className){
   return result;
 });
 
-hexo.extend.helper.register('canonical_url', function(lang){
-  var path = this.page.canonical_path;
-  if (lang && lang !== 'en') path = lang + '/' + path;
-
-  return this.config.url + '/' + path;
-});
-
 hexo.extend.helper.register('url_for_lang', function(path){
   var lang = this.page.lang;
   var url = this.url_for(path);
