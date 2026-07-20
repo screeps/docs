@@ -338,7 +338,7 @@ Move the creep using the specified predefined path.
 
 {% api_method_params %}
 path : array|string
-A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, or <a href="#PathFinder.PathFinder-search"><code>PathFinder.search</code></a> methods. Both array form and serialized string form are accepted.
+A path value as returned from <a href="#Room.findPath"><code>Room.findPath</code></a>, <a href="#RoomPosition.findPathTo"><code>RoomPosition.findPathTo</code></a>, or <a href="#PathFinder.search"><code>PathFinder.search</code></a> methods. Both array form and serialized string form are accepted.
 {% endapi_method_params %}
 
 
@@ -800,6 +800,5 @@ ERR_FULL | The creep's carry is full.
 ERR_NOT_IN_RANGE | The target is too far away.
 ERR_INVALID_ARGS | The resourceType is not one of the <code>RESOURCE_*</code> constants, or the amount is incorrect.
 {% endapi_return_codes %}
-
 
 

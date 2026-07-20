@@ -344,7 +344,7 @@ if(creep.room.controller) {
 
 ```
 
-Claims a neutral controller under your control. Requires the <code>CLAIM</code> body part. The target has to be at adjacent square to the creep. You need to have the corresponding Global Control Level in order to claim a new room. If you don't have enough GCL, consider <a href="#reserveController">reserving</a> this room instead. <a href="/control.html#Global-Control-Level">Learn more</a>
+Claims a neutral controller under your control. Requires the <code>CLAIM</code> body part. The target has to be at adjacent square to the creep. You need to have the corresponding Global Control Level in order to claim a new room. If you don't have enough GCL, consider <a href="#Creep.reserveController">reserving</a> this room instead. <a href="/control.html#Global-Control-Level">Learn more</a>
 
 {% api_method_params %}
 target : <a href="#StructureController">StructureController</a>
