@@ -11,7 +11,7 @@ Learn more about deposits from [this article](/resources.html).
     <tbody>
     <tr>
         <td><strong>Cooldown</strong></td> 
-        <td>`0.001 * totalHarvested ^ 1.2`<td>
+        <td><code>0.001 * totalHarvested ^ 1.2</code><td>
     </tr>
     <tr>
         <td><strong>Decay</strong></td>

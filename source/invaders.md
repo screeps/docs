@@ -37,18 +37,18 @@ There are two sizes of invader creeps:
 </tr>
 <tr>
 <td style="text-align: left;">Melee</td>
-<td style="text-align: center;">![](img/smallMelee.png)</td>
-<td style="text-align: center;">![](img/bigMelee.png)</td>
+<td style="text-align: center;"><img src="img/smallMelee.png" alt=""></td>
+<td style="text-align: center;"><img src="img/bigMelee.png" alt=""></td>
 </tr>
 <tr>
 <td style="text-align: left;">Ranged</td>
-<td style="text-align: center;">![](img/smallRanged.png)</td>
-<td style="text-align: center;">![](img/bigRanged.png)</td>
+<td style="text-align: center;"><img src="img/smallRanged.png" alt=""></td>
+<td style="text-align: center;"><img src="img/bigRanged.png" alt=""></td>
 </tr>
 <tr>
 <td style="text-align: left;">Healer</td>
-<td style="text-align: center;">![](img/smallHealer.png)</td>
-<td style="text-align: center;">![](img/bigHealer.png)</td>
+<td style="text-align: center;"><img src="img/smallHealer.png" alt=""></td>
+<td style="text-align: center;"><img src="img/bigHealer.png" alt=""></td>
 </tr>
 </tbody>
 </table>

@@ -43,7 +43,7 @@ Three HTTP header are set for informational purposes which you can use to handle
 | Header Name | Description |
 |-|-|
 | `X-RateLimit-Limit` | The maximum number of requests you're permitted to make per limit window. |
-| <nobr>`X-RateLimit-Remaining`</nobr> | The number of requests remaining in the current rate limit window. |
+| <nobr><code>X-RateLimit-Remaining</code></nobr> | The number of requests remaining in the current rate limit window. |
 | `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |
 
 ```

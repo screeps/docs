@@ -69,7 +69,7 @@ for(let y = 0; y < 50; y++) {
 }
 ```
 
-Get terrain type at the specified room position by `(x,y)` coordinates. Unlike the <a href="#Game.map.getTerrainAt">`Game.map.getTerrainAt(...)`</a> method, this one doesn't perform any string operations and returns integer terrain type values (see below).
+Get terrain type at the specified room position by `(x,y)` coordinates. Unlike the <a href="#Game.map.getTerrainAt"><code>Game.map.getTerrainAt(...)</code></a> method, this one doesn't perform any string operations and returns integer terrain type values (see below).
 
 {% api_method_params %}
 x : number
