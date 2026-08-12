@@ -153,6 +153,6 @@ Each element is an integer number, terrain type can be obtained by applying bitw
 
 If `destinationArray` is specified, function returns reference to this filled `destinationArray` if coping succeeded, or error code otherwise:
 
-{% api_return_codes %}
+{% api_return_codes no_spacer %}
 ERR_INVALID_ARGS | `destinationArray` type is incompatible.
 {% endapi_return_codes %}

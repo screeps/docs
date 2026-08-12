@@ -39,7 +39,7 @@ during its lifetime.
     </tr>
     
     
-    </tbody>
+</tbody>
 </table>
 
 {% page inherited/OwnedStructure.md %}

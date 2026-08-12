@@ -1,21 +1,23 @@
-# Javascript Node CircleCI 2.0 configuration file
+# Javascript Node CircleCI configuration file
 
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
-      - image: node:10-alpine3.11
+      - image: node:24-alpine
     working_directory: ~/build
     steps:
       - run:
-          name: Install dependencies
-          command: apk add docker-cli git python2 g++ make openssh-client
+          name: Install deployment tools
+          command: apk add --no-cache docker-cli git openssh-client
       - checkout
       - run:
-          name: Build
-          command: |
-            npm ci && npm run generate && cd api && npm ci && npm run generate
-      - setup_remote_docker:
+          name: Install dependencies
+          command: npm ci && npm ci --prefix api
+      - run:
+          name: Build and verify
+          command: npm run build
+      - setup_remote_docker
       - run:
           name: Build and push images
           command: |
@@ -28,7 +30,6 @@ jobs:
             git tag build-$CIRCLE_BUILD_NUM && git push origin --tags
 
 workflows:
-  version: 2
   production:
     jobs:
       - build:

@@ -1,5 +1,3 @@
-var util = require('hexo-util');
-
 hexo.extend.tag.register('api_method_params', function(args, content) {
   var params = content.split("\n===\n"),
       result = "<table><thead><tr><th>parameter</th><th>type</th><th>description</th></tr></thead><tbody>\n";

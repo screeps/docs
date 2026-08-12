@@ -107,7 +107,7 @@ The secondary color of a new flag. Should be one of the <code>COLOR_*</code> con
 The name of a new flag, or one of the following error codes:
 <br>
 
-{% api_return_codes %}
+{% api_return_codes no_spacer %}
 ERR_NAME_EXISTS | There is a flag with the same name already.
 ERR_INVALID_ARGS | The location or the color constant is incorrect.
 {% endapi_return_codes %}

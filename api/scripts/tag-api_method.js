@@ -52,7 +52,7 @@ hexo.extend.tag.register('api_method', function(args) {
       text += ' '+opts.deprecated;
     }
     text = hexo.render.renderSync({text, engine: 'markdown'});
-    result += `\n<div class="api-deprecated">${text}</div>`
+    result += `\n<div class="api-deprecated">${text}</div>`;
   }
-  return result;
+  return result + '\n\n';
 }, {async: false});

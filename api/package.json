@@ -2,24 +2,32 @@
   "name": "screeps-docs-api",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11"
+  },
+  "packageManager": "npm@11.10.0",
   "hexo": {
-    "version": "3.9.0"
+    "version": "8.1.2"
   },
   "dependencies": {
     "@screeps/common": "2.16.1",
-    "cheerio": "^0.20.0",
-    "concat-files": "^0.1.1",
-    "hexo": "^3.2.0",
-    "hexo-optimize": "^2.4.6",
-    "hexo-renderer-jade": "^0.3.0",
-    "hexo-renderer-marked": "screeps/hexo-renderer-marked",
-    "hexo-renderer-scss": "^1.2.0",
-    "hexo-server": "^0.2.0",
-    "image-min": "^0.3.2"
+    "cheerio": "1.2.0",
+    "hexo": "8.1.2",
+    "hexo-renderer-dartsass": "1.2.0",
+    "hexo-renderer-marked": "7.0.1",
+    "hexo-renderer-pug": "3.0.0",
+    "hexo-util": "4.0.0",
+    "marked": "15.0.12",
+    "prismjs": "1.30.0"
+  },
+  "devDependencies": {
+    "hexo-server": "3.0.0"
   },
   "scripts": {
     "clean": "hexo clean",
     "generate": "hexo clean && hexo generate",
-    "generate-watch": "hexo generate --watch"
+    "generate-watch": "hexo generate --watch",
+    "server": "hexo server"
   }
 }

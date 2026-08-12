@@ -46,7 +46,7 @@ Base minerals are useless on their own. In order to impart some useful capabilit
 
 One reaction requires three labs: two as reagent sources, and the third one as the produce collector. The labs should be within the range of 2 squares from each other. One lab cannot contain more than one mineral type at the same time.
 
-<img src="img/2016-03-09_10-32-33.gif" align="right">
+<p><img src="img/2016-03-09_10-32-33.gif" align="right"></p>
 
     var labs = room.find(FIND_MY_STRUCTURES, 
         {filter: {structureType: STRUCTURE_LAB}});

@@ -13,7 +13,7 @@ const TOCIFY_ITEM__API_DEPRECATED = 'tocify-item--api-deprecated';
 const TOCIFY_ITEM__API_INHERITED = 'tocify-item--api-inherited';
 
 hexo.extend.helper.register('tocify', function(page) {
-    const $ = cheerio.load(page, { decodeEntities: false });
+    const $ = cheerio.load(page, {xml: {xmlMode: false, decodeEntities: false}}, false);
 
     let header = '';
     let headerText = '';

@@ -1,30 +1,27 @@
-This project contains the sources of the [documentation web site](http://docs.screeps.com) for Screeps online game.
+# Screeps Documentation
 
-You need to have Node.js in order to build this project.
+This repository contains the sources for [docs.screeps.com](https://docs.screeps.com).
 
-1. Install all npm dependendcies:
+## Requirements
 
-```
-npm install
-cd api
-npm install
-cd ..
-```
-    
-2. Generate static site:
+- Node.js 24
+- npm 11
 
-```
-npm run generate
-cd api
-npm run generate
-cd ..
+## Install
+
+The main site and API site have independent dependency trees:
+
+```sh
+npm ci
+npm ci --prefix api
 ```
 
-You can use `generate-watch` instead of `generate` to sync changes in real time.
+## Build
 
-3. Run development server:
+Run the authoritative build from the repository root. It cleans and generates the main site first, generates the API into `public/api`, and verifies the output:
 
+```sh
+npm run build
 ```
-npm run server
-```
 
+The API can still be built independently with `npm run generate --prefix api`. Use `npm run generate-watch` in either project for local content work, or `npm run server` at the root after generating the site.

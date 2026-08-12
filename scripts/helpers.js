@@ -1,23 +1,20 @@
 'use strict';
 
-var pathFn = require('path');
-var _ = require('lodash');
-var url = require('url');
 var cheerio = require('cheerio');
 var lunr = require('lunr');
-
-var localizedPath = ['docs', 'api'];
 
 function startsWith(str, start){
   return str.substring(0, start.length) === start;
 }
 
+hexo.extend.helper.register('current_year', function(){
+  return new Date().getFullYear();
+});
+
 hexo.extend.helper.register('page_nav', function(){
   var sidebar = this.site.data.sidebar;
   var path = this.path;
   var list = {};
-  var prefix = 'sidebar.';
-
   for (var i in sidebar){
     for (var j in sidebar[i]){
       list[sidebar[i][j]] = j;
@@ -45,20 +42,17 @@ hexo.extend.helper.register('doc_sidebar', function(className){
   var sidebar = this.site.data.sidebar;
   var path = this.path;
   var result = `<a href="/api/" class=api-link><span>API Reference</span><img src="/img/link-external.svg"></a>`;
-  var self = this;
-  var prefix = 'sidebar.';
-
-  _.each(sidebar, function(menu, title){
+  Object.entries(sidebar).forEach(function([title, menu]){
     if(title !== '_') {
       result += '<strong class="' + className + '-title">' + title + '</strong>';
     }
 
-    _.each(menu, function(link, text){
+    Object.entries(menu).forEach(function([text, link]){
       var itemClass = className + '-link';
       if (link === '/'+path) itemClass += ' current';
 
       result += '<a href="' + link + '" class="' + itemClass + '">' + text + '</a>';
-    })
+    });
   });
 
   return result;
@@ -70,8 +64,8 @@ hexo.extend.helper.register('header_menu', function(className){
   var self = this;
   var lang = this.page.lang;
 
-  _.each(menu, function(path, title){
-        result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + title + '</a>';
+  Object.entries(menu).forEach(function([title, path]){
+    result += '<a href="' + self.url_for(path) + '" class="' + className + '-link">' + title + '</a>';
   });
 
   return result;
@@ -98,7 +92,7 @@ hexo.extend.helper.register('raw_link', function(path){
 });
 
 hexo.extend.helper.register('page_anchor', function(str){
-  var $ = cheerio.load(str, {decodeEntities: false});
+  var $ = cheerio.load(str, {xml: {xmlMode: false, decodeEntities: false}}, false);
   var headings = $('h1, h2, h3, h4, h5, h6');
 
   if (!headings.length) return str;
@@ -111,10 +105,13 @@ hexo.extend.helper.register('page_anchor', function(str){
       .append('<a class="article-anchor" href="#' + id + '" aria-hidden="true"></a>');
   });
 
-  return $.html();
+  return $.root().html();
 });
 
 hexo.extend.helper.register('lunr_index', function(data){
+  var sorted = data.slice().sort(function(a, b){
+    return a.name.localeCompare(b.name);
+  });
   var index = lunr(function(){
     this.field('name', {boost: 10});
     this.field('tags', {boost: 50});
@@ -122,8 +119,8 @@ hexo.extend.helper.register('lunr_index', function(data){
     this.ref('id');
   });
 
-  _.sortBy(data, 'name').forEach(function(item, i){
-    index.add(_.assign({id: i}, item));
+  sorted.forEach(function(item, i){
+    index.add(Object.assign({id: i}, item));
   });
 
   return JSON.stringify(index.toJSON());

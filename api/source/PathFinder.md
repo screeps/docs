@@ -134,7 +134,7 @@ An object containing additional pathfinding flags.
 An object containing the following properties:
 
 property | description
----|---
+| --- | --- |
 `path` | An array of RoomPosition objects.
 `ops` | Total number of operations performed before this path was calculated.
 `cost` | The total cost of the path as derived from `plainCost`, `swampCost` and any given CostMatrix instances.
@@ -154,5 +154,4 @@ Specify whether to use this new experimental pathfinder in game objects methods.
 isEnabled : boolean
 Whether to activate the new pathfinder or deactivate. The default is `true`.
 {% endapi_method_params %}
-
 

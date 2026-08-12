@@ -1,5 +1,4 @@
 var util = require('hexo-util');
-var fs = require('fs');
 
 hexo.extend.tag.register('api_property', function (args) {
     var name = args[0], inherited = '';
@@ -37,7 +36,7 @@ hexo.extend.tag.register('api_property', function (args) {
             text += ' ' + opts.deprecated;
         }
         text = hexo.render.renderSync({text, engine: 'markdown'});
-        result += `<div class="api-deprecated">${text}</div>`
+        result += `<div class="api-deprecated">${text}</div>`;
     }
-    return result;
+    return result + '\n\n';
 }, {async: false});

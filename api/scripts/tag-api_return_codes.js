@@ -1,5 +1,3 @@
- var util = require('hexo-util');
-
  var codes = {
    OK: 0,
    ERR_NOT_OWNER: -1,
@@ -38,6 +36,6 @@ hexo.extend.tag.register('api_return_codes', function(args, content) {
 
   result += "</tbody></table>\n";
 
-  return result;
+  return args.includes('no_spacer') ? result : result + '<p></p>\n';
 
 }, {async: false, ends: true});

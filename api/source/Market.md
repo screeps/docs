@@ -395,7 +395,7 @@ An object or function that will filter the resulting list using the <a href="htt
 An orders array in the following form:
 
 property | description
----|---
+| --- | --- |
 `id` | The unique order ID.
 `created` | The order creation time in game ticks. This property is absent for orders of the inter-shard market.
 `createdTimestamp` | The order creation time <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime#Syntax">in milliseconds since UNIX epoch time</a>. This property is absent for old orders.

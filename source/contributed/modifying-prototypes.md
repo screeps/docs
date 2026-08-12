@@ -76,70 +76,73 @@ The previous example was a simple one because [`Creep.prototype.suicide`](http:/
 
 [`Creep.prototype.moveTo`](http://docs.screeps.com/api/#Creep.moveTo) is a good example of a method that requires careful handling of arguments when overwriting because it has two possible signatures: `(x, y, [opts])` OR `(target, [opts])`. The following examples will overwrite [`.moveTo()`](http://docs.screeps.com/api/#Creep.moveTo) so that it will record the amount of CPU used for movement for each creep. Each of the three examples will show a different way of handling arguments:
 1. Use your own arguments:
-```javascript
-if (!Creep.prototype._moveTo) {
-	Creep.prototype._moveTo = Creep.prototype.moveTo;
-	Creep.prototype.moveTo = function(myArg1, myArg2, myArg3) {
-	    console.log(`My moveTo with my own arguments!`);
-	    
-	    let startCpu = Game.cpu.getUsed();
-	    // Call original function and store the return value
-	    let returnValue = this._moveTo(myArg1, myArg2, myArg3);
-	    let endCpu = Game.cpu.getUsed();
-	    
-	    let used = endCpu - startCpu;
-	    
-	    if (!this.memory.moveToCPU) this.memory.moveToCPU = 0;
-	    
-	    this.memory.moveToCPU += used;
-	    
-	    return returnValue; // return original value
-	};
-}
-```
+
+   ```javascript
+   if (!Creep.prototype._moveTo) {
+       Creep.prototype._moveTo = Creep.prototype.moveTo;
+       Creep.prototype.moveTo = function(myArg1, myArg2, myArg3) {
+           console.log(`My moveTo with my own arguments!`);
+
+           let startCpu = Game.cpu.getUsed();
+           // Call original function and store the return value
+           let returnValue = this._moveTo(myArg1, myArg2, myArg3);
+           let endCpu = Game.cpu.getUsed();
+
+           let used = endCpu - startCpu;
+
+           if (!this.memory.moveToCPU) this.memory.moveToCPU = 0;
+
+           this.memory.moveToCPU += used;
+
+           return returnValue; // return original value
+       };
+   }
+   ```
 2. Use the [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object available in every function:
-```javascript
-if (!Creep.prototype._moveTo) {
-	Creep.prototype._moveTo = Creep.prototype.moveTo;
-	Creep.prototype.moveTo = function() {
-	    console.log(`My moveTo using the arguments object!`);
-	    
-	    let startCpu = Game.cpu.getUsed();
-	    // There is a short description of Function.apply() later
-	    let returnValue = this._moveTo.apply(this, arguments);
-	    let endCpu = Game.cpu.getUsed();
-	    
-	    let used = endCpu - startCpu;
-	    
-	    if (!this.memory.moveToCPU) this.memory.moveToCPU = 0;
-	    
-	    this.memory.moveToCPU += used;
-	    
-	    return returnValue;
-	};
-}
-```
+
+   ```javascript
+   if (!Creep.prototype._moveTo) {
+       Creep.prototype._moveTo = Creep.prototype.moveTo;
+       Creep.prototype.moveTo = function() {
+           console.log(`My moveTo using the arguments object!`);
+
+           let startCpu = Game.cpu.getUsed();
+           // There is a short description of Function.apply() later
+           let returnValue = this._moveTo.apply(this, arguments);
+           let endCpu = Game.cpu.getUsed();
+
+           let used = endCpu - startCpu;
+
+           if (!this.memory.moveToCPU) this.memory.moveToCPU = 0;
+
+           this.memory.moveToCPU += used;
+
+           return returnValue;
+       };
+   }
+   ```
 3. Use ["rest parameters"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters):
-```javascript
-if (!Creep.prototype._moveTo) {
-	Creep.prototype._moveTo = Creep.prototype.moveTo;
-	Creep.prototype.moveTo = function(...myArgumentsArray) {
-	    console.log(`My moveTo using rest parameters!`);
-	    
-	    let startCpu = Game.cpu.getUsed();
-	    let returnValue = this._moveTo.apply(this, myArgumentsArray);
-	    let endCpu = Game.cpu.getUsed();
-	    
-	    let used = endCpu - startCpu;
-	    
-	    if (!this.memory.moveToCPU) this.memory.moveToCPU = 0;
-	    
-	    this.memory.moveToCPU += used;
-	    
-	    return returnValue;
-	};
-}
-```
+
+   ```javascript
+   if (!Creep.prototype._moveTo) {
+       Creep.prototype._moveTo = Creep.prototype.moveTo;
+       Creep.prototype.moveTo = function(...myArgumentsArray) {
+           console.log(`My moveTo using rest parameters!`);
+
+           let startCpu = Game.cpu.getUsed();
+           let returnValue = this._moveTo.apply(this, myArgumentsArray);
+           let endCpu = Game.cpu.getUsed();
+
+           let used = endCpu - startCpu;
+
+           if (!this.memory.moveToCPU) this.memory.moveToCPU = 0;
+
+           this.memory.moveToCPU += used;
+
+           return returnValue;
+       };
+   }
+   ```
 
 #### [Function.apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
 `Function.apply(thisArg, argumentsArray)` calls a function with the specified `this` value and passes each element of the arguments array as an argument to the function.
@@ -213,24 +216,24 @@ Note that [`Object.defineProperty`](https://developer.mozilla.org/en-US/docs/Web
 1. The object to which you are adding a property, commonly a prototype object. `Room.prototype` in these examples.
 2. The name of the property you are adding. `'sources'` in these examples but it could be anything like `'foo'` or `'myProp'`.
 3. An object containing options that define how the property behaves. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) for a list of all possible options.
-```javascript
-Object.defineProperty(Room.prototype, 'sources', {
-    // This is the getter function, when you type room.sources it will have 
-    // the value returned by this function
-    get: function() {
-        // Since we are defining the property on the Room prototype, 'this' in 
-        // the line below is whatever room object we are getting the .sources from
-        return this.find(FIND_SOURCES);
-    },
-    // This makes it so the property doesn't show up when enumerating the properties 
-    // of the creep. If you arent sure, put false.
-    enumerable: false,
-    // This makes the characteristics of the property modifiable and also makes 
-    // the property deletable. if you arent sure, put true.
-    configurable: true
-});
-```
-This option is the most basic and is basically just a shortcut that replaces `room.find(FIND_SOURCES)` with `room.sources`, perhaps saving you some keystrokes but not much else. See the rest of the examples for better options.
+   ```javascript
+   Object.defineProperty(Room.prototype, 'sources', {
+       // This is the getter function, when you type room.sources it will have
+       // the value returned by this function
+       get: function() {
+           // Since we are defining the property on the Room prototype, 'this' in
+           // the line below is whatever room object we are getting the .sources from
+           return this.find(FIND_SOURCES);
+       },
+       // This makes it so the property doesn't show up when enumerating the properties
+       // of the creep. If you arent sure, put false.
+       enumerable: false,
+       // This makes the characteristics of the property modifiable and also makes
+       // the property deletable. if you arent sure, put true.
+       configurable: true
+   });
+   ```
+   This option is the most basic and is basically just a shortcut that replaces `room.find(FIND_SOURCES)` with `room.sources`, perhaps saving you some keystrokes but not much else. See the rest of the examples for better options.
 
 ### Local object caching
 In the following code `this._sources` will have no value the first time the getter function is called, so it will find the value and store it so that the next time you access the property it will return the stored value.

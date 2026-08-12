@@ -14,7 +14,7 @@ You can get specific resources from the store by addressing them as object prope
 
 ```javascript-content
 console.log(creep.store[RESOURCE_ENERGY]);
-```   
+```
 
 
 

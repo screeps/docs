@@ -1,3 +1,3 @@
-FROM nginxinc/nginx-unprivileged:1.16-alpine
+FROM nginxinc/nginx-unprivileged:stable-alpine
 
 COPY public /usr/share/nginx/html

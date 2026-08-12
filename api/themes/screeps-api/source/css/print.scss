@@ -1,7 +1,7 @@
 @charset "utf-8";
-@import 'normalize';
-@import 'variables';
-@import 'icon-font';
+@use 'normalize';
+@use 'variables' as *;
+@use 'icon-font' as *;
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.

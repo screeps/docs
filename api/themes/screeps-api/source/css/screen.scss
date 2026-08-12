@@ -1,7 +1,23 @@
 @charset "utf-8";
-@import 'normalize';
-@import 'variables';
-@import 'icon-font';
+@use 'sass:color';
+@use 'sass:math';
+@use 'normalize';
+@use 'variables' as *;
+@use 'icon-font' as *;
+
+@function legacy-lighten($input, $amount) {
+  $adjusted: color.to-gamut(
+    color.adjust($input, $lightness: $amount),
+    $space: rgb,
+    $method: clip
+  );
+
+  @return rgb(
+    math.round(color.channel($adjusted, 'red', $space: rgb)),
+    math.round(color.channel($adjusted, 'green', $space: rgb)),
+    math.round(color.channel($adjusted, 'blue', $space: rgb))
+  );
+}
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -296,7 +312,7 @@ html, body {
 #nav-button {
   span {
     display: block;
-    $side-pad: $main-padding / 2 - 8px;
+    $side-pad: math.div($main-padding, 2) - 8px;
     padding: $side-pad $side-pad $side-pad;
     background-color: rgba($main-bg, 0.7);
     transform-origin: 0 0;
@@ -512,11 +528,11 @@ html, body {
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: legacy-lighten($main-bg, 4.2%);
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: legacy-lighten($main-bg, 2.4%);
     }
   }
 
@@ -563,7 +579,7 @@ html, body {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
+    text-shadow: 0 1px 0 legacy-lighten($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
@@ -571,12 +587,12 @@ html, body {
 
     &.warning {
       background-color: $aside-warning-bg;
-      text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
+      text-shadow: 0 1px 0 legacy-lighten($aside-warning-bg, 15%);
     }
 
     &.success {
       background-color: $aside-success-bg;
-      text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
+      text-shadow: 0 1px 0 legacy-lighten($aside-success-bg, 15%);
     }
   }
 
@@ -927,4 +943,3 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
-

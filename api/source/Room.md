@@ -242,7 +242,7 @@ An object with additional options:
 An array with the objects found.
 
 constant|type|description
----|---|---
+| --- | --- | --- |
 `FIND_EXIT_TOP` | RoomPosition | Only exit positions located at the top of the room.
 `FIND_EXIT_RIGHT` | RoomPosition | Only exit positions located on the right side of the room.
 `FIND_EXIT_BOTTOM` | RoomPosition | Only exit positions located at the bottom of the room.

@@ -3,8 +3,8 @@ title: Public Test Realm (PTR)
 
 The Public Test Realm is a stand-alone game server with its own world data, players' scripts, memory, and settings. It has been created for two purposes:
 
-1) testing changes and new features upcoming to the main server,  
-2) providing players with a platform to safely test their scripts in a multi-room environment.
+1\) testing changes and new features upcoming to the main server,\
+2\) providing players with a platform to safely test their scripts in a multi-room environment.
 
 ---
 
