@@ -5,7 +5,7 @@ The world of Screeps is not the safest place on earth. This article explains the
 
 ## Safe mode
 
-When you start out in the game, you have **Safe Mode** turned on in your room. It means that no other creep will be able to use any methods in this room that can affect your creeps of objects (but you’ll still be able to defend against strangers). See more about that in the description of [`StructureController`](/api/#StructureController)
+When you start out in the game, you have **Safe Mode** turned on in your room. It means that no other creep will be able to use any methods in this room that can affect your creeps or objects (but you’ll still be able to defend against strangers). See more about that in the description of [`StructureController`](/api/#StructureController)
 
 ![](img/safe_mode.png)
 
