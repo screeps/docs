@@ -44,5 +44,5 @@ The creep will move to the left in this tick.
 ## Additionally
 
 1.  Though healing healthy creeps and repairing undamaged building may be senseless, it returns `OK` and blocks more left methods in its pipeline.
-2.  While `transfer` may work along with `drop`, you cannot execute `transfer` two and more times per tick (to transfer energy to multiple objects). The same is true for all similar methods.
+2.  While `transfer` may work along with `drop`, you cannot execute `transfer` more than once per tick (to transfer energy to multiple objects). The same is true for all similar methods.
 3.  Simultaneously executed methods using `CARRY` body part don't affect each other. Each of them has the amount of energy available in the beginning of the tick. See more about this in [Understanding game loop, time and ticks](/game-loop.html).
