@@ -486,134 +486,134 @@ The `data` property is different for each event type according to the following 
         <th>event</th><th>description</th>
     </tr>
     <tr>
-        <td>`EVENT_ATTACK`</td>
+        <td><code>EVENT_ATTACK</code></td>
         <td>
             A creep or a structure performed an attack to another object.
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`damage` - the amount of hits damaged</li>
-                <li>`attackType` - one of the following constants:
+                <li><code>targetId</code> - the target object ID</li>
+                <li><code>damage</code> - the amount of hits damaged</li>
+                <li><code>attackType</code> - one of the following constants:
                     <ul>
-                        <li>`EVENT_ATTACK_TYPE_MELEE` - a creep attacked with [attack](#Creep.attack)</li>
-                        <li>`EVENT_ATTACK_TYPE_RANGED` - a creep attacked with [rangedAttack](#Creep.rangedAttack), or a tower attacked with [attack](#StructureTower.attack)</li> 
-                        <li>`EVENT_ATTACK_TYPE_RANGED_MASS` - a creep attacked with [rangedMassAttack](#Creep.rangedMassAttack)</li>
-                        <li>`EVENT_ATTACK_TYPE_DISMANTLE` - a creep attacked with [dismantle](#Creep.dismantle)</li>
-                        <li>`EVENT_ATTACK_TYPE_HIT_BACK` - a creep hit back on another creep's [attack](#Creep.attack)</li>
-                        <li>`EVENT_ATTACK_TYPE_NUKE` - a nuke landed</li>
+                        <li><code>EVENT_ATTACK_TYPE_MELEE</code> - a creep attacked with <a href="#Creep.attack">attack</a></li>
+                        <li><code>EVENT_ATTACK_TYPE_RANGED</code> - a creep attacked with <a href="#Creep.rangedAttack">rangedAttack</a>, or a tower attacked with <a href="#StructureTower.attack">attack</a></li>
+                        <li><code>EVENT_ATTACK_TYPE_RANGED_MASS</code> - a creep attacked with <a href="#Creep.rangedMassAttack">rangedMassAttack</a></li>
+                        <li><code>EVENT_ATTACK_TYPE_DISMANTLE</code> - a creep attacked with <a href="#Creep.dismantle">dismantle</a></li>
+                        <li><code>EVENT_ATTACK_TYPE_HIT_BACK</code> - a creep hit back on another creep's <a href="#Creep.attack">attack</a></li>
+                        <li><code>EVENT_ATTACK_TYPE_NUKE</code> - a nuke landed</li>
                     </ul>
                 </li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td>`EVENT_OBJECT_DESTROYED`</td>
+        <td><code>EVENT_OBJECT_DESTROYED</code></td>
         <td>
             A game object is destroyed or killed.
-            <ul><li>`type` - the type of the destroyed object</li></ul>
+            <ul><li><code>type</code> - the type of the destroyed object</li></ul>
         </td>
     </tr>
     <tr>
-        <td>`EVENT_ATTACK_CONTROLLER`</td>
-        <td>A creep performed [`attackController`](#Creep.attackController) in the room.</td>
+        <td><code>EVENT_ATTACK_CONTROLLER</code></td>
+        <td>A creep performed <a href="#Creep.attackController"><code>attackController</code></a> in the room.</td>
     </tr>
     <tr>
-        <td>`EVENT_BUILD`</td>
+        <td><code>EVENT_BUILD</code></td>
         <td>
-            A creep performed [`build`](#Creep.build) in the room.
+            A creep performed <a href="#Creep.build"><code>build</code></a> in the room.
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of build progress gained</li>
-                <li>`structureType` - one of the STRUCTURE_* constants</li>
-                <li>`x` - the X position of the target construction site</li>
-                <li>`y` - the Y position of the target construction site</li>
-                <li>`incomplete` - status of build progress</li>
+                <li><code>targetId</code> - the target object ID</li>
+                <li><code>amount</code> - the amount of build progress gained</li>
+                <li><code>structureType</code> - one of the STRUCTURE_* constants</li>
+                <li><code>x</code> - the X position of the target construction site</li>
+                <li><code>y</code> - the Y position of the target construction site</li>
+                <li><code>incomplete</code> - status of build progress</li>
 	        </ul>
         </td>
     </tr>
     <tr>
-        <td>`EVENT_HARVEST`</td>
+        <td><code>EVENT_HARVEST</code></td>
         <td>
-            A creep performed [`harvest`](#Creep.harvest) in the room.
+            A creep performed <a href="#Creep.harvest"><code>harvest</code></a> in the room.
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of resource harvested</li>
+                <li><code>targetId</code> - the target object ID</li>
+                <li><code>amount</code> - the amount of resource harvested</li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td>`EVENT_HEAL`</td>
+        <td><code>EVENT_HEAL</code></td>
         <td>
             A creep or a tower healed a creep.
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of hits healed</li>
-                <li>`healType` - one of the following constants:
+                <li><code>targetId</code> - the target object ID</li>
+                <li><code>amount</code> - the amount of hits healed</li>
+                <li><code>healType</code> - one of the following constants:
                     <ul>
-                        <li>`EVENT_HEAL_TYPE_MELEE` - a creep healed with [heal](#Creep.heal)</li>
-                        <li>`EVENT_HEAL_TYPE_RANGED` - a creep healed with [rangedHeal](#Creep.rangedHeal), or a tower healed with [heal](#StructureTower.heal)</li>
+                        <li><code>EVENT_HEAL_TYPE_MELEE</code> - a creep healed with <a href="#Creep.heal">heal</a></li>
+                        <li><code>EVENT_HEAL_TYPE_RANGED</code> - a creep healed with <a href="#Creep.rangedHeal">rangedHeal</a>, or a tower healed with <a href="#StructureTower.heal">heal</a></li>
                     </ul>
                 </li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td>`EVENT_REPAIR`</td>
+        <td><code>EVENT_REPAIR</code></td>
         <td>
             A creep or a tower repaired a structure.
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`amount` - the amount of hits repaired</li> 
-                <li>`energySpent` - the energy amount spent on the operation</li>
+                <li><code>targetId</code> - the target object ID</li>
+                <li><code>amount</code> - the amount of hits repaired</li>
+                <li><code>energySpent</code> - the energy amount spent on the operation</li>
             </ul>
         </td>
     </tr>        
     <tr>
-        <td>`EVENT_RESERVE_CONTROLLER`</td>
+        <td><code>EVENT_RESERVE_CONTROLLER</code></td>
         <td>
-            A creep performed [`reserveController`](#Creep.reserveController) in the room.
+            A creep performed <a href="#Creep.reserveController"><code>reserveController</code></a> in the room.
             <ul>
-                <li>`amount` - the amount of reservation time gained</li>
+                <li><code>amount</code> - the amount of reservation time gained</li>
             </ul>
         </td>
     </tr> 
     <tr>
-        <td>`EVENT_UPGRADE_CONTROLLER`</td>
+        <td><code>EVENT_UPGRADE_CONTROLLER</code></td>
         <td>
-            A creep performed [`upgradeController`](#Creep.upgradeController) in the room.
+            A creep performed <a href="#Creep.upgradeController"><code>upgradeController</code></a> in the room.
             <ul>
-                <li>`amount` - the amount of control points gained</li> 
-                <li>`energySpent` - the energy amount spent on the operation</li>
+                <li><code>amount</code> - the amount of control points gained</li>
+                <li><code>energySpent</code> - the energy amount spent on the operation</li>
             </ul>
         </td>
     </tr>    
     <tr>
-        <td>`EVENT_EXIT`</td>
+        <td><code>EVENT_EXIT</code></td>
         <td>
             A creep moved to another room.
             <ul>
-                <li>`room` - the name of the target room</li> 
-                <li>`x`, `y` - the coordinates in another room where the creep has appeared</li>
+                <li><code>room</code> - the name of the target room</li>
+                <li><code>x</code>, <code>y</code> - the coordinates in another room where the creep has appeared</li>
             </ul>
         </td>
     </tr>           
     <tr>
-        <td>`EVENT_TRANSFER`</td>
+        <td><code>EVENT_TRANSFER</code></td>
         <td>
-            A link performed [`transferEnergy`](https://docs.screeps.com/api/#StructureLink.transferEnergy) or a creep performed [`transfer`](#Creep.transfer) or [`withdraw`](#Creep.withdraw).
+            A link performed <a href="https://docs.screeps.com/api/#StructureLink.transferEnergy"><code>transferEnergy</code></a> or a creep performed <a href="#Creep.transfer"><code>transfer</code></a> or <a href="#Creep.withdraw"><code>withdraw</code></a>.
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`resourceType` - the type of resource transferred</li>
-                <li>`amount` - the amount of resource transferred</li>
+                <li><code>targetId</code> - the target object ID</li>
+                <li><code>resourceType</code> - the type of resource transferred</li>
+                <li><code>amount</code> - the amount of resource transferred</li>
             </ul>
         </td>
     </tr>
     <tr>
-        <td>`EVENT_POWER`</td>
+        <td><code>EVENT_POWER</code></td>
         <td>
             Apply one the creep's powers on the specified target.
             <ul>
-                <li>`targetId` - the target object ID</li>
-                <li>`power` - the power ability to use, one of the PWR_* constants</li>
+                <li><code>targetId</code> - the target object ID</li>
+                <li><code>power</code> - the power ability to use, one of the PWR_* constants</li>
             </ul>
         </td>
     </tr>
@@ -657,11 +657,11 @@ switch(terrain.get(10,15)) {
 }
 ```
 
-Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
+Get a <a href="#Room-Terrain"><code>Room.Terrain</code></a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
 
 ### Return value
 
-Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
+Returns new <a href="#Room-Terrain"><code>Room.Terrain</code></a> object.
 
 {% api_method lookAt 'x, y|target' 2 %}
 

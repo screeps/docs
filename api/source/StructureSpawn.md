@@ -263,7 +263,7 @@ An object with additional options for the spawning process.
     <li>
         <div class="api-arg-title">dryRun</div>
         <div class="api-arg-type">boolean</div>
-        <div class="api-arg-desc">If `dryRun` is true, the operation will only check if it is possible to create a creep.</div>
+        <div class="api-arg-desc">If <code>dryRun</code> is true, the operation will only check if it is possible to create a creep.</div>
     </li>
     <li>
             <div class="api-arg-title">directions</div>

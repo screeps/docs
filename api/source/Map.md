@@ -219,7 +219,7 @@ switch(terrain.get(10,15)) {
 }
 ```
 
-Get a <a href="#Room-Terrain">`Room.Terrain`</a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
+Get a <a href="#Room-Terrain"><code>Room.Terrain</code></a> object which provides fast access to static terrain data. This method works for any room in the world even if you have no access to it.
 
 {% api_method_params %}
 roomName : string
@@ -229,7 +229,7 @@ The room name.
 
 ### Return value
 
-Returns new <a href="#Room-Terrain">`Room.Terrain`</a> object.
+Returns new <a href="#Room-Terrain"><code>Room.Terrain</code></a> object.
 
 
 {% api_method Game.map.getTerrainAt 'x, y, roomName|pos' 1 '{"deprecated": "Please use a faster method [`Game.map.getRoomTerrain`](#Game.map.getRoomTerrain) instead."}'%}

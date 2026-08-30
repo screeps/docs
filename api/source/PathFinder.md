@@ -117,7 +117,7 @@ An object containing additional pathfinding flags.
     <li>
         <div class="api-arg-title">maxCost</div>
         <div class="api-arg-type">number</div>
-        <div class="api-arg-desc">The maximum allowed cost of the path returned. If at any point the pathfinder detects that it is impossible to find a path with a cost less than or equal to `maxCost` it will immediately halt the search. The default is Infinity.</div>
+        <div class="api-arg-desc">The maximum allowed cost of the path returned. If at any point the pathfinder detects that it is impossible to find a path with a cost less than or equal to <code>maxCost</code> it will immediately halt the search. The default is Infinity.</div>
     </li>
     <li>
         <div class="api-arg-title">heuristicWeight</div>

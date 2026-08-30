@@ -10,9 +10,9 @@ The Public Test Realm is a stand-alone game server with its own world data, play
 
 <div style="text-align: center">
 
-<p><strong style="font-size: 20px; background: #eee; padding: 10px 40px;">[ENTER](https://screeps.com/ptr/)</strong></p>
+<p><strong style="font-size: 20px; background: #eee; padding: 10px 40px;"><a href="https://screeps.com/ptr/" target="_blank" rel="external">ENTER</a></strong></p>
 
-<p>[API Reference](http://docs-ptr.screeps.com/api/)</p> 
+<p><a href="http://docs-ptr.screeps.com/api/" target="_blank" rel="external">API Reference</a></p>
 </div>
 
 ---
