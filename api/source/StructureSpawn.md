@@ -343,7 +343,7 @@ Energy required for each execution is determined using this formula:
 ceil(creep_cost/2.5/body_size)
 ```
 
-Renewing a creep removes all of its boosts.
+Renewing a creep removes all of its boosts, though this behavior is deprecated and will turn into an error soon.
 
 {% api_method_params %}
 target : <a href="#Creep">Creep</a>
