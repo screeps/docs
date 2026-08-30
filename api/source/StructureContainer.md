@@ -4,6 +4,8 @@
 
 A small container that can be used to store resources. This is a walkable structure. All dropped resources automatically goes to the container at the same tile.
 
+This structure is unowned, so it won't be returned in a `room.find(FIND_MY_STRUCTURES)` call.
+
 <table class="table gameplay-info">
     <tbody>
     <tr>

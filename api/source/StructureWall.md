@@ -3,8 +3,11 @@
 <img src="img/wall.png" alt="" align="right" />
 
 Blocks movement of all creeps.
+
 Players can build destructible walls in controlled rooms.
 Some rooms also contain indestructible walls separating novice and respawn areas from the rest of the world or dividing novice / respawn areas into smaller sections. Indestructible walls have no `hits` property.
+
+This structure is unowned, so it won't be returned in a `room.find(FIND_MY_STRUCTURES)` call.
 	
 <table class="table gameplay-info">
     <tbody>
