@@ -58,6 +58,6 @@ A unique object identificator. You can use <a href="#Game.getObjectById"><code>
 
 
 
-The remaining time after which the deposit will be refilled.
+The remaining time after which the deposit will be refilled. May be undefined if the Mineral was already refilled.
 
 
