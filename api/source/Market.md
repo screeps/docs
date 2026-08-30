@@ -106,7 +106,7 @@ An array of the last 100 outgoing transactions from your terminals with the foll
 
 An object with your active and inactive buy/sell orders on the market.
 See
-<a href="#getAllOrders"><code>getAllOrders</code></a>
+<a href="#Game.market.getAllOrders"><code>getAllOrders</code></a>
 for properties explanation.
 
 
@@ -275,7 +275,7 @@ for(let i=0; i<orders.length; i++) {
 }
 ```
 
-Execute a trade deal from your Terminal in <code>yourRoomName</code> to another player's Terminal using the specified buy/sell order. Your Terminal will be charged energy units of transfer cost regardless of the order resource type. You can use <a href="#calcTransactionCost"><code>Game.market.calcTransactionCost</code></a> method to estimate it. When multiple players try to execute the same deal, the one with the shortest distance takes precedence. You cannot execute more than 10 deals during one tick.
+Execute a trade deal from your Terminal in <code>yourRoomName</code> to another player's Terminal using the specified buy/sell order. Your Terminal will be charged energy units of transfer cost regardless of the order resource type. You can use <a href="#Game.market.calcTransactionCost"><code>Game.market.calcTransactionCost</code></a> method to estimate it. When multiple players try to execute the same deal, the one with the shortest distance takes precedence. You cannot execute more than 10 deals during one tick.
 
 {% api_method_params %}
 orderId : string
@@ -449,5 +449,5 @@ The order ID.
 ### Return value
 
 An object with the order info. See
-<a href="#getAllOrders"><code>getAllOrders</code></a>
+<a href="#Game.market.getAllOrders"><code>getAllOrders</code></a>
 for properties explanation.
