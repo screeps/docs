@@ -63,6 +63,25 @@ Check whether this structure can be used. If room controller level is insufficie
 
 A boolean value.
 
+{% api_method notifiesWhenAttacked A %}
+
+```javascript
+if(structure.notifiesWhenAttacked()) {
+	// Creep has attack notifications enabled
+}
+```
+
+Returns the attack notification's state for the structure.
+
+### Return value
+
+One of the following codes:
+{% api_return_codes %}
+boolean | The state of the notification.
+ERR_NOT_OWNER | You are not the owner of this structure.
+ERR_INVALID_TARGET | The structure is invalid.
+{% endapi_return_codes %}
+
 {% api_method Structure:notifyWhenAttacked 'enabled' A %}
 
 
