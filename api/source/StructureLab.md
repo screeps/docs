@@ -89,7 +89,7 @@ An alias for [`lab.store[lab.mineralType]`](#StructureExtension.store).
 
 
 
-The type of minerals containing in the lab. Labs can contain only one mineral type at the same time.
+The type of minerals containing in the lab, or undefined. Labs can contain only one mineral type at the same time.
 
 
 
