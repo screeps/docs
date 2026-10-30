@@ -172,7 +172,7 @@ if(Game.cpu.bucket == 10000) {
 }
 ```
 
-Generate 1 pixel resource unit for 10000 CPU from your bucket.
+Generate 1 pixel resource unit for 10000 CPU from your bucket. The cost is reduced to 9000 CPU if your account has Pixelization Deluxe Upgrade.
 
 ### Return value
 
