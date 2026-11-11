@@ -10,10 +10,6 @@ Learn game basics step by step in our interactive tutorial
 Reference of all game objects, methods and prototypes
 {% endindex_block %} 
 
-{% index_block "Contributed articles" "/contributed/rules.html" %}
-Read articles written by other players, or contribute your own  
-{% endindex_block %}  
-
 {% index_block "Chat" "http://chat.screeps.com" %}
 Join the game community on our Discord server 
 {% endindex_block %}
